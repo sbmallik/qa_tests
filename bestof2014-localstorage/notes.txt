@@ -1,0 +1,49 @@
+But.. if QA wants to verify the data is stored, this is how it is done:
+
+1) open your console in the browser.
+2) type `localStorage.clear()`
+3) type `localStorage`
+3.5) verify the length: 0
+4) refresh the app, note the time it takes to present the winners
+5) type `localStorage`  and verify there is now plenty of info in there.
+6) refresh the app, note the time it takes to present the winners.
+
+
+
+
+describe 'Favourites View ', ->
+  beforeEach ->
+    localStorage.clear()
+
+
+I was really just hoping they could identify if anything was broken during that upgrade.  I thought about describing how to verify what was changed actually did something, but that requires using the console.log and checking localStorage, etc.  I didn't know if that was in the realm of what QA should test for this.
+
+But.. if QA wants to verify the data is stored, this is how it is done:
+
+1) open your console in the browser.
+2) type `localStorage.clear()`
+3) type `localStorage`
+3.5) verify the length: 0
+4) refresh the app, note the time it takes to present the winners
+5) type `localStorage`  and verify there is now plenty of info in there.
+6) refresh the app, note the time it takes to present the winners.
+
+that's about all I believe is available for manual QA
+
+automated QA could verify the localStorage gets populated/repopulated everytime the app loads
+
+True testing could manipulate the code manually to use `setTimeout` to artificially slow the return of the winners and recognize the app only waits for them the very first time.. all subsequent refreshes it would load prior to the timeout completing.
+
+But I have done that last one myself.. kind of a developer thing more than a QA thing.  The first 6 steps wouldn't be bad though.
+
+page.execute_script('sessionStorage.clear()')
+page.execute_script("window.localStorage.clear()")
+page.driver.browser.refresh
+
+
+
+	# page.driver.navigate().refresh();
+	# page.driver.browser.reload
+  #page.execute_script("window.reload()")
+
+  
