@@ -20,6 +20,20 @@ Then(/^I fill in Winner with "(.*?)"$/) do |text2|
   fill_in("winner_name", :with => text2)
 end
 
+def fckeditor_fill_in(id, params = {})
+    page.execute_script %Q{
+      var ckeditor = CKEDITOR.instances.#{id}
+      ckeditor.setData('#{params[:with]}')
+      ckeditor.focus()
+      ckeditor.updateElement()
+    }
+end
+
+Then(/^I fill in the Text Area area with 'testing miyagi'$/) do
+  # fill_in('article-body-editor', :with => 'testing miyagi')
+  fckeditor_fill_in('article-body-editor', 'testing miyagi')
+end
+
 Then(/^I click on "(.*?)"$/) do |text4|
   click_button text4
 end

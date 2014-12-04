@@ -9,5 +9,6 @@ Feature: BESTOF Miyagi testing
 			Then I select the FOOD & DRINK option from the Subcateory dropdown
 			Then I fill in Award with "testing miyagi"
 			Then I fill in Winner with "testing miyagi"
+			Then I fill in the Text Area area with 'testing miyagi'
 			Then I click on "Save"
-			Then I should see "Error in the Body field - Enter a body" in red at the top of the page
+			Then I should see "Article Created" in red at the top of the page
