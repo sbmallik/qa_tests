@@ -8,3 +8,4 @@ Feature: New Comics Feature testing
 			Then I should see one main comic and ten other Comics displayed
 			Then I should see one 728x90 Ad on the page
 			Then I should see one 300x250 Ad on the page
+			Then the page should contain the correct link to the Ominture file

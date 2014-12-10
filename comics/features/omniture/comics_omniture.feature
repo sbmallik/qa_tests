@@ -1,0 +1,12 @@
+Feature: New Comics Feature Omniture testing
+	In order to test the new Comics features
+	As a Gannett employee with correct access to the new Comics home page
+	I want to be able to see the one requirement below pass
+
+		Scenario: View three new key features on the Comics home page
+			Given I am on the Comics Omniture page at "http://comics2.azcentral.com/static/js/phx-omniture-1.js"
+    		Then I should see the correct Ominture account code of 'gpaper158'
+    			And I should see the prop17 code equal 'life'
+    			And I should see the prop18 code equal 'comics'
+    			And I should see the prop19 code equal 'front'
+    			And I should see the prop23 code equal 'http://archive.azcentral.com/thingstodo/comics/'
