@@ -1,0 +1,34 @@
+Feature: New Comics Feature Omniture testing
+	In order to test the new Comics features
+	As a Gannett employee with correct access to the new Comics home page
+	I want to be able to see the one requirement below pass
+
+		Scenario: View three new key features on the Comics home page
+			Given I am on the Comics Omniture page at "http://bestof.desertsun.com/js/apps/omniture/omniture_app.js"
+    		Then I should see the correct Ominture account code of 'gpaper158'
+    			And I should see the prop17 code equal 'life'
+    			And I should see the prop18 code equal 'comics'
+    			And I should see the prop19 code equal 'front'
+    			And I should see the prop23 code equal 'http://archive.azcentral.com/thingstodo/comics/'
+
+@api
+Feature: List domains
+  As an API client
+  In order to do things with domains
+  I want to retrieve a list of domains
+ 
+  Scenario: retreive all domains as XML
+    Given I am a valid API user
+    And I send and accept XML
+    And I have 1 domain with 5 "A" records
+    When I send a GET request for "/domains"
+    Then the response should be "200"
+    And the XML response should be a "domains" array with 1 "domain" elements
+ 
+  Scenario: retreive all domains as JSON
+    Given I am a valid API user
+    And I send and accept JSON
+    And I have 1 domain with 5 "A" records
+    When I send a GET request for "/domains"
+    Then the response should be "200"
+    And the JSON response should be an array with 1 "domain" elements
