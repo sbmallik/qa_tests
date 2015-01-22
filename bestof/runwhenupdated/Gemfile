@@ -1,0 +1,21 @@
+source "http://rubygems.org"
+
+group(:test) do
+  gem 'rspec-expectations'
+  gem 'cucumber'
+  gem 'capybara'
+  gem 'rspec'
+  gem 'selenium-webdriver', '~> 2.44.0'
+  gem 'capybara-webkit'
+end
+
+=begin 
+source "https://rubygems.org"
+
+group(:test) do
+  gem 'cucumber'
+  gem 'capybara'
+  gem 'rspec'
+  gem 'selenium-webdriver'
+end
+=end

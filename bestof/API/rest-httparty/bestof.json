@@ -1,0 +1,228 @@
+{
+  "appAuthModule": {
+    "afterLoginTitle": "MY ACCOUNT", 
+    "afterLoginUrl": "https://account.azcentral.com", 
+    "authType": "metered", 
+    "freeArticles": 20, 
+    "loginUrl": "https://account.azcentral.com/bestOf/ui/login/", 
+    "nameSpace": "bestOf", 
+    "siteName": "azcentral"
+  }, 
+  "appCobrandFooterHeight": "300", 
+  "appCobrandFooterUrl": "http://www.azcentral.com/services/cobrand/footer/", 
+  "appCobrandHeaderUrl": "http://www.azcentral.com/services/cobrand/header/", 
+  "appHeaderMobileImage": "http://www.gannett-cdn.com/sites/azcentral/images/site-nav-logo@2x.png", 
+  "appNavLinks": [
+    {
+      "facebookAppId": "115142145268769", 
+      "facebookCaption": "Powered by azc's Best", 
+      "facebookDescription": "azcentral's BEST 2014", 
+      "facebookText": "azcentral's BEST 2014 recognizes over 150 top people, places and things to do in Arizona. Find them here: ", 
+      "facebookUrl": "http://bestOf.azcentral.com", 
+      "imgUrl": "http://media.azcentral.com/local-apps/phoenix/best2014/winners/best-icon-menu-facebook.png", 
+      "linkType": "facebook-link", 
+      "order": 1, 
+      "title": "Facebook", 
+      "useImage": true
+    }, 
+    {
+      "hashTag": "#azcBEST", 
+      "imgUrl": "http://media.azcentral.com/local-apps/phoenix/best2014/winners/best-icon-menu-twitter.png", 
+      "linkType": "twitter-link", 
+      "order": 2, 
+      "title": "Twitter", 
+      "twitterText": "azcentral's BEST 2014 recognizes over 150 top people, places and things to do in Arizona. Check it out: ", 
+      "twitterUrl": "http://bestOf.azcentral.com", 
+      "useImage": true
+    }, 
+    {
+      "linkType": "authModule", 
+      "order": 3, 
+      "title": "LOGIN", 
+      "url": "https://account.azcentral.com/bestOf/ui/login/"
+    }, 
+    {
+      "linkType": "internal", 
+      "order": 4, 
+      "title": "HOW IT WORKS", 
+      "url": "hhttp://static-origin.azcentral.com/bestof/how-it-works/"
+    }, 
+    {
+      "linkType": "external", 
+      "order": 5, 
+      "title": "PAST WINNERS", 
+      "url": "http://archive.azcentral.com/best2013/winners"
+    }
+  ], 
+  "appOmniture": {
+    "omnitureDesktop": "gpaper158", 
+    "omnitureKeyword": "BestOf2014", 
+    "omnitureMobile": "gpapermobile158", 
+    "omnitureProp24": "azcentral.com", 
+    "omnitureProp3": "azcentral's BEST 2014", 
+    "omnitureProp50": "newspaper", 
+    "omnitureProp7": "BestOf2014", 
+    "omnitureProp8": "1.0"
+  }, 
+  "appStylesheets": [
+    "http://stylesheets.azcentral.com/ldsn-apps/bestof/phoenix/styles.css"
+  ], 
+  "appTitle": "bestof | azcentral", 
+  "appWinnersUrl": "http://nocache.azcentral.com/persistent/miyagi_files/json/azcentral_articles_2014.json", 
+  "articlePage": {
+    "ads": {
+      "advertBlock1": {
+        "adSize": [
+          300, 
+          250
+        ], 
+        "adTag": "/7103/az-phoenix-C1531/poster/lifestyle/features_best", 
+        "class": "", 
+        "desktopDisplay": true, 
+        "mobileDisplay": true, 
+        "order": 4
+      }
+    }, 
+    "logoUrl": "http://media.azcentral.com/local-apps/phoenix/best2014/winners/best-logo-topper.png", 
+    "modules": {
+      "featuredLinks": [
+        {
+          "class": "button critics-picks", 
+          "linkType": "trigger", 
+          "title": "Critics' Picks", 
+          "triggerTarget": "winners:list", 
+          "url": "winners"
+        }, 
+        {
+          "class": "button readers-choice", 
+          "linkType": "external", 
+          "title": "Readers' Choice", 
+          "url": "http://arizonarepublic.secondstreetapp.com/l/Arizona-Republics-Voters-Choice"
+        }
+      ], 
+      "nearby": {
+        "flagImage": "http://media.azcentral.com/local-apps/phoenix/best2014/winners/best-icon-flagtail.png", 
+        "flagText": "Near Me"
+      }
+    }, 
+    "pickTypeDefaultTitle": "Critics' Pick: ", 
+    "social": {
+      "email": {
+        "subject": "azcentral's BEST 2014", 
+        "winnerEndText": "!", 
+        "winnerMidText": " as the ", 
+        "winnerPreText": "azcentral's BEST 2014 picked "
+      }, 
+      "facebook": {
+        "appId": "116853348383382", 
+        "winnerEndText": "!", 
+        "winnerMidText": " as the ", 
+        "winnerPreText": "azcentral's BEST 2014 picked "
+      }, 
+      "googlePlus": {
+        "winnerEndText": "!", 
+        "winnerMidText": " as the ", 
+        "winnerPreText": "azcentral's BEST 2014 picked "
+      }, 
+      "twitter": {
+        "hashtag": "#desertsunsBEST", 
+        "winnerEndText": "!", 
+        "winnerMidText": " as the ", 
+        "winnerPreText": "azcentral's BEST 2014 picked "
+      }
+    }
+  }, 
+  "homePage": {
+    "ads": {
+      "advertBlock1": {
+        "adSize": [
+          300, 
+          250
+        ], 
+        "adTag": "/7103/az-phoenix-C1531/poster_front/lifestyle/features_best/main", 
+        "class": "module mod-col-1", 
+        "desktopDisplay": true, 
+        "mobileDisplay": true, 
+        "order": 4
+      }
+    }, 
+    "logoUrl": "http://media.azcentral.com/local-apps/phoenix/best2014/winners/best-logo-topper.png", 
+    "modules": {
+      "featured": {
+        "backgroundUrl": "http://media.azcentral.com/local-apps/phoenix/best2014/winners/best-temp-modulefeat.jpg", 
+        "buttons": [
+          {
+            "class": "button critics-picks", 
+            "linkType": "trigger", 
+            "title": "Critics' Picks", 
+            "triggerTarget": "winners:list", 
+            "url": "winners"
+          }, 
+          {
+            "class": "button readers-choice", 
+            "linkType": "external", 
+            "title": "Readers' Choice", 
+            "url": "http://arizonarepublic.secondstreetapp.com/l/Arizona-Republics-Voters-Choice"
+          }
+        ], 
+        "className": "feat-module", 
+        "display": true, 
+        "flagImage": "http://media.azcentral.com/local-apps/phoenix/best2014/winners/best-icon-flagtail.png", 
+        "flagText": "Featured", 
+        "id": "featured", 
+        "logo": "http://media.azcentral.com/local-apps/phoenix/best2014/winners/best-logo-topper.png", 
+        "mainText": "Our experts and readers have picked their favorite places, businesses and things to do in the Valley. Now it's time to check out the winners.", 
+        "order": 1
+      }, 
+      "nearby": {
+        "backgroundUrl": "http://media.azcentral.com/local-apps/phoenix/best2014/winners/best-temp-module3.jpg", 
+        "className": "module mod-col-3", 
+        "display": true, 
+        "flagImage": "http://media.azcentral.com/local-apps/phoenix/best2014/winners/best-icon-flagtail.png", 
+        "flagText": "Near Me", 
+        "latitude": 33.45, 
+        "longitude": -112.07, 
+        "order": 6
+      }, 
+      "popular": {
+        "backgroundUrl": "http://media.azcentral.com/local-apps/phoenix/best2014/winners/best-temp-module3.jpg", 
+        "className": "module mod-col-1", 
+        "display": true, 
+        "flagImage": "http://media.azcentral.com/local-apps/phoenix/best2014/winners/best-icon-flagtail.png", 
+        "flagText": "Popular", 
+        "id": "popular", 
+        "order": 2
+      }, 
+      "shared": {
+        "backgroundUrl": "http://media.azcentral.com/local-apps/phoenix/best2014/winners/best-temp-module3.jpg", 
+        "className": "module mod-col-1", 
+        "display": true, 
+        "flagImage": "http://media.azcentral.com/local-apps/phoenix/best2014/winners/best-icon-flagtail.png", 
+        "flagText": "Most shared", 
+        "id": "shared", 
+        "order": 3
+      }
+    }
+  }, 
+  "resultsPage": {
+    "ads": {
+      "advertBlock1": {
+        "adSize": [
+          300, 
+          250
+        ], 
+        "adTag": "/7103/az-phoenix-C1531/poster/lifestyle/features_best", 
+        "class": "", 
+        "desktopDisplay": true, 
+        "mobileDisplay": true, 
+        "order": 1
+      }
+    }, 
+    "filterExternalLinkText": "Readers' Choice", 
+    "filterExternalLinkUrl": "http://arizonarepublic.secondstreetapp.com/l/Arizona-Republics-Voters-Choice", 
+    "flagImage": "http://media.azcentral.com/local-apps/phoenix/best2014/winners/best-icon-flagtail.png", 
+    "flagText": "Critics' Picks", 
+    "logoUrl": "http://media.azcentral.com/local-apps/phoenix/best2014/winners/best-logo-topper.png", 
+    "searchDefaultText": "Search Critics' Picks"
+  }
+}

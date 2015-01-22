@@ -1,0 +1,28 @@
+Feature: Persistent HTTP Connections
+
+  Scenario:
+    Given I have an http end point "http://configfactory.azcentral.com/bestof/azcentral/config2015.json"
+    And I perform a "get" against that end point
+    And The end point returns "application/json"
+    """
+    {
+      "appAuthModule": {
+        "afterLoginTitle": "MY ACCOUNT", 
+        "afterLoginUrl": "https://account.azcentral.com", 
+        "authType": "metered", 
+        "freeArticles": 20, 
+        "loginUrl": "https://account.azcentral.com/bestOf/ui/login/", 
+        "nameSpace": "bestOf", 
+        "siteName": "azcentral"
+      }
+    }
+    """
+    When I visit that end point with HTTParty
+    Then the parsed_response contains
+      | appAuthModule/afterLoginTitle | "MY ACCOUNT"                                     |
+      | appAuthModule/afterLoginUrl   | "https://account.azcentral.com"                  |
+      | appAuthModule/authType        | "metered"                                        |
+      | appAuthModule/freeArticles    | "20"                                             |
+      | appAuthModule/loginUrl        | "https://account.azcentral.com/bestOf/ui/login/" |
+      | appAuthModule/nameSpace       | "bestOf"                                         |
+      | appAuthModule/siteName        | "azcentral"                                      |
