@@ -1,0 +1,14 @@
+source "http://rubygems.org"
+
+gem 'json'
+gem 'sinatra'
+
+group(:test) do
+  gem 'cucumber'
+  gem 'capybara'
+  gem 'httparty'
+  gem 'rspec-expectations'
+  gem 'rspec', :require => "spec"
+  gem 'selenium-webdriver'
+  gem 'capybara-webkit'
+ end
