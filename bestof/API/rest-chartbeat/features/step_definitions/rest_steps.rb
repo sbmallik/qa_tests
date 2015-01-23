@@ -1,3 +1,22 @@
+When(/^I open "(.*?)"$/) do |url1|
+  visit url1
+end
+
+Then(/^I should see the link to "(.*?)" on that page$/) do |link1|
+  page.has_text?(link1)
+end
+
+When(/^I then open "(.*?)"$/) do |url2|
+  visit url2
+end
+
+Then(/^I should also see a link to "(.*?)" on that page$/) do |link2|
+  page.has_text?(link2)
+end
+
+
+
+
 When(/^I GET "(.*?)"$/) do |url|
   @last_response = HTTParty.get(url)
 end
