@@ -1,0 +1,157 @@
+# Additional tests for Best 4.4
+# Short-term test plan:
+#   Chrome on OSX
+#   Safari on iOS
+# Long-term test plan:
+#   All supported browsers
+
+
+
+
+
+# Test for PHXDEV-1350
+
+Given I am looking at an article on devbestof.azcentral.com
+And I have discovered the article ID
+	http://devbestof.azcentral.com/winners/2014/14744910/best-star-making-machine-valley-youth-theatre
+When I put the article ID I have discovered into bestof.pnj.com
+	http://devbestof.pnj.com/winners/2015/14744910
+Then I should arrive at the homepage of pnj.com and I should not see the article content
+
+
+
+
+
+
+# Tests for PHXDEV-1343
+
+# Test 1
+
+Given I am looking at a results page on devbestof.azcentral.com
+# Use http://bestof.azcentral.com/2014/winners?category=all&group=all&city=all&search= for this
+And the filter feedback text says “Showing results for All Categories, sorted by All and displayed for All Locations”
+When I click on “All Categories”
+And I select “Food & Drink”
+Then the filter feedback text should say “Showing results for FOOD & DRINK, sorted by All and displayed for All Locations”
+
+# Test 2
+
+Given I am looking at a results page on devbestof.azcentral.com
+# Use http://bestof.azcentral.com/2014/winners?category=all&group=all&city=all&search= for this
+And the filter feedback text says “Showing results for All Categories, sorted by All and displayed for All Locations”
+When I click on “Sort by all”
+And I select “Most Popular”
+Then the filter feedback text should say “Showing results for All Categories, sorted by popular and displayed for All Locations”
+
+# Test 3
+
+Given I am looking at a results page on devbestof.azcentral.com
+# Use http://bestof.azcentral.com/2014/winners?category=all&group=all&city=all&search= for this
+And the filter feedback text says “Showing results for All Categories, sorted by All and displayed for All Locations”
+When I click on “All Locations”
+And I select “West Valley”
+Then the filter feedback text should say “Showing results for All Categories, sorted by All and displayed for West Valley”
+
+
+
+
+
+# Tests for PHXDEV-1348
+
+# Test 1
+
+Given I am on http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks
+When I click the "login" button
+Then I should arrive at the "login" page
+# (Successful result is) https://account.azcentral.com/bestOf/ui/login/?onSuccessRedirectURL=http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks
+
+# Test 2
+
+Given I have logged in using the page I landed at from test 1
+When I log in
+Then I should be returned to the page I was on before I logged in
+# (Successful result is) http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks
+
+# Test 3
+
+Given I have logged in at devbestof.azcentral.com
+When I click on "My Account"
+Then I should arrive at the "My Account" page
+# https://account.azcentral.com
+
+# Test 4
+
+Given I am on bestof.pnj.com
+Then there should be no "login" button
+
+
+
+
+
+
+# Tests for PHXDEV-1395
+
+# Test 1a
+
+Given I am on <testsite> on desktop
+When I select the video
+Then the video should play
+
+Examples:
+ | testsite                                                                                             |
+ | http://devbestof.azcentral.com/winners/2014/14744850/best-alpine-getaway-arizona-snowbowl            |
+ | http://devbestof.pnj.com/winners/2015/14745423/best-home-healthcare-company-home-instead-senior-care |
+
+# Test 1b
+
+Given I am on <testsite> on mobile
+When I select the video
+And I click on the play button
+Then the video should play
+
+Examples:
+ | testsite                                                                                             |
+ | http://devbestof.azcentral.com/winners/2014/14744850/best-alpine-getaway-arizona-snowbowl            |
+ | http://devbestof.pnj.com/winners/2015/14745423/best-home-healthcare-company-home-instead-senior-care |
+
+# Test 2
+
+Given I am on <testsite>
+When I select the video
+And I click on the play button
+And I wait 10 seconds, then click on the pause button
+Then the video should pause
+
+Examples:
+ | testsite                                                                                             |
+ | http://devbestof.azcentral.com/winners/2014/14744850/best-alpine-getaway-arizona-snowbowl            |
+ | http://devbestof.pnj.com/winners/2015/14745423/best-home-healthcare-company-home-instead-senior-care |
+
+# Test 3
+
+Given I am on <testsite>
+When I select the video
+And I click on the play button
+And I click half way through the navigation bar in the video
+Then the video should navigate to the point that I clicked, and continue playing
+
+Examples:
+ | testsite                                                                                             |
+ | http://devbestof.azcentral.com/winners/2014/14744850/best-alpine-getaway-arizona-snowbowl            |
+ | http://devbestof.pnj.com/winners/2015/14745423/best-home-healthcare-company-home-instead-senior-care |
+ 
+ # Test 4
+ 
+Given I am on <testsite>
+When I select the video
+And I click on the play button
+And I wait 30 seconds
+And I click on the map button
+And I click on the video button
+Then the video should resume where it left off
+
+Examples:
+ | testsite                                                                                             |
+ | http://devbestof.azcentral.com/winners/2014/14744850/best-alpine-getaway-arizona-snowbowl            |
+ | http://devbestof.pnj.com/winners/2015/14745423/best-home-healthcare-company-home-instead-senior-care |
+ 

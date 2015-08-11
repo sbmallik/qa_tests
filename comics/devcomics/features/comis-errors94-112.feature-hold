@@ -1,0 +1,62 @@
+Feature: Comics ERROR testing 19 times (94-112)
+	In order to test the Comics ERROR that users have experienced
+	As a Gannett employee with correct access
+	I want to be able to see the correct header and/or title on each 19 comics pages without any ERRORS
+
+		Scenario: 94) Shoe
+			Given this is the ninty-fourth test on the Comics homepage at "http://devcomics.azcentral.com/" and I navigate to the "Shoe" comics page, then I should see the header "Daily Comics" on the page
+
+        Scenario: 95) Six Chix
+            Given this is the ninty-fifth test on the Comics homepage at "http://devcomics.azcentral.com/" and I navigate to the "Six Chix" comics page, then I should see the header "Daily Comics" on the page
+
+        Scenario: 96) Slylock Fox & Comics for Kids
+            Given this is the ninty-sixth test on the Comics homepage at "http://devcomics.azcentral.com/" and I navigate to the "Slylock Fox & Comics for Kids" comics page, then I should see the header "Daily Comics" on the page
+
+        Scenario: 97) Speed Bump
+            Given this is the ninty-seventh test on the Comics homepage at "http://devcomics.azcentral.com/" and I navigate to the "Speed Bump" comics page, then I should see the title "Speed Bump" on the page
+
+        Scenario: 98) Spiderman
+            Given this is the ninty-eighth test on the Comics homepage at "http://devcomics.azcentral.com/" and I navigate to the "Spiderman" comics page, then I should see the header "Daily Comics" on the page
+
+        Scenario: 99) Stone Soup
+            Given this is the ninty-ninth test on the Comics homepage at "http://devcomics.azcentral.com/" and I navigate to the "Stone Soup" comics page, then I should see the title "Stone Soup" on the page
+
+		Scenario: 100) Strange Brew
+			Given this is the one-hundredth test on the Comics homepage at "http://devcomics.azcentral.com/" and I navigate to the "Strange Brew" comics page, then I should see the title "Strange Brew" on the page
+
+        Scenario: 101) Take It From The Tinkersons
+            Given this is the one-hundred-first test on the Comics homepage at "http://devcomics.azcentral.com/" and I navigate to the "Take It From The Tinkersons" comics page, then I should see the header "Daily Comics" on the page
+
+        Scenario: 102) The Boondocks
+            Given this is the one-hundred-second test on the Comics homepage at "http://devcomics.azcentral.com/" and I navigate to the "The Boondocks" comics page, then I should see the title "The Boondocks" on the page
+
+        Scenario: 103) The Middletons
+            Given this is the one-hundred-third test on the Comics homepage at "http://devcomics.azcentral.com/" and I navigate to the "The Middletons" comics page, then I should see the header "Daily Comics" on the page
+
+        Scenario: 104) Tiger
+            Given this is the one-hundred-fourth test on the Comics homepage at "http://devcomics.azcentral.com/" and I navigate to the "Tiger" comics page, then I should see the header "Daily Comics" on the page
+
+        Scenario: 105) Tina's Groove
+            Given this is the one-hundred-fifth test on the Comics homepage at "http://devcomics.azcentral.com/" and I navigate to the "Tina's Groove" comics page, then I should see the header "Daily Comics" on the page
+
+		Scenario: 106) Tiny Sepuku
+			Given this is the one-hundred-sixth test on the Comics homepage at "http://devcomics.azcentral.com/" and I navigate to the "Tiny Sepuku" comics page, then I should see the title "Tiny Sepuku" on the page
+
+        Scenario: 107) Todd the Dinosaur
+            Given this is the one-hundred-seventh test on the Comics homepage at "http://devcomics.azcentral.com/" and I navigate to the "Todd the Dinosaur" comics page, then I should see the header "Daily Comics" on the page
+
+        Scenario: 108) Too Much Coffee Man
+            Given this is the one-hundred-eighth test on the Comics homepage at "http://devcomics.azcentral.com/" and I navigate to the "Too Much Coffee Man" comics page, then I should see the title "Too Much Coffee Man" on the page
+
+        Scenario: 109) Wizard of Id
+            Given this is the one-hundred-ninth test on the Comics homepage at "http://devcomics.azcentral.com/" and I navigate to the "Wizard of Id" comics page, then I should see the title "Wizard of Id" on the page
+
+        Scenario: 110) Zack Hill
+            Given this is the one-hundred-tenth test on the Comics homepage at "http://devcomics.azcentral.com/" and I navigate to the "Zack Hill" comics page, then I should see the title "Zack Hill" on the page
+
+        Scenario: 111) Zippy the Pinhead
+            Given this is the one-hundred-eleventh test on the Comics homepage at "http://devcomics.azcentral.com/" and I navigate to the "Zippy the Pinhead" comics page, then I should see the header "Daily Comics" on the page
+
+		Scenario: 112) Zits
+			Given this is the one-hundred-twelfth test on the Comics homepage at "http://devcomics.azcentral.com/" and I navigate to the "Zits" comics page, then I should see the header "Daily Comics" on the page
+            

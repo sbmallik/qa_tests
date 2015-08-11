@@ -1,0 +1,905 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		2860E328111B887F00E27156 /* AppDelegate_Phone.m in Sources */ = {isa = PBXBuildFile; fileRef = 2860E326111B887F00E27156 /* AppDelegate_Phone.m */; };
+		2860E329111B887F00E27156 /* MainWindow_Phone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2860E327111B887F00E27156 /* MainWindow_Phone.xib */; };
+		2860E32E111B888700E27156 /* AppDelegate_Pad.m in Sources */ = {isa = PBXBuildFile; fileRef = 2860E32C111B888700E27156 /* AppDelegate_Pad.m */; };
+		2860E32F111B888700E27156 /* MainWindow_Pad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2860E32D111B888700E27156 /* MainWindow_Pad.xib */; };
+		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		C9F072DE160C312100418A5E /* libCocoaHTTPServer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C95979961608508E00399B16 /* libCocoaHTTPServer.a */; };
+		C9F072E0160C31AA00418A5E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F072DF160C31AA00418A5E /* Security.framework */; };
+		D6197EEB14741D1D00C4B0AD /* libShelley.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6197EE614741C9500C4B0AD /* libShelley.a */; };
+		D68FD3D21417DE3400538C41 /* frank_static_resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D68FD3D01417DE3400538C41 /* frank_static_resources.bundle */; };
+		D6A833ED11CDBF35001B8585 /* PureMVC_ObjectiveC_1_1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A833B411CDBF35001B8585 /* PureMVC_ObjectiveC_1_1.a */; };
+		D6A833EF11CDBF35001B8585 /* ApplicationFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833BE11CDBF35001B8585 /* ApplicationFacade.m */; };
+		D6A833F011CDBF35001B8585 /* CreateUserCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833C111CDBF35001B8585 /* CreateUserCommand.m */; };
+		D6A833F111CDBF35001B8585 /* DeleteUserCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833C311CDBF35001B8585 /* DeleteUserCommand.m */; };
+		D6A833F211CDBF35001B8585 /* GetUserRolesCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833C511CDBF35001B8585 /* GetUserRolesCommand.m */; };
+		D6A833F311CDBF35001B8585 /* GetUsersCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833C711CDBF35001B8585 /* GetUsersCommand.m */; };
+		D6A833F411CDBF35001B8585 /* StartupCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833C911CDBF35001B8585 /* StartupCommand.m */; };
+		D6A833F511CDBF35001B8585 /* UpdateUserCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833CB11CDBF35001B8585 /* UpdateUserCommand.m */; };
+		D6A833F611CDBF35001B8585 /* UpdateUserRolesCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833CD11CDBF35001B8585 /* UpdateUserRolesCommand.m */; };
+		D6A833F711CDBF35001B8585 /* UserRolesEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833D111CDBF35001B8585 /* UserRolesEnum.m */; };
+		D6A833F811CDBF35001B8585 /* UserProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833D311CDBF35001B8585 /* UserProxy.m */; };
+		D6A833F911CDBF35001B8585 /* UserRolesProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833D511CDBF35001B8585 /* UserRolesProxy.m */; };
+		D6A833FA11CDBF35001B8585 /* UserRolesVO.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833D811CDBF35001B8585 /* UserRolesVO.m */; };
+		D6A833FB11CDBF35001B8585 /* UserVO.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833DA11CDBF35001B8585 /* UserVO.m */; };
+		D6A833FC11CDBF35001B8585 /* EmployeeAdmin.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833DE11CDBF35001B8585 /* EmployeeAdmin.m */; };
+		D6A833FD11CDBF35001B8585 /* UserForm.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833E011CDBF35001B8585 /* UserForm.m */; };
+		D6A833FE11CDBF35001B8585 /* UserList.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833E211CDBF35001B8585 /* UserList.m */; };
+		D6A833FF11CDBF35001B8585 /* UserRoles.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833E411CDBF35001B8585 /* UserRoles.m */; };
+		D6A8340011CDBF35001B8585 /* EmployeeAdminMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833E611CDBF35001B8585 /* EmployeeAdminMediator.m */; };
+		D6A8340111CDBF35001B8585 /* UserFormMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833E811CDBF35001B8585 /* UserFormMediator.m */; };
+		D6A8340211CDBF35001B8585 /* UserListMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833EA11CDBF35001B8585 /* UserListMediator.m */; };
+		D6A8340311CDBF35001B8585 /* UserRolesMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833EC11CDBF35001B8585 /* UserRolesMediator.m */; };
+		D6A834F711CDC3D3001B8585 /* MainWindow_Phone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2860E327111B887F00E27156 /* MainWindow_Phone.xib */; };
+		D6A834F811CDC3D3001B8585 /* MainWindow_Pad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2860E32D111B888700E27156 /* MainWindow_Pad.xib */; };
+		D6A834FB11CDC3D3001B8585 /* AppDelegate_Phone.m in Sources */ = {isa = PBXBuildFile; fileRef = 2860E326111B887F00E27156 /* AppDelegate_Phone.m */; };
+		D6A834FC11CDC3D3001B8585 /* AppDelegate_Pad.m in Sources */ = {isa = PBXBuildFile; fileRef = 2860E32C111B888700E27156 /* AppDelegate_Pad.m */; };
+		D6A834FD11CDC3D3001B8585 /* ApplicationFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833BE11CDBF35001B8585 /* ApplicationFacade.m */; };
+		D6A834FE11CDC3D3001B8585 /* CreateUserCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833C111CDBF35001B8585 /* CreateUserCommand.m */; };
+		D6A834FF11CDC3D3001B8585 /* DeleteUserCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833C311CDBF35001B8585 /* DeleteUserCommand.m */; };
+		D6A8350011CDC3D3001B8585 /* GetUserRolesCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833C511CDBF35001B8585 /* GetUserRolesCommand.m */; };
+		D6A8350111CDC3D3001B8585 /* GetUsersCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833C711CDBF35001B8585 /* GetUsersCommand.m */; };
+		D6A8350211CDC3D3001B8585 /* StartupCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833C911CDBF35001B8585 /* StartupCommand.m */; };
+		D6A8350311CDC3D3001B8585 /* UpdateUserCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833CB11CDBF35001B8585 /* UpdateUserCommand.m */; };
+		D6A8350411CDC3D3001B8585 /* UpdateUserRolesCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833CD11CDBF35001B8585 /* UpdateUserRolesCommand.m */; };
+		D6A8350511CDC3D3001B8585 /* UserRolesEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833D111CDBF35001B8585 /* UserRolesEnum.m */; };
+		D6A8350611CDC3D3001B8585 /* UserProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833D311CDBF35001B8585 /* UserProxy.m */; };
+		D6A8350711CDC3D3001B8585 /* UserRolesProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833D511CDBF35001B8585 /* UserRolesProxy.m */; };
+		D6A8350811CDC3D3001B8585 /* UserRolesVO.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833D811CDBF35001B8585 /* UserRolesVO.m */; };
+		D6A8350911CDC3D3001B8585 /* UserVO.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833DA11CDBF35001B8585 /* UserVO.m */; };
+		D6A8350A11CDC3D3001B8585 /* EmployeeAdmin.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833DE11CDBF35001B8585 /* EmployeeAdmin.m */; };
+		D6A8350B11CDC3D3001B8585 /* UserForm.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833E011CDBF35001B8585 /* UserForm.m */; };
+		D6A8350C11CDC3D3001B8585 /* UserList.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833E211CDBF35001B8585 /* UserList.m */; };
+		D6A8350D11CDC3D3001B8585 /* UserRoles.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833E411CDBF35001B8585 /* UserRoles.m */; };
+		D6A8350E11CDC3D3001B8585 /* EmployeeAdminMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833E611CDBF35001B8585 /* EmployeeAdminMediator.m */; };
+		D6A8350F11CDC3D3001B8585 /* UserFormMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833E811CDBF35001B8585 /* UserFormMediator.m */; };
+		D6A8351011CDC3D3001B8585 /* UserListMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833EA11CDBF35001B8585 /* UserListMediator.m */; };
+		D6A8351111CDC3D3001B8585 /* UserRolesMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A833EC11CDBF35001B8585 /* UserRolesMediator.m */; };
+		D6A8351311CDC3D3001B8585 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		D6A8351411CDC3D3001B8585 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		D6A8351511CDC3D3001B8585 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		D6A8351611CDC3D3001B8585 /* PureMVC_ObjectiveC_1_1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A833B411CDBF35001B8585 /* PureMVC_ObjectiveC_1_1.a */; };
+		D6A8368311CDC5BA001B8585 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A8368211CDC5BA001B8585 /* CFNetwork.framework */; };
+		D6A8368C11CDC755001B8585 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		D6CE615E1417DD81004EDA99 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		D6DA5EA91468C87E00525864 /* libFrank.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DA5EA41468C87400525864 /* libFrank.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C95979951608508E00399B16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D6DA5E981468C87300525864 /* Frank.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = ABA9E44115C81C2600112290;
+			remoteInfo = CocoaHTTPServer;
+		};
+		D6197EE514741C9500C4B0AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D6197EE014741C9500C4B0AD /* Shelley.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D6E8FF3213D3DC9200D24F43;
+			remoteInfo = Shelley;
+		};
+		D6197EE714741C9500C4B0AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D6197EE014741C9500C4B0AD /* Shelley.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D6CF39AC13D3E481000C7901;
+			remoteInfo = "Unit Tests";
+		};
+		D6197EE914741D1700C4B0AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D6197EE014741C9500C4B0AD /* Shelley.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D6E8FF3113D3DC9200D24F43;
+			remoteInfo = Shelley;
+		};
+		D6DA5EA31468C87400525864 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D6DA5E981468C87300525864 /* Frank.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = Frank;
+		};
+		D6DA5EA71468C87A00525864 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D6DA5E981468C87300525864 /* Frank.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = Frank;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D6058910D05DD3D006BFB54 /* EmployeeAdmin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmployeeAdmin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2860E325111B887F00E27156 /* AppDelegate_Phone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate_Phone.h; sourceTree = "<group>"; };
+		2860E326111B887F00E27156 /* AppDelegate_Phone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate_Phone.m; sourceTree = "<group>"; };
+		2860E327111B887F00E27156 /* MainWindow_Phone.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow_Phone.xib; sourceTree = "<group>"; };
+		2860E32B111B888700E27156 /* AppDelegate_Pad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate_Pad.h; sourceTree = "<group>"; };
+		2860E32C111B888700E27156 /* AppDelegate_Pad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate_Pad.m; sourceTree = "<group>"; };
+		2860E32D111B888700E27156 /* MainWindow_Pad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow_Pad.xib; sourceTree = "<group>"; };
+		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Shared/main.m; sourceTree = "<group>"; };
+		32CA4F630368D1EE00C91783 /* EmployeeAdmin_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmployeeAdmin_Prefix.pch; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* EmployeeAdmin-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "EmployeeAdmin-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		C9F072DF160C31AA00418A5E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		D6197EE014741C9500C4B0AD /* Shelley.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Shelley.xcodeproj; path = ../../lib/Shelley/Shelley.xcodeproj; sourceTree = "<group>"; };
+		D68FD3D01417DE3400538C41 /* frank_static_resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = frank_static_resources.bundle; path = ../../dist/frank_static_resources.bundle; sourceTree = SOURCE_ROOT; };
+		D68FD3D11417DE3400538C41 /* libFrank.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFrank.a; path = ../../dist/libFrank.a; sourceTree = SOURCE_ROOT; };
+		D6A8339F11CDBF35001B8585 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
+		D6A833A011CDBF35001B8585 /* Facade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Facade.h; sourceTree = "<group>"; };
+		D6A833A111CDBF35001B8585 /* ICommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICommand.h; sourceTree = "<group>"; };
+		D6A833A211CDBF35001B8585 /* IController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IController.h; sourceTree = "<group>"; };
+		D6A833A311CDBF35001B8585 /* IFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFacade.h; sourceTree = "<group>"; };
+		D6A833A411CDBF35001B8585 /* IMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMediator.h; sourceTree = "<group>"; };
+		D6A833A511CDBF35001B8585 /* IModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IModel.h; sourceTree = "<group>"; };
+		D6A833A611CDBF35001B8585 /* INotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INotification.h; sourceTree = "<group>"; };
+		D6A833A711CDBF35001B8585 /* INotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INotifier.h; sourceTree = "<group>"; };
+		D6A833A811CDBF35001B8585 /* IObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IObserver.h; sourceTree = "<group>"; };
+		D6A833A911CDBF35001B8585 /* IProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IProxy.h; sourceTree = "<group>"; };
+		D6A833AA11CDBF35001B8585 /* IView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IView.h; sourceTree = "<group>"; };
+		D6A833AB11CDBF35001B8585 /* MacroCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroCommand.h; sourceTree = "<group>"; };
+		D6A833AC11CDBF35001B8585 /* Mediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mediator.h; sourceTree = "<group>"; };
+		D6A833AD11CDBF35001B8585 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		D6A833AE11CDBF35001B8585 /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
+		D6A833AF11CDBF35001B8585 /* Notifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notifier.h; sourceTree = "<group>"; };
+		D6A833B011CDBF35001B8585 /* Observer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Observer.h; sourceTree = "<group>"; };
+		D6A833B111CDBF35001B8585 /* Proxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Proxy.h; sourceTree = "<group>"; };
+		D6A833B211CDBF35001B8585 /* SimpleCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleCommand.h; sourceTree = "<group>"; };
+		D6A833B311CDBF35001B8585 /* View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = View.h; sourceTree = "<group>"; };
+		D6A833B411CDBF35001B8585 /* PureMVC_ObjectiveC_1_1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = PureMVC_ObjectiveC_1_1.a; sourceTree = "<group>"; };
+		D6A833BD11CDBF35001B8585 /* ApplicationFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationFacade.h; sourceTree = "<group>"; };
+		D6A833BE11CDBF35001B8585 /* ApplicationFacade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationFacade.m; sourceTree = "<group>"; };
+		D6A833C011CDBF35001B8585 /* CreateUserCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateUserCommand.h; sourceTree = "<group>"; };
+		D6A833C111CDBF35001B8585 /* CreateUserCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateUserCommand.m; sourceTree = "<group>"; };
+		D6A833C211CDBF35001B8585 /* DeleteUserCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteUserCommand.h; sourceTree = "<group>"; };
+		D6A833C311CDBF35001B8585 /* DeleteUserCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteUserCommand.m; sourceTree = "<group>"; };
+		D6A833C411CDBF35001B8585 /* GetUserRolesCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserRolesCommand.h; sourceTree = "<group>"; };
+		D6A833C511CDBF35001B8585 /* GetUserRolesCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserRolesCommand.m; sourceTree = "<group>"; };
+		D6A833C611CDBF35001B8585 /* GetUsersCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUsersCommand.h; sourceTree = "<group>"; };
+		D6A833C711CDBF35001B8585 /* GetUsersCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUsersCommand.m; sourceTree = "<group>"; };
+		D6A833C811CDBF35001B8585 /* StartupCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartupCommand.h; sourceTree = "<group>"; };
+		D6A833C911CDBF35001B8585 /* StartupCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartupCommand.m; sourceTree = "<group>"; };
+		D6A833CA11CDBF35001B8585 /* UpdateUserCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateUserCommand.h; sourceTree = "<group>"; };
+		D6A833CB11CDBF35001B8585 /* UpdateUserCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateUserCommand.m; sourceTree = "<group>"; };
+		D6A833CC11CDBF35001B8585 /* UpdateUserRolesCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateUserRolesCommand.h; sourceTree = "<group>"; };
+		D6A833CD11CDBF35001B8585 /* UpdateUserRolesCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateUserRolesCommand.m; sourceTree = "<group>"; };
+		D6A833D011CDBF35001B8585 /* UserRolesEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRolesEnum.h; sourceTree = "<group>"; };
+		D6A833D111CDBF35001B8585 /* UserRolesEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserRolesEnum.m; sourceTree = "<group>"; };
+		D6A833D211CDBF35001B8585 /* UserProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProxy.h; sourceTree = "<group>"; };
+		D6A833D311CDBF35001B8585 /* UserProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProxy.m; sourceTree = "<group>"; };
+		D6A833D411CDBF35001B8585 /* UserRolesProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRolesProxy.h; sourceTree = "<group>"; };
+		D6A833D511CDBF35001B8585 /* UserRolesProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserRolesProxy.m; sourceTree = "<group>"; };
+		D6A833D711CDBF35001B8585 /* UserRolesVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRolesVO.h; sourceTree = "<group>"; };
+		D6A833D811CDBF35001B8585 /* UserRolesVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserRolesVO.m; sourceTree = "<group>"; };
+		D6A833D911CDBF35001B8585 /* UserVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserVO.h; sourceTree = "<group>"; };
+		D6A833DA11CDBF35001B8585 /* UserVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserVO.m; sourceTree = "<group>"; };
+		D6A833DD11CDBF35001B8585 /* EmployeeAdmin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmployeeAdmin.h; sourceTree = "<group>"; };
+		D6A833DE11CDBF35001B8585 /* EmployeeAdmin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmployeeAdmin.m; sourceTree = "<group>"; };
+		D6A833DF11CDBF35001B8585 /* UserForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserForm.h; sourceTree = "<group>"; };
+		D6A833E011CDBF35001B8585 /* UserForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserForm.m; sourceTree = "<group>"; };
+		D6A833E111CDBF35001B8585 /* UserList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserList.h; sourceTree = "<group>"; };
+		D6A833E211CDBF35001B8585 /* UserList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserList.m; sourceTree = "<group>"; };
+		D6A833E311CDBF35001B8585 /* UserRoles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRoles.h; sourceTree = "<group>"; };
+		D6A833E411CDBF35001B8585 /* UserRoles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserRoles.m; sourceTree = "<group>"; };
+		D6A833E511CDBF35001B8585 /* EmployeeAdminMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmployeeAdminMediator.h; sourceTree = "<group>"; };
+		D6A833E611CDBF35001B8585 /* EmployeeAdminMediator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmployeeAdminMediator.m; sourceTree = "<group>"; };
+		D6A833E711CDBF35001B8585 /* UserFormMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFormMediator.h; sourceTree = "<group>"; };
+		D6A833E811CDBF35001B8585 /* UserFormMediator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFormMediator.m; sourceTree = "<group>"; };
+		D6A833E911CDBF35001B8585 /* UserListMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserListMediator.h; sourceTree = "<group>"; };
+		D6A833EA11CDBF35001B8585 /* UserListMediator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserListMediator.m; sourceTree = "<group>"; };
+		D6A833EB11CDBF35001B8585 /* UserRolesMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRolesMediator.h; sourceTree = "<group>"; };
+		D6A833EC11CDBF35001B8585 /* UserRolesMediator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserRolesMediator.m; sourceTree = "<group>"; };
+		D6A8351A11CDC3D3001B8585 /* EmployeeAdmin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmployeeAdmin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6A8351C11CDC3D3001B8585 /* EmployeeAdmin-Info copy.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EmployeeAdmin-Info copy.plist"; sourceTree = "<group>"; };
+		D6A8368211CDC5BA001B8585 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		D6DA5E981468C87300525864 /* Frank.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Frank.xcodeproj; path = ../../Frank.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
+				D6A833ED11CDBF35001B8585 /* PureMVC_ObjectiveC_1_1.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6A8351211CDC3D3001B8585 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9F072E0160C31AA00418A5E /* Security.framework in Frameworks */,
+				C9F072DE160C312100418A5E /* libCocoaHTTPServer.a in Frameworks */,
+				D6197EEB14741D1D00C4B0AD /* libShelley.a in Frameworks */,
+				D6DA5EA91468C87E00525864 /* libFrank.a in Frameworks */,
+				D6A8351311CDC3D3001B8585 /* Foundation.framework in Frameworks */,
+				D6A8351411CDC3D3001B8585 /* UIKit.framework in Frameworks */,
+				D6A8351511CDC3D3001B8585 /* CoreGraphics.framework in Frameworks */,
+				D6A8351611CDC3D3001B8585 /* PureMVC_ObjectiveC_1_1.a in Frameworks */,
+				D6A8368311CDC5BA001B8585 /* CFNetwork.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* EmployeeAdmin.app */,
+				D6A8351A11CDC3D3001B8585 /* EmployeeAdmin.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2860E324111B887F00E27156 /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				2860E325111B887F00E27156 /* AppDelegate_Phone.h */,
+				2860E326111B887F00E27156 /* AppDelegate_Phone.m */,
+				2860E327111B887F00E27156 /* MainWindow_Phone.xib */,
+			);
+			path = iPhone;
+			sourceTree = "<group>";
+		};
+		2860E32A111B888700E27156 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				2860E32B111B888700E27156 /* AppDelegate_Pad.h */,
+				2860E32C111B888700E27156 /* AppDelegate_Pad.m */,
+				2860E32D111B888700E27156 /* MainWindow_Pad.xib */,
+			);
+			path = iPad;
+			sourceTree = "<group>";
+		};
+		28EEBF621118D79A00187D67 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D6A8339C11CDBF35001B8585 /* lib */,
+				D6A833B611CDBF35001B8585 /* src */,
+				8D1107310486CEB800E47090 /* EmployeeAdmin-Info.plist */,
+				D6A8351C11CDC3D3001B8585 /* EmployeeAdmin-Info copy.plist */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				D6A8351D11CDC54B001B8585 /* Frank */,
+				2860E32A111B888700E27156 /* iPad */,
+				2860E324111B887F00E27156 /* iPhone */,
+				28EEBF621118D79A00187D67 /* Shared */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32CA4F630368D1EE00C91783 /* EmployeeAdmin_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C9F072DF160C31AA00418A5E /* Security.framework */,
+				D6A8368211CDC5BA001B8585 /* CFNetwork.framework */,
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D6197EE114741C9500C4B0AD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D6197EE614741C9500C4B0AD /* libShelley.a */,
+				D6197EE814741C9500C4B0AD /* Unit Tests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D6A8339C11CDBF35001B8585 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				D6A8339D11CDBF35001B8585 /* PureMVC */,
+			);
+			name = lib;
+			path = Shared/lib;
+			sourceTree = "<group>";
+		};
+		D6A8339D11CDBF35001B8585 /* PureMVC */ = {
+			isa = PBXGroup;
+			children = (
+				D6A8339E11CDBF35001B8585 /* headers */,
+				D6A833B411CDBF35001B8585 /* PureMVC_ObjectiveC_1_1.a */,
+			);
+			path = PureMVC;
+			sourceTree = "<group>";
+		};
+		D6A8339E11CDBF35001B8585 /* headers */ = {
+			isa = PBXGroup;
+			children = (
+				D6A8339F11CDBF35001B8585 /* Controller.h */,
+				D6A833A011CDBF35001B8585 /* Facade.h */,
+				D6A833A111CDBF35001B8585 /* ICommand.h */,
+				D6A833A211CDBF35001B8585 /* IController.h */,
+				D6A833A311CDBF35001B8585 /* IFacade.h */,
+				D6A833A411CDBF35001B8585 /* IMediator.h */,
+				D6A833A511CDBF35001B8585 /* IModel.h */,
+				D6A833A611CDBF35001B8585 /* INotification.h */,
+				D6A833A711CDBF35001B8585 /* INotifier.h */,
+				D6A833A811CDBF35001B8585 /* IObserver.h */,
+				D6A833A911CDBF35001B8585 /* IProxy.h */,
+				D6A833AA11CDBF35001B8585 /* IView.h */,
+				D6A833AB11CDBF35001B8585 /* MacroCommand.h */,
+				D6A833AC11CDBF35001B8585 /* Mediator.h */,
+				D6A833AD11CDBF35001B8585 /* Model.h */,
+				D6A833AE11CDBF35001B8585 /* Notification.h */,
+				D6A833AF11CDBF35001B8585 /* Notifier.h */,
+				D6A833B011CDBF35001B8585 /* Observer.h */,
+				D6A833B111CDBF35001B8585 /* Proxy.h */,
+				D6A833B211CDBF35001B8585 /* SimpleCommand.h */,
+				D6A833B311CDBF35001B8585 /* View.h */,
+			);
+			path = headers;
+			sourceTree = "<group>";
+		};
+		D6A833B611CDBF35001B8585 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				D6A833B711CDBF35001B8585 /* org */,
+			);
+			name = src;
+			path = Shared/src;
+			sourceTree = "<group>";
+		};
+		D6A833B711CDBF35001B8585 /* org */ = {
+			isa = PBXGroup;
+			children = (
+				D6A833B811CDBF35001B8585 /* puremvc */,
+			);
+			path = org;
+			sourceTree = "<group>";
+		};
+		D6A833B811CDBF35001B8585 /* puremvc */ = {
+			isa = PBXGroup;
+			children = (
+				D6A833B911CDBF35001B8585 /* objectivec */,
+			);
+			path = puremvc;
+			sourceTree = "<group>";
+		};
+		D6A833B911CDBF35001B8585 /* objectivec */ = {
+			isa = PBXGroup;
+			children = (
+				D6A833BA11CDBF35001B8585 /* demos */,
+			);
+			path = objectivec;
+			sourceTree = "<group>";
+		};
+		D6A833BA11CDBF35001B8585 /* demos */ = {
+			isa = PBXGroup;
+			children = (
+				D6A833BB11CDBF35001B8585 /* uikit */,
+			);
+			path = demos;
+			sourceTree = "<group>";
+		};
+		D6A833BB11CDBF35001B8585 /* uikit */ = {
+			isa = PBXGroup;
+			children = (
+				D6A833BC11CDBF35001B8585 /* employeeadmin */,
+			);
+			path = uikit;
+			sourceTree = "<group>";
+		};
+		D6A833BC11CDBF35001B8585 /* employeeadmin */ = {
+			isa = PBXGroup;
+			children = (
+				D6A833BD11CDBF35001B8585 /* ApplicationFacade.h */,
+				D6A833BE11CDBF35001B8585 /* ApplicationFacade.m */,
+				D6A833BF11CDBF35001B8585 /* controller */,
+				D6A833CE11CDBF35001B8585 /* model */,
+				D6A833DB11CDBF35001B8585 /* view */,
+			);
+			path = employeeadmin;
+			sourceTree = "<group>";
+		};
+		D6A833BF11CDBF35001B8585 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				D6A833C011CDBF35001B8585 /* CreateUserCommand.h */,
+				D6A833C111CDBF35001B8585 /* CreateUserCommand.m */,
+				D6A833C211CDBF35001B8585 /* DeleteUserCommand.h */,
+				D6A833C311CDBF35001B8585 /* DeleteUserCommand.m */,
+				D6A833C411CDBF35001B8585 /* GetUserRolesCommand.h */,
+				D6A833C511CDBF35001B8585 /* GetUserRolesCommand.m */,
+				D6A833C611CDBF35001B8585 /* GetUsersCommand.h */,
+				D6A833C711CDBF35001B8585 /* GetUsersCommand.m */,
+				D6A833C811CDBF35001B8585 /* StartupCommand.h */,
+				D6A833C911CDBF35001B8585 /* StartupCommand.m */,
+				D6A833CA11CDBF35001B8585 /* UpdateUserCommand.h */,
+				D6A833CB11CDBF35001B8585 /* UpdateUserCommand.m */,
+				D6A833CC11CDBF35001B8585 /* UpdateUserRolesCommand.h */,
+				D6A833CD11CDBF35001B8585 /* UpdateUserRolesCommand.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		D6A833CE11CDBF35001B8585 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				D6A833CF11CDBF35001B8585 /* enum */,
+				D6A833D211CDBF35001B8585 /* UserProxy.h */,
+				D6A833D311CDBF35001B8585 /* UserProxy.m */,
+				D6A833D411CDBF35001B8585 /* UserRolesProxy.h */,
+				D6A833D511CDBF35001B8585 /* UserRolesProxy.m */,
+				D6A833D611CDBF35001B8585 /* vo */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		D6A833CF11CDBF35001B8585 /* enum */ = {
+			isa = PBXGroup;
+			children = (
+				D6A833D011CDBF35001B8585 /* UserRolesEnum.h */,
+				D6A833D111CDBF35001B8585 /* UserRolesEnum.m */,
+			);
+			path = enum;
+			sourceTree = "<group>";
+		};
+		D6A833D611CDBF35001B8585 /* vo */ = {
+			isa = PBXGroup;
+			children = (
+				D6A833D711CDBF35001B8585 /* UserRolesVO.h */,
+				D6A833D811CDBF35001B8585 /* UserRolesVO.m */,
+				D6A833D911CDBF35001B8585 /* UserVO.h */,
+				D6A833DA11CDBF35001B8585 /* UserVO.m */,
+			);
+			path = vo;
+			sourceTree = "<group>";
+		};
+		D6A833DB11CDBF35001B8585 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				D6A833DC11CDBF35001B8585 /* components */,
+				D6A833E511CDBF35001B8585 /* EmployeeAdminMediator.h */,
+				D6A833E611CDBF35001B8585 /* EmployeeAdminMediator.m */,
+				D6A833E711CDBF35001B8585 /* UserFormMediator.h */,
+				D6A833E811CDBF35001B8585 /* UserFormMediator.m */,
+				D6A833E911CDBF35001B8585 /* UserListMediator.h */,
+				D6A833EA11CDBF35001B8585 /* UserListMediator.m */,
+				D6A833EB11CDBF35001B8585 /* UserRolesMediator.h */,
+				D6A833EC11CDBF35001B8585 /* UserRolesMediator.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		D6A833DC11CDBF35001B8585 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				D6A833DD11CDBF35001B8585 /* EmployeeAdmin.h */,
+				D6A833DE11CDBF35001B8585 /* EmployeeAdmin.m */,
+				D6A833DF11CDBF35001B8585 /* UserForm.h */,
+				D6A833E011CDBF35001B8585 /* UserForm.m */,
+				D6A833E111CDBF35001B8585 /* UserList.h */,
+				D6A833E211CDBF35001B8585 /* UserList.m */,
+				D6A833E311CDBF35001B8585 /* UserRoles.h */,
+				D6A833E411CDBF35001B8585 /* UserRoles.m */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
+		D6A8351D11CDC54B001B8585 /* Frank */ = {
+			isa = PBXGroup;
+			children = (
+				D6197EE014741C9500C4B0AD /* Shelley.xcodeproj */,
+				D6DA5E981468C87300525864 /* Frank.xcodeproj */,
+				D68FD3D01417DE3400538C41 /* frank_static_resources.bundle */,
+				D68FD3D11417DE3400538C41 /* libFrank.a */,
+			);
+			name = Frank;
+			sourceTree = "<group>";
+		};
+		D6DA5E991468C87300525864 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D6DA5EA41468C87400525864 /* libFrank.a */,
+				C95979961608508E00399B16 /* libCocoaHTTPServer.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* EmployeeAdmin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "EmployeeAdmin" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EmployeeAdmin;
+			productName = EmployeeAdmin;
+			productReference = 1D6058910D05DD3D006BFB54 /* EmployeeAdmin.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D6A834F511CDC3D3001B8585 /* EmployeeAdmin Frankified */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6A8351711CDC3D3001B8585 /* Build configuration list for PBXNativeTarget "EmployeeAdmin Frankified" */;
+			buildPhases = (
+				D6A834F611CDC3D3001B8585 /* Resources */,
+				D6A834F911CDC3D3001B8585 /* Sources */,
+				D6A8351211CDC3D3001B8585 /* Frameworks */,
+				D6F09564144A62F000B78FEC /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D6197EEA14741D1700C4B0AD /* PBXTargetDependency */,
+				D6DA5EA81468C87A00525864 /* PBXTargetDependency */,
+			);
+			name = "EmployeeAdmin Frankified";
+			productName = EmployeeAdmin;
+			productReference = D6A8351A11CDC3D3001B8585 /* EmployeeAdmin.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "EmployeeAdmin" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D6DA5E991468C87300525864 /* Products */;
+					ProjectRef = D6DA5E981468C87300525864 /* Frank.xcodeproj */;
+				},
+				{
+					ProductGroup = D6197EE114741C9500C4B0AD /* Products */;
+					ProjectRef = D6197EE014741C9500C4B0AD /* Shelley.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* EmployeeAdmin */,
+				D6A834F511CDC3D3001B8585 /* EmployeeAdmin Frankified */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C95979961608508E00399B16 /* libCocoaHTTPServer.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCocoaHTTPServer.a;
+			remoteRef = C95979951608508E00399B16 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D6197EE614741C9500C4B0AD /* libShelley.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libShelley.a;
+			remoteRef = D6197EE514741C9500C4B0AD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D6197EE814741C9500C4B0AD /* Unit Tests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Unit Tests.octest";
+			remoteRef = D6197EE714741C9500C4B0AD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D6DA5EA41468C87400525864 /* libFrank.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libFrank.a;
+			remoteRef = D6DA5EA31468C87400525864 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2860E329111B887F00E27156 /* MainWindow_Phone.xib in Resources */,
+				2860E32F111B888700E27156 /* MainWindow_Pad.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6A834F611CDC3D3001B8585 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6A834F711CDC3D3001B8585 /* MainWindow_Phone.xib in Resources */,
+				D6A834F811CDC3D3001B8585 /* MainWindow_Pad.xib in Resources */,
+				D68FD3D21417DE3400538C41 /* frank_static_resources.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D6F09564144A62F000B78FEC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo APP_BUNDLE_PATH=\\\"$BUILT_PRODUCTS_DIR/$EXECUTABLE_NAME.app\\\" > $SRCROOT/features/support/bundle_path.rb";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2860E328111B887F00E27156 /* AppDelegate_Phone.m in Sources */,
+				2860E32E111B888700E27156 /* AppDelegate_Pad.m in Sources */,
+				D6A833EF11CDBF35001B8585 /* ApplicationFacade.m in Sources */,
+				D6A833F011CDBF35001B8585 /* CreateUserCommand.m in Sources */,
+				D6A833F111CDBF35001B8585 /* DeleteUserCommand.m in Sources */,
+				D6A833F211CDBF35001B8585 /* GetUserRolesCommand.m in Sources */,
+				D6A833F311CDBF35001B8585 /* GetUsersCommand.m in Sources */,
+				D6A833F411CDBF35001B8585 /* StartupCommand.m in Sources */,
+				D6A833F511CDBF35001B8585 /* UpdateUserCommand.m in Sources */,
+				D6A833F611CDBF35001B8585 /* UpdateUserRolesCommand.m in Sources */,
+				D6A833F711CDBF35001B8585 /* UserRolesEnum.m in Sources */,
+				D6A833F811CDBF35001B8585 /* UserProxy.m in Sources */,
+				D6A833F911CDBF35001B8585 /* UserRolesProxy.m in Sources */,
+				D6A833FA11CDBF35001B8585 /* UserRolesVO.m in Sources */,
+				D6A833FB11CDBF35001B8585 /* UserVO.m in Sources */,
+				D6A833FC11CDBF35001B8585 /* EmployeeAdmin.m in Sources */,
+				D6A833FD11CDBF35001B8585 /* UserForm.m in Sources */,
+				D6A833FE11CDBF35001B8585 /* UserList.m in Sources */,
+				D6A833FF11CDBF35001B8585 /* UserRoles.m in Sources */,
+				D6A8340011CDBF35001B8585 /* EmployeeAdminMediator.m in Sources */,
+				D6A8340111CDBF35001B8585 /* UserFormMediator.m in Sources */,
+				D6A8340211CDBF35001B8585 /* UserListMediator.m in Sources */,
+				D6A8340311CDBF35001B8585 /* UserRolesMediator.m in Sources */,
+				D6A8368C11CDC755001B8585 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6A834F911CDC3D3001B8585 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6A834FB11CDC3D3001B8585 /* AppDelegate_Phone.m in Sources */,
+				D6A834FC11CDC3D3001B8585 /* AppDelegate_Pad.m in Sources */,
+				D6A834FD11CDC3D3001B8585 /* ApplicationFacade.m in Sources */,
+				D6A834FE11CDC3D3001B8585 /* CreateUserCommand.m in Sources */,
+				D6A834FF11CDC3D3001B8585 /* DeleteUserCommand.m in Sources */,
+				D6A8350011CDC3D3001B8585 /* GetUserRolesCommand.m in Sources */,
+				D6A8350111CDC3D3001B8585 /* GetUsersCommand.m in Sources */,
+				D6A8350211CDC3D3001B8585 /* StartupCommand.m in Sources */,
+				D6A8350311CDC3D3001B8585 /* UpdateUserCommand.m in Sources */,
+				D6A8350411CDC3D3001B8585 /* UpdateUserRolesCommand.m in Sources */,
+				D6A8350511CDC3D3001B8585 /* UserRolesEnum.m in Sources */,
+				D6A8350611CDC3D3001B8585 /* UserProxy.m in Sources */,
+				D6A8350711CDC3D3001B8585 /* UserRolesProxy.m in Sources */,
+				D6A8350811CDC3D3001B8585 /* UserRolesVO.m in Sources */,
+				D6A8350911CDC3D3001B8585 /* UserVO.m in Sources */,
+				D6A8350A11CDC3D3001B8585 /* EmployeeAdmin.m in Sources */,
+				D6A8350B11CDC3D3001B8585 /* UserForm.m in Sources */,
+				D6A8350C11CDC3D3001B8585 /* UserList.m in Sources */,
+				D6A8350D11CDC3D3001B8585 /* UserRoles.m in Sources */,
+				D6A8350E11CDC3D3001B8585 /* EmployeeAdminMediator.m in Sources */,
+				D6A8350F11CDC3D3001B8585 /* UserFormMediator.m in Sources */,
+				D6A8351011CDC3D3001B8585 /* UserListMediator.m in Sources */,
+				D6A8351111CDC3D3001B8585 /* UserRolesMediator.m in Sources */,
+				D6CE615E1417DD81004EDA99 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D6197EEA14741D1700C4B0AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Shelley;
+			targetProxy = D6197EE914741D1700C4B0AD /* PBXContainerItemProxy */;
+		};
+		D6DA5EA81468C87A00525864 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Frank;
+			targetProxy = D6DA5EA71468C87A00525864 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = EmployeeAdmin_Prefix.pch;
+				INFOPLIST_FILE = "EmployeeAdmin-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Shared/lib/PureMVC\"",
+				);
+				PRODUCT_NAME = EmployeeAdmin;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = EmployeeAdmin_Prefix.pch;
+				INFOPLIST_FILE = "EmployeeAdmin-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Shared/lib/PureMVC\"",
+				);
+				PRODUCT_NAME = EmployeeAdmin;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D6A8351811CDC3D3001B8585 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = EmployeeAdmin_Prefix.pch;
+				INFOPLIST_FILE = "EmployeeAdmin-Info copy.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\\\"$(SRCROOT)/Shared/lib/PureMVC\\\"",
+					"\"$(SRCROOT)/../../dist\"",
+				);
+				PRODUCT_NAME = EmployeeAdmin;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D6A8351911CDC3D3001B8585 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = EmployeeAdmin_Prefix.pch;
+				INFOPLIST_FILE = "EmployeeAdmin-Info copy.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\\\"$(SRCROOT)/Shared/lib/PureMVC\\\"",
+					"\"$(SRCROOT)/../../dist\"",
+				);
+				PRODUCT_NAME = EmployeeAdmin;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "EmployeeAdmin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "EmployeeAdmin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6A8351711CDC3D3001B8585 /* Build configuration list for PBXNativeTarget "EmployeeAdmin Frankified" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6A8351811CDC3D3001B8585 /* Debug */,
+				D6A8351911CDC3D3001B8585 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

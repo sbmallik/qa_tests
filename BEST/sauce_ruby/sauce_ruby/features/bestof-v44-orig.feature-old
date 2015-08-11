@@ -1,0 +1,65 @@
+@selenium
+Feature: Azcentral's Best 2014 Regression v4.4 Tests
+
+	In order to make the new features live on the 2014 Azcentral's Best
+	As a Gannett employee with access to the correct urls
+	I want to be able to test for these scenarios
+
+	Scenario: Article ID test
+
+		Given I have found this particular article ID on devbestof.azcentral.com: "http://devbestof.azcentral.com/winners/2014/14744910/best-star-making-machine-valley-youth-theatre"
+		When I put that same article ID into the bestof.pnj.com site: "http://devbestof.pnj.com/winners/2015/14744910"
+		Then I should not see the article content, but I should be redirected to the homepage of "http://devbestof.pnj.com/"
+
+	Scenario: Search Results test #1 - Filtering Content
+
+		Given I am looking at a results page on devbestof.azcentral.com
+		When the filter feedback text says "Showing results for All and displayed for All Locations"
+		Then I click on "Categories"
+		And I select 'OUTDOORS & RECREATION'
+		Then the filter feedback text should say "Showing results for outdoors & recreation and displayed for All Locations"
+
+	Scenario: Search Results test #2 - Sorting Content
+
+		Given I am looking at another results page on devbestof.azcentral.com
+		When the filter feedback text now says "Showing results for All and displayed for All Locations"
+		Then now I click on "Sort Type"
+		And I select 'Category'
+		Then the filter feedback text should now say "Showing results for All and displayed for All Locations , sorted by category"
+
+	Scenario: Search Results test #3 - West Valley
+
+		Given I am looking at another results page on devbestof.azcentral.com
+		When the filter feedback text now says "Showing results for All and displayed for All Locations"
+		Then I click on "Locations" now
+		And I select 'West Valley'
+		Then the filter feedback text should say "Showing results for All and displayed for west valley" now
+
+	Scenario: Login test #1 - URL
+
+		Given I am on "http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks"
+		When I click the "login" button
+		Then I should arrive at the login url of: "https://account.azcentral.com/bestOf/ui/login/?onSuccessRedirectURL=http://bestof.azcentral.com/2014/winners?category=all&group=all&city=all&search="
+
+	Scenario: Login test #2 - Login redirect
+
+		Given I am on "http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks" again
+		When I click the "login" button again
+		Then I should arrive at the login url of: "https://account.azcentral.com/bestOf/ui/login/?onSuccessRedirectURL=http://bestof.azcentral.com/2014/winners?category=all&group=all&city=all&search=" again
+		And I log into my account
+		Then I should be returned to this page "http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks"
+
+	Scenario: Login test #3 - My Account
+
+		Given I am on "http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks" a third time
+		When I click the "login" button a third time
+		Then I should arrive at the login url of: "https://account.azcentral.com/bestOf/ui/login/?onSuccessRedirectURL=http://bestof.azcentral.com/2014/winners?category=all&group=all&city=all&search=" a third time
+		And I log into my account again
+		Then I should be returned to this page "http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks"
+		And when I click on "MY ACCOUNT"
+		Then I should arrive at the 'My Account' page
+
+	Scenario: Login test #4 - PNJ
+
+		Given I am on the PNJ site of "http://devbestof.pnj.com"
+		Then there should be no 'login' button

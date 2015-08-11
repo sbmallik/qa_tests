@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class='comics-section-front-container'>
+    <div class='header'>
+        <div class='bubble'><a href="{{url_for('/')}}">Daily Comics</a></div>
+        <div class='site-name'><a href="{{url_for('/')}}">presented by <img src='http://www.gannett-cdn.com/sites/azcentral/images/footer-logo@2x.png'/></a></div>
+    </div>
+
+    <div class='comics-wrapper'>
+        <div class="comic-display-name">
+            <b>{{ "Sorry, there was an error on the page you were looking for. We have been notified and will work as quickly as possible to repair it.  To return, click "}}<a href="{{url_for('/')}}">Daily Comics</a></b>
+        </div>
+    </div>
+    
+    <div class="spacer"></div>
+    
+</div>
+<!-- rcol -->
+<div id="comics-list">
+    <div id='div-gpt-ad-300x250_1'>
+        <script type='text/javascript'>
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-300x250_1'); });
+        </script>
+    </div>
+</div>
+
+{% endblock %}

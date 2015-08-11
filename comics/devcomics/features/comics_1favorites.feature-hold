@@ -1,0 +1,9 @@
+Feature: Comics FAVORITES testing
+	In order to test the Comics FAVORITES feature
+	As a Gannett employee with correct access
+	I want to be able to see my favorites on the Comics home page
+
+	Scenario: Click on Favorites on a King’s Comics comic
+		Given I have accessed the King’s Comics 'Nine to Five' comic via azcentral
+		When I click on the “Favorites” button
+		Then I should see the text "A daily selection of the best comic strips and panels chosen by you! Click the button below to change your list.", and should not see a server error

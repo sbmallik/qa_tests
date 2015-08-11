@@ -4,11 +4,13 @@ Feature: BESTOF Miyagi testing
 	I want to be able to login and create a new article
 
 		Scenario: Fill out ONLY required fields in Miyagi new article form
-			Given I am on the page where I can create an article at "http://miyagi.azcentral.com/kumiko/azcentral/articles/new"
-			When I select the Critics option from the Type dropdown
-			Then I select the FOOD & DRINK option from the Subcateory dropdown
-			Then I fill in Award with "testing miyagi"
-			Then I fill in Winner with "testing miyagi"
-			Then I fill in the Text Area area with 'testing miyagi'
+			Given I am on the main Miyagi page at "http://miyagi.azcentral.com/kumiko/", and I login
+			When I navigate to the "Create New Article" page
+      		Then I select the 2015 option from the Year dropdown
+      		Then I select the Critics option from the Type dropdown
+      		Then I select the FOOD & DRINK option from the Subcateory dropdown
+      		Then I fill in Award with "testing miyagi"
+      		Then I fill in Winner with "testing miyagi"
+			Then I change the placeholder text in the Text Area
 			Then I click on "Save"
-			Then I should see "Article Created" in red at the top of the page
+			Then I should see "Error in the Body field - Enter a body" in red at the top of the page

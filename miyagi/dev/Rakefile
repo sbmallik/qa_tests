@@ -1,0 +1,18 @@
+require 'bundler/gem_tasks'
+
+task :console do
+  require 'irb'
+  require 'irb/completion'
+  require_relative 'lib/capybara_wysihtml5'
+  ARGV.clear
+  IRB.start
+end
+
+require 'cucumber'
+require 'cucumber/rake/task'
+
+task default: :features
+
+Cucumber::Rake::Task.new(:features) do |t|
+  t.cucumber_opts = "--format pretty" # Any valid command line option can go here.
+end
