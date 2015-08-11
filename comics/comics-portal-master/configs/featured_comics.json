@@ -1,0 +1,44 @@
+{
+    "FEATURED-COMICS": [
+        {
+            "title": "Garfield",
+            "id": "ga"
+        },
+        {
+            "title": "Luann",
+            "id": "lu"
+        },
+        {
+            "title": "Non Sequitur",
+            "id": "nq"
+        },
+        {
+            "title": "Doonesbury",
+            "id": "db"
+        },
+        {
+            "title": "Cathy",
+            "id": "ca"
+        },
+        {
+            "title": "Big Nate",
+            "id": "bn"
+        },
+        {
+            "title": "Pearls Before Swine",
+            "id": "pb"
+        },
+        {
+            "title": "In the Bleachers",
+            "id": "bl"
+        },
+        {
+            "title": "Stone Soup",
+            "id": "ss"
+        },
+        {
+            "title": "F Minus",
+            "id": "fm"
+        }
+    ]
+}

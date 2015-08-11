@@ -1,0 +1,27 @@
+source 'https://rubygems.org'
+
+# Specify your gem's dependencies in capybara_wysihtml5.gemspec
+gemspec
+
+=begin
+#group(:test) do
+  gem 'rspec-expectations'
+  gem 'cucumber'
+  gem 'capybara'
+  gem 'rspec'
+  gem 'selenium-webdriver'
+  gem 'capybara-webkit'
+#end
+=end
+
+
+group :test do
+  gem 'cucumber-rails', :require => false
+#  gem 'database_cleaner'
+  gem 'rspec-rails', '~> 3.0'
+  gem 'capybara-webkit'
+  gem 'factory_girl_rails'
+  gem 'webrat'
+  gem 'rspec-expectations'
+#  gem 'email_spec'
+end

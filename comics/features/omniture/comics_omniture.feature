@@ -4,7 +4,7 @@ Feature: New Comics Feature Omniture testing
 	I want to be able to see the one requirement below pass
 
 		Scenario: View three new key features on the Comics home page
-			Given I am on the Comics Omniture page at "http://comics2.azcentral.com/static/js/phx-omniture-1.js"
+			Given I am on the Comics Omniture page at "http://comics.azcentral.com/static/js/phx-omniture-1.js"
     		Then I should see the correct Ominture account code of 'gpaper158'
     			And I should see the prop17 code equal 'life'
     			And I should see the prop18 code equal 'comics'

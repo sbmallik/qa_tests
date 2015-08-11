@@ -1,0 +1,187 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fswiss\fcharset0 ArialMT;\f1\fswiss\fcharset0 Helvetica;\f2\fnil\fcharset0 Monaco;
+}
+{\colortbl;\red255\green255\blue255;\red38\green38\blue38;\red0\green0\blue233;\red242\green242\blue242;
+}
+\margl1440\margr1440\vieww22960\viewh8420\viewkind0
+\deftab720
+\pard\pardeftab720
+
+\f0\fs28 \cf2 \expnd0\expndtw0\kerning0
+1. First download the latest Sauce Connect version (i.e version 4.3.10) ({\field{\*\fldinst{HYPERLINK "https://docs.saucelabs.com/reference/sauce-connect/"}}{\fldrslt \cf3 \expnd0\expndtw0\kerning0
+\ul \ulc3 https://docs.saucelabs.com/reference/sauce-connect/}})\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural
+
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0  \'97 I already have that version installed on my machine.\
+\
+\pard\pardeftab720
+
+\f0\fs28 \cf2 \expnd0\expndtw0\kerning0
+2. Then get the doctor log: Start Sauce Connect with the \'97doctor flag. \cf0 \
+\cf2 > SC.exe -u USERNAME -k ACCESS_KEY \'97doctor\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural
+
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0  \'97 this is what happened when I ran that line:\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural
+
+\f2\fs20 \cf4 \cb0 \CocoaLigature0 Last login: Thu Aug  6 11:32:03 on ttys000\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ cd sauce-connect\
+pni-dig-129098:sauce-connect temre$ bin/sc -u JoshJonesGannett -k 330ff6c4-fe41-40d0-84d0-09b3d91d3b92 --doctor\
+06 Aug 12:25:02 - Sauce Connect 4.3.10, build 1733 2d15f70\
+06 Aug 12:25:02 - Calling the doctor\
+INFO: checking if saucelabs.com can be resolved\
+INFO: resolving 'saucelabs.com' using default system settings...\
+INFO: resolved to '162.222.73.28'\
+INFO: resolving 'saucelabs.com' using DNS server '192.168.1.1'...\
+INFO: resolved to '162.222.73.28'\
+INFO: checking 'saucelabs.com' in hosts file...\
+INFO: 'saucelabs.com' is not in hosts file\
+INFO: checking if maki76100.miso.saucelabs.com can be resolved\
+INFO: resolving 'maki76100.miso.saucelabs.com' using default system settings...\
+INFO: resolved to '162.222.76.100'\
+INFO: resolving 'maki76100.miso.saucelabs.com' using DNS server '192.168.1.1'...\
+INFO: resolved to '162.222.76.100'\
+INFO: checking 'maki76100.miso.saucelabs.com' in hosts file...\
+INFO: 'maki76100.miso.saucelabs.com' is not in hosts file\
+INFO: checking if maki77100.miso.saucelabs.com can be resolved\
+INFO: resolving 'maki77100.miso.saucelabs.com' using default system settings...\
+INFO: resolved to '162.222.77.100'\
+INFO: resolving 'maki77100.miso.saucelabs.com' using DNS server '192.168.1.1'...\
+INFO: resolved to '162.222.77.100'\
+INFO: checking 'maki77100.miso.saucelabs.com' in hosts file...\
+INFO: 'maki77100.miso.saucelabs.com' is not in hosts file\
+INFO: checking if maki78100.miso.saucelabs.com can be resolved\
+INFO: resolving 'maki78100.miso.saucelabs.com' using default system settings...\
+INFO: resolved to '162.222.78.100'\
+INFO: resolving 'maki78100.miso.saucelabs.com' using DNS server '192.168.1.1'...\
+INFO: resolved to '162.222.78.100'\
+INFO: checking 'maki78100.miso.saucelabs.com' in hosts file...\
+INFO: 'maki78100.miso.saucelabs.com' is not in hosts file\
+INFO: checking if connecting to Sauce Labs REST API via SSL works\
+INFO: certificate #0 in chain: INFO: s:/OU=GT45345800/OU=See www.rapidssl.com/resources/cps (c)14/OU=Domain Control Validated - RapidSSL(R)/CN=*.saucelabs.com; INFO: i:/C=US/O=GeoTrust Inc./CN=RapidSSL SHA256 CA - G3\
+INFO: checking OCSP entry #0 (http://gv.symcd.com)\
+INFO: resolving 'gv.symcd.com' using default system settings...\
+INFO: resolved to '23.5.11.27'\
+INFO: resolving 'gv.symcd.com' using DNS server '192.168.1.1'...\
+INFO: resolved to '23.5.11.27'\
+INFO: checking 'gv.symcd.com' in hosts file...\
+INFO: 'gv.symcd.com' is not in hosts file\
+INFO: URL http://gv.symcd.com can be reached\
+INFO: checking CRL distribution point #0 (http://gv.symcb.com/gv.crl)\
+INFO: resolving 'gv.symcb.com' using default system settings...\
+INFO: resolved to '23.5.5.163'\
+INFO: resolving 'gv.symcb.com' using DNS server '192.168.1.1'...\
+INFO: resolved to '23.5.5.163'\
+INFO: checking 'gv.symcb.com' in hosts file...\
+INFO: 'gv.symcb.com' is not in hosts file\
+INFO: URL http://gv.symcb.com/gv.crl can be reached\
+INFO: certificate #1 in chain: INFO: s:/C=US/O=GeoTrust Inc./CN=RapidSSL SHA256 CA - G3; INFO: i:/C=US/O=GeoTrust Inc./CN=GeoTrust Global CA\
+INFO: checking OCSP entry #0 (http://g.symcd.com)\
+INFO: resolving 'g.symcd.com' using default system settings...\
+INFO: resolved to '23.5.11.27'\
+INFO: resolving 'g.symcd.com' using DNS server '192.168.1.1'...\
+INFO: resolved to '23.5.11.27'\
+INFO: checking 'g.symcd.com' in hosts file...\
+INFO: 'g.symcd.com' is not in hosts file\
+INFO: URL http://g.symcd.com can be reached\
+INFO: checking CRL distribution point #0 (http://g.symcb.com/crls/gtglobal.crl)\
+INFO: resolving 'g.symcb.com' using default system settings...\
+INFO: resolved to '23.5.5.163'\
+INFO: resolving 'g.symcb.com' using DNS server '192.168.1.1'...\
+INFO: resolved to '23.5.5.163'\
+INFO: checking 'g.symcb.com' in hosts file...\
+INFO: 'g.symcb.com' is not in hosts file\
+INFO: URL http://g.symcb.com/crls/gtglobal.crl can be reached\
+INFO: checking if accessing https://saucelabs.com/rest/v1 works\
+INFO: resolving 'saucelabs.com' using default system settings...\
+INFO: resolved to '162.222.73.28'\
+INFO: resolving 'saucelabs.com' using DNS server '192.168.1.1'...\
+INFO: resolved to '162.222.73.28'\
+INFO: checking 'saucelabs.com' in hosts file...\
+INFO: 'saucelabs.com' is not in hosts file\
+INFO: URL https://saucelabs.com/versions.json can be reached\
+INFO: resolving 'saucelabs.com' using default system settings...\
+INFO: resolved to '162.222.73.28'\
+INFO: resolving 'saucelabs.com' using DNS server '192.168.1.1'...\
+INFO: resolved to '162.222.73.28'\
+INFO: checking 'saucelabs.com' in hosts file...\
+INFO: 'saucelabs.com' is not in hosts file\
+INFO: URL https://saucelabs.com/rest/v1/JoshJonesGannett/tunnels can be reached\
+INFO: checking if accessing http://google.com works\
+INFO: resolving 'google.com' using default system settings...\
+INFO: resolved to '216.58.217.206'\
+INFO: resolving 'google.com' using DNS server '192.168.1.1'...\
+INFO: resolved to '216.58.217.206'\
+INFO: checking 'google.com' in hosts file...\
+INFO: 'google.com' is not in hosts file\
+INFO: URL http://google.com can be reached\
+INFO: checking if accessing https://google.com works\
+INFO: resolving 'google.com' using default system settings...\
+INFO: resolved to '216.58.217.206'\
+INFO: resolving 'google.com' using DNS server '192.168.1.1'...\
+INFO: resolved to '216.58.217.206'\
+INFO: checking 'google.com' in hosts file...\
+INFO: 'google.com' is not in hosts file\
+INFO: URL https://google.com can be reached\
+pni-dig-129098:sauce-connect temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural
+
+\f1\fs24 \cf0 \cb1 \CocoaLigature1 \
+\pard\pardeftab720
+
+\f0\fs28 \cf2 \expnd0\expndtw0\kerning0
+3. Then Start Sauce Connect with the -v and the -l \cf0 \
+\cf2 >SC.exe -u USERNAME -k ACCESS_KEY -v -l mylog.txt\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural
+
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0  \'97 And this is what happened when I ran that line of code:\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural
+
+\f2\fs20 \cf4 \cb0 \CocoaLigature0 pni-dig-129098:sauce-connect temre$ bin/sc -u JoshJonesGannett -k 330ff6c4-fe41-40d0-84d0-09b3d91d3b92 -v -l mylog.txt\
+06 Aug 14:05:17 - Sauce Connect 4.3.10, build 1733 2d15f70\
+06 Aug 14:05:17 - *** WARNING: open file limit 256 is too low!\
+06 Aug 14:05:17 - *** Sauce Labs recommends setting it to at least 8000.\
+06 Aug 14:05:17 - Starting up; pid 7013\
+06 Aug 14:05:17 - Command line arguments: bin/sc -u JoshJonesGannett -k **** -v -l mylog.txt\
+06 Aug 14:05:17 - Using no proxy for connecting to Sauce Labs REST API.\
+06 Aug 14:05:17 - Resolving saucelabs.com to 162.222.73.28 took 32 ms.\
+06 Aug 14:05:18 - Started scproxy on port 58988.\
+06 Aug 14:05:18 - Please wait for 'you may start your tests' to start your tests.\
+06 Aug 14:05:18 - Starting secure remote tunnel VM...\
+06 Aug 14:05:24 - Secure remote tunnel VM provisioned.\
+06 Aug 14:05:24 - Tunnel ID: 6651db7dd184487aaffc0926741b61ce\
+06 Aug 14:05:25 - Secure remote tunnel VM is now: booting\
+06 Aug 14:05:37 - Secure remote tunnel VM is now: running\
+06 Aug 14:05:37 - Remote tunnel host is: maki79147.miso.saucelabs.com\
+06 Aug 14:05:37 - Using no proxy for connecting to tunnel VM.\
+06 Aug 14:05:37 - Resolving maki79147.miso.saucelabs.com to 162.222.79.147 took 264 ms.\
+06 Aug 14:05:37 - Starting Selenium listener...\
+06 Aug 14:05:37 - Establishing secure TLS connection to tunnel...\
+06 Aug 14:05:37 - Selenium listener started on port 4445.\
+06 Aug 14:05:38 - Sauce Connect is up, you may start your tests.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural
+
+\f1\fs24 \cf0 \cb1 \CocoaLigature1 \
+\pard\pardeftab720
+
+\f0\fs28 \cf2 \expnd0\expndtw0\kerning0
+4. Run your test\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural
+
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0  \'97 I\'92ve attached the test results in a separate text file. (terminal-saucelabs-testresults.txt). On your web site tho, it like the tests were only run on the first platform: ["Windows 8.1", "Internet Explorer", "11"], and no others?\
+\
+\pard\pardeftab720
+
+\f0\fs28 \cf2 \expnd0\expndtw0\kerning0
+5. Send to us the doctor log output, the mylog.txt file and the resulting Sauce Labs test link for your test.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural
+
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0  \'97 I only see a \'93mylog.txt\'94 file, which I\'92ve attached as well. I\'92m not sure what a \'93doctor log output\'94 is, since I\'92m not seeing a file with that name.\
+\
+\
+\
+}

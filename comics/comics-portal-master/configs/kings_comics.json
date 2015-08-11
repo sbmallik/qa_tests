@@ -1,0 +1,300 @@
+{
+    "KING-COMICS": [
+        {
+            "title": "9 to 5",
+            "id": "9_to_5"
+        },
+        {
+            "title": "Spiderman",
+            "id": "Spiderman"
+        },
+        {
+            "title": "Animal Crackers",
+            "id": "Animal_Crackers"
+        },
+        {
+            "title": "Apartment 3-G",
+            "id": "Apartment_3-G"
+        },
+        {
+            "title": "Arctic Circle",
+            "id": "Arctic"
+        },
+        {
+            "title": "Baby Blues",
+            "id": "Baby_Blues"
+        },
+        {
+            "title": "Barney Google & Snuffy Smith",
+            "id": "Barney_Google"
+        },
+        {
+            "title": "Beetle Bailey",
+            "id": "Beetle_Bailey"
+        },
+        {
+            "title": "Between Friends",
+            "id": "Between_Friends"
+        },
+        {
+            "title": "Bizarro",
+            "id": "Bizarro"
+        },
+        {
+            "title": "Bleeker the Rechargeable Dog",
+            "id": "Bleeker"
+        },
+        {
+            "title": "Bliss",
+            "id": "Bliss"
+        },
+        {
+            "title": "Blondie",
+            "id": "Blondie"
+        },
+        {
+            "title": "Bottom Liners",
+            "id": "Bottom_Liners"
+        },
+        {
+            "title": "Bound & Gagged",
+            "id": "Bound_Gagged"
+        },
+        {
+            "title": "Brewster Rockit: Space Guy!",
+            "id": "Brewster"
+        },
+        {
+            "title": "Brilliant Mind of Edison Lee",
+            "id": "Edison"
+        },
+        {
+            "title": "Broom-Hilda",
+            "id": "Broom_Hilda"
+        },
+        {
+            "title": "Buckles",
+            "id": "Buckles"
+        },
+        {
+            "title": "Crankshaft",
+            "id": "Crankshaft"
+        },
+        {
+            "title": "Crock",
+            "id": "Crock"
+        },
+        {
+            "title": "Curtis",
+            "id": "Curtis"
+        },
+        {
+            "title": "Deflocked",
+            "id": "Deflocked"
+        },
+        {
+            "title": "Dennis the Menace",
+            "id": "Dennis_The_Menace"
+        },
+        {
+            "title": "Dick Tracy",
+            "id": "Dick_Tracy"
+        },
+        {
+            "title": "Dustin",
+            "id": "Dustin"
+        },
+        {
+            "title": "Edge City",
+            "id": "Edge_City"
+        },
+        {
+            "title": "Family Circus",
+            "id": "Family_Circus"
+        },
+        {
+            "title": "Flash Gordon",
+            "id": "Flash"
+        },
+        {
+            "title": "Funky Winkerbean",
+            "id": "Funky_Winkerbean"
+        },
+        {
+            "title": "Gasoline Alley",
+            "id": "Gasoline_Alley"
+        },
+        {
+            "title": "Gil Thorp",
+            "id": "Gil_Thorp"
+        },
+        {
+            "title": "Hägar the Horrible",
+            "id": "Hagar_The_Horrible"
+        },
+        {
+            "title": "Hazel",
+            "id": "Hazel"
+        },
+        {
+            "title": "Heaven's Love Thrift Shop",
+            "id": "Heavens"
+        },
+        {
+            "title": "Henry",
+            "id": "Henry"
+        },
+        {
+            "title": "Hi and Lois",
+            "id": "Hi_and_Lois"
+        },
+        {
+            "title": "Intelligent",
+            "id": "Intelligent"
+        },
+        {
+            "title": "Judge Parker",
+            "id": "Judge_Parker"
+        },
+        {
+            "title": "Katzenjammer Kids",
+            "id": "Katzenjammer_Kids"
+        },
+        {
+            "title": "Lockhorns",
+            "id": "Lockhorns"
+        },
+        {
+            "title": "Mandrake the Magician",
+            "id": "Mandrake"
+        },
+        {
+            "title": "Mark Trail",
+            "id": "Mark_Trail"
+        },
+        {
+            "title": "Marvin",
+            "id": "Marvin"
+        },
+        {
+            "title": "Mary Worth",
+            "id": "Mary_Worth"
+        },
+        {
+            "title": "Moose & Molly",
+            "id": "Moose"
+        },
+        {
+            "title": "Mother Goose & Grimm",
+            "id": "Mgoose"
+        },
+        {
+            "title": "Mutts",
+            "id": "Mutts"
+        },
+        {
+            "title": "On the Fasttrack",
+            "id": "Fast_Track"
+        },
+        {
+            "title": "Pajama Diaries",
+            "id": "Pajama"
+        },
+        {
+            "title": "Pardon My Planet",
+            "id": "Pardon_My_Planet"
+        },
+        {
+            "title": "Phantom",
+            "id": "Phantom"
+        },
+        {
+            "title": "Piranha Club",
+            "id": "Piranha"
+        },
+        {
+            "title": "Pluggers",
+            "id": "Pluggers"
+        },
+        {
+            "title": "Popeye",
+            "id": "Popeye"
+        },
+        {
+            "title": "Prince Valiant",
+            "id": "Prince_Valiant"
+        },
+        {
+            "title": "Pros & Cons",
+            "id": "Lawyer"
+        },
+        {
+            "title": "Retail",
+            "id": "Retail"
+        },
+        {
+            "title": "Rex Morgan M.D.",
+            "id": "Rex_Morgan"
+        },
+        {
+            "title": "Rhymes with Orange",
+            "id": "Rhymes_with_Orange"
+        },
+        {
+            "title": "Safe Havens",
+            "id": "Safe_Havens"
+        },
+        {
+            "title": "Sally Forth",
+            "id": "Sally_Forth"
+        },
+        {
+            "title": "Sam & Silo",
+            "id": "Sam"
+        },
+        {
+            "title": "Sherman's Lagoon",
+            "id": "Shermans_Lagoon"
+        },
+        {
+            "title": "Shoe",
+            "id": "Shoe"
+        },
+        {
+            "title": "Six Chix",
+            "id": "6Chix"
+        },
+        {
+            "title": "Slylock Fox & Comics for Kids",
+            "id": "Slylock"
+        },
+        {
+            "title": "Take It From The Tinkersons",
+            "id": "take-it-from-the-tinkersons"
+        },
+        {
+            "title": "The Middletons",
+            "id": "Middletons"
+        },
+        {
+            "title": "Tiger",
+            "id": "Tiger"
+        },
+        {
+            "title": "Tina's Groove",
+            "id": "Tinas_Groove"
+        },
+        {
+            "title": "Todd the Dinosaur",
+            "id": "Todd"
+        },
+        {
+            "title": "Zippy the Pinhead",
+            "id": "Zippy_the_Pinhead"
+        },
+        {
+            "title": "Zits",
+            "id": "Zits"
+        }  
+    ]
+}

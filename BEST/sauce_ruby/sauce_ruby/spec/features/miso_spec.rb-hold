@@ -1,0 +1,12 @@
+require "rails_helper"
+
+describe "Wikipedia's Miso Page", :sauce => true do
+  it "Should mention a favorite type of Miso" do
+    visit "http://en.wikipedia.org/"
+    fill_in 'search', :with => "Miso"
+    click_button "searchButton"
+
+    heading = find '#firstHeading'
+    expect( heading ).to have_content "Miso"
+  end
+end

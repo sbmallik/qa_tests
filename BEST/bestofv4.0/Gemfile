@@ -1,0 +1,10 @@
+source "http://rubygems.org"
+
+group(:test) do
+  gem 'cucumber'
+  gem 'capybara'
+  gem 'rspec-expectations'
+  gem 'rspec', :require => "spec"
+  gem 'selenium-webdriver'
+  gem 'capybara-webkit'
+ end
