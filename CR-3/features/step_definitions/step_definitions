@@ -1,8 +1,0 @@
-Given(/^I want to view all word burpless on the page$/) do
-  pending # Write code here that turns the phrase word into concrete actions
-end
-
-Then(/^the word burpless in page will  display$/) 
-  pending # Write code here that turns the phrase above into concrete actions
-
-end
