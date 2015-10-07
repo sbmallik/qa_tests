@@ -13,13 +13,24 @@ Then /^I should see a cobrand header$/ do
 end
 
 Then(/^I should see Nominate Now! in the header$/) do
-  expect(page).to have_css('h1', text: 'Nominate Now!')
+  expect(page).to have_css('h1', text: 'Vote Now!')
 end
 
 Then(/^I should see valid h2 text$/) do
-  expect(page).to have_css('h2', text: '10/1/15')
+  expect(page).to have_css('h2', text: '10/1-18')
 end
 
 Then(/^I should see valid header paragraph text$/) do
-  expect(page).to have_css('p', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eu lectus vestibulum, vehicula mi nec, elementum ante. Pellentesque posuere eros vitae vulputate sagittis. Donec suscipit at turpis condimentum convallis. Ut tincidunt tempus sollicitudin. Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
+  expect(page).to have_css('p', text: 'Vote now for your favorite local Rochester businesses! Your vote counts! By submitting your Rochester’s Choice Ballot, you could WIN $1000! One qualified ballot will be randomly selected to win the prize.')
+end
+
+Then(/^I should see a contest rules button$/) do
+  expect(page).to have_link('Contest Rules')
+end
+
+Then(/^clicking it should go to http:\/\/democratandchronicle\.secondstreetapp\.com\/l\/Rochester\-Democrat\-and\-Chronicles\-Voters\-Choice\/Rules$/) do
+  click_link('Contest Rules')
+  time = Time.now.to_s
+  expect(current_path).to eq('/l/Rochester-Democrat-and-Chronicles-Voters-Choice/Rules')
+  page.save_screenshot("./screenshots/best_contest-rules_screenshot-" + time +".jpg", :full => true)
 end
