@@ -1,4 +1,5 @@
 source :rubygems
+<<<<<<< HEAD
 
 gem 'rspec-expectations'
 gem "capybara"
@@ -7,3 +8,12 @@ gem "rspec", :require => "spec"
 gem "selenium-webdriver"
 gem 'selenium-webdriver'
 gem 'capybara-webkit'
+=======
+ 
+  gem 'cucumber'
+  gem 'rspec-expectations'
+  gem 'poltergeist', ">= 1.4.0"
+  gem 'selenium-webdriver'
+  gem 'launchy'
+  gem 'rest-client'
+>>>>>>> ca0a4a5d7645bda5ed678b43850eddb5e3593579
