@@ -1,0 +1,43 @@
+@selenium
+Feature: High School Sports Tests -- Hiding a Sport
+
+	In order to make the new features live on the High School Sports pages
+	As a Gannett employee with access to the correct urls
+	I want to be able to test for these scenarios
+
+	Scenario: #1 - Find a sport on a devwww page
+
+		Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/standings.php?sportid=3"
+		When I click on the dropdown 'Choose a Sport'
+		Then I should see the option "Baseball" in the menu
+
+
+	Scenario: #2 - Hide that sport in the Admin tool
+
+		Given I am on the admin tool in the 'Sports' section at "http://prepsportsadmin.azcentral.com/sports" and I login
+		When I click on 'Edit' button next to the sport 'Baseball'
+		And I check the box labeled "Hidden"
+		And then I click on "Save"
+
+
+	Scenario: #3 - Chosen sport should now be hidden on the two devwww pages
+
+		Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/standings.php?sportid=3" again
+		When I click on the dropdown 'Choose a Sport' again
+		Then I should NOT see the option "Baseball" in the menu
+
+
+	Scenario: #4 - UNHide that sport in the Admin tool
+
+		Given I am on the admin tool in the 'Sports' section at "http://prepsportsadmin.azcentral.com/sports" and I login again
+		When I click on 'Edit' button next to the sport 'Baseball' again
+		And I uncheck the box labeled "Hidden"
+		And then I click on "Save" again
+
+
+	Scenario: #5 - Verify that the sport is back on the two devwww pages
+
+		Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/standings.php?sportid=3" for the third time
+		When I click on the dropdown 'Choose a Sport' for the third time
+		Then I should see the option "Baseball" in the menu for the third time
+

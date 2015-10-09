@@ -1,0 +1,56 @@
+@selenium
+Feature: High School Sports Tests -- Hiding a School
+
+	In order to make the new features live on the High School Sports pages
+	As a Gannett employee with access to the correct urls
+	I want to be able to test for these scenarios
+
+	Scenario: #1 - Find a school on two devwww pages
+
+		Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/schedules.php?schoolid=204&sportid=3"
+		When I click on the dropdown "Choose a School"
+		Then I should see the option "Academy of Tucson" in the menu
+
+		And when I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/scoreboard.php?gamedate=2015-10-16&sportid=3&division=2&section=6"
+		And when I click on the dropdown "Choose a school"
+		Then I should also see the option "Academy of Tucson" in the menu
+
+
+	Scenario: #2 - Hide that school in the Admin tool
+
+		Given I am on the admin tool in the 'Schools' section at "http://prepsportsadmin.azcentral.com/schools" and I login
+		When I click on dropdown "Select a school to update, or leave blank to create one"
+		Then I click on the school "Academy of Tucson"
+		And I check the box labeled "Hidden"
+		And then I click on "Save Edits"
+
+
+	Scenario: #3 - Chosen school should now be hidden on the two devwww pages
+
+		Given I am on this H.S. Sports page again: "http://devwww.azcentral.com/sports/preps/schedules.php?schoolid=204&sportid=3"
+		When I click on the dropdown again "Choose a School"
+		Then I should NOT see the option "Academy of Tucson" in the menu
+
+		And when I am on this H.S. Sports page again: "http://devwww.azcentral.com/sports/preps/scoreboard.php?gamedate=2015-10-16&sportid=3&division=2&section=6"
+		And when I click on the dropdown again "Choose a school"
+		Then I should also NOT see the option "Academy of Tucson" in the menu
+
+
+	Scenario: #4 - UNHide that school in the Admin tool
+
+		Given I am on the admin tool in the 'Schools' section at "http://prepsportsadmin.azcentral.com/schools" and I login again
+		When I click on dropdown "Select a school to update, or leave blank to create one" again
+		Then I click on the school "Academy of Tucson" again
+		And I uncheck the box labeled "Hidden"
+		And then I click on "Save Edits" again
+
+
+	Scenario: #5 - Verify that the school is back on the two devwww pages
+
+		Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/schedules.php?schoolid=204&sportid=3" for the third time
+		When I click on the dropdown "Choose a School" for the third time
+		Then I should see the option "Academy of Tucson" in the menu for the third time
+
+		And when I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/scoreboard.php?gamedate=2015-10-16&sportid=3&division=2&section=6" for the third time
+		And when I click on the dropdown "Choose a school" for the third time
+		Then I should also see the option "Academy of Tucson" in the menu for the third time

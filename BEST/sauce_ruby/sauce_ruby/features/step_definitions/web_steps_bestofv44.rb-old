@@ -1,0 +1,173 @@
+# -u JoshJonesGannett -k 330ff6c4-fe41-40d0-84d0-09b3d91d3b92
+
+#sauce-connect/bin/SC.exe -u JoshJonesGannett -k 330ff6c4-fe41-40d0-84d0-09b3d91d3b92 —doctor
+
+#bin/sc -u JoshJonesGannett -k 330ff6c4-fe41-40d0-84d0-09b3d91d3b92 --doctor
+
+#bin/sc -u JoshJonesGannett -k 330ff6c4-fe41-40d0-84d0-09b3d91d3b92 -v -l mylog.txt
+
+
+=begin
+# 1) Article ID test
+Given(/^I have found this particular article ID on devbestof\.azcentral\.com: "(.*?)"$/) do |url|
+  visit url
+  sleep 5
+end
+When(/^I put that same article ID into the bestof\.pnj\.com site: "(.*?)"$/) do |url2|
+  visit url2
+  sleep 5
+end
+Then(/^I should not see the article content, but I should be redirected to the homepage of "(.*?)"$/) do |url3|
+  page.current_path == url3
+  sleep 5
+end
+
+
+
+# 2) Search Results test #1 - Filtering Content
+Given(/^I am looking at a results page on devbestof.azcentral.com$/) do
+  visit "http://devbestof.azcentral.com/winners/2014/results?&types=Critics%27%20Picks"
+  sleep 5
+end
+When(/^the filter feedback text says "(.*?)"$/) do |text|
+	page.has_text?(text)
+  sleep 5
+end
+Then(/^I click on "(.*?)"$/) do |click1|
+  page.find('a.filter-heading', :text => click1).click
+  sleep 5
+end
+And(/^I select 'OUTDOORS & RECREATION'$/) do
+  page.find('li.filterby-js', :text => 'OUTDOORS & RECREATION').click
+  sleep 5
+end
+Then(/^the filter feedback text should say "(.*?)"$/) do |text2|
+	page.has_text?(text2)
+  sleep 5
+end
+
+
+
+# 3) Search Results test #1 - Sorting Content
+Given(/^I am looking at another results page on devbestof.azcentral.com$/) do
+  visit "http://devbestof.azcentral.com/winners/2014/results?&types=Critics%27%20Picks="
+  sleep 5
+end
+When(/^the filter feedback text now says "(.*?)"$/) do |text3|
+	page.has_text?(text3)
+  sleep 5
+end
+Then(/^now I click on "(.*?)"$/) do |click2|
+  page.find('a.filter-heading', :text => click2).click
+  sleep 5
+end
+And(/^I select 'Category'$/) do
+  page.find('li.sortby-js', :match => :first).click 
+  sleep 5
+end
+Then(/^the filter feedback text should now say "(.*?)"$/) do |text3|
+	page.has_text?(text3)
+  sleep 5
+end
+
+
+
+# 4) Search Results test #1 - West Valley
+Given(/^I am looking at a results page on devbestof.azcentral.com now$/) do
+  visit "http://devbestof.azcentral.com/winners/2014/results?&types=Critics%27%20Picks="
+  sleep 5
+end
+When(/^the filter feedback text says "(.*?)" now$/) do |text4|
+	page.has_text?(text4)
+  sleep 5
+end
+Then(/^I click on "(.*?)" now$/) do |click3|
+  page.find('a.filter-heading', :text => click3).click
+  sleep 5
+end
+And(/^I select 'West Valley'$/) do
+  page.find('li.filterby-js', :text => 'West Valley').click
+  sleep 5
+end
+Then(/^the filter feedback text should say "(.*?)" now$/) do |text5|
+	page.has_text?(text5)
+  sleep 5
+end
+=end
+
+
+# 5) Login button test
+Given(/^I am on "(.*?)"$/) do |url|
+  visit url
+  sleep 8
+end
+When(/^I click on the dropdown "(.*?)" button$/) do |menu|
+  #<a href="#" class="mobile-menu"><img src="http://assets.azcentral.com/bestOf/_global/best-icon-menu.png">MENU</a>
+  click_link(menu)
+  sleep 8
+end
+Then(/^I click the "(.*?)" button$/) do |login|
+  #<a href="https://account.azcentral.com/bestOf/ui/login/?onSuccessRedirectURL=http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks#">LOGIN</a>
+  click_link(login)
+  sleep 8
+end
+And(/^I should arrive at the login url of: "(.*?)"$/) do |loginurl|
+  page.current_path == loginurl
+  sleep 8
+end
+Then(/^I log into my account$/) do
+  fill_in('username', :with => 'ryakon@gmail.com')
+  sleep 8
+  fill_in('password', :with => '1hotsnowcone')
+  sleep 8
+  find_button('Log in').click
+  #<button type="submit" class="primary left last" tabindex="4">Log in</button>
+  #first(:xpath, '//button[@type="submit"]').click
+  sleep 8
+end
+And(/^I should be returned to this page "(.*?)"$/) do |url|
+  page.current_path == url
+  sleep 8
+end
+Then(/^then I have to click on the "(.*?)" button again$/) do |menu|
+  click_link(menu)
+  sleep 8
+end
+And(/^when I click on "(.*?)"$/) do |account|
+  click_link(account)
+  #<a href="https://account.azcentral.com">MY ACCOUNT</a>
+  sleep 8
+end
+Then(/^I should arrive at the 'My Account' page$/) do
+  page.current_path == "https://account.azcentral.com/"
+  sleep 1
+end
+
+
+=begin
+# feature
+    Given I am on "http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks"
+    When I click on the dropdown "MENU" button
+    Then I click the "LOGIN" button
+    And I should arrive at the login url of: "https://account.azcentral.com/bestOf/ui/login/?onSuccessRedirectURL=http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks"
+    And I log into my account
+    Then I should be returned to this page "http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks"
+    And then I have to click on the "MENU" button again
+    And when I click on "MY ACCOUNT"
+    Then I should arrive at the 'My Account' page
+
+# 6) No login on PNJ
+Given(/^I am on the PNJ site of "(.*?)"$/) do |url|
+  visit url
+  sleep 5
+end
+When(/^I click on the dropdown "(.*?)" button on PNJ$/) do |menu|
+  click_link(menu)
+  sleep 5
+end
+Then(/^there should be no 'login' button$/) do
+  page.should have_no_content('login')
+  sleep 5
+end
+=end
+

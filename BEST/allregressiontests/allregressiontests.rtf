@@ -1,0 +1,285 @@
+# 1) Article ID test
+Given(/^I have found this particular article ID on devbestof\.azcentral\.com: "(.*?)"$/) do |url|
+  visit url
+end
+When(/^I put that same article ID into the bestof\.pnj\.com site: "(.*?)"$/) do |url2|
+  visit url2
+end
+Then(/^I should not see the article content, but I should be redirected to the homepage of "(.*?)"$/) do |url3|
+  page.current_path == url3
+end
+
+
+# 2) Search, Filtering and Sorting Content
+Given(/^I am on the Azcentral's Best page at: "(.*?)"$/) do |url|
+  visit url
+  sleep 4
+end
+When(/^I enter the term 'kids' in the search box$/) do
+  fill_in('Search all winners', :with => "kids" + "\n")
+  sleep 3
+end
+Then(/^the filter feedback text says "(.*?)"$/) do |text|
+  page.has_text?(text)
+  sleep 3
+end
+#Then(/^I see a resulting (\d+) pertinent articles$/) do |arg1|
+#  within("ul.winner-list"){
+#    page.assert_selector('li', :count => arg1)
+#  }
+#end
+Then(/^I am on this URL: "(.*?)"$/) do |link1|
+  page.current_path == link1
+  sleep 3
+end
+When(/^I click on the word 'Filter' then click on 'Arts & Entertainment'$/) do
+  page.find('a.filter-button', :text => 'Filter').click
+  #click_link("Filter")
+  sleep 3
+  page.find('li.filterby-js', :match => :first).click
+  sleep 3 
+end
+Then(/^I am on this new URL: "(.*?)"$/) do |url|
+  page.current_path == url
+  sleep 3
+end
+Then(/^I click on the word 'Sort' then I click on 'Category'$/) do
+  #click_link("Sort")
+  page.find('a.sort-button', :text => 'Sort').click
+  sleep 3
+  page.find('li.sortby-js', :match => :first).click
+  sleep 3 
+end
+Then(/^the URL will change to this: "(.*?)"$/) do |url|
+  page.current_path == url
+  sleep 3
+end
+
+
+# 3) More winners near me test
+Given(/^I am on an article page$/) do
+  visit "http://devbestof.azcentral.com/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix"
+end
+When(/^I want to make sure there are articles in the "(.*?)" section$/) do |text|
+  page.has_text?(text)
+end
+Then(/^I will see a resulting (\d+) pertinent articles$/) do |links|
+  within("ul#winners-near-me"){
+    page.assert_selector('li.award', :count => links)
+  }
+end
+
+
+# 4) Sharing tools
+Given(/^I am on the current article page again at "(.*?)" and I want to share this page via the sharing tools$/) do |url|
+  visit url
+end
+
+Then(/^the data-text should contain the correct article title for sharing via Facebook$/) do
+  page.has_selector?(:xpath, '//a[@data-text="azcentral\'s BEST 2014 recognizes Children\'s Museum of Phoenix as the Best kids activity"]')
+end
+
+And(/^the href should contain the correct URL for sharing via Twitter$/) do
+  page.has_selector?(:xpath, '//a[@href="https://twitter.com/share?url=http://devbestof.azcentral.com/winners/2014/14744893/&amp;text=azcentral\'s%20BEST%202014%20recognizes%20Best%20kids%20activity"]')
+end
+
+Then(/^the href should contain the correct URL for sharing via GooglePlus$/) do
+  page.has_selector?(:xpath, '//a[@href="https://plus.google.com/share?url=http://devbestof.azcentral.com/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix"]')
+end
+
+And(/^the href should contain the correct mailto for sharing via E-mail$/) do
+  page.has_selector?(:xpath, '//a[@href="mailto:?subject=azcentral\'s%20BEST%202014%20awards%20Best%20kids%20activity&amp;body=azcentral\'s%20BEST%202014%20picked%20Children\'s%20Museum%20of%20Phoenix%20for%20the%20Best%20kids%20activity%20Check%20it%20out%3A%20%20http%3A%2F%2Fdevbestof.azcentral.com%2Fwinners%2F2014%2F14744893%2Fbest-kids-activity-childrens-museum-of-phoenix"]')
+end
+
+
+# 5) Map / Zoom buttons test
+Given(/^I am on this page: "(.*?)" where this is both a map and video$/) do |url|
+  visit url
+  sleep 2
+end
+When(/^I click on the "(.*?)" button on the main image$/) do |map|
+  page.find('a.map', :text => map).click
+  sleep 2
+end
+Then(/^I should see the div that holds the 'Zoom in' and 'Zoom out' buttons on the right side of the map at these coordinates: 'position: absolute', 'right: (\d+)px', 'top: (\d+)px', and have 'margin: (\d+)px' \- therefore they are NOT at the same location as the media buttons$/) do |arg1, arg2, arg3|
+  page.has_text?('<div class="gmnoprint" draggable="false" controlwidth="20" controlheight="39" style="margin: 5px; -webkit-user-select: none; position: absolute; right: 20px; top: 0px;">')
+  sleep 2
+end
+
+Then(/^I should see in the chinchilla css file that div that holds the media buttons on the left side of the map are at these coordinates, 'position: absolute', top: (\d+)', and 'left: (\d+), \- therefore they are NOT at the same location as the map zoom in & out buttons$/) do |arg1, arg2|
+  visit "http://assets.azcentral.com/bestOf/_global/chinchilla-desktop.css"
+  sleep 2
+  page.has_text?(".photo-containment-div .media-switcher {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 45px;
+      height: auto;
+      background: url('../_global/bg-overlay.png');
+      z-index: 5;
+  }")
+  sleep 2
+end
+
+
+# 6) PNJ has a single internal content type test
+Given(/^I am on "(.*?)"$/) do |url|
+  visit url
+  sleep 2
+end
+When(/^I click on the "(.*?)" link$/) do |link|
+  page.find('a.omni-link-js', :text => link).click
+  sleep 2
+end
+Then(/^I should be on "(.*?)" and I should NOT see the 'Readers' Choice' button on the left\-side of the page$/) do |arg1|
+  page.current_path == arg1
+  page.should have_no_content('<ul class="type-links">')
+  sleep 2  
+end
+
+
+# 7) Azcentral has two internal content types test
+Given(/^I am now on "(.*?)"$/) do |url2|
+  visit url2
+  sleep 2
+end
+When(/^I then click on the "(.*?)" link$/) do |link2|
+  page.find('a.omni-link-js', :text => link2).click
+  sleep 2
+end
+Then(/^I should be on "(.*?)" and I SHOULD see 'Readers' Choice' and 'Critics' Picks' links on the left\-side of the page$/) do |arg1|
+  page.current_path == arg1
+  sleep 2
+  page.has_text?('<ul class="type-links">
+    <li> <a href="/winners/2014/results?types=critics\' picks" class="omni-link-js" data-omniprop41="click-menu-item">Critics\' Picks</a></li>
+    <li> <a href="http://arizonarepublic.secondstreetapp.com/l/Arizona-Republics-Voters-Choice" class="omni-link-js" data-omniprop41="click-menu-item">Readers\' Choice</a></li>
+  </ul>')
+end
+
+
+# 8) ALL Login tests
+# Given(/^I am on "(.*?)"$/) do |url|
+
+When(/^I click the "(.*?)" button$/) do |login|
+  page.find('a', :text => login).click
+end
+Then(/^I should arrive at the login url of: "(.*?)"$/) do |loginurl|
+  page.current_path == loginurl
+end
+And(/^I log into my account$/) do
+  fill_in('username', :with => 'pni\dolezat')
+  fill_in('password', :with => 'Fandango90')
+  first(:xpath, '//button[@type="submit"]').click
+end
+Then(/^I should be returned to this page "(.*?)"$/) do |url|
+  page.current_path == url
+end
+And(/^when I click on "(.*?)"$/) do |account|
+  click_link(account)
+  #<a href="https://account.azcentral.com">MY ACCOUNT</a>
+end
+Then(/^I should arrive at the 'My Account' page$/) do
+  page.current_path == "https://account.azcentral.com/"
+end
+
+
+
+# 9) Login test on PNJ
+Given(/^I am on the PNJ site of "(.*?)"$/) do |url|
+  visit url
+end
+Then(/^there should be no 'login' button$/) do
+  page.should have_no_content('login')
+end
+
+
+
+
+
+
+
+
+
+@selenium
+Feature: AZC's Best 2014 ALL Regression Tests
+
+  In order to make the new features live on the 2014 Azcentral's Best
+  As a Gannett employee with access to the correct urls
+  I want to be able to test for these scenarios
+
+  Scenario: #1) Article ID test
+
+    Given I have found this particular article ID on devbestof.azcentral.com: "http://devbestof.azcentral.com/winners/2014/14744910/best-star-making-machine-valley-youth-theatre"
+    When I put that same article ID into the bestof.pnj.com site: "http://devbestof.pnj.com/winners/2015/14744910"
+    Then I should not see the article content, but I should be redirected to the homepage of "http://devbestof.pnj.com/"
+
+  Scenario: #2) Search, Filtering and Sorting Content
+    Given I am on the Azcentral's Best page at: "http://devbestof.azcentral.com/winners/2014/"
+    When I enter the term 'kids' in the search box
+    Then the filter feedback text says "Now showing 7 results out of 152"
+    Then I am on this URL: "http://devbestof.azcentral.com/winners/2014/results?keywords=kids"
+    And I click on the word 'Filter' then click on 'Arts & Entertainment'
+    Then the filter feedback text says "Now showing 3 results out of 152"
+    Then I am on this new URL: "http://devbestof.azcentral.com/winners/2014/results?&categories=arts%20%26%20entertainment&keywords=kids"
+
+    Then I click on the word 'Sort' then I click on 'Category'
+    And the URL will change to this: "http://devbestof.azcentral.com/winners/2014/results?&categories=arts%20%26%20entertainment&keywords=kids&sortby=category"
+
+
+  Scenario: #3) More Winners Near Me
+    Given I am on an article page
+    When I want to make sure there are articles in the "More Winners Nearby" section
+    Then I will see a resulting 6 pertinent articles
+
+
+Scenario: #4) Checking social media features
+    Given I am on the current article page again at "http://devbestof.azcentral.com/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix" and I want to share this page via the sharing tools
+    Then the data-text should contain the correct article title for sharing via Facebook
+    And the href should contain the correct URL for sharing via Twitter
+    And the href should contain the correct URL for sharing via GooglePlus
+    And the href should contain the correct mailto for sharing via E-mail
+
+
+Scenario: #5) Map / Zoom buttons test
+
+    Given I am on this page: "http://devbestof.pnj.com/winners/2015/14745222/best-wedding-reception-venue-5eleven-palafox-event-hosting" where this is both a map and video
+
+    When I click on the "Map" button on the main image
+
+    Then I should see the div that holds the 'Zoom in' and 'Zoom out' buttons on the right side of the map at these coordinates: 'position: absolute', 'right: 20px', 'top: 0px', and have 'margin: 5px' - therefore they are NOT at the same location as the media buttons
+
+    Then I should see in the chinchilla css file that div that holds the media buttons on the left side of the map are at these coordinates, 'position: absolute', top: 0', and 'left: 0, - therefore they are NOT at the same location as the map zoom in & out buttons
+
+
+Scenario: #6) PNJ has a single internal content type test
+
+    Given I am on "http://devbestof.pnj.com/winners/2015/"
+    When I click on the "Readers' Choice" link
+    Then I should be on "http://devbestof.pnj.com/winners/2015/results?types=Readers%27%20Choice" and I should NOT see the 'Readers' Choice' button on the left-side of the page
+
+
+Scenario: #7) Azcentral has two internal content types test
+
+    Given I am now on "http://devbestof.azcentral.com/winners/2014/"
+    When I then click on the "Critics' Picks" link
+    Then I should be on "http://devbestof.azcentral.com/winners/2014/results?types=critics%27%20picks" and I SHOULD see 'Readers' Choice' and 'Critics' Picks' links on the left-side of the page
+
+
+Scenario: #8) ALL Login tests
+
+    Given I am on "http://devbestof.azcentral.com/winners/2014/"
+    When I click the "LOGIN" button
+    Then I should arrive at the login url of: "https://account.azcentral.com/bestOf/ui/login/?onSuccessRedirectURL=http://bestof.azcentral.com/2014/winners?category=all&group=all&city=all&search="
+    And I log into my account
+    Then I should be returned to this page "http://devbestof.azcentral.com/winners/2014/"
+    And when I click on "MY ACCOUNT"
+    Then I should arrive at the 'My Account' page
+
+
+Scenario: #9) Login test on PNJ
+
+    Given I am on the PNJ site of "http://devbestof.pnj.com"
+    Then there should be no 'login' button
+
+
+

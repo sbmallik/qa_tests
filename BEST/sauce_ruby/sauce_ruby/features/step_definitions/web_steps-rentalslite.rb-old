@@ -1,0 +1,65 @@
+# 1st scenario
+Given(/^that I am on the Rentals Lite web page$/) do
+  visit "http://www.rgj.com/marketplace/rentals/"
+end
+
+Then(/^the user is presented with a standard GDP front with header, left suspender and footer$/) do
+    page.has_text?('<header data-fixed="false" data-open="true" data-default-fixed="false" data-default-open="true" class=" site-header "><div class="site-header-inner-wrap"><div class="site-masthead"><a class="site-masthead-logo-link" data-ht="Headerrgj Headerlogoexpanded" href="/"><img class="site-masthead-logo-img" src="http://www.gannett-cdn.com/sites/rgj/images/site-masthead-logo@2x.png" height="80" alt="Reno Gazette Journal"></a>')
+    page.has_text?('<div class="sidebar-scrollable-window" style="height: 779px;"><div class="sidebar-scrollable-content">')
+    page.has_text?('<footer class="site-footer clearfix">')
+end
+
+And(/^the top module in the center well will display an Apartments search widget$/) do
+    page.has_text?('<div class="rentalslite-search-primary rentalslite-search-primary-module card-primary primary-module  primary-module-border   primary-module-primary-suspender-sidebar-page"><div class="rls-container"><div class="rls-wrap"><div class="rls-apartment-header"><img src="http://www.gannett-cdn.com/rgj/static/uscp-web-static-769.0/images/rentals/rad-header.png" alt="Apartments.com, find your fit." width="90%"></div><div class="rls-slogan">find <em>your</em> perfect fit.</div><form class="js-rls-form"><div class="rls-form-wide">')
+end
+
+And(/^the widget will provide a search field that will accept 'City, Zip, Neighborhood, Address, Property Name'$/) do
+    page.has_selector?(:xpath, './/input[@placeholder="City, Zip, Neighborhood, Address, Property Name"]')
+end
+
+And(/^the widget will provide drop\-down searches for: 'Min Rent', 'Max Rent', 'Beds', 'Baths', and 'Pets'$/) do
+    page.has_text?('<option value="min">Min Rent</option>')
+    page.has_text?('<option value="min">Max Rent</option>')
+    page.has_text?('<option value="min">Beds</option>')
+    page.has_text?('<option value="min">Baths</option>')
+    page.has_text?('<option value="min">Pets</option>')
+end
+
+
+# 2nd group
+And(/^a classifieds module is displayed left\-center$/) do
+  page.has_text?('<div class="rentalslite-classified-primary rentalslite-classified-primary-module card-primary primary-module  primary-module-border   primary-module-primary-suspender-sidebar-page">')
+end
+
+And(/^that classifieds module provides a 'simple search' widget$/) do
+    page.has_text?('<div class="rlc-search js-rlc-search"><input type="hidden" class="js-rlc-search-url" value="http://classifieds.rgj.com"><input type="button" value="SEARCH LOCAL LISTINGS" name="rlc-search-box" class="rlc-search-btn js-rlc-search-btn"></div>')
+end
+
+And(/^the link to the search should be configurable$/) do
+  page.has_selector?(:xpath, './/input[@value="http://classifieds.rgj.com"]')
+end
+
+
+
+# 3rd group -- CONTENT NOT READY TO BE TESTED
+And(/^two image links are displayed$/) do
+  page.has_text?('<div class="js-rlad-local rlad-sidebar-local"><a href="http://on.rgj.com/1NdJ93D"><img src="http://www.gannett-cdn.com/-mm-/f33f2126c3349d2059669726e04283f20e2c3178/c=54-0-376-322/local/-/media/2015/08/06/Reno/B9318348215Z.1_20150806183551_000_GU2BICQBK.1-0.jpg" alt="IPA sells Reno apartment complex for $23.45 million" class="rlad-module-img"></a>')
+  page.has_text?('<div class="js-rlad-local rlad-sidebar-local"><a href="http://on.rgj.com/1Lrh7nA"><img src="http://www.gannett-cdn.com/-mm-/cfd01b4e1a3faa73a4834598cb2c5678a44daaae/c=204-0-1428-1224/local/-/media/2015/06/22/Reno/B9317765488Z.1_20150622153950_000_G54B5CVB0.1-0.jpg" alt=""')
+end
+
+And(/^text links are to be displayed below the images$/) do
+  page.has_text?('class="rlad-module-img"></a><span class="headline"><a href="http://on.rgj.com/1NdJ93D">IPA sells Reno apartment complex for $23.45 million</a></span></div>')
+  page.has_text?('class="rlad-module-img"></a><span class="headline"><a href="http://on.rgj.com/1Lrh7nA">Residential water: Who uses the most in Reno?</a></span></div>')
+end
+
+And(/^these links should be configurable content$/) do
+  page.has_selector?(:xpath, './/a[@href="http://on.rgj.com/1NdJ93D"]')
+  page.has_selector?(:xpath, './/a[@href="http://on.rgj.com/1Lrh7nA"]')
+end
+
+
+
+# 4th group
+And(/^a '300x250' ad is displayed in the right column as 'poster_front'$/) do
+    page.has_text?('<iframe id="google_ads_iframe_7103/nv-reno-C1011/poster_front_btf/apartments/main_0" name="google_ads_iframe_7103/nv-reno-C1011/poster_front_btf/apartments/main_0" width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" src="javascript:&quot;<html><body style="background:transparent"></body></html>&quot;" style="border: 0px; vertical-align: bottom;"></iframe>')
+end

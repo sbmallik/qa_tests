@@ -1,0 +1,106 @@
+    XScenario: Map / Zoom buttons test
+
+        Given I am on this page: "http://devbestof.pnj.com/winners/2015/14745222/best-wedding-reception-venue-5eleven-palafox-event-hosting" where this is both a map and video
+
+        When I click on the "Map" button on the main image
+
+        Then I should see the div that holds the 'Zoom in' and 'Zoom out' buttons on the right side of the map at these coordinates: 'position: absolute', 'right: 20px', 'top: 0px', and have 'margin: 5px' - therefore they are NOT at the same location as the media buttons
+
+        Then I should see in the chinchilla css file that div that holds the media buttons on the left side of the map are at these coordinates, 'position: absolute', top: 0', and 'left: 0, - therefore they are NOT at the same location as the map zoom in & out buttons
+
+
+
+
+
+Version 4.5
+
+PHXDEV-1449: BUG: articles left message does not appear in badger
+PHXDEV-1340: zoom issue on winners pages with maps
+PHXDEV-1392: get Badger template working
+PHXDEV-1417: added requirejs for client side
+PHXDEV-1380: delete articles that have been removed from miyagi's feed
+PHXDEV-1325: results page menu buttons
+
+Scenario: Site has single content type (ie. readers choice)
+        As the product owner
+        When a site has a single internal content type (ie readers choice)
+        And no external link
+        Then on the results page, the button should be removed.
+
+As the developer, I propose a different solution. I would like to add a "display_menu_buttons" node to the "homePage", "resultsPage", and "winnerPage" nodes of the config. By default they will display... but "display_menu_buttons":false will cause them to NOT display. This allows for future options if a site with a single internal content type decides they want multiple internal or external links to drive traffic to specific sections of their content. This will allow maximum customization with minimal impact to current templates or configuration complexity.
+
+
+
+Given I am on "http://devbestof.pnj.com/winners/2015/"
+When I click on the "Reader's Choice" link
+Then I should be on "http://devbestof.pnj.com/winners/2015/results?types=Readers%27%20Choice" and I should NOT see a "Reader's Choice" link on the left-side of the page
+
+Given I am on "http://devbestof.azcentral.com/winners/2014/"
+When I click on the "Critic's Picks" link
+Then I should be on "http://devbestof.azcentral.com/winners/2014/results?types=critics%27%20picks" and I SHOULD see a "Reader's Choice" and "Critic's Picks" links on the left-side of the page
+
+
+<ul class="type-links">
+    <li> <a href="/winners/2014/results?types=critics' picks" class="omni-link-js" data-omniprop41="click-menu-item">Critics' Picks</a></li>
+    <li> <a href="http://arizonarepublic.secondstreetapp.com/l/Arizona-Republics-Voters-Choice" class="omni-link-js" data-omniprop41="click-menu-item">Readers' Choice</a></li>
+</ul>
+
+
+# Button Comparison code
+
+Given I am viewing a page where there is a both a map and video
+When I consider the position of the zoom buttons
+And the width of the zoom buttons
+And the height of the zoom buttons
+Then they should not overlap with the position, width, or height of the media buttons
+
+thats why I wrote that gherkin statement that way… my general idea was that you would record the position, width, and height of the zoom buttons in variables in lines 2, 3, and 4, then grab the position, width, and height of the media buttons in the 5th line, and compare
+
+On article pages, map zoom is too far out and zoom buttons are overlapped by media buttons. The proper zoom "formula" needs to be determined programmatically and zoom buttons need to be either removed or re-positioned.
+
+
+
+
+<div class="gmnoprint" draggable="false" controlwidth="20" controlheight="39" style="margin: 5px; -webkit-user-select: none; position: absolute; right: 20px; top: 0px;">
+{
+    width: 20px;
+    height: 39px;
+    overflow: hidden;
+    position: absolute;
+}
+ZOOM IN:
+{
+    position: absolute;
+    left: 5px;
+    top: 25px;
+    width: 20px;
+    height: 17px;
+    cursor: pointer;
+}
+<div title="Zoom in" style="position: absolute; left: 0px; top: 2px; width: 20px; height: 17px; cursor: pointer;"></div>
+
+ZOOM OUT:
+{
+    position: absolute;
+    left: 0px;
+    top: 19px;
+    width: 20px;
+    height: 17px;
+    cursor: pointer;
+}
+<div title="Zoom out" style="position: absolute; left: 0px; top: 19px; width: 20px; height: 17px; cursor: pointer;"></div>
+
+
+http://devbestof.pnj.com/winners/2015/14745222/best-wedding-reception-venue-5eleven-palafox-event-hosting#
+
+http://assets.azcentral.com/bestOf/_global/chinchilla-desktop.css
+
+.photo-containment-div .media-switcher {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 45px;
+    height: auto;
+    background: url('../_global/bg-overlay.png');
+    z-index: 5;
+}

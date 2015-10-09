@@ -1,0 +1,57 @@
+#1) 
+Given(/^I am on "(.*?)"$/) do |url|
+  visit url
+  sleep 4
+end
+
+When(/^I click on the "(.*?)" link$/) do |link|
+  click_link(link)
+  sleep 4
+end
+
+Then(/^I also click on the "(.*?)" link$/) do |link|
+  click_link(link)
+  sleep 4
+end
+
+Then(/^I should see the 'Send' email link contain the correct 'mailto' information$/) do
+#Then(/^I should see the "(.*?)" email link contain the correct 'mailto' information$/) do |link|
+  #click_link(link)
+  page.has_selector?(:xpath, './/a[@href="mailto:?subject=azcentral\'s%20BEST%202014%20awards%20Best%20film%20festival&amp;body=azcentral\'s%20BEST%202014%20picked%20Phoenix%20Film%20Festival%20for%20the%20Best%20film%20festival.%0A%0ACheck%20it%20out%3A%20%20http%3A%2F%2Fdevbestof.azcentral.com%2Fwinners%2F2014%2F14744891%2Fbest-film-festival-phoenix-film-festival"]')
+  sleep 4
+end
+
+Then(/^I click on the 'Next Article' arrow five times$/) do
+  within(".template-badger"){
+  page.find("a.article-nav-right").click
+  sleep 3
+  page.find("a.article-nav-right").click
+  sleep 3
+  page.find("a.article-nav-right").click
+  sleep 3
+  page.find("a.article-nav-right").click
+  sleep 3
+  page.find("a.article-nav-right").click
+  sleep 3
+}
+end
+
+Then(/^I should see the text "(.*?)"$/) do |text|
+  sleep 5
+  page.has_text?(text)
+end
+
+
+
+=begin
+  expect(page).to have_css('article-nav-right').click
+  sleep 3
+  expect(page).to have_css('article-nav-right').click
+  sleep 3
+  expect(page).to have_css('article-nav-right').click
+  sleep 3
+  expect(page).to have_css('article-nav-right').click
+  sleep 3
+  expect(page).to have_css('article-nav-right').click
+  sleep 3
+=end

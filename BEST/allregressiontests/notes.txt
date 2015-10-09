@@ -1,0 +1,66 @@
+	Scenario: #1) Article ID test
+
+		Given I have found this particular article ID on devbestof.azcentral.com: "http://devbestof.azcentral.com/winners/2014/14744910/best-star-making-machine-valley-youth-theatre"
+		When I put that same article ID into the bestof.pnj.com site: "http://devbestof.pnj.com/winners/2015/14744910"
+		Then I should not see the article content, but I should be redirected to the homepage of "http://devbestof.pnj.com/"
+
+
+    Scenario: #4) Checking social media features
+        Given I am on the current article page again at "http://devbestof.azcentral.com/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix" and I want to share this page via the sharing tools
+        Then the data-text should contain the correct article title for sharing via Facebook
+        And the href should contain the correct URL for sharing via Twitter
+        And the href should contain the correct URL for sharing via GooglePlus
+        And the href should contain the correct mailto for sharing via E-mail
+
+
+    Scenario: #5) Map / Zoom buttons test
+
+        Given I am on this page: "http://devbestof.pnj.com/winners/2015/14745222/best-wedding-reception-venue-5eleven-palafox-event-hosting" where this is both a map and video
+
+        When I click on the "Map" button on the main image
+
+        Then I should see the div that holds the 'Zoom in' and 'Zoom out' buttons on the right side of the map at these coordinates: 'position: absolute', 'right: 20px', 'top: 0px', and have 'margin: 5px' - therefore they are NOT at the same location as the media buttons
+
+        Then I should see in the chinchilla css file that div that holds the media buttons on the left side of the map are at these coordinates, 'position: absolute', top: 0', and 'left: 0, - therefore they are NOT at the same location as the map zoom in & out buttons
+
+
+	Scenario: #6) PNJ has a single internal content type test
+
+		Given I am on "http://devbestof.pnj.com/winners/2015/"
+		When I click on the "Readers' Choice" link
+		Then I should be on "http://devbestof.pnj.com/winners/2015/results?types=Readers%27%20Choice" and I should NOT see the 'Readers' Choice' button on the left-side of the page
+
+
+	Scenario: #7) Azcentral has two internal content types test
+
+		Given I am now on "http://devbestof.azcentral.com/winners/2014/"
+		When I then click on the "Critics' Picks" link
+		Then I should be on "http://devbestof.azcentral.com/winners/2014/results?types=critics%27%20picks" and I SHOULD see 'Readers' Choice' and 'Critics' Picks' links on the left-side of the page
+
+	Scenario: #9) Login test on PNJ
+
+		Given I am on the PNJ site of "http://devbestof.pnj.com"
+		Then there should be no 'login' button
+
+
+
+
+
+#1, yes
+#2, yes, but might need modification unless the data is unchanged
+#3, #4, #5, can probably be combined, still relevant, but the functionality has changed.
+#6, yes
+#7, we can probably drop, in favor of #9 and a test specific to getting video to play
+#8, yes
+#9, yes
+#10, Not sure about this one - seems relevant ( you will need to make the call on this one)
+#11, As #10
+#12 and #13, drop in favor of #14, since a failure in a step in #14 would be reflective of #12 and #13 failing
+#14, yes
+#15, yes
+
+
+
+<div class="status-bar">
+        			    <p>Now showing <span class="displayed-winners-count">152</span> results out of <span class="total-winners-count">152</span>  |  <a href="#" class="clear-filters-js">Clear all filters</a></p>
+        			</div>

@@ -1,0 +1,44 @@
+1) https://jira.gannett.com/browse/PHXDEV-1468
+Comments: As a developer, I want to ensure omniture props are standardized throughout all bestof applications.
+1) I don’t think we can QA that - we don’t see that in the final page output (unless I’m mistaken - I don’t see it). Will need to chat with Aaron about it.
+
+
+
+
+2) and for this ticket: https://jira.gannett.com/browse/PHXDEV-1481 
+Comments:
+As product development manager, I want the pageName variable to be consistent with that used on SecondStreet.
+An approved Second Street pagename example: bestof.desertsun.com/bestof/Ultimate Pride/noms/readers/BestPetGroomer
+pageName should be redirectURL + productName + Edition + phase + pageTitle (edited)
+2) Going to be difficult / impossible to QA this one for exactly the same reason. Again, need to ask Aaron about this.
+
+
+
+
+3) also for testing the Badger: Email text formatting fix:
+So when you look at this article:  http://devbestof.azcentral.com/winners/2014/14744880/best-thing-in-sedona-red-rocks
+do you want me to test the “SEND” button on that page, to make sure that it sends an email? although i can’t really test to see if the link actually opens the email program and creates a new email
+3) For this one, I would very much like us to find a way to be able to determine that when we click on that link it generates an email with appropriate information. Granted, we can’t ensure that it opens an email client, but we can look at how the “mailto:” tag is structured. For example, on the following URL:
+
+http://devbestof.azcentral.com/winners/2014/14744782/best-breakfast-matts-big-breakfast
+
+This mailto: is generated:
+
+```mailto:?subject=azcentral&#x27;s%20BEST%202014%20awards%20Best%20breakfast&amp;body=azcentral&#x27;s%20BEST%202014%20picked%20Matt&#x27;s%20Big%20Breakfast%20for%20the%20Best%20breakfast.%0A%0ACheck%20it%20out%3A%20```
+
+If you pull the % code stuff back out of there and decode it, you can see the email content.
+
+```azcentral’s BEST 2014 picked Matt’s Big Breakfast for the Best breakfast.
+
+Check it out: ```
+
+So if we look at that, we can check to see if the formatting of the wording is done correctly.
+
+
+
+4) and when i tried to test this feature: "PHXDEV-1489: RED ALERT when user is down to 5 free articles left”… i never saw the red alert… do you know how i get that to fire up?
+4) For this one, I’m not having a problem seeing the error (the “0 free articles left” is on a red banner at the top of the page). Are you sure you’re logged out? Maybe try by hand in an incognito window in Chrome..?
+
+
+
+

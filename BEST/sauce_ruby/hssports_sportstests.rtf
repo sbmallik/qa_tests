@@ -1,0 +1,576 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fnil\fcharset0 Monaco;\f1\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red242\green242\blue242;\red46\green174\blue187;\red111\green111\blue111;
+\red47\green180\blue29;\red180\green36\blue25;}
+\margl1440\margr1440\vieww13420\viewh12800\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs20 \cf2 \cb0 \CocoaLigature0 \
+["Windows 8.1", "Internet Explorer", "11"]\
+\
+Last login: Wed Aug 26 15:31:31 on ttys000\
+^[[Apni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: High School Sports Tests -- Hiding a Sport\
+  \
+  In order to make the new features live on the High School Sports pages\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1 - Find a sport on a devwww page\cf4                                                               # features/hssports_sport.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/standings.php?sportid=3"\cf4  # features/step_definitions/web_steps_hssports_sports.rb:2\cf2 \
+    \cf5 When I click on the dropdown 'Choose a Sport'\cf4                                                            # features/step_definitions/web_steps_hssports_sports.rb:6\cf2 \
+    \cf5 Then I should see the option "Baseball" in the menu\cf4                                                      # features/step_definitions/web_steps_hssports_sports.rb:11\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/a50883cf2b644c458114cbeca204c8c3?auth=8f6dfc342316923658241cfa2b7a4e9c\
+\
+  Scenario: #2 - Hide that sport in the Admin tool\cf4                                                                     # features/hssports_sport.feature:15\cf2 \
+    \cf5 Given I am on the admin tool in the 'Sports' section at "http://prepsportsadmin.azcentral.com/sports" and I login\cf4  # features/step_definitions/web_steps_hssports_sports.rb:18\cf2 \
+    \cf5 When I click on 'Edit' button next to the sport 'Baseball'\cf4                                                         # features/step_definitions/web_steps_hssports_sports.rb:26\cf2 \
+    \cf5 And I check the box labeled "Hidden"\cf4                                                                               # features/step_definitions/web_steps_hssports_sports.rb:31\cf2 \
+    \cf5 And then I click on "Save"\cf4                                                                                         # features/step_definitions/web_steps_hssports_sports.rb:36\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/3e43185dd58e413f81bd7f1c37297351?auth=a85212478fbdb650553935f751b0324e\
+\
+  Scenario: #3 - Chosen sport should now be hidden on the devwww page\cf4                                              # features/hssports_sport.feature:23\cf2 \
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/standings.php?sportid=3" again\cf4  # features/step_definitions/web_steps_hssports_sports.rb:43\cf2 \
+    \cf5 When I click on the dropdown 'Choose a Sport' again\cf4                                                            # features/step_definitions/web_steps_hssports_sports.rb:47\cf2 \
+    \cf5 Then I should NOT see the option "Baseball" in the menu\cf4                                                        # features/step_definitions/web_steps_hssports_sports.rb:52\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/8f3bd56482624d15890f93de6ff0cb9a?auth=a36ea860d0ee7a25df73b6d798c86b08\
+\
+  Scenario: #4 - UNHide that sport in the Admin tool\cf4                                                                         # features/hssports_sport.feature:30\cf2 \
+    \cf5 Given I am on the admin tool in the 'Sports' section at "http://prepsportsadmin.azcentral.com/sports" and I login again\cf4  # features/step_definitions/web_steps_hssports_sports.rb:59\cf2 \
+    \cf5 When I click on 'Edit' button next to the sport 'Baseball' again\cf4                                                         # features/step_definitions/web_steps_hssports_sports.rb:67\cf2 \
+    \cf5 And I uncheck the box labeled "Hidden"\cf4                                                                                   # features/step_definitions/web_steps_hssports_sports.rb:72\cf2 \
+    \cf5 And then I click on "Save" again\cf4                                                                                         # features/step_definitions/web_steps_hssports_sports.rb:77\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/e401b205237f4267b48baf9999d70528?auth=346ee2d003bf9ca935d3436d907ce280\
+\
+  Scenario: #5 - Verify that the sport is back on the devwww page\cf4                                                               # features/hssports_sport.feature:38\cf2 \
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/standings.php?sportid=3" for the third time\cf4  # features/step_definitions/web_steps_hssports_sports.rb:84\cf2 \
+    \cf5 When I click on the dropdown 'Choose a Sport' for the third time\cf4                                                            # features/step_definitions/web_steps_hssports_sports.rb:88\cf2 \
+    \cf5 Then I should see the option "Baseball" in the menu for the third time\cf4                                                      # features/step_definitions/web_steps_hssports_sports.rb:93\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/7bee276fd09a479e82df12d10cbc9fe1?auth=c1ba1804f0dfdab7b224a042bd3523e8\
+\
+5 scenarios (\cf5 5 passed\cf2 )\
+17 steps (\cf5 17 passed\cf2 )\
+3m16.987s\
+\
+5 scenarios (5 passed)\
+17 steps (17 passed)\
+\
+Took 202 seconds (3:22)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f1\fs24 \cf0 \cb1 \CocoaLigature1 \
+["Windows 8.1", "Firefox", "38"]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Wed Aug 26 22:16:20 on ttys000\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: High School Sports Tests -- Hiding a Sport\
+  \
+  In order to make the new features live on the High School Sports pages\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1 - Find a sport on a devwww page\cf4                                                               # features/hssports_sport.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/standings.php?sportid=3"\cf4  # features/step_definitions/web_steps_hssports_sports.rb:2\cf2 \
+    \cf5 When I click on the dropdown 'Choose a Sport'\cf4                                                            # features/step_definitions/web_steps_hssports_sports.rb:6\cf2 \
+    \cf5 Then I should see the option "Baseball" in the menu\cf4                                                      # features/step_definitions/web_steps_hssports_sports.rb:11\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/0873ca4d7c9d414bb1958f84fa461884?auth=e3f6198b4a6df1ebfa834b9237e9ca49\
+\
+  Scenario: #2 - Hide that sport in the Admin tool\cf4                                                                     # features/hssports_sport.feature:15\cf2 \
+    \cf5 Given I am on the admin tool in the 'Sports' section at "http://prepsportsadmin.azcentral.com/sports" and I login\cf4  # features/step_definitions/web_steps_hssports_sports.rb:18\cf2 \
+    \cf5 When I click on 'Edit' button next to the sport 'Baseball'\cf4                                                         # features/step_definitions/web_steps_hssports_sports.rb:26\cf2 \
+    \cf5 And I check the box labeled "Hidden"\cf4                                                                               # features/step_definitions/web_steps_hssports_sports.rb:31\cf2 \
+    \cf5 And then I click on "Save"\cf4                                                                                         # features/step_definitions/web_steps_hssports_sports.rb:36\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/19fd1045fe89444a9abb6a1e82759182?auth=c193bf1917499530f4fa65c952a608c3\
+\
+  Scenario: #3 - Chosen sport should now be hidden on the devwww page\cf4                                              # features/hssports_sport.feature:23\cf2      \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/standings.php?sportid=3" again\cf4  # features/step_definitions/web_steps_hssports_sports.rb:43\cf2 \
+    \cf5 When I click on the dropdown 'Choose a Sport' again\cf4                                                            # features/step_definitions/web_steps_hssports_sports.rb:47\cf2 \
+    \cf5 Then I should NOT see the option "Baseball" in the menu\cf4                                                        # features/step_definitions/web_steps_hssports_sports.rb:52\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/c1a4ffdab0b0480383790c12bb0d80e3?auth=9b5a72fe01e8c854f5b016c3fae06156\
+\
+  Scenario: #4 - UNHide that sport in the Admin tool\cf4                                                                         # features/hssports_sport.feature:30\cf2 \
+    \cf5 Given I am on the admin tool in the 'Sports' section at "http://prepsportsadmin.azcentral.com/sports" and I login again\cf4  # features/step_definitions/web_steps_hssports_sports.rb:59\cf2 \
+    \cf5 When I click on 'Edit' button next to the sport 'Baseball' again\cf4                                                         # features/step_definitions/web_steps_hssports_sports.rb:67\cf2 \
+    \cf5 And I uncheck the box labeled "Hidden"\cf4                                                                                   # features/step_definitions/web_steps_hssports_sports.rb:72\cf2 \
+    \cf5 And then I click on "Save" again\cf4                                                                                         # features/step_definitions/web_steps_hssports_sports.rb:77\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/e9b28c4912b3483e8d570aedae0393e2?auth=365cecfd8afe6751fd965ec37e2be509\
+\
+  Scenario: #5 - Verify that the sport is back on the devwww page\cf4                                                               # features/hssports_sport.feature:38\cf2 \
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/standings.php?sportid=3" for the third time\cf4  # features/step_definitions/web_steps_hssports_sports.rb:84\cf2 \
+    \cf5 When I click on the dropdown 'Choose a Sport' for the third time\cf4                                                            # features/step_definitions/web_steps_hssports_sports.rb:88\cf2 \
+    \cf5 Then I should see the option "Baseball" in the menu for the third time\cf4                                                      # features/step_definitions/web_steps_hssports_sports.rb:93\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/2c8d3db0c1e140b59635ffffe0c15be2?auth=d79f756f28f6ddb67a6827c69b3d623a\
+\
+5 scenarios (\cf5 5 passed\cf2 )\
+17 steps (\cf5 17 passed\cf2 )\
+5m54.255s\
+\
+5 scenarios (5 passed)\
+17 steps (17 passed)\
+\
+Took 359 seconds (5:59)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f1\fs24 \cf0 \cb1 \CocoaLigature1 \
+["Windows 8.1", "Chrome", 43]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Wed Aug 26 22:57:12 on ttys000\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: High School Sports Tests -- Hiding a Sport\
+  \
+  In order to make the new features live on the High School Sports pages\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1 - Find a sport on a devwww page\cf4                                                               # features/hssports_sport.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/standings.php?sportid=3"\cf4  # features/step_definitions/web_steps_hssports_sports.rb:2\cf2 \
+    \cf5 When I click on the dropdown 'Choose a Sport'\cf4                                                            # features/step_definitions/web_steps_hssports_sports.rb:6\cf2 \
+    \cf5 Then I should see the option "Baseball" in the menu\cf4                                                      # features/step_definitions/web_steps_hssports_sports.rb:11\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/01d33e892bb04e4692ab8d2559babfbd?auth=4017487bc3407bbe20b4b335cc8450fb\
+\
+  Scenario: #2 - Hide that sport in the Admin tool\cf4                                                                     # features/hssports_sport.feature:15\cf2 \
+    \cf5 Given I am on the admin tool in the 'Sports' section at "http://prepsportsadmin.azcentral.com/sports" and I login\cf4  # features/step_definitions/web_steps_hssports_sports.rb:18\cf2 \
+    \cf5 When I click on 'Edit' button next to the sport 'Baseball'\cf4                                                         # features/step_definitions/web_steps_hssports_sports.rb:26\cf2 \
+    \cf5 And I check the box labeled "Hidden"\cf4                                                                               # features/step_definitions/web_steps_hssports_sports.rb:31\cf2 \
+    \cf5 And then I click on "Save"\cf4                                                                                         # features/step_definitions/web_steps_hssports_sports.rb:36\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/605af5a179eb4695a974e32d316a7ed2?auth=0bc03af5ae331eb1892f8fd3feaff07c\
+\
+  Scenario: #3 - Chosen sport should now be hidden on the devwww page\cf4                                              # features/hssports_sport.feature:23\cf2 \
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/standings.php?sportid=3" again\cf4  # features/step_definitions/web_steps_hssports_sports.rb:43\cf2 \
+    \cf5 When I click on the dropdown 'Choose a Sport' again\cf4                                                            # features/step_definitions/web_steps_hssports_sports.rb:47\cf2 \
+    \cf5 Then I should NOT see the option "Baseball" in the menu\cf4                                                        # features/step_definitions/web_steps_hssports_sports.rb:52\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/174e1c9e072a4ffdab1f76b95ab139c2?auth=23d3ae961577219c2cd8cfcde791e477\
+\
+  Scenario: #4 - UNHide that sport in the Admin tool\cf4                                                                         # features/hssports_sport.feature:30\cf2 \
+    \cf5 Given I am on the admin tool in the 'Sports' section at "http://prepsportsadmin.azcentral.com/sports" and I login again\cf4  # features/step_definitions/web_steps_hssports_sports.rb:59\cf2 \
+    \cf5 When I click on 'Edit' button next to the sport 'Baseball' again\cf4                                                         # features/step_definitions/web_steps_hssports_sports.rb:67\cf2 \
+    \cf5 And I uncheck the box labeled "Hidden"\cf4                                                                                   # features/step_definitions/web_steps_hssports_sports.rb:72\cf2 \
+    \cf5 And then I click on "Save" again\cf4                                                                                         # features/step_definitions/web_steps_hssports_sports.rb:77\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/105e42d760e54b31953ebbcfbfe623c7?auth=e2f448d509c669b47abe48955f5dd761\
+\
+  Scenario: #5 - Verify that the sport is back on the devwww page\cf4                                                               # features/hssports_sport.feature:38\cf2 \
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/standings.php?sportid=3" for the third time\cf4  # features/step_definitions/web_steps_hssports_sports.rb:84\cf2 \
+    \cf5 When I click on the dropdown 'Choose a Sport' for the third time\cf4                                                            # features/step_definitions/web_steps_hssports_sports.rb:88\cf2 \
+    \cf5 Then I should see the option "Baseball" in the menu for the third time\cf4                                                      # features/step_definitions/web_steps_hssports_sports.rb:93\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/122b79d6fbd245fcaf6744f7bc24724d?auth=5d761c57c863f7ed611d95fca078706c\
+\
+5 scenarios (\cf5 5 passed\cf2 )\
+17 steps (\cf5 17 passed\cf2 )\
+3m46.380s\
+\
+5 scenarios (5 passed)\
+17 steps (17 passed)\
+\
+Took 231 seconds (3:51)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f1\fs24 \cf0 \cb1 \CocoaLigature1 \
+["OS X 10.10", \'93Safari\'94, \'938.0\'94]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Wed Aug 26 22:57:40 on ttys000\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: High School Sports Tests -- Hiding a Sport\
+  \
+  In order to make the new features live on the High School Sports pages\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1 - Find a sport on a devwww page\cf4                                                               # features/hssports_sport.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/standings.php?sportid=3"\cf4  # features/step_definitions/web_steps_hssports_sports.rb:2\cf2 \
+    \cf5 When I click on the dropdown 'Choose a Sport'\cf4                                                            # features/step_definitions/web_steps_hssports_sports.rb:6\cf2 \
+    \cf5 Then I should see the option "Baseball" in the menu\cf4                                                      # features/step_definitions/web_steps_hssports_sports.rb:11\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/1034ad7cc6ba4712bc02c4348bec7d58?auth=25a394d7958cbc4213b039e8931e1c3c\
+\
+  Scenario: #2 - Hide that sport in the Admin tool\cf4                                                                     # features/hssports_sport.feature:15\cf2 \
+    \cf5 Given I am on the admin tool in the 'Sports' section at "http://prepsportsadmin.azcentral.com/sports" and I login\cf4  # features/step_definitions/web_steps_hssports_sports.rb:18\cf2 \
+    \cf5 When I click on 'Edit' button next to the sport 'Baseball'\cf4                                                         # features/step_definitions/web_steps_hssports_sports.rb:26\cf2 \
+    \cf5 And I check the box labeled "Hidden"\cf4                                                                               # features/step_definitions/web_steps_hssports_sports.rb:31\cf2 \
+    \cf5 And then I click on "Save"\cf4                                                                                         # features/step_definitions/web_steps_hssports_sports.rb:36\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/aa6957abb56846a09e07bc12c32368f2?auth=36cbc72ab8003cd6f94198f600d0c6ca\
+\
+  Scenario: #3 - Chosen sport should now be hidden on the devwww page\cf4                                              # features/hssports_sport.feature:23\cf2 \
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/standings.php?sportid=3" again\cf4  # features/step_definitions/web_steps_hssports_sports.rb:43\cf2 \
+    \cf5 When I click on the dropdown 'Choose a Sport' again\cf4                                                            # features/step_definitions/web_steps_hssports_sports.rb:47\cf2 \
+    \cf5 Then I should NOT see the option "Baseball" in the menu\cf4                                                        # features/step_definitions/web_steps_hssports_sports.rb:52\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/35d6d52f3132410d9fbd1614d657276f?auth=be79ed7591507db1898b8b9d325a77c9\
+\
+  Scenario: #4 - UNHide that sport in the Admin tool\cf4                                                                         # features/hssports_sport.feature:30\cf2 \
+    \cf5 Given I am on the admin tool in the 'Sports' section at "http://prepsportsadmin.azcentral.com/sports" and I login again\cf4  # features/step_definitions/web_steps_hssports_sports.rb:59\cf2 \
+    \cf5 When I click on 'Edit' button next to the sport 'Baseball' again\cf4                                                         # features/step_definitions/web_steps_hssports_sports.rb:67\cf2 \
+    \cf5 And I uncheck the box labeled "Hidden"\cf4                                                                                   # features/step_definitions/web_steps_hssports_sports.rb:72\cf2 \
+    \cf5 And then I click on "Save" again\cf4                                                                                         # features/step_definitions/web_steps_hssports_sports.rb:77\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/0cca57de2110460d9364614af002fddc?auth=2e85f959af198cd0417703c6b5d09ec7\
+\
+  Scenario: #5 - Verify that the sport is back on the devwww page\cf4                                                               # features/hssports_sport.feature:38\cf2 \
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/standings.php?sportid=3" for the third time\cf4  # features/step_definitions/web_steps_hssports_sports.rb:84\cf2 \
+    \cf5 When I click on the dropdown 'Choose a Sport' for the third time\cf4                                                            # features/step_definitions/web_steps_hssports_sports.rb:88\cf2 \
+    \cf5 Then I should see the option "Baseball" in the menu for the third time\cf4                                                      # features/step_definitions/web_steps_hssports_sports.rb:93\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/6d467f4c617b4134960981f7e342849c?auth=dffb530feda24bd113f07ceeb8e4642a\
+\
+5 scenarios (\cf5 5 passed\cf2 )\
+17 steps (\cf5 17 passed\cf2 )\
+4m45.653s\
+\
+5 scenarios (5 passed)\
+17 steps (17 passed)\
+\
+Took 292 seconds (4:52)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f1\fs24 \cf0 \cb1 \CocoaLigature1 \
+["OS X 10.10", \'93Chrome\'94, \'9343\'94]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Wed Aug 26 23:04:46 on ttys000\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: High School Sports Tests -- Hiding a Sport\
+  \
+  In order to make the new features live on the High School Sports pages\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1 - Find a sport on a devwww page\cf4                                                               # features/hssports_sport.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/standings.php?sportid=3"\cf4  # features/step_definitions/web_steps_hssports_sports.rb:2\cf2 \
+    \cf5 When I click on the dropdown 'Choose a Sport'\cf4                                                            # features/step_definitions/web_steps_hssports_sports.rb:6\cf2 \
+    \cf5 Then I should see the option "Baseball" in the menu\cf4                                                      # features/step_definitions/web_steps_hssports_sports.rb:11\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/47e2b14a9dbb49f8b51cbb38bc3bcfaa?auth=97d4f7b336ac6014489e9820424f8896\
+\
+  Scenario: #2 - Hide that sport in the Admin tool\cf4                                                                     # features/hssports_sport.feature:15\cf2 \
+    \cf5 Given I am on the admin tool in the 'Sports' section at "http://prepsportsadmin.azcentral.com/sports" and I login\cf4  # features/step_definitions/web_steps_hssports_sports.rb:18\cf2 \
+    \cf5 When I click on 'Edit' button next to the sport 'Baseball'\cf4                                                         # features/step_definitions/web_steps_hssports_sports.rb:26\cf2 \
+    \cf5 And I check the box labeled "Hidden"\cf4                                                                               # features/step_definitions/web_steps_hssports_sports.rb:31\cf2 \
+    \cf5 And then I click on "Save"\cf4                                                                                         # features/step_definitions/web_steps_hssports_sports.rb:36\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/cd78cf884d9d482faaa321d09a7382c5?auth=b679af674157fa86ba53193756988d62\
+\
+  Scenario: #3 - Chosen sport should now be hidden on the devwww page\cf4                                              # features/hssports_sport.feature:23\cf2 \
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/standings.php?sportid=3" again\cf4  # features/step_definitions/web_steps_hssports_sports.rb:43\cf2 \
+    \cf5 When I click on the dropdown 'Choose a Sport' again\cf4                                                            # features/step_definitions/web_steps_hssports_sports.rb:47\cf2 \
+    \cf5 Then I should NOT see the option "Baseball" in the menu\cf4                                                        # features/step_definitions/web_steps_hssports_sports.rb:52\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/553a4ed4a51a430485d12a4059e96c60?auth=703fde33b879a9e4dcd09661793bc00c\
+\
+  Scenario: #4 - UNHide that sport in the Admin tool\cf4                                                                         # features/hssports_sport.feature:30\cf2 \
+    \cf5 Given I am on the admin tool in the 'Sports' section at "http://prepsportsadmin.azcentral.com/sports" and I login again\cf4  # features/step_definitions/web_steps_hssports_sports.rb:59\cf2 \
+    \cf5 When I click on 'Edit' button next to the sport 'Baseball' again\cf4                                                         # features/step_definitions/web_steps_hssports_sports.rb:67\cf2 \
+    \cf5 And I uncheck the box labeled "Hidden"\cf4                                                                                   # features/step_definitions/web_steps_hssports_sports.rb:72\cf2 \
+    \cf5 And then I click on "Save" again\cf4                                                                                         # features/step_definitions/web_steps_hssports_sports.rb:77\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/cdd38e98f53c4ca496da64181e414b15?auth=db7133f7d860832d99c476e0e761c162\
+\
+  Scenario: #5 - Verify that the sport is back on the devwww page\cf4                                                               # features/hssports_sport.feature:38\cf2 \
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/standings.php?sportid=3" for the third time\cf4  # features/step_definitions/web_steps_hssports_sports.rb:84\cf2 \
+    \cf5 When I click on the dropdown 'Choose a Sport' for the third time\cf4                                                            # features/step_definitions/web_steps_hssports_sports.rb:88\cf2 \
+    \cf5 Then I should see the option "Baseball" in the menu for the third time\cf4                                                      # features/step_definitions/web_steps_hssports_sports.rb:93\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/9aa0996f8ae748619f3d4c749188d3c2?auth=b0ebe43053d2d112619e9ce93eb7a5f4\
+\
+5 scenarios (\cf5 5 passed\cf2 )\
+17 steps (\cf5 17 passed\cf2 )\
+4m6.584s\
+\
+5 scenarios (5 passed)\
+17 steps (17 passed)\
+\
+Took 252 seconds (4:12)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f1\fs24 \cf0 \cb1 \CocoaLigature1 \
+["OS X 10.10", "Firefox", \'9339\'94]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Thu Aug 27 12:40:59 on ttys000\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: High School Sports Tests -- Hiding a Sport\
+  \
+  In order to make the new features live on the High School Sports pages\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1 - Find a sport on a devwww page\cf4                                                               # features/hssports_sport.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/standings.php?sportid=3"\cf4  # features/step_definitions/web_steps_hssports_sports.rb:2\cf2 \
+    \cf5 When I click on the dropdown 'Choose a Sport'\cf4                                                            # features/step_definitions/web_steps_hssports_sports.rb:6\cf2 \
+    \cf5 Then I should see the option "Baseball" in the menu\cf4                                                      # features/step_definitions/web_steps_hssports_sports.rb:11\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/f6bf4dfb7c2e45979b4dda3ab5dcd1ed?auth=3f6c83f181df4af2fe99f96863faac9a\
+\
+  Scenario: #2 - Hide that sport in the Admin tool\cf4                                                                     # features/hssports_sport.feature:15\cf2 \
+    \cf5 Given I am on the admin tool in the 'Sports' section at "http://prepsportsadmin.azcentral.com/sports" and I login\cf4  # features/step_definitions/web_steps_hssports_sports.rb:18\cf2 \
+    \cf5 When I click on 'Edit' button next to the sport 'Baseball'\cf4                                                         # features/step_definitions/web_steps_hssports_sports.rb:26\cf2 \
+    \cf5 And I check the box labeled "Hidden"\cf4                                                                               # features/step_definitions/web_steps_hssports_sports.rb:31\cf2 \
+    \cf5 And then I click on "Save"\cf4                                                                                         # features/step_definitions/web_steps_hssports_sports.rb:36\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/040b0984b91943f98a92f2411f9b93a5?auth=a3b7e31b9792552b71216266659de7ca\
+\
+  Scenario: #3 - Chosen sport should now be hidden on the devwww page\cf4                                              # features/hssports_sport.feature:23\cf2 \
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/standings.php?sportid=3" again\cf4  # features/step_definitions/web_steps_hssports_sports.rb:43\cf2 \
+    \cf5 When I click on the dropdown 'Choose a Sport' again\cf4                                                            # features/step_definitions/web_steps_hssports_sports.rb:47\cf2 \
+    \cf5 Then I should NOT see the option "Baseball" in the menu\cf4                                                        # features/step_definitions/web_steps_hssports_sports.rb:52\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/73e80b1a0fe14f06abc5732f696b2c34?auth=48f680c7586019a08f72480f8e445e4f\
+\
+  Scenario: #4 - UNHide that sport in the Admin tool\cf4                                                                         # features/hssports_sport.feature:30\cf2 \
+    \cf5 Given I am on the admin tool in the 'Sports' section at "http://prepsportsadmin.azcentral.com/sports" and I login again\cf4  # features/step_definitions/web_steps_hssports_sports.rb:59\cf2 \
+    \cf5 When I click on 'Edit' button next to the sport 'Baseball' again\cf4                                                         # features/step_definitions/web_steps_hssports_sports.rb:67\cf2 \
+    \cf5 And I uncheck the box labeled "Hidden"\cf4                                                                                   # features/step_definitions/web_steps_hssports_sports.rb:72\cf2 \
+    \cf5 And then I click on "Save" again\cf4                                                                                         # features/step_definitions/web_steps_hssports_sports.rb:77\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/b800656805fe4880881777a069db42f8?auth=6c1a2ca40b0d117c446aebf13340daa1\
+\
+  Scenario: #5 - Verify that the sport is back on the devwww page\cf4                                                               # features/hssports_sport.feature:38\cf2 \
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/standings.php?sportid=3" for the third time\cf4  # features/step_definitions/web_steps_hssports_sports.rb:84\cf2 \
+    \cf5 When I click on the dropdown 'Choose a Sport' for the third time\cf4                                                            # features/step_definitions/web_steps_hssports_sports.rb:88\cf2 \
+    \cf5 Then I should see the option "Baseball" in the menu for the third time\cf4                                                      # features/step_definitions/web_steps_hssports_sports.rb:93\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/622decb20d7c48de8f780d8492d4e555?auth=c108f98738d684a9de2d57c271cf5cf3\
+\
+5 scenarios (\cf5 5 passed\cf2 )\
+17 steps (\cf5 17 passed\cf2 )\
+4m17.227s\
+\
+5 scenarios (5 passed)\
+17 steps (17 passed)\
+\
+Took 262 seconds (4:22)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f1\fs24 \cf0 \cb1 \CocoaLigature1 \
+["OS X 10.10", "iPhone", "8.2", \{:deviceName => 'iPhone Simulator'\}]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Wed Aug 26 23:56:16 on ttys000\
+^[[B^[[Apni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: High School Sports Tests -- Hiding a Sport\
+  \
+  In order to make the new features live on the High School Sports pages\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1 - Find a sport on a devwww page\cf4                                                               # features/hssports_sport.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/standings.php?sportid=3"\cf4  # features/step_definitions/web_steps_hssports_sports.rb:2\cf2 \
+    \cf5 When I click on the dropdown 'Choose a Sport'\cf4                                                            # features/step_definitions/web_steps_hssports_sports.rb:6\cf2 \
+    \cf5 Then I should see the option "Baseball" in the menu\cf4                                                      # features/step_definitions/web_steps_hssports_sports.rb:11\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/47d73c1bc13d43d5b3d36fbc71eecbf0?auth=a41ca74ae97f976c3ab696ad5f20f528\
+\
+  Scenario: #2 - Hide that sport in the Admin tool\cf4                                                                     # features/hssports_sport.feature:15\cf2 \
+    \cf5 Given I am on the admin tool in the 'Sports' section at "http://prepsportsadmin.azcentral.com/sports" and I login\cf4  # features/step_definitions/web_steps_hssports_sports.rb:18\cf2 \
+    \cf5 When I click on 'Edit' button next to the sport 'Baseball'\cf4                                                         # features/step_definitions/web_steps_hssports_sports.rb:26\cf2 \
+    \cf5 And I check the box labeled "Hidden"\cf4                                                                               # features/step_definitions/web_steps_hssports_sports.rb:31\cf2 \
+    \cf5 And then I click on "Save"\cf4                                                                                         # features/step_definitions/web_steps_hssports_sports.rb:36\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/62818b65a5b74f3b90eee30eff06ee7c?auth=edb2d253dcfbe472b9d7eb5c6d18191f\
+\
+  Scenario: #3 - Chosen sport should now be hidden on the devwww page\cf4                                              # features/hssports_sport.feature:23\cf2 \
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/standings.php?sportid=3" again\cf4  # features/step_definitions/web_steps_hssports_sports.rb:43\cf2 \
+    \cf5 When I click on the dropdown 'Choose a Sport' again\cf4                                                            # features/step_definitions/web_steps_hssports_sports.rb:47\cf2 \
+    \cf5 Then I should NOT see the option "Baseball" in the menu\cf4                                                        # features/step_definitions/web_steps_hssports_sports.rb:52\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/741574e6795f4242b790090c8cb20fd3?auth=86c2315b7e0cbe3a09f35cd0f7a1042f\
+\
+  Scenario: #4 - UNHide that sport in the Admin tool\cf4                                                                         # features/hssports_sport.feature:30\cf2 \
+    \cf5 Given I am on the admin tool in the 'Sports' section at "http://prepsportsadmin.azcentral.com/sports" and I login again\cf4  # features/step_definitions/web_steps_hssports_sports.rb:59\cf2 \
+    \cf5 When I click on 'Edit' button next to the sport 'Baseball' again\cf4                                                         # features/step_definitions/web_steps_hssports_sports.rb:67\cf2 \
+    \cf5 And I uncheck the box labeled "Hidden"\cf4                                                                                   # features/step_definitions/web_steps_hssports_sports.rb:72\cf2 \
+    \cf5 And then I click on "Save" again\cf4                                                                                         # features/step_definitions/web_steps_hssports_sports.rb:77\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/12fc2898dffa40c1bfcc0e73bdbe769f?auth=ed845e276083011896736b144e10580f\
+\
+  Scenario: #5 - Verify that the sport is back on the devwww page\cf4                                                               # features/hssports_sport.feature:38\cf2 \
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/standings.php?sportid=3" for the third time\cf4  # features/step_definitions/web_steps_hssports_sports.rb:84\cf2 \
+    \cf5 When I click on the dropdown 'Choose a Sport' for the third time\cf4                                                            # features/step_definitions/web_steps_hssports_sports.rb:88\cf2 \
+    \cf5 Then I should see the option "Baseball" in the menu for the third time\cf4                                                      # features/step_definitions/web_steps_hssports_sports.rb:93\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/b739244560a9431fa450936be8596dfb?auth=fbeaf021c262cc0feb69083b28efc4f9\
+\
+5 scenarios (\cf5 5 passed\cf2 )\
+17 steps (\cf5 17 passed\cf2 )\
+11m2.839s\
+\
+5 scenarios (5 passed)\
+17 steps (17 passed)\
+\
+Took 670 seconds (11:10)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f1\fs24 \cf0 \cb1 \CocoaLigature1 \
+["OS X 10.10", "iPhone", "8.2", \{:deviceName => 'iPad Simulator'\}]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Thu Aug 27 00:01:56 on ttys000\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: High School Sports Tests -- Hiding a Sport\
+  \
+  In order to make the new features live on the High School Sports pages\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1 - Find a sport on a devwww page\cf4                                                               # features/hssports_sport.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/standings.php?sportid=3"\cf4  # features/step_definitions/web_steps_hssports_sports.rb:2\cf2 \
+    \cf5 When I click on the dropdown 'Choose a Sport'\cf4                                                            # features/step_definitions/web_steps_hssports_sports.rb:6\cf2 \
+    \cf5 Then I should see the option "Baseball" in the menu\cf4                                                      # features/step_definitions/web_steps_hssports_sports.rb:11\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/ca1650bac7f943b4be377b7e90d19dae?auth=b9d1d8511d6df056b3447ff028599ec0\
+\
+  Scenario: #2 - Hide that sport in the Admin tool\cf4                                                                     # features/hssports_sport.feature:15\cf2 \
+    \cf5 Given I am on the admin tool in the 'Sports' section at "http://prepsportsadmin.azcentral.com/sports" and I login\cf4  # features/step_definitions/web_steps_hssports_sports.rb:18\cf2 \
+    \cf5 When I click on 'Edit' button next to the sport 'Baseball'\cf4                                                         # features/step_definitions/web_steps_hssports_sports.rb:26\cf2 \
+    \cf5 And I check the box labeled "Hidden"\cf4                                                                               # features/step_definitions/web_steps_hssports_sports.rb:31\cf2 \
+    \cf5 And then I click on "Save"\cf4                                                                                         # features/step_definitions/web_steps_hssports_sports.rb:36\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/dc5ca2f60f064490bb320ebb2712fc8d?auth=d979078c747eb34a6bcd015321c3c425\
+\
+  Scenario: #3 - Chosen sport should now be hidden on the devwww page\cf4                                              # features/hssports_sport.feature:23\cf2 \
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/standings.php?sportid=3" again\cf4  # features/step_definitions/web_steps_hssports_sports.rb:43\cf2 \
+    \cf5 When I click on the dropdown 'Choose a Sport' again\cf4                                                            # features/step_definitions/web_steps_hssports_sports.rb:47\cf2 \
+    \cf5 Then I should NOT see the option "Baseball" in the menu\cf4                                                        # features/step_definitions/web_steps_hssports_sports.rb:52\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/ede158cb95b2495bbdd9d35ad40fdbf9?auth=f55fe5bc8f35e71c0c1c070106ea4cdb\
+\
+  Scenario: #4 - UNHide that sport in the Admin tool\cf4                                                                         # features/hssports_sport.feature:30\cf2 \
+    \cf5 Given I am on the admin tool in the 'Sports' section at "http://prepsportsadmin.azcentral.com/sports" and I login again\cf4  # features/step_definitions/web_steps_hssports_sports.rb:59\cf2 \
+    \cf5 When I click on 'Edit' button next to the sport 'Baseball' again\cf4                                                         # features/step_definitions/web_steps_hssports_sports.rb:67\cf2 \
+    \cf5 And I uncheck the box labeled "Hidden"\cf4                                                                                   # features/step_definitions/web_steps_hssports_sports.rb:72\cf2 \
+    \cf5 And then I click on "Save" again\cf4                                                                                         # features/step_definitions/web_steps_hssports_sports.rb:77\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/6ef2bd8e5e0745dea7c4dff83a5b966f?auth=89446b4065562b1283285d6f2eb84df2\
+\
+  Scenario: #5 - Verify that the sport is back on the devwww page\cf4                                                               # features/hssports_sport.feature:38\cf2 \
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/standings.php?sportid=3" for the third time\cf4  # features/step_definitions/web_steps_hssports_sports.rb:84\cf2 \
+    \cf5 When I click on the dropdown 'Choose a Sport' for the third time\cf4                                                            # features/step_definitions/web_steps_hssports_sports.rb:88\cf2 \
+    \cf5 Then I should see the option "Baseball" in the menu for the third time\cf4                                                      # features/step_definitions/web_steps_hssports_sports.rb:93\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/88a5dfa762af4a98907eb84d5d3ea088?auth=428fc65453329f360a5abfbd3f5bfe9e\
+\
+5 scenarios (\cf5 5 passed\cf2 )\
+17 steps (\cf5 17 passed\cf2 )\
+12m30.476s\
+\
+5 scenarios (5 passed)\
+17 steps (17 passed)\
+\
+Took 756 seconds (12:36)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f1\fs24 \cf0 \cb1 \CocoaLigature1 \
+["Linux", "Android", "5.1", \{:deviceName => 'Android Emulator'\}]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Thu Aug 27 12:58:26 on ttys000\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: High School Sports Tests -- Hiding a Sport\
+  \
+  In order to make the new features live on the High School Sports pages\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1 - Find a sport on a devwww page\cf4                                                               # features/hssports_sport.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/standings.php?sportid=3"\cf4  # features/step_definitions/web_steps_hssports_sports.rb:2\cf2 \
+    \cf5 When I click on the dropdown 'Choose a Sport'\cf4                                                            # features/step_definitions/web_steps_hssports_sports.rb:6\cf2 \
+    \cf5 Then I should see the option "Baseball" in the menu\cf4                                                      # features/step_definitions/web_steps_hssports_sports.rb:11\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/c2598f7b18cd4bce8a81114310ce6471?auth=c82e4a8754fecf6ba1b7219abd043e3b\
+\
+  Scenario: #2 - Hide that sport in the Admin tool\cf4                                                                     # features/hssports_sport.feature:15\cf2 \
+    \cf6 Given I am on the admin tool in the 'Sports' section at "http://prepsportsadmin.azcentral.com/sports" and I login\cf4  # features/step_definitions/web_steps_hssports_sports.rb:18\cf2 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf6       underlying webdriver instance does not support javascript (Selenium::WebDriver::Error::UnsupportedOperationError)\cf2 \
+\cf6       ./features/step_definitions/web_steps_hssports_sports.rb:20:in `/^I am on the admin tool in the 'Sports' section at "(.*?)" and I login$/'\cf2 \
+\cf6       features/hssports_sport.feature:17:in `Given I am on the admin tool in the 'Sports' section at "http://prepsportsadmin.azcentral.com/sports" and I login'\cf2 \
+    \cf3 When I click on 'Edit' button next to the sport 'Baseball'\cf4                                                         # features/step_definitions/web_steps_hssports_sports.rb:26\cf2 \
+    \cf3 And I check the box labeled "Hidden"\cf4                                                                               # features/step_definitions/web_steps_hssports_sports.rb:31\cf2 \
+    \cf3 And then I click on "Save"\cf4                                                                                         # features/step_definitions/web_steps_hssports_sports.rb:36\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/29efa6bc9ec74a8b8de4e0cd7464e350?auth=bd12e47db861bc04d04c634695a71ff4\
+\
+  Scenario: #3 - Chosen sport should now be hidden on the devwww page\cf4                                              # features/hssports_sport.feature:23\cf2 \
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/standings.php?sportid=3" again\cf4  # features/step_definitions/web_steps_hssports_sports.rb:43\cf2 \
+    \cf5 When I click on the dropdown 'Choose a Sport' again\cf4                                                            # features/step_definitions/web_steps_hssports_sports.rb:47\cf2 \
+    \cf6 Then I should NOT see the option "Baseball" in the menu\cf4                                                        # features/step_definitions/web_steps_hssports_sports.rb:52\cf2 \
+\cf6       expected #has_no_content?("Baseball") to return true, got false (RSpec::Expectations::ExpectationNotMetError)\cf2 \
+\cf6       ./features/step_definitions/web_steps_hssports_sports.rb:53:in `/^I should NOT see the option "(.*?)" in the menu$/'\cf2 \
+\cf6       features/hssports_sport.feature:27:in `Then I should NOT see the option "Baseball" in the menu'\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/295470d949fa411ebc1501b59a669954?auth=7d31de055d0cbfd0c00ca8c02244c010\
+\
+  Scenario: #4 - UNHide that sport in the Admin tool\cf4                                                                         # features/hssports_sport.feature:30\cf2 \
+    \cf6 Given I am on the admin tool in the 'Sports' section at "http://prepsportsadmin.azcentral.com/sports" and I login again\cf4  # features/step_definitions/web_steps_hssports_sports.rb:59\cf2 \
+\cf6       underlying webdriver instance does not support javascript (Selenium::WebDriver::Error::UnsupportedOperationError)\cf2 \
+\cf6       ./features/step_definitions/web_steps_hssports_sports.rb:61:in `/^I am on the admin tool in the 'Sports' section at "(.*?)" and I login again$/'\cf2 \
+\cf6       features/hssports_sport.feature:32:in `Given I am on the admin tool in the 'Sports' section at "http://prepsportsadmin.azcentral.com/sports" and I login again'\cf2 \
+    \cf3 When I click on 'Edit' button next to the sport 'Baseball' again\cf4                                                         # features/step_definitions/web_steps_hssports_sports.rb:67\cf2 \
+    \cf3 And I uncheck the box labeled "Hidden"\cf4                                                                                   # features/step_definitions/web_steps_hssports_sports.rb:72\cf2 \
+    \cf3 And then I click on "Save" again\cf4                                                                                         # features/step_definitions/web_steps_hssports_sports.rb:77\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/4a2d4fc2118c4ce4804fedd5f3998bc2?auth=2e9f93d990b1341420cacd0ac04d2afc\
+\
+  Scenario: #5 - Verify that the sport is back on the devwww page\cf4                                                               # features/hssports_sport.feature:38\cf2 \
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/standings.php?sportid=3" for the third time\cf4  # features/step_definitions/web_steps_hssports_sports.rb:84\cf2 \
+    \cf5 When I click on the dropdown 'Choose a Sport' for the third time\cf4                                                            # features/step_definitions/web_steps_hssports_sports.rb:88\cf2 \
+    \cf5 Then I should see the option "Baseball" in the menu for the third time\cf4                                                      # features/step_definitions/web_steps_hssports_sports.rb:93\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/1d54c6e8dbec4c31999dac6033ad61d5?auth=cfe111d1221e9cbb27ec6952a4c3b260\
+\
+\cf6 Failing Scenarios:\cf2 \
+\cf6 cucumber features/hssports_sport.feature:15\cf4  # Scenario: #2 - Hide that sport in the Admin tool\cf2 \
+\cf6 cucumber features/hssports_sport.feature:23\cf4  # Scenario: #3 - Chosen sport should now be hidden on the devwww page\cf2 \
+\cf6 cucumber features/hssports_sport.feature:30\cf4  # Scenario: #4 - UNHide that sport in the Admin tool\cf2 \
+\
+5 scenarios (\cf6 3 failed\cf2 , \cf5 2 passed\cf2 )\
+17 steps (\cf6 3 failed\cf2 , \cf3 6 skipped\cf2 , \cf5 8 passed\cf2 )\
+6m30.218s\
+\
+Failing Scenarios:\
+cucumber features/hssports_sport.feature:15 # Scenario: #2 - Hide that sport in the Admin tool\
+cucumber features/hssports_sport.feature:23 # Scenario: #3 - Chosen sport should now be hidden on the devwww page\
+cucumber features/hssports_sport.feature:30 # Scenario: #4 - UNHide that sport in the Admin tool\
+\
+5 scenarios (3 failed, 2 passed)\
+17 steps (3 failed, 6 skipped, 8 passed)\
+\
+Took 396 seconds (6:36)\
+\cf6 cucumbers Failed\cf2 \
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f1\fs24 \cf0 \cb1 \CocoaLigature1 \
+\
+\
+\
+\
+}
