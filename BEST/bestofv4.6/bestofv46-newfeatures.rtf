@@ -1,0 +1,402 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red242\green242\blue242;\red46\green174\blue187;\red111\green111\blue111;
+\red47\green180\blue29;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 ["Windows 8.1", "Internet Explorer", "11"]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Thu Sep  3 13:47:12 on ttys000\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: AZC's Best 2014 New Features v4.6 Tests\
+  \
+  In order to make the new features live on the 2014 Azcentral's Best\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1) Email Feature\cf4                                                         # features/bestofv46new.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am on "http://devbestof.azcentral.com/winners/2014/"\cf4                      # features/step_definitions/web_steps_bestofv46.rb:2\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                                         # features/step_definitions/web_steps_bestofv46.rb:7\cf2 \
+    \cf5 Then I also click on the "Best film festival" link\cf4                                # features/step_definitions/web_steps_bestofv46.rb:12\cf2 \
+    \cf5 Then I should see the 'Send' email link contain the correct 'mailto' information\cf4  # features/step_definitions/web_steps_bestofv46.rb:17\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/3ef6b5904cc94b57ae1e34114c78050b?auth=d3f7362709bb4ae91abce45ce0a7188c\
+\
+  Scenario: #2) "RED ALERT" Feature\cf4                               # features/bestofv46new.feature:16\cf2 \
+    \cf5 Given I am on "http://devbestof.azcentral.com/winners/2014/"\cf4  # features/step_definitions/web_steps_bestofv46.rb:2\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                     # features/step_definitions/web_steps_bestofv46.rb:7\cf2 \
+    \cf5 Then I also click on the "Best film festival" link\cf4            # features/step_definitions/web_steps_bestofv46.rb:12\cf2 \
+    \cf5 Then I click on the 'Next Article' arrow five times\cf4           # features/step_definitions/web_steps_bestofv46.rb:24\cf2 \
+    \cf5 Then I should see the text "5 free articles left"\cf4             # features/step_definitions/web_steps_bestofv46.rb:39\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/f7fbbc3605c1422f951eb47c218598fe?auth=8e9ae528a1360174db441f3164af3c4e\
+\
+2 scenarios (\cf5 2 passed\cf2 )\
+9 steps (\cf5 9 passed\cf2 )\
+1m47.406s\
+\
+2 scenarios (2 passed)\
+9 steps (9 passed)\
+\
+Took 112 seconds (1:52)\
+pni-dig-129098:sauce_ruby temre$ \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+["Windows 8.1", "Firefox", "38"]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Thu Sep  3 16:33:17 on ttys000\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: AZC's Best 2014 New Features v4.6 Tests\
+  \
+  In order to make the new features live on the 2014 Azcentral's Best\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1) Email Feature\cf4                                                         # features/bestofv46new.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am on "http://devbestof.azcentral.com/winners/2014/"\cf4                      # features/step_definitions/web_steps_bestofv46.rb:2\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                                         # features/step_definitions/web_steps_bestofv46.rb:7\cf2 \
+    \cf5 Then I also click on the "Best film festival" link\cf4                                # features/step_definitions/web_steps_bestofv46.rb:12\cf2 \
+    \cf5 Then I should see the 'Send' email link contain the correct 'mailto' information\cf4  # features/step_definitions/web_steps_bestofv46.rb:17\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/959affc5e63445ca8d7b75dfecdc789a?auth=8048bbabee0a83b1d08321dbaacbc63a\
+\
+  Scenario: #2) "RED ALERT" Feature\cf4                               # features/bestofv46new.feature:16\cf2 \
+    \cf5 Given I am on "http://devbestof.azcentral.com/winners/2014/"\cf4  # features/step_definitions/web_steps_bestofv46.rb:2\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                     # features/step_definitions/web_steps_bestofv46.rb:7\cf2 \
+    \cf5 Then I also click on the "Best film festival" link\cf4            # features/step_definitions/web_steps_bestofv46.rb:12\cf2 \
+    \cf5 Then I click on the 'Next Article' arrow five times\cf4           # features/step_definitions/web_steps_bestofv46.rb:24\cf2 \
+    \cf5 Then I should see the text "5 free articles left"\cf4             # features/step_definitions/web_steps_bestofv46.rb:39\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/79b44eb4ead84b36b1fffeca65dfa7cb?auth=6e3279313f267fa6a0b6dc897c49f979\
+\
+2 scenarios (\cf5 2 passed\cf2 )\
+9 steps (\cf5 9 passed\cf2 )\
+2m10.381s\
+\
+2 scenarios (2 passed)\
+9 steps (9 passed)\
+\
+Took 135 seconds (2:15)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+["Windows 8.1", "Chrome", 43]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Thu Sep  3 16:37:31 on ttys000\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: AZC's Best 2014 New Features v4.6 Tests\
+  \
+  In order to make the new features live on the 2014 Azcentral's Best\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1) Email Feature\cf4                                                         # features/bestofv46new.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am on "http://devbestof.azcentral.com/winners/2014/"\cf4                      # features/step_definitions/web_steps_bestofv46.rb:2\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                                         # features/step_definitions/web_steps_bestofv46.rb:7\cf2 \
+    \cf5 Then I also click on the "Best film festival" link\cf4                                # features/step_definitions/web_steps_bestofv46.rb:12\cf2 \
+    \cf5 Then I should see the 'Send' email link contain the correct 'mailto' information\cf4  # features/step_definitions/web_steps_bestofv46.rb:17\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/a85fca6aea304596bcef3b264aeb50cd?auth=d421b395e65ae74e74931ac1d6a4d756\
+\
+  Scenario: #2) "RED ALERT" Feature\cf4                               # features/bestofv46new.feature:16\cf2 \
+    \cf5 Given I am on "http://devbestof.azcentral.com/winners/2014/"\cf4  # features/step_definitions/web_steps_bestofv46.rb:2\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                     # features/step_definitions/web_steps_bestofv46.rb:7\cf2 \
+    \cf5 Then I also click on the "Best film festival" link\cf4            # features/step_definitions/web_steps_bestofv46.rb:12\cf2 \
+    \cf5 Then I click on the 'Next Article' arrow five times\cf4           # features/step_definitions/web_steps_bestofv46.rb:24\cf2 \
+    \cf5 Then I should see the text "5 free articles left"\cf4             # features/step_definitions/web_steps_bestofv46.rb:39\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/4412b1f3981143289c210b71a2a7766f?auth=a6197a37099f2c9b800d9624f4cda231\
+\
+2 scenarios (\cf5 2 passed\cf2 )\
+9 steps (\cf5 9 passed\cf2 )\
+1m40.486s\
+\
+2 scenarios (2 passed)\
+9 steps (9 passed)\
+\
+Took 106 seconds (1:46)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+["OS X 10.10", "Safari", "8.0"]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Thu Sep  3 16:41:19 on ttys000\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: AZC's Best 2014 New Features v4.6 Tests\
+  \
+  In order to make the new features live on the 2014 Azcentral's Best\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1) Email Feature\cf4                                                         # features/bestofv46new.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am on "http://devbestof.azcentral.com/winners/2014/"\cf4                      # features/step_definitions/web_steps_bestofv46.rb:2\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                                         # features/step_definitions/web_steps_bestofv46.rb:7\cf2 \
+    \cf5 Then I also click on the "Best film festival" link\cf4                                # features/step_definitions/web_steps_bestofv46.rb:12\cf2 \
+    \cf5 Then I should see the 'Send' email link contain the correct 'mailto' information\cf4  # features/step_definitions/web_steps_bestofv46.rb:17\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/58141712e1a34494be82a514554f43f3?auth=cc733777de26fb6b82f29ed0647445c9\
+\
+  Scenario: #2) "RED ALERT" Feature\cf4                               # features/bestofv46new.feature:16\cf2 \
+    \cf5 Given I am on "http://devbestof.azcentral.com/winners/2014/"\cf4  # features/step_definitions/web_steps_bestofv46.rb:2\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                     # features/step_definitions/web_steps_bestofv46.rb:7\cf2 \
+    \cf5 Then I also click on the "Best film festival" link\cf4            # features/step_definitions/web_steps_bestofv46.rb:12\cf2 \
+    \cf5 Then I click on the 'Next Article' arrow five times\cf4           # features/step_definitions/web_steps_bestofv46.rb:24\cf2 \
+    \cf5 Then I should see the text "5 free articles left"\cf4             # features/step_definitions/web_steps_bestofv46.rb:39\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/da20237119f541d5a32255d73afa1f30?auth=493488743e6d12ab107eb2839cb629db\
+\
+2 scenarios (\cf5 2 passed\cf2 )\
+9 steps (\cf5 9 passed\cf2 )\
+1m57.934s\
+\
+2 scenarios (2 passed)\
+9 steps (9 passed)\
+\
+Took 123 seconds (2:03)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+["OS X 10.10", "Chrome", 43]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Thu Sep  3 16:51:33 on ttys000\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: AZC's Best 2014 New Features v4.6 Tests\
+  \
+  In order to make the new features live on the 2014 Azcentral's Best\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1) Email Feature\cf4                                                         # features/bestofv46new.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am on "http://devbestof.azcentral.com/winners/2014/"\cf4                      # features/step_definitions/web_steps_bestofv46.rb:2\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                                         # features/step_definitions/web_steps_bestofv46.rb:7\cf2 \
+    \cf5 Then I also click on the "Best film festival" link\cf4                                # features/step_definitions/web_steps_bestofv46.rb:12\cf2 \
+    \cf5 Then I should see the 'Send' email link contain the correct 'mailto' information\cf4  # features/step_definitions/web_steps_bestofv46.rb:17\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/c5b85f00fb8a4364b17000a3f4624fd8?auth=ddc746876f1bcdedc5169600e174e769\
+\
+  Scenario: #2) "RED ALERT" Feature\cf4                               # features/bestofv46new.feature:16\cf2 \
+    \cf5 Given I am on "http://devbestof.azcentral.com/winners/2014/"\cf4  # features/step_definitions/web_steps_bestofv46.rb:2\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                     # features/step_definitions/web_steps_bestofv46.rb:7\cf2 \
+    \cf5 Then I also click on the "Best film festival" link\cf4            # features/step_definitions/web_steps_bestofv46.rb:12\cf2 \
+    \cf5 Then I click on the 'Next Article' arrow five times\cf4           # features/step_definitions/web_steps_bestofv46.rb:24\cf2 \
+    \cf5 Then I should see the text "5 free articles left"\cf4             # features/step_definitions/web_steps_bestofv46.rb:39\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/acf4c708fbb54771b529dddf6ad4a9f2?auth=5d45843b1e2fc944a49bef268683f7a9\
+\
+2 scenarios (\cf5 2 passed\cf2 )\
+9 steps (\cf5 9 passed\cf2 )\
+2m1.533s\
+\
+2 scenarios (2 passed)\
+9 steps (9 passed)\
+\
+Took 128 seconds (2:08)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+["OS X 10.10", "Firefox", "39"]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Thu Sep  3 17:04:12 on ttys000\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: AZC's Best 2014 New Features v4.6 Tests\
+  \
+  In order to make the new features live on the 2014 Azcentral's Best\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1) Email Feature\cf4                                                         # features/bestofv46new.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am on "http://devbestof.azcentral.com/winners/2014/"\cf4                      # features/step_definitions/web_steps_bestofv46.rb:2\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                                         # features/step_definitions/web_steps_bestofv46.rb:7\cf2 \
+    \cf5 Then I also click on the "Best film festival" link\cf4                                # features/step_definitions/web_steps_bestofv46.rb:12\cf2 \
+    \cf5 Then I should see the 'Send' email link contain the correct 'mailto' information\cf4  # features/step_definitions/web_steps_bestofv46.rb:17\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/74e96bd5bbca476796867e2d9b491fbd?auth=2db2174df2bb1a1c478a3d22432215b8\
+\
+  Scenario: #2) "RED ALERT" Feature\cf4                               # features/bestofv46new.feature:16\cf2 \
+    \cf5 Given I am on "http://devbestof.azcentral.com/winners/2014/"\cf4  # features/step_definitions/web_steps_bestofv46.rb:2\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                     # features/step_definitions/web_steps_bestofv46.rb:7\cf2 \
+    \cf5 Then I also click on the "Best film festival" link\cf4            # features/step_definitions/web_steps_bestofv46.rb:12\cf2 \
+    \cf5 Then I click on the 'Next Article' arrow five times\cf4           # features/step_definitions/web_steps_bestofv46.rb:24\cf2 \
+    \cf5 Then I should see the text "5 free articles left"\cf4             # features/step_definitions/web_steps_bestofv46.rb:39\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/6faa4f352d474c9e85dbfd7c882e4e63?auth=7b9757b4be0b098b166b9a14f3f01251\
+\
+2 scenarios (\cf5 2 passed\cf2 )\
+9 steps (\cf5 9 passed\cf2 )\
+1m54.910s\
+\
+2 scenarios (2 passed)\
+9 steps (9 passed)\
+\
+Took 121 seconds (2:01)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+["OS X 10.10", "iPhone", "8.2", \{:deviceName => 'iPhone Simulator'\}]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Thu Sep  3 18:08:07 on ttys000\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: AZC's Best 2014 New Features v4.6 Tests\
+  \
+  In order to make the new features live on the 2014 Azcentral's Best\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1) Email Feature\cf4                                                         # features/bestofv46new.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am on "http://devbestof.azcentral.com/winners/2014/"\cf4                      # features/step_definitions/web_steps_bestofv46.rb:2\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                                         # features/step_definitions/web_steps_bestofv46.rb:7\cf2 \
+    \cf5 Then I also click on the "Best film festival" link\cf4                                # features/step_definitions/web_steps_bestofv46.rb:12\cf2 \
+    \cf5 Then I should see the 'Send' email link contain the correct 'mailto' information\cf4  # features/step_definitions/web_steps_bestofv46.rb:17\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/9d5db2a23c854aa4af447ca51963eb3d?auth=6b67f13ef1952afc1e815c6f0cf7d690\
+\
+  Scenario: #2) "RED ALERT" Feature\cf4                               # features/bestofv46new.feature:16\cf2 \
+    \cf5 Given I am on "http://devbestof.azcentral.com/winners/2014/"\cf4  # features/step_definitions/web_steps_bestofv46.rb:2\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                     # features/step_definitions/web_steps_bestofv46.rb:7\cf2 \
+    \cf5 Then I also click on the "Best film festival" link\cf4            # features/step_definitions/web_steps_bestofv46.rb:12\cf2 \
+    \cf5 Then I click on the 'Next Article' arrow five times\cf4           # features/step_definitions/web_steps_bestofv46.rb:24\cf2 \
+    \cf5 Then I should see the text "5 free articles left"\cf4             # features/step_definitions/web_steps_bestofv46.rb:39\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/252f917c6e8b49bab4bd770b23aa4e0b?auth=79b44dd018b243bf94ef1214483a1973\
+\
+2 scenarios (\cf5 2 passed\cf2 )\
+9 steps (\cf5 9 passed\cf2 )\
+6m6.467s\
+\
+2 scenarios (2 passed)\
+9 steps (9 passed)\
+\
+Took 376 seconds (6:16)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+["OS X 10.10", "iPhone", "8.2", \{:deviceName => 'iPad Simulator'\}]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Thu Sep  3 18:20:07 on ttys000\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: AZC's Best 2014 New Features v4.6 Tests\
+  \
+  In order to make the new features live on the 2014 Azcentral's Best\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1) Email Feature\cf4                                                         # features/bestofv46new.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am on "http://devbestof.azcentral.com/winners/2014/"\cf4                      # features/step_definitions/web_steps_bestofv46.rb:2\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                                         # features/step_definitions/web_steps_bestofv46.rb:7\cf2 \
+    \cf5 Then I also click on the "Best film festival" link\cf4                                # features/step_definitions/web_steps_bestofv46.rb:12\cf2 \
+    \cf5 Then I should see the 'Send' email link contain the correct 'mailto' information\cf4  # features/step_definitions/web_steps_bestofv46.rb:17\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/a62332de1f0d4f8b91bfc24243184d72?auth=94b62437b19118fe5acc9b6729a269da\
+\
+  Scenario: #2) "RED ALERT" Feature\cf4                               # features/bestofv46new.feature:16\cf2 \
+    \cf5 Given I am on "http://devbestof.azcentral.com/winners/2014/"\cf4  # features/step_definitions/web_steps_bestofv46.rb:2\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                     # features/step_definitions/web_steps_bestofv46.rb:7\cf2 \
+    \cf5 Then I also click on the "Best film festival" link\cf4            # features/step_definitions/web_steps_bestofv46.rb:12\cf2 \
+    \cf5 Then I click on the 'Next Article' arrow five times\cf4           # features/step_definitions/web_steps_bestofv46.rb:24\cf2 \
+    \cf5 Then I should see the text "5 free articles left"\cf4             # features/step_definitions/web_steps_bestofv46.rb:39\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/c2a2b05d97e548c09302125264c2edb9?auth=5cfdcdecaa2b9f1c9b030c565c92e002\
+\
+2 scenarios (\cf5 2 passed\cf2 )\
+9 steps (\cf5 9 passed\cf2 )\
+6m1.861s\
+\
+2 scenarios (2 passed)\
+9 steps (9 passed)\
+\
+Took 367 seconds (6:07)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+["Linux", "Android", "5.1", \{:deviceName => 'Android Emulator'\}]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Thu Sep  3 18:30:03 on ttys000\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: AZC's Best 2014 New Features v4.6 Tests\
+  \
+  In order to make the new features live on the 2014 Azcentral's Best\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1) Email Feature\cf4                                                         # features/bestofv46new.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am on "http://devbestof.azcentral.com/winners/2014/"\cf4                      # features/step_definitions/web_steps_bestofv46.rb:2\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                                         # features/step_definitions/web_steps_bestofv46.rb:7\cf2 \
+    \cf5 Then I also click on the "Best film festival" link\cf4                                # features/step_definitions/web_steps_bestofv46.rb:12\cf2 \
+    \cf5 Then I should see the 'Send' email link contain the correct 'mailto' information\cf4  # features/step_definitions/web_steps_bestofv46.rb:17\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/8f5c6e0815ee430686af2ecd54838d71?auth=37049683a06f0111ddc4d05e880a1e21\
+\
+  Scenario: #2) "RED ALERT" Feature\cf4                               # features/bestofv46new.feature:16\cf2 \
+    \cf5 Given I am on "http://devbestof.azcentral.com/winners/2014/"\cf4  # features/step_definitions/web_steps_bestofv46.rb:2\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                     # features/step_definitions/web_steps_bestofv46.rb:7\cf2 \
+    \cf5 Then I also click on the "Best film festival" link\cf4            # features/step_definitions/web_steps_bestofv46.rb:12\cf2 \
+    \cf5 Then I click on the 'Next Article' arrow five times\cf4           # features/step_definitions/web_steps_bestofv46.rb:24\cf2 \
+    \cf5 Then I should see the text "5 free articles left"\cf4             # features/step_definitions/web_steps_bestofv46.rb:39\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/b5aca376c24a4f618af152719a3cf90e?auth=601366d49e1745f950643e5e497f483d\
+\
+2 scenarios (\cf5 2 passed\cf2 )\
+9 steps (\cf5 9 passed\cf2 )\
+4m13.309s\
+\
+2 scenarios (2 passed)\
+9 steps (9 passed)\
+\
+Took 258 seconds (4:18)\
+pni-dig-129098:sauce_ruby temre$ \
+}

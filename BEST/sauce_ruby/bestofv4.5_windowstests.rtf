@@ -1,0 +1,110 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red242\green242\blue242;\red46\green174\blue187;\red111\green111\blue111;
+\red47\green180\blue29;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Tue Aug 18 17:03:50 on ttys000\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+3 processes for 3 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: Azcentral's Best 2014 New Features v4.5 Tests\
+  \
+  In order to make the new features live on the 2014 Azcentral's Best\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: Map / Zoom buttons test\cf4                                                                                                                                                                                                                                          # features/bestofv45new.feature:8\cf2 \
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: Azcentral's Best 2014 New Features v4.5 Tests\
+  \
+  In order to make the new features live on the 2014 Azcentral's Best\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: Map / Zoom buttons test\cf4                                                                                                                                                                                                                                          # features/bestofv45new.feature:8\cf2 \
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: Azcentral's Best 2014 New Features v4.5 Tests\
+  \
+  In order to make the new features live on the 2014 Azcentral's Best\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: Map / Zoom buttons test\cf4                                                                                                                                                                                                                                          # features/bestofv45new.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am on this page: "http://devbestof.pnj.com/winners/2015/14745222/best-wedding-reception-venue-5eleven-palafox-event-hosting" where this is both a map and video\cf4                                                                                                  # features/step_definitions/web_steps_bestof.rb:2\cf2 \
+    \cf5 When I click on the "Map" button on the main image\cf4                                                                                                                                                                                                                       # features/step_definitions/web_steps_bestof.rb:6\cf2 \
+    \cf5 Then I should see the div that holds the 'Zoom in' and 'Zoom out' buttons on the right side of the map at these coordinates: 'position: absolute', 'right: 20px', 'top: 0px', and have 'margin: 5px' - therefore they are NOT at the same location as the media buttons\cf4  # features/step_definitions/web_steps_bestof.rb:10\cf2 \
+    \cf5 Then I should see in the chinchilla css file that div that holds the media buttons on the left side of the map are at these coordinates, 'position: absolute', top: 0', and 'left: 0, - therefore they are NOT at the same location as the map zoom in & out buttons\cf4     # features/step_definitions/web_steps_bestof.rb:14\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/cf8080ab28c2471b81016c1e5852c331?auth=871f58d4f0df0f1459acdf294c55f273\
+\
+  Scenario: PNJ has a single internal content type test\cf4                              # features/bestofv45new.feature:18\cf2 \
+    \cf5 Given I am on this page: "http://devbestof.pnj.com/winners/2015/14745222/best-wedding-reception-venue-5eleven-palafox-event-hosting" where this is both a map and video\cf4                                                                                                  # features/step_definitions/web_steps_bestof.rb:2\cf2 \
+    \cf5 When I click on the "Map" button on the main image\cf4                                                                                                                                                                                                                       # features/step_definitions/web_steps_bestof.rb:6\cf2 \
+    \cf5 Then I should see the div that holds the 'Zoom in' and 'Zoom out' buttons on the right side of the map at these coordinates: 'position: absolute', 'right: 20px', 'top: 0px', and have 'margin: 5px' - therefore they are NOT at the same location as the media buttons\cf4  # features/step_definitions/web_steps_bestof.rb:10\cf2 \
+    \cf5 Then I should see in the chinchilla css file that div that holds the media buttons on the left side of the map are at these coordinates, 'position: absolute', top: 0', and 'left: 0, - therefore they are NOT at the same location as the map zoom in & out buttons\cf4     # features/step_definitions/web_steps_bestof.rb:14\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/b09031e00a5c416499adb376ae4f51f5?auth=d9c4786bc38ef475eb55ae0c54c19a59\
+\
+  Scenario: PNJ has a single internal content type test\cf4                              # features/bestofv45new.feature:18\cf2 \
+    \cf5 Given I am on "http://devbestof.pnj.com/winners/2015/"\cf4                           # features/step_definitions/web_steps_bestof.rb:29\cf2 \
+    \cf5 When I click on the "Readers' Choice" link\cf4                                       # features/step_definitions/web_steps_bestof.rb:47\cf2 \
+    \cf5 Then I should NOT see the 'Readers' Choice' button on the left-side of the page\cf4  # features/step_definitions/web_steps_bestof.rb:37\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/8cd4dab732e3454db458e63161d311fc?auth=ec6aa613f13436069ba8d3aab7a4b27b\
+\
+  Scenario: Azcentral has two internal content types test\cf4                                          # features/bestofv45new.feature:25\cf2 \
+    \cf5 Given I am on "http://devbestof.pnj.com/winners/2015/"\cf4                           # features/step_definitions/web_steps_bestof.rb:29\cf2 \
+    \cf5 When I click on the "Readers' Choice" link\cf4                                       # features/step_definitions/web_steps_bestof.rb:47\cf2 \
+    \cf5 Then I should NOT see the 'Readers' Choice' button on the left-side of the page\cf4  # features/step_definitions/web_steps_bestof.rb:37\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/b5b79eb9b6f94d8890d75962de063511?auth=dee9e1942736ccd37fdf78fae4508e43\
+\
+  Scenario: Azcentral has two internal content types test\cf4                                          # features/bestofv45new.feature:25\cf2 \
+    \cf5 Given I am on this page: "http://devbestof.pnj.com/winners/2015/14745222/best-wedding-reception-venue-5eleven-palafox-event-hosting" where this is both a map and video\cf4                                                                                                  # features/step_definitions/web_steps_bestof.rb:2\cf2 \
+    \cf5 When I click on the "Map" button on the main image\cf4                                                                                                                                                                                                                       # features/step_definitions/web_steps_bestof.rb:6\cf2 \
+    \cf5 Then I should see the div that holds the 'Zoom in' and 'Zoom out' buttons on the right side of the map at these coordinates: 'position: absolute', 'right: 20px', 'top: 0px', and have 'margin: 5px' - therefore they are NOT at the same location as the media buttons\cf4  # features/step_definitions/web_steps_bestof.rb:10\cf2 \
+    \cf5 Then I should see in the chinchilla css file that div that holds the media buttons on the left side of the map are at these coordinates, 'position: absolute', top: 0', and 'left: 0, - therefore they are NOT at the same location as the map zoom in & out buttons\cf4     # features/step_definitions/web_steps_bestof.rb:14\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/9468b290d19b4ce8b6e9e56d48eeb0e7?auth=63f0bbc3a8705ce6314ca2f02abfa9e3\
+\
+  Scenario: PNJ has a single internal content type test\cf4                              # features/bestofv45new.feature:18\cf2 \
+    \cf5 Given I am on "http://devbestof.pnj.com/winners/2015/"\cf4                           # features/step_definitions/web_steps_bestof.rb:29\cf2 \
+    \cf5 When I click on the "Readers' Choice" link\cf4                                       # features/step_definitions/web_steps_bestof.rb:47\cf2 \
+    \cf5 Then I should NOT see the 'Readers' Choice' button on the left-side of the page\cf4  # features/step_definitions/web_steps_bestof.rb:37\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/bb6b0688a29649a889240c9218964642?auth=b3f825c120f6784ee09ef48a696005cb\
+\
+  Scenario: Azcentral has two internal content types test\cf4                                          # features/bestofv45new.feature:25\cf2 \
+    \cf5 Given I am now on "http://devbestof.azcentral.com/winners/2014/"\cf4                               # features/step_definitions/web_steps_bestof.rb:44\cf2 \
+    \cf5 When I then click on the "Critics' Picks" link\cf4                                                 # features/step_definitions/web_steps_bestof.rb:33\cf2 \
+    \cf5 Then I SHOULD see 'Readers' Choice' and 'Critics' Picks' buttons on the left-side of the page\cf4  # features/step_definitions/web_steps_bestof.rb:50\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/fd1d83ec7e2a4319aa02873245df7c53?auth=3c70241d569e38697e8e35ab69d6ac37\
+\
+3 scenarios (\cf5 3 passed\cf2 )\
+10 steps (\cf5 10 passed\cf2 )\
+1m20.022s\
+    \cf5 Given I am now on "http://devbestof.azcentral.com/winners/2014/"\cf4                               # features/step_definitions/web_steps_bestof.rb:44\cf2 \
+    \cf5 When I then click on the "Critics' Picks" link\cf4                                                 # features/step_definitions/web_steps_bestof.rb:33\cf2 \
+    \cf5 Then I SHOULD see 'Readers' Choice' and 'Critics' Picks' buttons on the left-side of the page\cf4  # features/step_definitions/web_steps_bestof.rb:50\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/d385e35c72274b5ea635f1ec471ca717?auth=759e051e50835d505aa803cd1d37c264\
+\
+3 scenarios (\cf5 3 passed\cf2 )\
+10 steps (\cf5 10 passed\cf2 )\
+1m24.095s\
+    \cf5 Given I am now on "http://devbestof.azcentral.com/winners/2014/"\cf4                               # features/step_definitions/web_steps_bestof.rb:44\cf2 \
+    \cf5 When I then click on the "Critics' Picks" link\cf4                                                 # features/step_definitions/web_steps_bestof.rb:33\cf2 \
+    \cf5 Then I SHOULD see 'Readers' Choice' and 'Critics' Picks' buttons on the left-side of the page\cf4  # features/step_definitions/web_steps_bestof.rb:50\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/513c8ffda51943ac9d6012efcbd596ea?auth=b69d978fde58980b7d9f71aec27198a9\
+\
+3 scenarios (\cf5 3 passed\cf2 )\
+10 steps (\cf5 10 passed\cf2 )\
+1m28.701s\
+\
+9 scenarios (9 passed)\
+30 steps (30 passed)\
+\
+Took 91 seconds (1:31)\
+pni-dig-129098:sauce_ruby temre$ \
+}

@@ -1,0 +1,93 @@
+Given(/^I am on "(.*?)"$/) do |url|
+  visit url
+  sleep 2
+end
+When(/^I enter "(.*?)" in the 'First Name' field$/) do |arg1|
+  fill_in('field35816815-first', :with => arg1)
+  sleep 2
+end
+Then(/^I enter "(.*?)" in the 'Last Name' field$/) do |arg1|
+  fill_in('field35816815-last', :with => arg1)
+  sleep 2
+end
+Then(/^I enter "(.*?)" in the 'Phone' field$/) do |arg1|
+  fill_in('field35816818', :with => arg1)
+  sleep 2
+end
+Then(/^I enter "(.*?)" in the 'Email' field$/) do |arg1|
+  fill_in('field35816819', :with => arg1)
+  sleep 2
+end
+Then(/^I enter "(.*?)" in the 'Company Name' field$/) do |arg1|
+  fill_in('field35817090', :with => arg1)
+  sleep 2
+end
+Then(/^I enter "(.*?)" in the 'Address' field$/) do |arg1|
+  fill_in('field35816816-address', :with => arg1)
+  sleep 2
+end
+Then(/^I enter "(.*?)" in the 'City' field$/) do |arg1|
+  fill_in('field35816816-city', :with => arg1)
+  sleep 2
+end
+Then(/^I choose "(.*?)" from the 'State' dropdown$/) do |arg1|
+  select(arg1, :from => 'field35816816-state')
+  sleep 2
+end
+Then(/^I enter "(.*?)" in the 'Zip Code' field$/) do |arg1|
+  fill_in('field35816816-zip', :with => arg1)
+  sleep 2
+end
+Then(/^I check "(.*?)" as something I am interested in learning more about$/) do |arg1|
+  check(arg1)
+  sleep 2
+end
+Then(/^I enter "(.*?)" in the 'Questions \/ Comments' text area$/) do |arg1|
+  fill_in('field35816820', :with => arg1)
+  sleep 2
+end
+Then(/^I click the "(.*?)" button$/) do |arg1|
+  click_button(arg1)
+  sleep 2
+end
+Then(/^I should see "(.*?)" on the page$/) do |arg1|
+  page.current_path == "https://azcentral.formstack.com/forms/index.php"
+  sleep 2
+  page.has_text?(arg1)
+  sleep 2
+end
+
+
+
+=begin
+Given(/^I am on "(.*?)"$/) do |url|
+  visit url
+  sleep 2
+end
+When(/^I enter "(.*?)" in the 'First Name' field$/) do |arg1|
+  fill_in('field35816815-first', :with => arg1)
+  sleep 2
+end
+Then(/^I choose "(.*?)" from the "(.*?)" dropdown$/) do |arg1, arg2|
+  select(arg1, :from => arg2)
+  sleep 2
+end
+Then(/^I check "(.*?)" as something I am interested in learning more about$/) do |arg1|
+  check(arg1)
+  sleep 2
+end
+Then(/^I enter "(.*?)" in the "(.*?)" text area$/) do |arg1, arg2|
+  fill_in(arg1, :with => arg2)
+  sleep 2
+end
+Then(/^I click the "(.*?)" button$/) do |arg1|
+  click_button('Submit')
+  sleep 2
+end
+Then(/^I should see "(.*?)" on the page$/) do |arg1|
+  page.current_path == "https://azcentral.formstack.com/forms/index.php"
+  sleep 2
+  page.has_text?(arg1)
+  sleep 2
+end
+=end

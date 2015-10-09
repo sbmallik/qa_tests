@@ -1,0 +1,19 @@
+@selenium
+Feature: Bestof Regression v4.4 Tests
+
+	In order to make the new features live on the 2014 Azcentral's Best
+	As a Gannett employee with access to the correct urls
+	I want to be able to test for these scenarios
+
+	Scenario: #5 Login test - URL & REDIRECT TEST
+
+		Given I am on "http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks"
+		When I click on the dropdown "MENU" button
+		Then I click the "LOGIN" button
+		And I should arrive at the login url of: "https://account.azcentral.com/bestOf/ui/login/?onSuccessRedirectURL=http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks"
+
+		Then I log into my account
+		And I should be returned to this page "http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks"
+		Then then I have to click on the "MENU" button again
+		And when I click on "MY ACCOUNT"
+		Then I should arrive at the 'My Account' page

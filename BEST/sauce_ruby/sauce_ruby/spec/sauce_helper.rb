@@ -11,21 +11,23 @@ require "sauce/cucumber"
 # Set up configuration
 Sauce.config do |c|
   c[:browsers] = [
-    ["Windows 8.1", "Internet Explorer", "11"],
-    ["Windows 8.1", "Firefox", "38"],
-    ["Windows 8.1", "Chrome", 43],
-    ["OS X 10.10", "Safari", "8.0"],
-    ["OS X 10.10", "Chrome", 43],
-    ["OS X 10.10", "Firefox", "39"],
-     ["OS X 10.10", "iPhone", "8.2", {:deviceName => 'iPhone Simulator'}],
-     ["OS X 10.10", "iPhone", "8.2", {:deviceName => 'iPhone Simulator'}],
-     ["Linux", "Android", "5.1", {:deviceName => 'Android Emulator'}]
+    #["Windows 8.1", "Internet Explorer", "11"]
+    #["Windows 8.1", "Firefox", "38"]
+    #["Windows 8.1", "Chrome", 43]
+    #["OS X 10.10", "Safari", "8.0"]
+    #["OS X 10.10", "Chrome", 43]
+    ["OS X 10.10", "Firefox", "39"]
+    #["OS X 10.10", "iPhone", "8.2", {:deviceName => 'iPhone Simulator'}]
+    #["OS X 10.10", "iPhone", "8.2", {:deviceName => 'iPad Simulator'}]
+    #["Linux", "Android", "5.1", {:deviceName => 'Android Emulator'}]
   ]
     c[:sauce_connect_4_executable] = 'sauce-connect/bin/sc'
 end
 
 Capybara.default_driver = :sauce
 Capybara.javascript_driver = :sauce
+
+#driver.capabilities.javascript_enabled = true
 
 =begin
 caps = Selenium::WebDriver::Remote::Capabilities.iphone

@@ -1,0 +1,279 @@
+@selenium
+Feature: Bestof Regression v4.4 Tests
+
+	In order to make the new features live on the 2014 Azcentral's Best
+	As a Gannett employee with access to the correct urls
+	I want to be able to test for these scenarios
+
+	Scenario: #1 Article ID test
+
+		Given I have found this particular article ID on devbestof.azcentral.com: "http://devbestof.azcentral.com/winners/2014/14744910/best-star-making-machine-valley-youth-theatre"
+		When I put that same article ID into the bestof.pnj.com site: "http://devbestof.pnj.com/winners/2015/14744910"
+		Then I should not see the article content, but I should be redirected to the homepage of "http://devbestof.pnj.com/"
+
+	Scenario: #2 Search Results test - Filtering Content
+
+		Given I am looking at a results page on devbestof.azcentral.com
+		When the filter feedback text says "Showing results for All and displayed for All Locations"
+		Then I click on "Categories"
+		And I select 'OUTDOORS & RECREATION'
+		Then the filter feedback text should say "Showing results for outdoors & recreation and displayed for All Locations"
+
+	Scenario: #3 Search Results test - Sorting Content
+
+		Given I am looking at another results page on devbestof.azcentral.com
+		When the filter feedback text now says "Showing results for All and displayed for All Locations"
+		Then now I click on "Sort Type"
+		And I select 'Category'
+		Then the filter feedback text should now say "Showing results for All and displayed for All Locations , sorted by category"
+
+	Scenario: #4 Search Results test - West Valley
+
+		Given I am looking at another results page on devbestof.azcentral.com
+		When the filter feedback text now says "Showing results for All and displayed for All Locations"
+		Then I click on "Locations" now
+		And I select 'West Valley'
+		Then the filter feedback text should say "Showing results for All and displayed for west valley" now
+
+	Scenario: #5 Login test - URL
+
+		Given I am on "http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks"
+		When I click on the dropdown "MENU" button
+		When I click the "LOGIN" button
+		Then I should arrive at the login url of: "https://account.azcentral.com/bestOf/ui/login/?onSuccessRedirectURL=http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks"
+
+	Scenario: #6 Login test - Login redirect
+
+		Given I am on "http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks" again
+		When I click on the dropdown "MENU" button again
+		When I click the "LOGIN" button again
+		Then I should arrive at the login url of: "https://account.azcentral.com/bestOf/ui/login/?onSuccessRedirectURL=http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks" again
+		And I log into my account
+		Then I should be returned to this page "http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks"
+
+	Scenario: #7 Login test - My Account
+
+		Given I am on "http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks" a third time
+		When I click on the dropdown "MENU" button a third time
+		When I click the "LOGIN" button a third time
+		Then I should arrive at the login url of: "https://account.azcentral.com/bestOf/ui/login/?onSuccessRedirectURL=http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks" a third time
+		And I log into my account again
+		Then I should be returned to this page "http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks"
+		And then I have to click on the "MENU" button again
+		And when I click on "MY ACCOUNT"
+		Then I should arrive at the 'My Account' page
+
+	Scenario: #8 Login test - PNJ
+
+		Given I am on the PNJ site of "http://devbestof.pnj.com"
+		When I click on the dropdown "MENU" button on PNJ
+		Then there should be no 'login' button
+
+
+
+
+# -u JoshJonesGannett -k 330ff6c4-fe41-40d0-84d0-09b3d91d3b92
+
+#sauce-connect/bin/SC.exe -u JoshJonesGannett -k 330ff6c4-fe41-40d0-84d0-09b3d91d3b92 —doctor
+
+#bin/sc -u JoshJonesGannett -k 330ff6c4-fe41-40d0-84d0-09b3d91d3b92 --doctor
+
+#bin/sc -u JoshJonesGannett -k 330ff6c4-fe41-40d0-84d0-09b3d91d3b92 -v -l mylog.txt
+
+
+# 1) Article ID test
+Given(/^I have found this particular article ID on devbestof\.azcentral\.com: "(.*?)"$/) do |url|
+  visit url
+  sleep 3
+end
+When(/^I put that same article ID into the bestof\.pnj\.com site: "(.*?)"$/) do |url2|
+  visit url2
+  sleep 3
+end
+Then(/^I should not see the article content, but I should be redirected to the homepage of "(.*?)"$/) do |url3|
+  page.current_path == url3
+  sleep 3
+end
+
+
+# 2) Search Results test #1 - Filtering Content
+Given(/^I am looking at a results page on devbestof.azcentral.com$/) do
+  visit "http://devbestof.azcentral.com/winners/2014/results?&types=Critics%27%20Picks"
+  sleep 3
+end
+When(/^the filter feedback text says "(.*?)"$/) do |text|
+	page.has_text?(text)
+  sleep 3
+end
+Then(/^I click on "(.*?)"$/) do |click1|
+  page.find('a.filter-heading', :text => click1).click
+  sleep 3
+end
+And(/^I select 'OUTDOORS & RECREATION'$/) do
+  page.find('li.filterby-js', :text => 'OUTDOORS & RECREATION').click
+  sleep 3
+end
+Then(/^the filter feedback text should say "(.*?)"$/) do |text2|
+	page.has_text?(text2)
+  sleep 3
+end
+
+
+# 3) Search Results test #1 - Sorting Content
+Given(/^I am looking at another results page on devbestof.azcentral.com$/) do
+  visit "http://devbestof.azcentral.com/winners/2014/results?&types=Critics%27%20Picks="
+  sleep 3
+end
+When(/^the filter feedback text now says "(.*?)"$/) do |text3|
+	page.has_text?(text3)
+  sleep 3
+end
+Then(/^now I click on "(.*?)"$/) do |click2|
+  page.find('a.filter-heading', :text => click2).click
+  sleep 3
+end
+And(/^I select 'Category'$/) do
+  page.find('li.sortby-js', :match => :first).click 
+  sleep 3
+end
+Then(/^the filter feedback text should now say "(.*?)"$/) do |text3|
+	page.has_text?(text3)
+  sleep 3
+end
+
+
+# 4) Search Results test #1 - West Valley
+Given(/^I am looking at a results page on devbestof.azcentral.com now$/) do
+  visit "http://devbestof.azcentral.com/winners/2014/results?&types=Critics%27%20Picks="
+  sleep 3
+end
+When(/^the filter feedback text says "(.*?)" now$/) do |text4|
+	page.has_text?(text4)
+  sleep 3
+end
+Then(/^I click on "(.*?)" now$/) do |click3|
+  page.find('a.filter-heading', :text => click3).click
+  sleep 3
+end
+And(/^I select 'West Valley'$/) do
+  page.find('li.filterby-js', :text => 'West Valley').click
+  sleep 3
+end
+Then(/^the filter feedback text should say "(.*?)" now$/) do |text5|
+	page.has_text?(text5)
+  sleep 3
+end
+
+
+# 5) Login button test
+Given(/^I am on "(.*?)"$/) do |url|
+  visit url
+  sleep 3
+end
+When(/^I click on the dropdown "(.*?)" button$/) do |menu|
+  #<a href="#" class="mobile-menu"><img src="http://assets.azcentral.com/bestOf/_global/best-icon-menu.png">MENU</a>
+  click_link(menu)
+  sleep 3
+end
+Then(/^I click the "(.*?)" button$/) do |login|
+  click_link(login)
+  sleep 3
+end
+And(/^I should arrive at the login url of: "(.*?)"$/) do |loginurl|
+  page.current_path == loginurl
+  sleep 3
+end
+
+
+<a class="logout right" href="/logout/?onSuccessRedirectURL=https%3A%2F%2Faccount.azcentral.com%2F">Log out</a>
+
+# 6) Login redirect test
+Given(/^I am on "(.*?)" again$/) do |url|
+  visit url
+  sleep 3
+end
+When(/^I click on the dropdown "(.*?)" button again$/) do |menu|
+  click_link(menu)
+  sleep 3
+end
+Then(/^I click the "(.*?)" button again$/) do |login|
+  click_link(login)
+  sleep 3
+end
+And(/^I should arrive at the login url of: "(.*?)" again$/) do |loginurl1|
+  page.current_path == loginurl1
+  sleep 3
+end
+And(/^I log into my account$/) do
+  fill_in('username', :with => 'ryakon@gmail.com')
+  sleep 3
+  fill_in('password', :with => '1hotsnowcone')
+  sleep 3
+  first(:xpath, '//button[@type="submit"]').click
+  sleep 3
+end
+Then(/^I should be returned to this page "(.*?)"$/) do |url|
+  page.current_path == url
+  sleep 3
+end
+
+
+
+#7) Login my account test
+Given(/^I am on "(.*?)" a third time$/) do |url|
+  visit url
+  sleep 3
+end
+When(/^I click on the dropdown "(.*?)" button a third time$/) do |menu|
+  click_link(menu)
+  sleep 3
+end
+Then(/^I click the "(.*?)" button a third time$/) do |login|
+  click_link(login)
+  sleep 3
+end
+And(/^I should arrive at the login url of: "(.*?)" a third time$/) do |loginurl1|
+  page.current_path == loginurl1
+  sleep 3
+end
+And(/^I log into my account again$/) do
+  fill_in('username', :with => 'ryakon@gmail.com')
+  sleep 3
+  fill_in('password', :with => '1hotsnowcone')
+  sleep 3
+  first(:xpath, '//button[@type="submit"]').click
+  sleep 3
+end
+Then(/^I should be returned to this page "(.*?)" again$/) do |url|
+  page.current_path == url
+  sleep 3
+end
+And(/^then I have to click on the "(.*?)" button again$/) do |menu|
+  click_link(menu)
+  sleep 3
+end
+And(/^when I click on "(.*?)"$/) do |account|
+  click_link(account)
+  #<a href="https://account.azcentral.com">MY ACCOUNT</a>
+  sleep 3
+end
+Then(/^I should arrive at the 'My Account' page$/) do
+  page.current_path == "https://account.azcentral.com/"
+  sleep 3
+end
+
+
+
+# 8) No login on PNJ
+Given(/^I am on the PNJ site of "(.*?)"$/) do |url|
+  visit url
+  sleep 3
+end
+When(/^I click on the dropdown "(.*?)" button on PNJ$/) do |menu|
+  click_link(menu)
+  sleep 3
+end
+Then(/^there should be no 'login' button$/) do
+  page.should have_no_content('login')
+  sleep 3
+end

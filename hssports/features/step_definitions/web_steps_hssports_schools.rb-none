@@ -1,0 +1,151 @@
+# 1) Find a school on the devwww pages
+Given(/^I am on this H\.S\. Sports page: "(.*?)"$/) do |url|
+  visit url
+  #@css_scope = first(".preps-menu-select")
+end
+
+When(/^I click on the dropdown "(.*?)"$/) do |text|
+  #@css_scope.first(css).click
+  #page.find('option', :text => text).click
+  page.find('select.preps-menu-select', :text => text).click
+  #page.select text, :from => "select.preps-menu-select"
+end
+
+Then(/^I should see the option "(.*?)" in the menu$/) do |text|
+  page.find('option', :text => text)
+  #page.select text, :from => "select.preps-menu-select"
+end
+
+And(/^when I am on this H\.S\. Sports page: "(.*?)"$/) do |url|
+  visit url
+end
+
+And(/^when I click on the dropdown "(.*?)"$/) do |text|
+  #page.select text, :from => "select.preps-menu-select"
+  page.find('select.preps-menu-select', :text => text).click
+end
+
+Then(/^I should also see the option "(.*?)" in the menu$/) do |text|
+  #page.select text, :from => "select.preps-menu-select"
+  page.find('option', :text => text)
+end
+
+
+
+# 2) Hide that school in the Admin tool
+Given(/^I am on the admin tool in the 'Schools' section at "(.*?)" and I login$/) do |url|
+  visit url
+  fill_in('email', :with => 'tdolezal@azcentral.com')
+  fill_in('password', :with => 'Nascar623')
+  click_button('Log in')
+  sleep 2
+end
+
+When(/^I click on dropdown "(.*?)"$/) do |text|
+  page.find('a.select2-choice', :text => text).click
+  sleep 2
+end
+
+Then(/^I click on the school "(.*?)"$/) do |text|
+  page.find('li.select2-result', :text => text).click
+  sleep 2
+end
+
+And(/^I check the box labeled "(.*?)"$/) do |check|
+  check(check)
+  sleep 2
+end
+
+And(/^then I click on "(.*?)"$/) do |submit|
+  click_button(submit)
+  sleep 2
+end
+
+
+
+
+# 3) Chosen school should now be hidden on devwww pages
+Given(/^I am on this H\.S\. Sports page again: "(.*?)"$/) do |url|
+  visit url
+end
+
+When(/^I click on the dropdown again "(.*?)"$/) do |text|
+  page.find('select.preps-menu-select', :text => text).click
+end
+
+Then(/^I should NOT see the option "(.*?)" in the menu$/) do |text|
+  #page.find('option', :text => text)
+  page.should have_no_content(text)
+end
+
+And(/^when I am on this H\.S\. Sports page again: "(.*?)"$/) do |url|
+  visit url
+end
+
+And(/^when I click on the dropdown again "(.*?)"$/) do |text|
+  page.find('select.preps-menu-select', :text => text).click
+end
+
+Then(/^I should also NOT see the option "(.*?)" in the menu$/) do |text|
+  page.should have_no_content(text)
+end
+
+
+
+
+# 4) UNHide that school in the Admin tool
+Given(/^I am on the admin tool in the 'Schools' section at "(.*?)" and I login again$/) do |url|
+  visit url
+  fill_in('email', :with => 'tdolezal@azcentral.com')
+  fill_in('password', :with => 'Nascar623')
+  click_button('Log in')
+  sleep 2
+end
+
+When(/^I click on dropdown "(.*?)" again$/) do |text|
+  page.find('a.select2-choice', :text => text).click
+  sleep 2
+end
+
+Then(/^I click on the school "(.*?)" again$/) do |text|
+  page.find('li.select2-result', :text => text).click
+  sleep 2
+end
+
+And(/^I uncheck the box labeled "(.*?)"$/) do |check|
+  uncheck(check)
+  sleep 2
+end
+
+And(/^then I click on "(.*?)" again$/) do |submit|
+  click_button(submit)
+  sleep 2
+end
+
+
+
+
+# 5) Verify that the school is back on the devwww pages
+Given(/^I am on this H\.S\. Sports page: "(.*?)" for the third time$/) do |url|
+  visit url
+end
+
+When(/^I click on the dropdown "(.*?)" for the third time$/) do |text|
+  page.find('select.preps-menu-select', :text => text).click
+end
+
+Then(/^I should see the option "(.*?)" in the menu for the third time$/) do |text|
+  page.find('option', :text => text)
+end
+
+And(/^when I am on this H\.S\. Sports page: "(.*?)" for the third time$/) do |url|
+  visit url
+end
+
+And(/^when I click on the dropdown "(.*?)" for the third time$/) do |text|
+  page.find('select.preps-menu-select', :text => text).click
+end
+
+Then(/^I should also see the option "(.*?)" in the menu for the third time$/) do |text|
+  page.find('option', :text => text)
+end

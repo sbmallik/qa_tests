@@ -1,0 +1,22 @@
+@selenium
+Feature: AZC's Best 2014 New Features v4.6 Tests
+
+	In order to make the new features live on the 2014 Azcentral's Best
+	As a Gannett employee with access to the correct urls
+	I want to be able to test for these scenarios
+
+    Scenario: #1) Email Feature
+
+    	Given I am on "http://devbestof.azcentral.com/winners/2014/"
+		When I click on the "Critics' Picks" link
+		Then I also click on the "Best film festival" link
+		Then I should see the 'Send' email link contain the correct 'mailto' information
+
+
+	Scenario: #2) "RED ALERT" Feature
+
+    	Given I am on "http://devbestof.azcentral.com/winners/2014/"
+		When I click on the "Critics' Picks" link
+		Then I also click on the "Best film festival" link
+		Then I click on the 'Next Article' arrow five times
+		Then I should see the text "5 free articles left"

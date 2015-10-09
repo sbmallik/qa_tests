@@ -1,0 +1,760 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fnil\fcharset0 Monaco;\f1\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red242\green242\blue242;\red47\green180\blue29;\red46\green174\blue187;
+\red111\green111\blue111;\red180\green36\blue25;}
+\margl1440\margr1440\vieww20900\viewh13180\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Tue Sep  8 12:42:39 on ttys000\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake\
+/Users/temre/.rvm/rubies/ruby-2.1.1/bin/ruby -I/Users/temre/.rvm/gems/ruby-2.1.1/gems/rspec-core-3.2.3/lib:/Users/temre/.rvm/gems/ruby-2.1.1/gems/rspec-support-3.2.2/lib /Users/temre/.rvm/gems/ruby-2.1.1/gems/rspec-core-3.2.3/exe/rspec --pattern spec/\\*\\*\\\{,/\\*/\\*\\*\\\}/\\*_spec.rb\
+No examples found.\
+\
+\
+Finished in 0.0003 seconds (files took 0.10779 seconds to load)\
+\cf3 0 examples, 0 failures\cf2 \
+\
+/Users/temre/.rvm/rubies/ruby-2.1.1/bin/ruby -S bundle exec cucumber  --profile default\
+Using the default profile...\
+\cf4 @selenium\cf2 \
+Feature: AZC's Best 2014 ALL Regression Tests\
+  \
+  In order to make the new features live on the 2014 Azcentral's Best\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1) Article ID test\cf5                                                                                                                                                     # features/bestofallregressions.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf3 Given I have found this particular article ID on devbestof.azcentral.com: "http://devbestof.azcentral.com/winners/2014/14744910/best-star-making-machine-valley-youth-theatre"\cf5  # features/step_definitions/bestof_allregressiontests.rb:2\cf2 \
+    \cf3 When I put that same article ID into the bestof.pnj.com site: "http://devbestof.pnj.com/winners/2015/14744910"\cf5                                                                  # features/step_definitions/bestof_allregressiontests.rb:5\cf2 \
+    \cf3 Then I should not see the article content, but I should be redirected to the homepage of "http://devbestof.pnj.com/"\cf5                                                            # features/step_definitions/bestof_allregressiontests.rb:8\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/d27489e8053241bca91686e7b8b2f065?auth=779b111651ea2d92f9cfb5ca15c19e15\
+    \cf3 Given I have found this particular article ID on devbestof.azcentral.com: "http://devbestof.azcentral.com/winners/2014/14744910/best-star-making-machine-valley-youth-theatre"\cf5  # features/step_definitions/bestof_allregressiontests.rb:2\cf2 \
+    \cf3 When I put that same article ID into the bestof.pnj.com site: "http://devbestof.pnj.com/winners/2015/14744910"\cf5                                                                  # features/step_definitions/bestof_allregressiontests.rb:5\cf2 \
+    \cf3 Then I should not see the article content, but I should be redirected to the homepage of "http://devbestof.pnj.com/"\cf5                                                            # features/step_definitions/bestof_allregressiontests.rb:8\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/c9c32e843037407a902d22378e79ce06?auth=d780e064ff2528f151c56ba469cd2288\
+    \cf3 Given I have found this particular article ID on devbestof.azcentral.com: "http://devbestof.azcentral.com/winners/2014/14744910/best-star-making-machine-valley-youth-theatre"\cf5  # features/step_definitions/bestof_allregressiontests.rb:2\cf2 \
+    \cf3 When I put that same article ID into the bestof.pnj.com site: "http://devbestof.pnj.com/winners/2015/14744910"\cf5                                                                  # features/step_definitions/bestof_allregressiontests.rb:5\cf2 \
+    \cf3 Then I should not see the article content, but I should be redirected to the homepage of "http://devbestof.pnj.com/"\cf5                                                            # features/step_definitions/bestof_allregressiontests.rb:8\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/f6a586735fbc4665bc90b3f98f10cc89?auth=703ac690b4989f26841bfdd425c29173\
+\
+  Scenario: #2) Search, Filtering and Sorting Content\cf5                                                                                                            # features/bestofallregressions.feature:14\cf2 \
+    \cf3 Given I am on the Azcentral's Best page at: "http://devbestof.azcentral.com/winners/2014/"\cf5                                                                   # features/step_definitions/bestof_allregressiontests.rb:14\cf2 \
+    \cf3 When I enter the term 'kids' in the search box\cf5                                                                                                               # features/step_definitions/bestof_allregressiontests.rb:18\cf2 \
+    \cf3 Then the filter feedback text says "Now showing 7 results out of 152"\cf5                                                                                        # features/step_definitions/bestof_allregressiontests.rb:21\cf2 \
+    \cf6 Then I see a resulting 7 pertinent articles\cf5                                                                                                                  # features/step_definitions/bestof_allregressiontests.rb:24\cf2 \
+\cf6       Unable to find css "ul.winner-list" (Capybara::ElementNotFound)\cf2 \
+\cf6       ./features/step_definitions/bestof_allregressiontests.rb:25:in `/^I see a resulting (\\d+) pertinent articles$/'\cf2 \
+\cf6       features/bestofallregressions.feature:18:in `Then I see a resulting 7 pertinent articles'\cf2 \
+    \cf4 Then I am on this URL: "http://devbestof.azcentral.com/winners/2014/results?keywords=kids"\cf5                                                                   # features/step_definitions/bestof_allregressiontests.rb:29\cf2 \
+    \cf4 And I click on the word 'Filter' then click on 'Arts & Entertainment'\cf5                                                                                        # features/step_definitions/bestof_allregressiontests.rb:32\cf2 \
+    \cf4 Then the filter feedback text says "Now showing 3 results out of 152"\cf5                                                                                        # features/step_definitions/bestof_allregressiontests.rb:21\cf2 \
+    \cf4 Then I see a resulting 3 pertinent articles\cf5                                                                                                                  # features/step_definitions/bestof_allregressiontests.rb:24\cf2 \
+    \cf4 Then I am on this new URL: "http://devbestof.azcentral.com/winners/2014/results?&categories=arts%20%26%20entertainment&keywords=kids"\cf5                        # features/step_definitions/bestof_allregressiontests.rb:37\cf2 \
+    \cf4 Then I click on the word 'Sort' then I click on 'Category'\cf5                                                                                                   # features/step_definitions/bestof_allregressiontests.rb:40\cf2 \
+    \cf4 And the URL will change to this: "http://devbestof.azcentral.com/winners/2014/results?&categories=arts%20%26%20entertainment&keywords=kids&sortby=category"\cf5  # features/step_definitions/bestof_allregressiontests.rb:44\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/9108f8daa3994de2ae5745dfbefc1f97?auth=baba0ddcddc253a7d1fe0d56da7a0d42\
+    \cf3 Given I am on the Azcentral's Best page at: "http://devbestof.azcentral.com/winners/2014/"\cf5                                                                   # features/step_definitions/bestof_allregressiontests.rb:14\cf2 \
+    \cf3 When I enter the term 'kids' in the search box\cf5                                                                                                               # features/step_definitions/bestof_allregressiontests.rb:18\cf2 \
+    \cf3 Then the filter feedback text says "Now showing 7 results out of 152"\cf5                                                                                        # features/step_definitions/bestof_allregressiontests.rb:21\cf2 \
+    \cf4 Then I am on this URL: "http://devbestof.azcentral.com/winners/2014/results?keywords=kids"\cf5                                                                   # features/step_definitions/bestof_allregressiontests.rb:29\cf2 \
+    \cf4 And I click on the word 'Filter' then click on 'Arts & Entertainment'\cf5                                                                                        # features/step_definitions/bestof_allregressiontests.rb:32\cf2 \
+    \cf4 Then the filter feedback text says "Now showing 3 results out of 152"\cf5                                                                                        # features/step_definitions/bestof_allregressiontests.rb:21\cf2 \
+    \cf4 Then I see a resulting 3 pertinent articles\cf5                                                                                                                  # features/step_definitions/bestof_allregressiontests.rb:24\cf2 \
+    \cf4 Then I am on this new URL: "http://devbestof.azcentral.com/winners/2014/results?&categories=arts%20%26%20entertainment&keywords=kids"\cf5                        # features/step_definitions/bestof_allregressiontests.rb:37\cf2 \
+    \cf4 Then I click on the word 'Sort' then I click on 'Category'\cf5                                                                                                   # features/step_definitions/bestof_allregressiontests.rb:40\cf2 \
+    \cf4 And the URL will change to this: "http://devbestof.azcentral.com/winners/2014/results?&categories=arts%20%26%20entertainment&keywords=kids&sortby=category"\cf5  # features/step_definitions/bestof_allregressiontests.rb:44\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/4c7e8a67f448437c80832faf0d3df944?auth=150ce2c0c4d9e92aa625adaccb3883b8\
+    \cf3 Given I am on the Azcentral's Best page at: "http://devbestof.azcentral.com/winners/2014/"\cf5                                                                   # features/step_definitions/bestof_allregressiontests.rb:14\cf2 \
+    \cf3 When I enter the term 'kids' in the search box\cf5                                                                                                               # features/step_definitions/bestof_allregressiontests.rb:18\cf2 \
+    \cf3 Then the filter feedback text says "Now showing 7 results out of 152"\cf5                                                                                        # features/step_definitions/bestof_allregressiontests.rb:21\cf2 \
+    \cf4 Then I am on this URL: "http://devbestof.azcentral.com/winners/2014/results?keywords=kids"\cf5                                                                   # features/step_definitions/bestof_allregressiontests.rb:29\cf2 \
+    \cf4 And I click on the word 'Filter' then click on 'Arts & Entertainment'\cf5                                                                                        # features/step_definitions/bestof_allregressiontests.rb:32\cf2 \
+    \cf4 Then the filter feedback text says "Now showing 3 results out of 152"\cf5                                                                                        # features/step_definitions/bestof_allregressiontests.rb:21\cf2 \
+    \cf4 Then I see a resulting 3 pertinent articles\cf5                                                                                                                  # features/step_definitions/bestof_allregressiontests.rb:24\cf2 \
+    \cf4 Then I am on this new URL: "http://devbestof.azcentral.com/winners/2014/results?&categories=arts%20%26%20entertainment&keywords=kids"\cf5                        # features/step_definitions/bestof_allregressiontests.rb:37\cf2 \
+    \cf4 Then I click on the word 'Sort' then I click on 'Category'\cf5                                                                                                   # features/step_definitions/bestof_allregressiontests.rb:40\cf2 \
+    \cf4 And the URL will change to this: "http://devbestof.azcentral.com/winners/2014/results?&categories=arts%20%26%20entertainment&keywords=kids&sortby=category"\cf5  # features/step_definitions/bestof_allregressiontests.rb:44\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/9a104d92896c4943b6db3929e29e5168?auth=0f00ee8289e55518c032b445bdbc9488\
+\
+  Scenario: #3) More Winners Near Me\cf5                                                  # features/bestofallregressions.feature:29\cf2 \
+    \cf3 Given I am on an article page\cf5                                                     # features/step_definitions/bestof_allregressiontests.rb:50\cf2 \
+    \cf3 When I want to make sure there are articles in the "More Winners Nearby" section\cf5  # features/step_definitions/bestof_allregressiontests.rb:53\cf2 \
+    \cf3 Then I will see a resulting 6 pertinent articles\cf5                                  # features/step_definitions/bestof_allregressiontests.rb:56\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/16b6e22499da4799aac1317e0d039427?auth=1a747a1deb2dd4b20c00defa3cca1aa7\
+    \cf3 Given I am on an article page\cf5                                                     # features/step_definitions/bestof_allregressiontests.rb:50\cf2 \
+    \cf3 When I want to make sure there are articles in the "More Winners Nearby" section\cf5  # features/step_definitions/bestof_allregressiontests.rb:53\cf2 \
+    \cf3 Then I will see a resulting 6 pertinent articles\cf5                                  # features/step_definitions/bestof_allregressiontests.rb:56\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/38e38dab7f9b4f5a8d1a791d8d126277?auth=6a7da4351b42ca32a55cb911f6580f0a\
+    \cf3 Given I am on an article page\cf5                                                     # features/step_definitions/bestof_allregressiontests.rb:50\cf2 \
+    \cf3 When I want to make sure there are articles in the "More Winners Nearby" section\cf5  # features/step_definitions/bestof_allregressiontests.rb:53\cf2 \
+    \cf3 Then I will see a resulting 6 pertinent articles\cf5                                  # features/step_definitions/bestof_allregressiontests.rb:56\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/6f7ef3679cbf446f84005e812ed18b3d?auth=931e98eea49d09d9c3286037f63e8747\
+\
+  Scenario: #4) Checking social media features\cf5                                                                                                                                                                 # features/bestofallregressions.feature:35\cf2 \
+    \cf3 Given I am on the current article page again at "http://devbestof.azcentral.com/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix" and I want to share this page via the sharing tools\cf5  # features/step_definitions/bestof_allregressiontests.rb:64\cf2 \
+    \cf3 Then the data-text should contain the correct article title for sharing via Facebook\cf5                                                                                                                       # features/step_definitions/bestof_allregressiontests.rb:68\cf2 \
+    \cf3 And the href should contain the correct URL for sharing via Twitter\cf5                                                                                                                                        # features/step_definitions/bestof_allregressiontests.rb:72\cf2 \
+    \cf3 And the href should contain the correct URL for sharing via GooglePlus\cf5                                                                                                                                     # features/step_definitions/bestof_allregressiontests.rb:76\cf2 \
+    \cf3 And the href should contain the correct mailto for sharing via E-mail\cf5                                                                                                                                      # features/step_definitions/bestof_allregressiontests.rb:80\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/9f175e0c10644d8783e92cb49d8f866a?auth=dfa0d31b4de49beb83f46a3afdcd857d\
+    \cf3 Given I am on the current article page again at "http://devbestof.azcentral.com/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix" and I want to share this page via the sharing tools\cf5  # features/step_definitions/bestof_allregressiontests.rb:64\cf2 \
+    \cf3 Then the data-text should contain the correct article title for sharing via Facebook\cf5                                                                                                                       # features/step_definitions/bestof_allregressiontests.rb:68\cf2 \
+    \cf3 And the href should contain the correct URL for sharing via Twitter\cf5                                                                                                                                        # features/step_definitions/bestof_allregressiontests.rb:72\cf2 \
+    \cf3 And the href should contain the correct URL for sharing via GooglePlus\cf5                                                                                                                                     # features/step_definitions/bestof_allregressiontests.rb:76\cf2 \
+    \cf3 And the href should contain the correct mailto for sharing via E-mail\cf5                                                                                                                                      # features/step_definitions/bestof_allregressiontests.rb:80\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/aee4b56f5b60443c8376c4a8048f1391?auth=0fa145b5a4db30020419275e0f85129e\
+    \cf3 Given I am on the current article page again at "http://devbestof.azcentral.com/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix" and I want to share this page via the sharing tools\cf5  # features/step_definitions/bestof_allregressiontests.rb:64\cf2 \
+    \cf3 Then the data-text should contain the correct article title for sharing via Facebook\cf5                                                                                                                       # features/step_definitions/bestof_allregressiontests.rb:68\cf2 \
+    \cf3 And the href should contain the correct URL for sharing via Twitter\cf5                                                                                                                                        # features/step_definitions/bestof_allregressiontests.rb:72\cf2 \
+    \cf3 And the href should contain the correct URL for sharing via GooglePlus\cf5                                                                                                                                     # features/step_definitions/bestof_allregressiontests.rb:76\cf2 \
+    \cf3 And the href should contain the correct mailto for sharing via E-mail\cf5                                                                                                                                      # features/step_definitions/bestof_allregressiontests.rb:80\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/e206a49fa0404c71bfeb84a35a313bb2?auth=2270a5ae5c5aa4634fdc3ecb8ae32e9e\
+\
+  Scenario: #5) Map / Zoom buttons test\cf5                                                                                                                                                                                                                                      # features/bestofallregressions.feature:43\cf2 \
+    \cf3 Given I am on this page: "http://devbestof.pnj.com/winners/2015/14745222/best-wedding-reception-venue-5eleven-palafox-event-hosting" where this is both a map and video\cf5                                                                                                  # features/step_definitions/bestof_allregressiontests.rb:86\cf2 \
+    \cf3 When I click on the "Map" button on the main image\cf5                                                                                                                                                                                                                       # features/step_definitions/bestof_allregressiontests.rb:90\cf2 \
+    \cf3 Then I should see the div that holds the 'Zoom in' and 'Zoom out' buttons on the right side of the map at these coordinates: 'position: absolute', 'right: 20px', 'top: 0px', and have 'margin: 5px' - therefore they are NOT at the same location as the media buttons\cf5  # features/step_definitions/bestof_allregressiontests.rb:94\cf2 \
+    \cf3 Then I should see in the chinchilla css file that div that holds the media buttons on the left side of the map are at these coordinates, 'position: absolute', top: 0', and 'left: 0, - therefore they are NOT at the same location as the map zoom in & out buttons\cf5     # features/step_definitions/bestof_allregressiontests.rb:99\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/6b7d9b77a9084049937ac866c085b77e?auth=96909311e06338f3d9bf0248dcf9dabb\
+    \cf3 Given I am on this page: "http://devbestof.pnj.com/winners/2015/14745222/best-wedding-reception-venue-5eleven-palafox-event-hosting" where this is both a map and video\cf5                                                                                                  # features/step_definitions/bestof_allregressiontests.rb:86\cf2 \
+    \cf3 When I click on the "Map" button on the main image\cf5                                                                                                                                                                                                                       # features/step_definitions/bestof_allregressiontests.rb:90\cf2 \
+    \cf3 Then I should see the div that holds the 'Zoom in' and 'Zoom out' buttons on the right side of the map at these coordinates: 'position: absolute', 'right: 20px', 'top: 0px', and have 'margin: 5px' - therefore they are NOT at the same location as the media buttons\cf5  # features/step_definitions/bestof_allregressiontests.rb:94\cf2 \
+    \cf3 Then I should see in the chinchilla css file that div that holds the media buttons on the left side of the map are at these coordinates, 'position: absolute', top: 0', and 'left: 0, - therefore they are NOT at the same location as the map zoom in & out buttons\cf5     # features/step_definitions/bestof_allregressiontests.rb:99\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/e9cca7bb22ea42bf831c6ccda76af0e1?auth=1a3bfa92f40613cde46de242628fdead\
+    \cf3 Given I am on this page: "http://devbestof.pnj.com/winners/2015/14745222/best-wedding-reception-venue-5eleven-palafox-event-hosting" where this is both a map and video\cf5                                                                                                  # features/step_definitions/bestof_allregressiontests.rb:86\cf2 \
+    \cf3 When I click on the "Map" button on the main image\cf5                                                                                                                                                                                                                       # features/step_definitions/bestof_allregressiontests.rb:90\cf2 \
+    \cf3 Then I should see the div that holds the 'Zoom in' and 'Zoom out' buttons on the right side of the map at these coordinates: 'position: absolute', 'right: 20px', 'top: 0px', and have 'margin: 5px' - therefore they are NOT at the same location as the media buttons\cf5  # features/step_definitions/bestof_allregressiontests.rb:94\cf2 \
+    \cf3 Then I should see in the chinchilla css file that div that holds the media buttons on the left side of the map are at these coordinates, 'position: absolute', top: 0', and 'left: 0, - therefore they are NOT at the same location as the map zoom in & out buttons\cf5     # features/step_definitions/bestof_allregressiontests.rb:99\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/084983efe858471eaf74eead312c927e?auth=7d3070e62528ddb84a26652b60d9c138\
+\
+  Scenario: #6) PNJ has a single internal content type test\cf5                                                                                                                       # features/bestofallregressions.feature:54\cf2 \
+    \cf3 Given I am on "http://devbestof.pnj.com/winners/2015/"\cf5                                                                                                                        # features/step_definitions/bestof_allregressiontests.rb:116\cf2 \
+    \cf3 When I click on the "Readers' Choice" link\cf5                                                                                                                                    # features/step_definitions/bestof_allregressiontests.rb:120\cf2 \
+    \cf3 Then I should be on "http://devbestof.pnj.com/winners/2015/results?types=Readers%27%20Choice" and I should NOT see the 'Readers' Choice' button on the left-side of the page\cf5  # features/step_definitions/bestof_allregressiontests.rb:124\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/473ca615cf394524a1113695aa2f2d61?auth=24c54e417c56a66da212def566ed006b\
+    \cf3 Given I am on "http://devbestof.pnj.com/winners/2015/"\cf5                                                                                                                        # features/step_definitions/bestof_allregressiontests.rb:116\cf2 \
+    \cf3 When I click on the "Readers' Choice" link\cf5                                                                                                                                    # features/step_definitions/bestof_allregressiontests.rb:120\cf2 \
+    \cf3 Then I should be on "http://devbestof.pnj.com/winners/2015/results?types=Readers%27%20Choice" and I should NOT see the 'Readers' Choice' button on the left-side of the page\cf5  # features/step_definitions/bestof_allregressiontests.rb:124\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/dcd564347241409fb8429012bc6b364a?auth=84027685600a2e3bb2fecbf24cc98dc9\
+    \cf3 Given I am on "http://devbestof.pnj.com/winners/2015/"\cf5                                                                                                                        # features/step_definitions/bestof_allregressiontests.rb:116\cf2 \
+    \cf3 When I click on the "Readers' Choice" link\cf5                                                                                                                                    # features/step_definitions/bestof_allregressiontests.rb:120\cf2 \
+    \cf3 Then I should be on "http://devbestof.pnj.com/winners/2015/results?types=Readers%27%20Choice" and I should NOT see the 'Readers' Choice' button on the left-side of the page\cf5  # features/step_definitions/bestof_allregressiontests.rb:124\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/081135e40fd1410e86a2427dcefcee8b?auth=c8817a69cf7c0ef45ecb686fd76dee75\
+\
+  Scenario: #7) Azcentral has two internal content types test\cf5                                                                                                                                      # features/bestofallregressions.feature:61\cf2 \
+    \cf3 Given I am now on "http://devbestof.azcentral.com/winners/2014/"\cf5                                                                                                                               # features/step_definitions/bestof_allregressiontests.rb:132\cf2 \
+    \cf3 When I then click on the "Critics' Picks" link\cf5                                                                                                                                                 # features/step_definitions/bestof_allregressiontests.rb:136\cf2 \
+    \cf3 Then I should be on "http://devbestof.azcentral.com/winners/2014/results?types=critics%27%20picks" and I SHOULD see 'Readers' Choice' and 'Critics' Picks' links on the left-side of the page\cf5  # features/step_definitions/bestof_allregressiontests.rb:140\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/f6cda624ae24412d9e14f77f80b1d648?auth=c7ac5dfcd062f68acf5e1b9fa1674668\
+    \cf3 Given I am now on "http://devbestof.azcentral.com/winners/2014/"\cf5                                                                                                                               # features/step_definitions/bestof_allregressiontests.rb:132\cf2 \
+    \cf3 When I then click on the "Critics' Picks" link\cf5                                                                                                                                                 # features/step_definitions/bestof_allregressiontests.rb:136\cf2 \
+    \cf3 Then I should be on "http://devbestof.azcentral.com/winners/2014/results?types=critics%27%20picks" and I SHOULD see 'Readers' Choice' and 'Critics' Picks' links on the left-side of the page\cf5  # features/step_definitions/bestof_allregressiontests.rb:140\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/118ad5f1fb84470c8bcc0bfdca18cdb2?auth=e4cebe544ccdddb0029696e81f218b88\
+    \cf3 Given I am now on "http://devbestof.azcentral.com/winners/2014/"\cf5                                                                                                                               # features/step_definitions/bestof_allregressiontests.rb:132\cf2 \
+    \cf3 When I then click on the "Critics' Picks" link\cf5                                                                                                                                                 # features/step_definitions/bestof_allregressiontests.rb:136\cf2 \
+    \cf3 Then I should be on "http://devbestof.azcentral.com/winners/2014/results?types=critics%27%20picks" and I SHOULD see 'Readers' Choice' and 'Critics' Picks' links on the left-side of the page\cf5  # features/step_definitions/bestof_allregressiontests.rb:140\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/22304cdec51547e6ba17fd0dd84e1b7f?auth=7823742e388915cd37643096327204bd\
+\
+  Scenario: #8) ALL Login tests\cf5                                                                                                                                                                       # features/bestofallregressions.feature:68\cf2 \
+    \cf3 Given I am on "http://devbestof.azcentral.com/winners/2014/"\cf5                                                                                                                                      # features/step_definitions/bestof_allregressiontests.rb:116\cf2 \
+    \cf3 When I click the "LOGIN" button\cf5                                                                                                                                                                   # features/step_definitions/bestof_allregressiontests.rb:153\cf2 \
+    \cf3 Then I should arrive at the login url of: "https://account.azcentral.com/bestOf/ui/login/?onSuccessRedirectURL=http://bestof.azcentral.com/2014/winners?category=all&group=all&city=all&search="\cf5  # features/step_definitions/bestof_allregressiontests.rb:156\cf2 \
+    \cf3 And I log into my account\cf5                                                                                                                                                                         # features/step_definitions/bestof_allregressiontests.rb:159\cf2 \
+    \cf3 Then I should be returned to this page "http://devbestof.azcentral.com/winners/2014/"\cf5                                                                                                             # features/step_definitions/bestof_allregressiontests.rb:164\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/bc7d7cc8bbe542cfa0b63cd75633e9f3?auth=331198d4ab0ef673736c2db0987c73cc\
+    \cf3 Given I am on "http://devbestof.azcentral.com/winners/2014/"\cf5                                                                                                                                      # features/step_definitions/bestof_allregressiontests.rb:116\cf2 \
+    \cf3 When I click the "LOGIN" button\cf5                                                                                                                                                                   # features/step_definitions/bestof_allregressiontests.rb:153\cf2 \
+    \cf3 Then I should arrive at the login url of: "https://account.azcentral.com/bestOf/ui/login/?onSuccessRedirectURL=http://bestof.azcentral.com/2014/winners?category=all&group=all&city=all&search="\cf5  # features/step_definitions/bestof_allregressiontests.rb:156\cf2 \
+    \cf3 And I log into my account\cf5                                                                                                                                                                         # features/step_definitions/bestof_allregressiontests.rb:159\cf2 \
+    \cf3 Then I should be returned to this page "http://devbestof.azcentral.com/winners/2014/"\cf5                                                                                                             # features/step_definitions/bestof_allregressiontests.rb:164\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/99989c47f2af42c8be55c2aa681c433c?auth=0af253fd9a7fb9b07407741ed94f7a3f\
+    \cf3 Given I am on "http://devbestof.azcentral.com/winners/2014/"\cf5                                                                                                                                      # features/step_definitions/bestof_allregressiontests.rb:116\cf2 \
+    \cf3 When I click the "LOGIN" button\cf5                                                                                                                                                                   # features/step_definitions/bestof_allregressiontests.rb:153\cf2 \
+    \cf3 Then I should arrive at the login url of: "https://account.azcentral.com/bestOf/ui/login/?onSuccessRedirectURL=http://bestof.azcentral.com/2014/winners?category=all&group=all&city=all&search="\cf5  # features/step_definitions/bestof_allregressiontests.rb:156\cf2 \
+    \cf3 And I log into my account\cf5                                                                                                                                                                         # features/step_definitions/bestof_allregressiontests.rb:159\cf2 \
+    \cf3 Then I should be returned to this page "http://devbestof.azcentral.com/winners/2014/"\cf5                                                                                                             # features/step_definitions/bestof_allregressiontests.rb:164\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/33ffbb3e95a4489d832282e9c1b9ad77?auth=b80cc219a3ef142453988ede28181c17\
+\
+  Scenario: #9) Login test on PNJ\cf5                             # features/bestofallregressions.feature:77\cf2 \
+    \cf3 Given I am on the PNJ site of "http://devbestof.pnj.com"\cf5  # features/step_definitions/bestof_allregressiontests.rb:179\cf2 \
+    \cf3 Then there should be no 'login' button\cf5                    # features/step_definitions/bestof_allregressiontests.rb:182\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/7248313fdef44e52b9f85b927fa45c7b?auth=13be48274729f167a79693a27b6764ce\
+    \cf3 Given I am on the PNJ site of "http://devbestof.pnj.com"\cf5  # features/step_definitions/bestof_allregressiontests.rb:179\cf2 \
+    \cf3 Then there should be no 'login' button\cf5                    # features/step_definitions/bestof_allregressiontests.rb:182\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/652dbdf875534454a41c883c2c11c392?auth=e0fc99e3ea2242eeacb641e3eff91b2e\
+    \cf3 Given I am on the PNJ site of "http://devbestof.pnj.com"\cf5  # features/step_definitions/bestof_allregressiontests.rb:179\cf2 \
+    \cf3 Then there should be no 'login' button\cf5                    # features/step_definitions/bestof_allregressiontests.rb:182\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/b66e360d32cf473d9a9caebb75d9fa71?auth=063a84b3b224ae7e8b73ea64d881e97f\
+\
+\cf6 Failing Scenarios:\cf2 \
+\cf6 cucumber features/bestofallregressions.feature:14\cf5  # Scenario: #2) Search, Filtering and Sorting Content\cf2 \
+\
+9 scenarios (\cf6 1 failed\cf2 , \cf3 8 passed\cf2 )\
+39 steps (\cf6 1 failed\cf2 , \cf4 7 skipped\cf2 , \cf3 31 passed\cf2 )\
+14m41.640s\
+pni-dig-129098:sauce_ruby temre$ \
+\
+\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+3 processes for 3 features, ~ 1 features per process\
+Using the default profile...\
+\cf4 @selenium\cf2 \
+Feature: AZC's Best 2014 ALL Regression Tests\
+  \
+  In order to make the new features live on the 2014 Azcentral's Best\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #2) Search, Filtering and Sorting Content\cf5                                                                                                            # features/bestofallregressions.feature:9\cf2 \
+Using the default profile...\
+\cf4 @selenium\cf2 \
+Feature: AZC's Best 2014 ALL Regression Tests\
+  \
+  In order to make the new features live on the 2014 Azcentral's Best\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #2) Search, Filtering and Sorting Content\cf5                                                                                                            # features/bestofallregressions.feature:9\cf2 \
+Using the default profile...\
+\cf4 @selenium\cf2 \
+Feature: AZC's Best 2014 ALL Regression Tests\
+  \
+  In order to make the new features live on the 2014 Azcentral's Best\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #2) Search, Filtering and Sorting Content\cf5                                                                                                            # features/bestofallregressions.feature:9\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf3 Given I am on the Azcentral's Best page at: "http://devbestof.azcentral.com/winners/2014/"\cf5                                                                   # features/step_definitions/bestof_allregressiontests.rb:2\cf2 \
+    \cf3 When I enter the term 'kids' in the search box\cf5                                                                                                               # features/step_definitions/bestof_allregressiontests.rb:6\cf2 \
+    \cf3 Then the filter feedback text says "Now showing 7 results out of 152"\cf5                                                                                        # features/step_definitions/bestof_allregressiontests.rb:10\cf2 \
+    \cf3 Then I am on this URL: "http://devbestof.azcentral.com/winners/2014/results?keywords=kids"\cf5                                                                   # features/step_definitions/bestof_allregressiontests.rb:19\cf2 \
+    \cf6 And I click on the word 'Filter' then click on 'Arts & Entertainment'\cf5                                                                                        # features/step_definitions/bestof_allregressiontests.rb:23\cf2 \
+\cf6       Unable to find css "a.filter-button" with text "Filter" (Capybara::ElementNotFound)\cf2 \
+\cf6       ./features/step_definitions/bestof_allregressiontests.rb:24:in `/^I click on the word 'Filter' then click on 'Arts & Entertainment'$/'\cf2 \
+\cf6       features/bestofallregressions.feature:14:in `And I click on the word 'Filter' then click on 'Arts & Entertainment''\cf2 \
+    \cf4 Then the filter feedback text says "Now showing 3 results out of 152"\cf5                                                                                        # features/step_definitions/bestof_allregressiontests.rb:10\cf2 \
+    \cf4 Then I am on this new URL: "http://devbestof.azcentral.com/winners/2014/results?&categories=arts%20%26%20entertainment&keywords=kids"\cf5                        # features/step_definitions/bestof_allregressiontests.rb:30\cf2 \
+    \cf4 Then I click on the word 'Sort' then I click on 'Category'\cf5                                                                                                   # features/step_definitions/bestof_allregressiontests.rb:34\cf2 \
+    \cf4 And the URL will change to this: "http://devbestof.azcentral.com/winners/2014/results?&categories=arts%20%26%20entertainment&keywords=kids&sortby=category"\cf5  # features/step_definitions/bestof_allregressiontests.rb:41\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/a31ec90434c04a36bd32d8ec4211cbf9?auth=d4903b81242be4d601847a8944b6ba9a\
+\
+\cf6 Failing Scenarios:\cf2 \
+\cf6 cucumber features/bestofallregressions.feature:9\cf5  # Scenario: #2) Search, Filtering and Sorting Content\cf2 \
+\
+1 scenario (\cf6 1 failed\cf2 )\
+9 steps (\cf6 1 failed\cf2 , \cf4 4 skipped\cf2 , \cf3 4 passed\cf2 )\
+0m53.628s\
+    \cf3 Given I am on the Azcentral's Best page at: "http://devbestof.azcentral.com/winners/2014/"\cf5                                                                   # features/step_definitions/bestof_allregressiontests.rb:2\cf2 \
+    \cf3 When I enter the term 'kids' in the search box\cf5                                                                                                               # features/step_definitions/bestof_allregressiontests.rb:6\cf2 \
+    \cf3 Then the filter feedback text says "Now showing 7 results out of 152"\cf5                                                                                        # features/step_definitions/bestof_allregressiontests.rb:10\cf2 \
+    \cf3 Then I am on this URL: "http://devbestof.azcentral.com/winners/2014/results?keywords=kids"\cf5                                                                   # features/step_definitions/bestof_allregressiontests.rb:19\cf2 \
+    \cf6 And I click on the word 'Filter' then click on 'Arts & Entertainment'\cf5                                                                                        # features/step_definitions/bestof_allregressiontests.rb:23\cf2 \
+\cf6       Unable to find css "a.filter-button" with text "Filter" (Capybara::ElementNotFound)\cf2 \
+\cf6       ./features/step_definitions/bestof_allregressiontests.rb:24:in `/^I click on the word 'Filter' then click on 'Arts & Entertainment'$/'\cf2 \
+\cf6       features/bestofallregressions.feature:14:in `And I click on the word 'Filter' then click on 'Arts & Entertainment''\cf2 \
+    \cf4 Then the filter feedback text says "Now showing 3 results out of 152"\cf5                                                                                        # features/step_definitions/bestof_allregressiontests.rb:10\cf2 \
+    \cf4 Then I am on this new URL: "http://devbestof.azcentral.com/winners/2014/results?&categories=arts%20%26%20entertainment&keywords=kids"\cf5                        # features/step_definitions/bestof_allregressiontests.rb:30\cf2 \
+    \cf4 Then I click on the word 'Sort' then I click on 'Category'\cf5                                                                                                   # features/step_definitions/bestof_allregressiontests.rb:34\cf2 \
+    \cf4 And the URL will change to this: "http://devbestof.azcentral.com/winners/2014/results?&categories=arts%20%26%20entertainment&keywords=kids&sortby=category"\cf5  # features/step_definitions/bestof_allregressiontests.rb:41\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/9eb014a046a7453b8d377236f6539e93?auth=d81764f66127bfdd754eb1f74410396f\
+\
+\cf6 Failing Scenarios:\cf2 \
+\cf6 cucumber features/bestofallregressions.feature:9\cf5  # Scenario: #2) Search, Filtering and Sorting Content\cf2 \
+\
+1 scenario (\cf6 1 failed\cf2 )\
+9 steps (\cf6 1 failed\cf2 , \cf4 4 skipped\cf2 , \cf3 4 passed\cf2 )\
+1m41.082s\
+    \cf3 Given I am on the Azcentral's Best page at: "http://devbestof.azcentral.com/winners/2014/"\cf5                                                                   # features/step_definitions/bestof_allregressiontests.rb:2\cf2 \
+    \cf3 When I enter the term 'kids' in the search box\cf5                                                                                                               # features/step_definitions/bestof_allregressiontests.rb:6\cf2 \
+    \cf3 Then the filter feedback text says "Now showing 7 results out of 152"\cf5                                                                                        # features/step_definitions/bestof_allregressiontests.rb:10\cf2 \
+    \cf3 Then I am on this URL: "http://devbestof.azcentral.com/winners/2014/results?keywords=kids"\cf5                                                                   # features/step_definitions/bestof_allregressiontests.rb:19\cf2 \
+    \cf3 And I click on the word 'Filter' then click on 'Arts & Entertainment'\cf5                                                                                        # features/step_definitions/bestof_allregressiontests.rb:23\cf2 \
+    \cf3 Then the filter feedback text says "Now showing 3 results out of 152"\cf5                                                                                        # features/step_definitions/bestof_allregressiontests.rb:10\cf2 \
+    \cf3 Then I am on this new URL: "http://devbestof.azcentral.com/winners/2014/results?&categories=arts%20%26%20entertainment&keywords=kids"\cf5                        # features/step_definitions/bestof_allregressiontests.rb:30\cf2 \
+    \cf3 Then I click on the word 'Sort' then I click on 'Category'\cf5                                                                                                   # features/step_definitions/bestof_allregressiontests.rb:34\cf2 \
+    \cf3 And the URL will change to this: "http://devbestof.azcentral.com/winners/2014/results?&categories=arts%20%26%20entertainment&keywords=kids&sortby=category"\cf5  # features/step_definitions/bestof_allregressiontests.rb:41\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/99fd56dcbb2247a289bb0340ab16bd00?auth=5905dffd56c53512085f0629e9c7bc97\
+\
+1 scenario (\cf3 1 passed\cf2 )\
+9 steps (\cf3 9 passed\cf2 )\
+3m15.560s\
+\
+Failing Scenarios:\
+cucumber features/bestofallregressions.feature:9 # Scenario: #2) Search, Filtering and Sorting Content\
+cucumber features/bestofallregressions.feature:9 # Scenario: #2) Search, Filtering and Sorting Content\
+\
+3 scenarios (2 failed, 1 passed)\
+27 steps (2 failed, 8 skipped, 17 passed)\
+\
+Took 198 seconds (3:18)\
+\cf6 cucumbers Failed\cf2 \
+pni-dig-129098:sauce_ruby temre$ \
+\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f1\fs24 \cf0 \cb1 \CocoaLigature1 \
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Tue Sep  8 13:54:13 on ttys000\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+3 processes for 3 features, ~ 1 features per process\
+Using the default profile...\
+\cf4 @selenium\cf2 \
+Feature: AZC's Best 2014 ALL Regression Tests\
+  \
+  In order to make the new features live on the 2014 Azcentral's Best\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1) Article ID test\cf5                                                                                                                                                     # features/bestofallregressions.feature:8\cf2 \
+Using the default profile...\
+\cf4 @selenium\cf2 \
+Feature: AZC's Best 2014 ALL Regression Tests\
+  \
+  In order to make the new features live on the 2014 Azcentral's Best\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1) Article ID test\cf5                                                                                                                                                     # features/bestofallregressions.feature:8\cf2 \
+Using the default profile...\
+\cf4 @selenium\cf2 \
+Feature: AZC's Best 2014 ALL Regression Tests\
+  \
+  In order to make the new features live on the 2014 Azcentral's Best\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1) Article ID test\cf5                                                                                                                                                     # features/bestofallregressions.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf3 Given I have found this particular article ID on devbestof.azcentral.com: "http://devbestof.azcentral.com/winners/2014/14744910/best-star-making-machine-valley-youth-theatre"\cf5  # features/step_definitions/bestof_allregressiontests.rb:2\cf2 \
+    \cf3 When I put that same article ID into the bestof.pnj.com site: "http://devbestof.pnj.com/winners/2015/14744910"\cf5                                                                  # features/step_definitions/bestof_allregressiontests.rb:5\cf2 \
+    \cf3 Then I should not see the article content, but I should be redirected to the homepage of "http://devbestof.pnj.com/"\cf5                                                            # features/step_definitions/bestof_allregressiontests.rb:8\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/3aa220ca21e446a3a7cde9ee84bf7b1b?auth=936cc659ec988d166b9aeda07fedb7f8\
+\
+  Scenario: #2) Search, Filtering and Sorting Content\cf5                                                                                                            # features/bestofallregressions.feature:14\cf2 \
+    \cf3 Given I have found this particular article ID on devbestof.azcentral.com: "http://devbestof.azcentral.com/winners/2014/14744910/best-star-making-machine-valley-youth-theatre"\cf5  # features/step_definitions/bestof_allregressiontests.rb:2\cf2 \
+    \cf3 When I put that same article ID into the bestof.pnj.com site: "http://devbestof.pnj.com/winners/2015/14744910"\cf5                                                                  # features/step_definitions/bestof_allregressiontests.rb:5\cf2 \
+    \cf3 Then I should not see the article content, but I should be redirected to the homepage of "http://devbestof.pnj.com/"\cf5                                                            # features/step_definitions/bestof_allregressiontests.rb:8\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/df9c2addbb1d40c9a4daf1f68342351a?auth=e52322c30ff1491269476040bafb1109\
+\
+  Scenario: #2) Search, Filtering and Sorting Content\cf5                                                                                                            # features/bestofallregressions.feature:14\cf2 \
+    \cf3 Given I have found this particular article ID on devbestof.azcentral.com: "http://devbestof.azcentral.com/winners/2014/14744910/best-star-making-machine-valley-youth-theatre"\cf5  # features/step_definitions/bestof_allregressiontests.rb:2\cf2 \
+    \cf3 When I put that same article ID into the bestof.pnj.com site: "http://devbestof.pnj.com/winners/2015/14744910"\cf5                                                                  # features/step_definitions/bestof_allregressiontests.rb:5\cf2 \
+    \cf3 Then I should not see the article content, but I should be redirected to the homepage of "http://devbestof.pnj.com/"\cf5                                                            # features/step_definitions/bestof_allregressiontests.rb:8\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/7216f0bf55d74a2ebc87038adb8229f8?auth=1b968b7ae35897418172c2422468885c\
+\
+  Scenario: #2) Search, Filtering and Sorting Content\cf5                                                                                                            # features/bestofallregressions.feature:14\cf2 \
+    \cf3 Given I am on the Azcentral's Best page at: "http://devbestof.azcentral.com/winners/2014/"\cf5                                                                   # features/step_definitions/bestof_allregressiontests.rb:14\cf2 \
+    \cf3 When I enter the term 'kids' in the search box\cf5                                                                                                               # features/step_definitions/bestof_allregressiontests.rb:18\cf2 \
+    \cf3 Then the filter feedback text says "Now showing 7 results out of 152"\cf5                                                                                        # features/step_definitions/bestof_allregressiontests.rb:22\cf2 \
+    \cf3 Then I am on this URL: "http://devbestof.azcentral.com/winners/2014/results?keywords=kids"\cf5                                                                   # features/step_definitions/bestof_allregressiontests.rb:31\cf2 \
+    \cf6 And I click on the word 'Filter' then click on 'Arts & Entertainment'\cf5                                                                                        # features/step_definitions/bestof_allregressiontests.rb:35\cf2 \
+\cf6       Unable to find css "a.filter-button" with text "Filter" (Capybara::ElementNotFound)\cf2 \
+\cf6       ./features/step_definitions/bestof_allregressiontests.rb:36:in `/^I click on the word 'Filter' then click on 'Arts & Entertainment'$/'\cf2 \
+\cf6       features/bestofallregressions.feature:19:in `And I click on the word 'Filter' then click on 'Arts & Entertainment''\cf2 \
+    \cf4 Then the filter feedback text says "Now showing 3 results out of 152"\cf5                                                                                        # features/step_definitions/bestof_allregressiontests.rb:22\cf2 \
+    \cf4 Then I am on this new URL: "http://devbestof.azcentral.com/winners/2014/results?&categories=arts%20%26%20entertainment&keywords=kids"\cf5                        # features/step_definitions/bestof_allregressiontests.rb:42\cf2 \
+    \cf4 Then I click on the word 'Sort' then I click on 'Category'\cf5                                                                                                   # features/step_definitions/bestof_allregressiontests.rb:46\cf2 \
+    \cf4 And the URL will change to this: "http://devbestof.azcentral.com/winners/2014/results?&categories=arts%20%26%20entertainment&keywords=kids&sortby=category"\cf5  # features/step_definitions/bestof_allregressiontests.rb:53\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/531158cb1fb5402db5c5248d7a96c96b?auth=b46d6f587f0e0bd229c3eaa002a43436\
+\
+  Scenario: #3) More Winners Near Me\cf5                                                  # features/bestofallregressions.feature:27\cf2 \
+    \cf3 Given I am on an article page\cf5                                                     # features/step_definitions/bestof_allregressiontests.rb:60\cf2 \
+    \cf3 When I want to make sure there are articles in the "More Winners Nearby" section\cf5  # features/step_definitions/bestof_allregressiontests.rb:63\cf2 \
+    \cf3 Then I will see a resulting 6 pertinent articles\cf5                                  # features/step_definitions/bestof_allregressiontests.rb:66\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/c7fe2830d7574b4da53b2f3e8f801959?auth=06425c3d6cd5c0bd75802700bd0d3b4c\
+\
+  Scenario: #4) Checking social media features\cf5                                                                                                                                                                 # features/bestofallregressions.feature:33\cf2 \
+    \cf3 Given I am on the Azcentral's Best page at: "http://devbestof.azcentral.com/winners/2014/"\cf5                                                                   # features/step_definitions/bestof_allregressiontests.rb:14\cf2 \
+    \cf3 When I enter the term 'kids' in the search box\cf5                                                                                                               # features/step_definitions/bestof_allregressiontests.rb:18\cf2 \
+    \cf3 Then the filter feedback text says "Now showing 7 results out of 152"\cf5                                                                                        # features/step_definitions/bestof_allregressiontests.rb:22\cf2 \
+    \cf3 Then I am on this URL: "http://devbestof.azcentral.com/winners/2014/results?keywords=kids"\cf5                                                                   # features/step_definitions/bestof_allregressiontests.rb:31\cf2 \
+    \cf3 And I click on the word 'Filter' then click on 'Arts & Entertainment'\cf5                                                                                        # features/step_definitions/bestof_allregressiontests.rb:35\cf2 \
+    \cf3 Then the filter feedback text says "Now showing 3 results out of 152"\cf5                                                                                        # features/step_definitions/bestof_allregressiontests.rb:22\cf2 \
+    \cf3 Then I am on this new URL: "http://devbestof.azcentral.com/winners/2014/results?&categories=arts%20%26%20entertainment&keywords=kids"\cf5                        # features/step_definitions/bestof_allregressiontests.rb:42\cf2 \
+    \cf3 Then I click on the word 'Sort' then I click on 'Category'\cf5                                                                                                   # features/step_definitions/bestof_allregressiontests.rb:46\cf2 \
+    \cf3 And the URL will change to this: "http://devbestof.azcentral.com/winners/2014/results?&categories=arts%20%26%20entertainment&keywords=kids&sortby=category"\cf5  # features/step_definitions/bestof_allregressiontests.rb:53\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/792ef371c5f44035b859a56706c56fc8?auth=a8ee61457062b992f7def005bd2796f9\
+\
+  Scenario: #3) More Winners Near Me\cf5                                                  # features/bestofallregressions.feature:27\cf2 \
+    \cf3 Given I am on the current article page again at "http://devbestof.azcentral.com/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix" and I want to share this page via the sharing tools\cf5  # features/step_definitions/bestof_allregressiontests.rb:74\cf2 \
+    \cf3 Then the data-text should contain the correct article title for sharing via Facebook\cf5                                                                                                                       # features/step_definitions/bestof_allregressiontests.rb:78\cf2 \
+    \cf3 And the href should contain the correct URL for sharing via Twitter\cf5                                                                                                                                        # features/step_definitions/bestof_allregressiontests.rb:82\cf2 \
+    \cf3 And the href should contain the correct URL for sharing via GooglePlus\cf5                                                                                                                                     # features/step_definitions/bestof_allregressiontests.rb:86\cf2 \
+    \cf3 And the href should contain the correct mailto for sharing via E-mail\cf5                                                                                                                                      # features/step_definitions/bestof_allregressiontests.rb:90\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/ab1257d4bcb84e03bf875173c7bb5517?auth=d942f99924caa998efd2cac5d89b26c7\
+\
+  Scenario: #5) Map / Zoom buttons test\cf5                                                                                                                                                                                                                                      # features/bestofallregressions.feature:41\cf2 \
+    \cf3 Given I am on an article page\cf5                                                     # features/step_definitions/bestof_allregressiontests.rb:60\cf2 \
+    \cf3 When I want to make sure there are articles in the "More Winners Nearby" section\cf5  # features/step_definitions/bestof_allregressiontests.rb:63\cf2 \
+    \cf3 Then I will see a resulting 6 pertinent articles\cf5                                  # features/step_definitions/bestof_allregressiontests.rb:66\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/58088e28702948fdb8ee78e4a8ac1bca?auth=3fc8fc2f19dc72f91e7be120ef3cfd08\
+\
+  Scenario: #4) Checking social media features\cf5                                                                                                                                                                 # features/bestofallregressions.feature:33\cf2 \
+    \cf3 Given I am on the current article page again at "http://devbestof.azcentral.com/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix" and I want to share this page via the sharing tools\cf5  # features/step_definitions/bestof_allregressiontests.rb:74\cf2 \
+    \cf3 Then the data-text should contain the correct article title for sharing via Facebook\cf5                                                                                                                       # features/step_definitions/bestof_allregressiontests.rb:78\cf2 \
+    \cf3 And the href should contain the correct URL for sharing via Twitter\cf5                                                                                                                                        # features/step_definitions/bestof_allregressiontests.rb:82\cf2 \
+    \cf3 And the href should contain the correct URL for sharing via GooglePlus\cf5                                                                                                                                     # features/step_definitions/bestof_allregressiontests.rb:86\cf2 \
+    \cf3 And the href should contain the correct mailto for sharing via E-mail\cf5                                                                                                                                      # features/step_definitions/bestof_allregressiontests.rb:90\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/df7eadcf77ac4f8f91da59833729e8c9?auth=b5a86220869d9f823064ccbed2266c25\
+\
+  Scenario: #5) Map / Zoom buttons test\cf5                                                                                                                                                                                                                                      # features/bestofallregressions.feature:41\cf2 \
+    \cf3 Given I am on this page: "http://devbestof.pnj.com/winners/2015/14745222/best-wedding-reception-venue-5eleven-palafox-event-hosting" where this is both a map and video\cf5                                                                                                  # features/step_definitions/bestof_allregressiontests.rb:96\cf2 \
+    \cf3 When I click on the "Map" button on the main image\cf5                                                                                                                                                                                                                       # features/step_definitions/bestof_allregressiontests.rb:100\cf2 \
+    \cf3 Then I should see the div that holds the 'Zoom in' and 'Zoom out' buttons on the right side of the map at these coordinates: 'position: absolute', 'right: 20px', 'top: 0px', and have 'margin: 5px' - therefore they are NOT at the same location as the media buttons\cf5  # features/step_definitions/bestof_allregressiontests.rb:104\cf2 \
+    \cf3 Then I should see in the chinchilla css file that div that holds the media buttons on the left side of the map are at these coordinates, 'position: absolute', top: 0', and 'left: 0, - therefore they are NOT at the same location as the map zoom in & out buttons\cf5     # features/step_definitions/bestof_allregressiontests.rb:109\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/4d93629678f8456599c5f693d561a5c0?auth=b8d1bd8f694b7c24e243f168a457c3b7\
+\
+  Scenario: #6) PNJ has a single internal content type test\cf5                                                                                                                       # features/bestofallregressions.feature:52\cf2 \
+    \cf3 Given I am on this page: "http://devbestof.pnj.com/winners/2015/14745222/best-wedding-reception-venue-5eleven-palafox-event-hosting" where this is both a map and video\cf5                                                                                                  # features/step_definitions/bestof_allregressiontests.rb:96\cf2 \
+    \cf3 When I click on the "Map" button on the main image\cf5                                                                                                                                                                                                                       # features/step_definitions/bestof_allregressiontests.rb:100\cf2 \
+    \cf3 Then I should see the div that holds the 'Zoom in' and 'Zoom out' buttons on the right side of the map at these coordinates: 'position: absolute', 'right: 20px', 'top: 0px', and have 'margin: 5px' - therefore they are NOT at the same location as the media buttons\cf5  # features/step_definitions/bestof_allregressiontests.rb:104\cf2 \
+    \cf3 Then I should see in the chinchilla css file that div that holds the media buttons on the left side of the map are at these coordinates, 'position: absolute', top: 0', and 'left: 0, - therefore they are NOT at the same location as the map zoom in & out buttons\cf5     # features/step_definitions/bestof_allregressiontests.rb:109\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/9b01ade211fa42e1be80a8e552fa55cf?auth=c9965ffc62f0050aa2f7c54af638702f\
+\
+  Scenario: #6) PNJ has a single internal content type test\cf5                                                                                                                       # features/bestofallregressions.feature:52\cf2 \
+    \cf3 Given I am on "http://devbestof.pnj.com/winners/2015/"\cf5                                                                                                                        # features/step_definitions/bestof_allregressiontests.rb:126\cf2 \
+    \cf3 When I click on the "Readers' Choice" link\cf5                                                                                                                                    # features/step_definitions/bestof_allregressiontests.rb:130\cf2 \
+    \cf3 Then I should be on "http://devbestof.pnj.com/winners/2015/results?types=Readers%27%20Choice" and I should NOT see the 'Readers' Choice' button on the left-side of the page\cf5  # features/step_definitions/bestof_allregressiontests.rb:134\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/6bda0bbb153042b1aad54a1b9148ac55?auth=c2000bb97202d81cc96214d3192efabd\
+\
+  Scenario: #7) Azcentral has two internal content types test\cf5                                                                                                                                      # features/bestofallregressions.feature:59\cf2 \
+    \cf3 Given I am now on "http://devbestof.azcentral.com/winners/2014/"\cf5                                                                                                                               # features/step_definitions/bestof_allregressiontests.rb:142\cf2 \
+    \cf3 When I then click on the "Critics' Picks" link\cf5                                                                                                                                                 # features/step_definitions/bestof_allregressiontests.rb:146\cf2 \
+    \cf3 Then I should be on "http://devbestof.azcentral.com/winners/2014/results?types=critics%27%20picks" and I SHOULD see 'Readers' Choice' and 'Critics' Picks' links on the left-side of the page\cf5  # features/step_definitions/bestof_allregressiontests.rb:150\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/d2f01f4ad5c44384bf930f985f852bdc?auth=a2349ad60e6b1e3a62978c446364fd8a\
+\
+  Scenario: #8) ALL Login tests\cf5                                                                                                                                                                       # features/bestofallregressions.feature:66\cf2 \
+    \cf3 Given I am on the Azcentral's Best page at: "http://devbestof.azcentral.com/winners/2014/"\cf5                                                                   # features/step_definitions/bestof_allregressiontests.rb:14\cf2 \
+    \cf3 When I enter the term 'kids' in the search box\cf5                                                                                                               # features/step_definitions/bestof_allregressiontests.rb:18\cf2 \
+    \cf3 Then the filter feedback text says "Now showing 7 results out of 152"\cf5                                                                                        # features/step_definitions/bestof_allregressiontests.rb:22\cf2 \
+    \cf3 Then I am on this URL: "http://devbestof.azcentral.com/winners/2014/results?keywords=kids"\cf5                                                                   # features/step_definitions/bestof_allregressiontests.rb:31\cf2 \
+    \cf6 And I click on the word 'Filter' then click on 'Arts & Entertainment'\cf5                                                                                        # features/step_definitions/bestof_allregressiontests.rb:35\cf2 \
+\cf6       too many connection resets (due to Net::ReadTimeout - Net::ReadTimeout) after 18 requests on 2157971600, last used 303.029534 seconds ago (Net::HTTP::Persistent::Error)\cf2 \
+\cf6       ./features/step_definitions/bestof_allregressiontests.rb:39:in `/^I click on the word 'Filter' then click on 'Arts & Entertainment'$/'\cf2 \
+\cf6       features/bestofallregressions.feature:19:in `And I click on the word 'Filter' then click on 'Arts & Entertainment''\cf2 \
+    \cf4 Then the filter feedback text says "Now showing 3 results out of 152"\cf5                                                                                        # features/step_definitions/bestof_allregressiontests.rb:22\cf2 \
+    \cf4 Then I am on this new URL: "http://devbestof.azcentral.com/winners/2014/results?&categories=arts%20%26%20entertainment&keywords=kids"\cf5                        # features/step_definitions/bestof_allregressiontests.rb:42\cf2 \
+    \cf4 Then I click on the word 'Sort' then I click on 'Category'\cf5                                                                                                   # features/step_definitions/bestof_allregressiontests.rb:46\cf2 \
+    \cf4 And the URL will change to this: "http://devbestof.azcentral.com/winners/2014/results?&categories=arts%20%26%20entertainment&keywords=kids&sortby=category"\cf5  # features/step_definitions/bestof_allregressiontests.rb:53\cf2 \
+\cf6       Due to a previous error, this job has already finished. You can learn more at https://saucelabs.com/jobs/2fc23b63d13c44ac897d338c951a8698 (Selenium::WebDriver::Error::UnknownError)\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/response.rb:71:in `assert_ok'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/response.rb:34:in `initialize'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/http/common.rb:78:in `new'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/http/common.rb:78:in `create_response'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/http/default.rb:90:in `request'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/http/common.rb:59:in `call'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/bridge.rb:657:in `raw_execute'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/bridge.rb:635:in `execute'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/bridge.rb:133:in `get'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/common/navigation.rb:33:in `to'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/capybara-2.4.4/lib/capybara/selenium/driver.rb:101:in `reset!'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/capybara-2.4.4/lib/capybara/session.rb:103:in `reset!'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/capybara-2.4.4/lib/capybara.rb:257:in `block in reset_sessions!'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/capybara-2.4.4/lib/capybara.rb:257:in `each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/capybara-2.4.4/lib/capybara.rb:257:in `reset_sessions!'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/capybara-2.4.4/lib/capybara/cucumber.rb:8:in `After'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/core_ext/instance_exec.rb:36:in `cucumber_instance_exec'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/rb_support/rb_hook.rb:14:in `invoke'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:114:in `invoke'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:108:in `block in execute_after'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:107:in `reverse_each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:107:in `execute_after'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:19:in `after'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/runtime/support_code.rb:112:in `block in fire_hook'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/runtime/support_code.rb:111:in `each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/runtime/support_code.rb:111:in `fire_hook'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/runtime.rb:113:in `after'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/runtime.rb:100:in `before_and_after'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/runtime.rb:82:in `block in with_hooks'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/runtime/support_code.rb:120:in `call'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/runtime/support_code.rb:120:in `block (3 levels) in around'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:9:in `block in around'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:94:in `call'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:94:in `block (3 levels) in execute_around'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/sauce-cucumber-3.5.2/lib/sauce/cucumber.rb:142:in `call'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/sauce-cucumber-3.5.2/lib/sauce/cucumber.rb:142:in `block in around_hook'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/sauce-3.5.6/lib/sauce/test_base.rb:17:in `block in test_each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/sauce-3.5.6/lib/sauce/test_base.rb:6:in `each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/sauce-3.5.6/lib/sauce/test_base.rb:6:in `test_each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/sauce-cucumber-3.5.2/lib/sauce/cucumber.rb:96:in `around_hook'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/sauce-cucumber-3.5.2/lib/sauce/cucumber.rb:167:in `block in <top (required)>'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/core_ext/instance_exec.rb:48:in `instance_exec'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/core_ext/instance_exec.rb:48:in `block in cucumber_instance_exec'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/core_ext/instance_exec.rb:69:in `cucumber_run_with_backtrace_filtering'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/core_ext/instance_exec.rb:36:in `cucumber_instance_exec'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/rb_support/rb_hook.rb:14:in `invoke'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:114:in `invoke'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:93:in `block (2 levels) in execute_around'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:97:in `call'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:97:in `execute_around'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:8:in `around'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/runtime/support_code.rb:119:in `block (2 levels) in around'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/runtime/support_code.rb:123:in `call'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/runtime/support_code.rb:123:in `around'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/runtime.rb:94:in `around'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/runtime.rb:81:in `with_hooks'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/tree_walker.rb:13:in `execute'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/scenario.rb:32:in `block in accept'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/scenario.rb:79:in `with_visitor'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/scenario.rb:31:in `accept'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/tree_walker.rb:58:in `block in visit_feature_element'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/tree_walker.rb:170:in `broadcast'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/tree_walker.rb:57:in `visit_feature_element'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/feature.rb:38:in `block in accept'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/feature.rb:37:in `each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/feature.rb:37:in `accept'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/tree_walker.rb:27:in `block in visit_feature'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/tree_walker.rb:170:in `broadcast'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/tree_walker.rb:26:in `visit_feature'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/features.rb:28:in `block in accept'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/features.rb:17:in `each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/features.rb:17:in `each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/features.rb:27:in `accept'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/tree_walker.rb:21:in `block in visit_features'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/tree_walker.rb:170:in `broadcast'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/tree_walker.rb:20:in `visit_features'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/runtime.rb:49:in `run!'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/cli/main.rb:47:in `execute!'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/bin/cucumber:13:in `<top (required)>'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/bin/cucumber:23:in `load'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/bin/cucumber:23:in `<main>'\cf2 \
+\cf6       Due to a previous error, this job has already finished. You can learn more at https://saucelabs.com/jobs/2fc23b63d13c44ac897d338c951a8698 (Selenium::WebDriver::Error::UnknownError)\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/response.rb:71:in `assert_ok'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/response.rb:34:in `initialize'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/http/common.rb:78:in `new'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/http/common.rb:78:in `create_response'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/http/default.rb:90:in `request'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/http/common.rb:59:in `call'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/bridge.rb:657:in `raw_execute'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/bridge.rb:635:in `execute'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/bridge.rb:227:in `quit'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/common/driver.rb:165:in `quit'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/sauce-3.5.6/lib/sauce/selenium.rb:68:in `method_missing'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/sauce-3.5.6/lib/sauce/capybara.rb:118:in `finish!'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/sauce-cucumber-3.5.2/lib/sauce/cucumber.rb:145:in `block in around_hook'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/sauce-3.5.6/lib/sauce/test_base.rb:17:in `block in test_each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/sauce-3.5.6/lib/sauce/test_base.rb:6:in `each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/sauce-3.5.6/lib/sauce/test_base.rb:6:in `test_each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/sauce-cucumber-3.5.2/lib/sauce/cucumber.rb:96:in `around_hook'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/sauce-cucumber-3.5.2/lib/sauce/cucumber.rb:167:in `Around'\cf2 \
+\
+  Scenario: #3) More Winners Near Me\cf5                                                  # features/bestofallregressions.feature:27\cf2 \
+    \cf3 Given I am on an article page\cf5                                                     # features/step_definitions/bestof_allregressiontests.rb:60\cf2 \
+    \cf3 When I want to make sure there are articles in the "More Winners Nearby" section\cf5  # features/step_definitions/bestof_allregressiontests.rb:63\cf2 \
+    \cf3 Then I will see a resulting 6 pertinent articles\cf5                                  # features/step_definitions/bestof_allregressiontests.rb:66\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/4ce282d1b15442659fe4dd80390e6326?auth=24a926bc5c4e6067b035bdd77e205a72\
+\
+  Scenario: #4) Checking social media features\cf5                                                                                                                                                                 # features/bestofallregressions.feature:33\cf2 \
+    \cf3 Given I am on the current article page again at "http://devbestof.azcentral.com/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix" and I want to share this page via the sharing tools\cf5  # features/step_definitions/bestof_allregressiontests.rb:74\cf2 \
+    \cf3 Then the data-text should contain the correct article title for sharing via Facebook\cf5                                                                                                                       # features/step_definitions/bestof_allregressiontests.rb:78\cf2 \
+    \cf3 And the href should contain the correct URL for sharing via Twitter\cf5                                                                                                                                        # features/step_definitions/bestof_allregressiontests.rb:82\cf2 \
+    \cf3 And the href should contain the correct URL for sharing via GooglePlus\cf5                                                                                                                                     # features/step_definitions/bestof_allregressiontests.rb:86\cf2 \
+    \cf3 And the href should contain the correct mailto for sharing via E-mail\cf5                                                                                                                                      # features/step_definitions/bestof_allregressiontests.rb:90\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/cc810cd07dc347d38b224347682746e0?auth=a683930bfa569f2a411fd89d16c38967\
+\
+  Scenario: #5) Map / Zoom buttons test\cf5                                                                                                                                                                                                                                      # features/bestofallregressions.feature:41\cf2 \
+    \cf3 Given I am on this page: "http://devbestof.pnj.com/winners/2015/14745222/best-wedding-reception-venue-5eleven-palafox-event-hosting" where this is both a map and video\cf5                                                                                                  # features/step_definitions/bestof_allregressiontests.rb:96\cf2 \
+    \cf3 When I click on the "Map" button on the main image\cf5                                                                                                                                                                                                                       # features/step_definitions/bestof_allregressiontests.rb:100\cf2 \
+    \cf3 Then I should see the div that holds the 'Zoom in' and 'Zoom out' buttons on the right side of the map at these coordinates: 'position: absolute', 'right: 20px', 'top: 0px', and have 'margin: 5px' - therefore they are NOT at the same location as the media buttons\cf5  # features/step_definitions/bestof_allregressiontests.rb:104\cf2 \
+    \cf3 Then I should see in the chinchilla css file that div that holds the media buttons on the left side of the map are at these coordinates, 'position: absolute', top: 0', and 'left: 0, - therefore they are NOT at the same location as the map zoom in & out buttons\cf5     # features/step_definitions/bestof_allregressiontests.rb:109\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/017f4d00f9694c4cb0a1cc54a21f6259?auth=5c788990114786ca379d85e5154be5ff\
+\
+  Scenario: #6) PNJ has a single internal content type test\cf5                                                                                                                       # features/bestofallregressions.feature:52\cf2 \
+    \cf3 Given I am on "http://devbestof.pnj.com/winners/2015/"\cf5                                                                                                                        # features/step_definitions/bestof_allregressiontests.rb:126\cf2 \
+    \cf3 When I click on the "Readers' Choice" link\cf5                                                                                                                                    # features/step_definitions/bestof_allregressiontests.rb:130\cf2 \
+    \cf3 Then I should be on "http://devbestof.pnj.com/winners/2015/results?types=Readers%27%20Choice" and I should NOT see the 'Readers' Choice' button on the left-side of the page\cf5  # features/step_definitions/bestof_allregressiontests.rb:134\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/2a744dec2c27490980c4082fc99d45f2?auth=176b8c0fb29269258921cc9ffbc75b42\
+\
+  Scenario: #7) Azcentral has two internal content types test\cf5                                                                                                                                      # features/bestofallregressions.feature:59\cf2 \
+    \cf3 Given I am on "http://devbestof.pnj.com/winners/2015/"\cf5                                                                                                                        # features/step_definitions/bestof_allregressiontests.rb:126\cf2 \
+    \cf6 When I click on the "Readers' Choice" link\cf5                                                                                                                                    # features/step_definitions/bestof_allregressiontests.rb:130\cf2 \
+\cf6       too many connection resets (due to Net::ReadTimeout - Net::ReadTimeout) after 6 requests on 2167707780, last used 300.02846 seconds ago (Net::HTTP::Persistent::Error)\cf2 \
+\cf6       ./features/step_definitions/bestof_allregressiontests.rb:131:in `/^I click on the "(.*?)" link$/'\cf2 \
+\cf6       features/bestofallregressions.feature:55:in `When I click on the "Readers' Choice" link'\cf2 \
+    \cf4 Then I should be on "http://devbestof.pnj.com/winners/2015/results?types=Readers%27%20Choice" and I should NOT see the 'Readers' Choice' button on the left-side of the page\cf5  # features/step_definitions/bestof_allregressiontests.rb:134\cf2 \
+\cf6       Due to a previous error, this job has already finished. You can learn more at https://saucelabs.com/jobs/64e87c18a9244910abfa7ce0ff47e2e8 (Selenium::WebDriver::Error::UnknownError)\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/response.rb:71:in `assert_ok'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/response.rb:34:in `initialize'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/http/common.rb:78:in `new'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/http/common.rb:78:in `create_response'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/http/default.rb:90:in `request'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/http/common.rb:59:in `call'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/bridge.rb:657:in `raw_execute'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/bridge.rb:635:in `execute'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/bridge.rb:133:in `get'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/common/navigation.rb:33:in `to'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/capybara-2.4.4/lib/capybara/selenium/driver.rb:101:in `reset!'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/capybara-2.4.4/lib/capybara/session.rb:103:in `reset!'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/capybara-2.4.4/lib/capybara.rb:257:in `block in reset_sessions!'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/capybara-2.4.4/lib/capybara.rb:257:in `each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/capybara-2.4.4/lib/capybara.rb:257:in `reset_sessions!'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/capybara-2.4.4/lib/capybara/cucumber.rb:8:in `After'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/core_ext/instance_exec.rb:36:in `cucumber_instance_exec'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/rb_support/rb_hook.rb:14:in `invoke'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:114:in `invoke'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:108:in `block in execute_after'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:107:in `reverse_each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:107:in `execute_after'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:19:in `after'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/runtime/support_code.rb:112:in `block in fire_hook'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/runtime/support_code.rb:111:in `each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/runtime/support_code.rb:111:in `fire_hook'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/runtime.rb:113:in `after'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/runtime.rb:100:in `before_and_after'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/runtime.rb:82:in `block in with_hooks'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/runtime/support_code.rb:120:in `call'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/runtime/support_code.rb:120:in `block (3 levels) in around'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:9:in `block in around'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:94:in `call'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:94:in `block (3 levels) in execute_around'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/sauce-cucumber-3.5.2/lib/sauce/cucumber.rb:142:in `call'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/sauce-cucumber-3.5.2/lib/sauce/cucumber.rb:142:in `block in around_hook'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/sauce-3.5.6/lib/sauce/test_base.rb:17:in `block in test_each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/sauce-3.5.6/lib/sauce/test_base.rb:6:in `each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/sauce-3.5.6/lib/sauce/test_base.rb:6:in `test_each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/sauce-cucumber-3.5.2/lib/sauce/cucumber.rb:96:in `around_hook'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/sauce-cucumber-3.5.2/lib/sauce/cucumber.rb:167:in `block in <top (required)>'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/core_ext/instance_exec.rb:48:in `instance_exec'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/core_ext/instance_exec.rb:48:in `block in cucumber_instance_exec'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/core_ext/instance_exec.rb:69:in `cucumber_run_with_backtrace_filtering'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/core_ext/instance_exec.rb:36:in `cucumber_instance_exec'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/rb_support/rb_hook.rb:14:in `invoke'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:114:in `invoke'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:93:in `block (2 levels) in execute_around'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:97:in `call'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:97:in `execute_around'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:8:in `around'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/runtime/support_code.rb:119:in `block (2 levels) in around'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/runtime/support_code.rb:123:in `call'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/runtime/support_code.rb:123:in `around'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/runtime.rb:94:in `around'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/runtime.rb:81:in `with_hooks'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/tree_walker.rb:13:in `execute'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/scenario.rb:32:in `block in accept'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/scenario.rb:79:in `with_visitor'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/scenario.rb:31:in `accept'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/tree_walker.rb:58:in `block in visit_feature_element'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/tree_walker.rb:170:in `broadcast'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/tree_walker.rb:57:in `visit_feature_element'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/feature.rb:38:in `block in accept'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/feature.rb:37:in `each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/feature.rb:37:in `accept'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/tree_walker.rb:27:in `block in visit_feature'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/tree_walker.rb:170:in `broadcast'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/tree_walker.rb:26:in `visit_feature'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/features.rb:28:in `block in accept'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/features.rb:17:in `each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/features.rb:17:in `each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/features.rb:27:in `accept'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/tree_walker.rb:21:in `block in visit_features'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/tree_walker.rb:170:in `broadcast'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/ast/tree_walker.rb:20:in `visit_features'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/runtime.rb:49:in `run!'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/lib/cucumber/cli/main.rb:47:in `execute!'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/cucumber-1.3.20/bin/cucumber:13:in `<top (required)>'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/bin/cucumber:23:in `load'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/bin/cucumber:23:in `<main>'\cf2 \
+\cf6       Due to a previous error, this job has already finished. You can learn more at https://saucelabs.com/jobs/64e87c18a9244910abfa7ce0ff47e2e8 (Selenium::WebDriver::Error::UnknownError)\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/response.rb:71:in `assert_ok'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/response.rb:34:in `initialize'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/http/common.rb:78:in `new'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/http/common.rb:78:in `create_response'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/http/default.rb:90:in `request'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/http/common.rb:59:in `call'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/bridge.rb:657:in `raw_execute'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/bridge.rb:635:in `execute'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/bridge.rb:227:in `quit'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/common/driver.rb:165:in `quit'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/sauce-3.5.6/lib/sauce/selenium.rb:68:in `method_missing'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/sauce-3.5.6/lib/sauce/capybara.rb:118:in `finish!'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/sauce-cucumber-3.5.2/lib/sauce/cucumber.rb:145:in `block in around_hook'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/sauce-3.5.6/lib/sauce/test_base.rb:17:in `block in test_each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/sauce-3.5.6/lib/sauce/test_base.rb:6:in `each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/sauce-3.5.6/lib/sauce/test_base.rb:6:in `test_each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/sauce-cucumber-3.5.2/lib/sauce/cucumber.rb:96:in `around_hook'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.1/gems/sauce-cucumber-3.5.2/lib/sauce/cucumber.rb:167:in `Around'\cf2 \
+\
+  Scenario: #7) Azcentral has two internal content types test\cf5                                                                                                                                      # features/bestofallregressions.feature:59\cf2 \
+    \cf3 Given I am now on "http://devbestof.azcentral.com/winners/2014/"\cf5                                                                                                                               # features/step_definitions/bestof_allregressiontests.rb:142\cf2 \
+    \cf3 When I then click on the "Critics' Picks" link\cf5                                                                                                                                                 # features/step_definitions/bestof_allregressiontests.rb:146\cf2 \
+    \cf3 Then I should be on "http://devbestof.azcentral.com/winners/2014/results?types=critics%27%20picks" and I SHOULD see 'Readers' Choice' and 'Critics' Picks' links on the left-side of the page\cf5  # features/step_definitions/bestof_allregressiontests.rb:150\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/9cb5f97303c64c18a7599d4704b5a7fd?auth=119f4d19b6c9b773207bd9821fc3dc0e\
+\
+  Scenario: #8) ALL Login tests\cf5                                                                                                                                                                       # features/bestofallregressions.feature:66\cf2 \
+    \cf3 Given I am now on "http://devbestof.azcentral.com/winners/2014/"\cf5                                                                                                                               # features/step_definitions/bestof_allregressiontests.rb:142\cf2 \
+    \cf3 When I then click on the "Critics' Picks" link\cf5                                                                                                                                                 # features/step_definitions/bestof_allregressiontests.rb:146\cf2 \
+    \cf6 Then I should be on "http://devbestof.azcentral.com/winners/2014/results?types=critics%27%20picks" and I SHOULD see 'Readers' Choice' and 'Critics' Picks' links on the left-side of the page\cf5  # features/step_definitions/bestof_allregressiontests.rb:150\cf2 \
+\cf6       bad URI(is not URI?): http://devbestof.azcentral.com/winners/2014/results?types=critics' picks (URI::InvalidURIError)\cf2 \
+\cf6       ./features/step_definitions/bestof_allregressiontests.rb:151:in `/^I should be on "(.*?)" and I SHOULD see 'Readers' Choice' and 'Critics' Picks' links on the left\\-side of the page$/'\cf2 \
+\cf6       features/bestofallregressions.feature:63:in `Then I should be on "http://devbestof.azcentral.com/winners/2014/results?types=critics%27%20picks" and I SHOULD see 'Readers' Choice' and 'Critics' Picks' links on the left-side of the page'\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/bce617d2f4174796afd923ded0fd901d?auth=85ff735429cf5ff91b4813394cf7a324\
+\
+  Scenario: #8) ALL Login tests\cf5                                                                                                                                                                       # features/bestofallregressions.feature:66\cf2 \
+    \cf3 Given I am on "http://devbestof.azcentral.com/winners/2014/"\cf5                                                                                                                                      # features/step_definitions/bestof_allregressiontests.rb:126\cf2 \
+    \cf3 When I click the "LOGIN" button\cf5                                                                                                                                                                   # features/step_definitions/bestof_allregressiontests.rb:163\cf2 \
+    \cf3 Then I should arrive at the login url of: "https://account.azcentral.com/bestOf/ui/login/?onSuccessRedirectURL=http://bestof.azcentral.com/2014/winners?category=all&group=all&city=all&search="\cf5  # features/step_definitions/bestof_allregressiontests.rb:166\cf2 \
+    \cf3 And I log into my account\cf5                                                                                                                                                                         # features/step_definitions/bestof_allregressiontests.rb:169\cf2 \
+    \cf3 Then I should be returned to this page "http://devbestof.azcentral.com/winners/2014/"\cf5                                                                                                             # features/step_definitions/bestof_allregressiontests.rb:174\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/caf83b35ce254201b2439b114b6fbb9a?auth=15bb8a0c892900cafa70490cf178df46\
+\
+  Scenario: #9) Login test on PNJ\cf5                             # features/bestofallregressions.feature:75\cf2 \
+    \cf3 Given I am on the PNJ site of "http://devbestof.pnj.com"\cf5  # features/step_definitions/bestof_allregressiontests.rb:189\cf2 \
+    \cf3 Then there should be no 'login' button\cf5                    # features/step_definitions/bestof_allregressiontests.rb:192\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/4e8dc12021ad490e9e0bfac45ad4fef7?auth=3136d1e70e1298c85aff39312464f281\
+\
+\cf6 Failing Scenarios:\cf2 \
+\cf6 cucumber features/bestofallregressions.feature:14\cf5  # Scenario: #2) Search, Filtering and Sorting Content\cf2 \
+\
+9 scenarios (\cf6 1 failed\cf2 , \cf3 8 passed\cf2 )\
+37 steps (\cf6 1 failed\cf2 , \cf4 4 skipped\cf2 , \cf3 32 passed\cf2 )\
+8m4.250s\
+    \cf3 Given I am on "http://devbestof.azcentral.com/winners/2014/"\cf5                                                                                                                                      # features/step_definitions/bestof_allregressiontests.rb:126\cf2 \
+    \cf3 When I click the "LOGIN" button\cf5                                                                                                                                                                   # features/step_definitions/bestof_allregressiontests.rb:163\cf2 \
+    \cf3 Then I should arrive at the login url of: "https://account.azcentral.com/bestOf/ui/login/?onSuccessRedirectURL=http://bestof.azcentral.com/2014/winners?category=all&group=all&city=all&search="\cf5  # features/step_definitions/bestof_allregressiontests.rb:166\cf2 \
+    \cf3 And I log into my account\cf5                                                                                                                                                                         # features/step_definitions/bestof_allregressiontests.rb:169\cf2 \
+    \cf3 Then I should be returned to this page "http://devbestof.azcentral.com/winners/2014/"\cf5                                                                                                             # features/step_definitions/bestof_allregressiontests.rb:174\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/50874adc650c4bbaa3e6e6f26307e451?auth=3ba42e1b3f2645070025f4ede4756e65\
+\
+  Scenario: #9) Login test on PNJ\cf5                             # features/bestofallregressions.feature:75\cf2 \
+    \cf3 Given I am on the PNJ site of "http://devbestof.pnj.com"\cf5  # features/step_definitions/bestof_allregressiontests.rb:189\cf2 \
+    \cf3 Then there should be no 'login' button\cf5                    # features/step_definitions/bestof_allregressiontests.rb:192\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/9f3d7937bfa6419bbff3056c00f1fbc8?auth=9a596d467651faa311c67008211c656c\
+\
+\cf6 Failing Scenarios:\cf2 \
+\cf6 cucumber features/bestofallregressions.feature:14\cf5  # Scenario: #2) Search, Filtering and Sorting Content\cf2 \
+\cf6 cucumber features/bestofallregressions.feature:52\cf5  # Scenario: #6) PNJ has a single internal content type test\cf2 \
+\cf6 cucumber features/bestofallregressions.feature:59\cf5  # Scenario: #7) Azcentral has two internal content types test\cf2 \
+\
+9 scenarios (\cf6 3 failed\cf2 , \cf3 6 passed\cf2 )\
+37 steps (\cf6 3 failed\cf2 , \cf4 5 skipped\cf2 , \cf3 29 passed\cf2 )\
+8m45.786s\
+    \cf3 Given I am on "http://devbestof.azcentral.com/winners/2014/"\cf5                                                                                                                                      # features/step_definitions/bestof_allregressiontests.rb:126\cf2 \
+    \cf3 When I click the "LOGIN" button\cf5                                                                                                                                                                   # features/step_definitions/bestof_allregressiontests.rb:163\cf2 \
+    \cf3 Then I should arrive at the login url of: "https://account.azcentral.com/bestOf/ui/login/?onSuccessRedirectURL=http://bestof.azcentral.com/2014/winners?category=all&group=all&city=all&search="\cf5  # features/step_definitions/bestof_allregressiontests.rb:166\cf2 \
+    \cf3 And I log into my account\cf5                                                                                                                                                                         # features/step_definitions/bestof_allregressiontests.rb:169\cf2 \
+    \cf3 Then I should be returned to this page "http://devbestof.azcentral.com/winners/2014/"\cf5                                                                                                             # features/step_definitions/bestof_allregressiontests.rb:174\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/e9724e772b124a40b0637761f6a65c6a?auth=d258220fa0cc6a141568df07b1c49364\
+\
+  Scenario: #9) Login test on PNJ\cf5                             # features/bestofallregressions.feature:75\cf2 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f1\fs24 \cf0 \cb1 \CocoaLigature1 \
+\
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs20 \cf2 \cb0 \CocoaLigature0 \
+}

@@ -1,0 +1,24 @@
+@selenium
+Feature: Rentals Lite application tests
+    In order to access the Rentals Lite web application
+    As a public user of the Internet and not authenticated
+    I want to open the Rentals Lite application and see certain features
+
+
+	Scenario: User visits simple rentals front on desktop
+
+		Given that I am on the Rentals Lite web page
+		Then the user is presented with a standard GDP front with header, left suspender and footer
+		And the top module in the center well will display an Apartments search widget
+		And the widget will provide a search field that will accept 'City, Zip, Neighborhood, Address, Property Name'
+		And the widget will provide drop-down searches for: 'Min Rent', 'Max Rent', 'Beds', 'Baths', and 'Pets'
+
+		And a classifieds module is displayed left-center
+		And that classifieds module provides a 'simple search' widget
+		And the link to the search should be configurable
+
+		And two image links are displayed
+		And text links are to be displayed below the images
+		And these links should be configurable content
+		
+		And a '300x250' ad is displayed in the right column as 'poster_front'

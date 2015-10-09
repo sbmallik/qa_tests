@@ -1,0 +1,829 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red242\green242\blue242;\red46\green174\blue187;\red111\green111\blue111;
+\red47\green180\blue29;\red180\green36\blue25;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 \
+["Windows 8.1", "Internet Explorer", "11"]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Thu Aug 27 09:01:55 on ttys000\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: High School Sports Tests -- Hiding a School\
+  \
+  In order to make the new features live on the High School Sports pages\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1 - Find a school on two devwww pages\cf4                                                                                                        # features/hssports_schools.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/schedules.php?schoolid=204&sportid=3"\cf4                                  # features/step_definitions/web_steps_hssports_schools.rb:2\cf2 \
+    \cf5 When I click on the dropdown "Choose a School"\cf4                                                                                                        # features/step_definitions/web_steps_hssports_schools.rb:7\cf2 \
+    \cf5 Then I should see the option "Academy of Tucson" in the menu\cf4                                                                                          # features/step_definitions/web_steps_hssports_schools.rb:14\cf2 \
+    \cf5 And when I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/scoreboard.php?gamedate=2015-10-16&sportid=3&division=2&section=6"\cf4  # features/step_definitions/web_steps_hssports_schools.rb:19\cf2 \
+    \cf5 And when I click on the dropdown "Choose a school"\cf4                                                                                                    # features/step_definitions/web_steps_hssports_schools.rb:23\cf2 \
+    \cf5 Then I should also see the option "Academy of Tucson" in the menu\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:28\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/3acf5b050d364fa6b6110322bc91efcb?auth=f127c335e8f81d7aaed78648be15c5ad\
+\
+  Scenario: #2 - Hide that school in the Admin tool\cf4                                                                      # features/hssports_schools.feature:19\cf2 \
+    \cf5 Given I am on the admin tool in the 'Schools' section at "http://prepsportsadmin.azcentral.com/schools" and I login\cf4  # features/step_definitions/web_steps_hssports_schools.rb:36\cf2 \
+    \cf5 When I click on dropdown "Select a school to update, or leave blank to create one"\cf4                                   # features/step_definitions/web_steps_hssports_schools.rb:44\cf2 \
+    \cf5 Then I click on the school "Academy of Tucson"\cf4                                                                       # features/step_definitions/web_steps_hssports_schools.rb:49\cf2 \
+    \cf5 And I check the box labeled "Hidden"\cf4                                                                                 # features/step_definitions/web_steps_hssports_schools.rb:54\cf2 \
+    \cf5 And then I click on "Save Edits"\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:59\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/695ddf0a4ccd476e88970f4f2e51a967?auth=c0ff4b470a42b27d9ecc320ff4f3ae03\
+\
+  Scenario: #3 - Chosen school should now be hidden on the two devwww pages\cf4                                                                                     # features/hssports_schools.feature:28\cf2 \
+    \cf5 Given I am on this H.S. Sports page again: "http://devwww.azcentral.com/sports/preps/schedules.php?schoolid=204&sportid=3"\cf4                                  # features/step_definitions/web_steps_hssports_schools.rb:68\cf2 \
+    \cf5 When I click on the dropdown again "Choose a School"\cf4                                                                                                        # features/step_definitions/web_steps_hssports_schools.rb:72\cf2 \
+    \cf5 Then I should NOT see the option "Academy of Tucson" in the menu\cf4                                                                                            # features/step_definitions/web_steps_hssports_schools.rb:76\cf2 \
+    \cf5 And when I am on this H.S. Sports page again: "http://devwww.azcentral.com/sports/preps/scoreboard.php?gamedate=2015-10-16&sportid=3&division=2&section=6"\cf4  # features/step_definitions/web_steps_hssports_schools.rb:81\cf2 \
+    \cf5 And when I click on the dropdown again "Choose a school"\cf4                                                                                                    # features/step_definitions/web_steps_hssports_schools.rb:85\cf2 \
+    \cf5 Then I should also NOT see the option "Academy of Tucson" in the menu\cf4                                                                                       # features/step_definitions/web_steps_hssports_schools.rb:89\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/e128cec57bf843faa5835ed358ce92fd?auth=8a8dea4e5b744514ac3fd91d065f9d42\
+\
+  Scenario: #4 - UNHide that school in the Admin tool\cf4                                                                          # features/hssports_schools.feature:39\cf2 \
+    \cf5 Given I am on the admin tool in the 'Schools' section at "http://prepsportsadmin.azcentral.com/schools" and I login again\cf4  # features/step_definitions/web_steps_hssports_schools.rb:97\cf2 \
+    \cf5 When I click on dropdown "Select a school to update, or leave blank to create one" again\cf4                                   # features/step_definitions/web_steps_hssports_schools.rb:105\cf2 \
+    \cf5 Then I click on the school "Academy of Tucson" again\cf4                                                                       # features/step_definitions/web_steps_hssports_schools.rb:110\cf2 \
+    \cf5 And I uncheck the box labeled "Hidden"\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:115\cf2 \
+    \cf5 And then I click on "Save Edits" again\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:120\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/2ac8c421b2fb492c80b7aa776175d9b1?auth=2499b8df03cc7de207f860b9a988db91\
+\
+  Scenario: #5 - Verify that the school is back on the two devwww pages\cf4                                                                                                      # features/hssports_schools.feature:48\cf2 \
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/schedules.php?schoolid=204&sportid=3" for the third time\cf4                                  # features/step_definitions/web_steps_hssports_schools.rb:129\cf2 \
+    \cf5 When I click on the dropdown "Choose a School" for the third time\cf4                                                                                                        # features/step_definitions/web_steps_hssports_schools.rb:133\cf2 \
+    \cf5 Then I should see the option "Academy of Tucson" in the menu for the third time\cf4                                                                                          # features/step_definitions/web_steps_hssports_schools.rb:137\cf2 \
+    \cf5 And when I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/scoreboard.php?gamedate=2015-10-16&sportid=3&division=2&section=6" for the third time\cf4  # features/step_definitions/web_steps_hssports_schools.rb:141\cf2 \
+    \cf5 And when I click on the dropdown "Choose a school" for the third time\cf4                                                                                                    # features/step_definitions/web_steps_hssports_schools.rb:145\cf2 \
+    \cf5 Then I should also see the option "Academy of Tucson" in the menu for the third time\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:149\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/3434689eb802456994a54f9ee571d107?auth=8a70dae9822838346d5fcbcc6ca940da\
+\
+5 scenarios (\cf5 5 passed\cf2 )\
+28 steps (\cf5 28 passed\cf2 )\
+15m51.229s\
+\
+5 scenarios (5 passed)\
+28 steps (28 passed)\
+\
+Took 956 seconds (15:56)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+["Windows 8.1", "Firefox", "38"]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Thu Aug 27 09:20:03 on ttys000\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: High School Sports Tests -- Hiding a School\
+  \
+  In order to make the new features live on the High School Sports pages\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1 - Find a school on two devwww pages\cf4                                                                                                        # features/hssports_schools.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/schedules.php?schoolid=204&sportid=3"\cf4                                  # features/step_definitions/web_steps_hssports_schools.rb:2\cf2 \
+    \cf5 When I click on the dropdown "Choose a School"\cf4                                                                                                        # features/step_definitions/web_steps_hssports_schools.rb:7\cf2 \
+    \cf5 Then I should see the option "Academy of Tucson" in the menu\cf4                                                                                          # features/step_definitions/web_steps_hssports_schools.rb:14\cf2 \
+    \cf5 And when I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/scoreboard.php?gamedate=2015-10-16&sportid=3&division=2&section=6"\cf4  # features/step_definitions/web_steps_hssports_schools.rb:19\cf2 \
+    \cf5 And when I click on the dropdown "Choose a school"\cf4                                                                                                    # features/step_definitions/web_steps_hssports_schools.rb:23\cf2 \
+    \cf5 Then I should also see the option "Academy of Tucson" in the menu\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:28\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/59390a1c11bf4afca23082f5c51d8507?auth=eb467176ed11044e9c0a61aa5742bf56\
+\
+  Scenario: #2 - Hide that school in the Admin tool\cf4                                                                      # features/hssports_schools.feature:19\cf2 \
+    \cf5 Given I am on the admin tool in the 'Schools' section at "http://prepsportsadmin.azcentral.com/schools" and I login\cf4  # features/step_definitions/web_steps_hssports_schools.rb:36\cf2 \
+    \cf5 When I click on dropdown "Select a school to update, or leave blank to create one"\cf4                                   # features/step_definitions/web_steps_hssports_schools.rb:44\cf2 \
+    \cf5 Then I click on the school "Academy of Tucson"\cf4                                                                       # features/step_definitions/web_steps_hssports_schools.rb:49\cf2 \
+    \cf5 And I check the box labeled "Hidden"\cf4                                                                                 # features/step_definitions/web_steps_hssports_schools.rb:54\cf2 \
+    \cf5 And then I click on "Save Edits"\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:59\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/578b48a13ae24ecf809ec614a657667f?auth=3eb6143020de4357f9e93bd1d8b54ca8\
+\
+  Scenario: #3 - Chosen school should now be hidden on the two devwww pages\cf4                                                                                     # features/hssports_schools.feature:28\cf2 \
+    \cf5 Given I am on this H.S. Sports page again: "http://devwww.azcentral.com/sports/preps/schedules.php?schoolid=204&sportid=3"\cf4                                  # features/step_definitions/web_steps_hssports_schools.rb:68\cf2 \
+    \cf5 When I click on the dropdown again "Choose a School"\cf4                                                                                                        # features/step_definitions/web_steps_hssports_schools.rb:72\cf2 \
+    \cf5 Then I should NOT see the option "Academy of Tucson" in the menu\cf4                                                                                            # features/step_definitions/web_steps_hssports_schools.rb:76\cf2 \
+    \cf5 And when I am on this H.S. Sports page again: "http://devwww.azcentral.com/sports/preps/scoreboard.php?gamedate=2015-10-16&sportid=3&division=2&section=6"\cf4  # features/step_definitions/web_steps_hssports_schools.rb:81\cf2 \
+    \cf5 And when I click on the dropdown again "Choose a school"\cf4                                                                                                    # features/step_definitions/web_steps_hssports_schools.rb:85\cf2 \
+    \cf5 Then I should also NOT see the option "Academy of Tucson" in the menu\cf4                                                                                       # features/step_definitions/web_steps_hssports_schools.rb:89\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/35127a78a9a44977861cc89ab3682095?auth=9ed5e7b606bf7109c22fa296b64aad58\
+\
+  Scenario: #4 - UNHide that school in the Admin tool\cf4                                                                          # features/hssports_schools.feature:39\cf2 \
+    \cf5 Given I am on the admin tool in the 'Schools' section at "http://prepsportsadmin.azcentral.com/schools" and I login again\cf4  # features/step_definitions/web_steps_hssports_schools.rb:97\cf2 \
+    \cf5 When I click on dropdown "Select a school to update, or leave blank to create one" again\cf4                                   # features/step_definitions/web_steps_hssports_schools.rb:105\cf2 \
+    \cf5 Then I click on the school "Academy of Tucson" again\cf4                                                                       # features/step_definitions/web_steps_hssports_schools.rb:110\cf2 \
+    \cf5 And I uncheck the box labeled "Hidden"\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:115\cf2 \
+    \cf5 And then I click on "Save Edits" again\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:120\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/8ea9e89db2fe4bbab36e315f8c8af9ad?auth=1d2029a23e3619eb4e4f68085e8024f7\
+\
+  Scenario: #5 - Verify that the school is back on the two devwww pages\cf4                                                                                                      # features/hssports_schools.feature:48\cf2 \
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/schedules.php?schoolid=204&sportid=3" for the third time\cf4                                  # features/step_definitions/web_steps_hssports_schools.rb:129\cf2 \
+    \cf5 When I click on the dropdown "Choose a School" for the third time\cf4                                                                                                        # features/step_definitions/web_steps_hssports_schools.rb:133\cf2 \
+    \cf5 Then I should see the option "Academy of Tucson" in the menu for the third time\cf4                                                                                          # features/step_definitions/web_steps_hssports_schools.rb:137\cf2 \
+    \cf5 And when I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/scoreboard.php?gamedate=2015-10-16&sportid=3&division=2&section=6" for the third time\cf4  # features/step_definitions/web_steps_hssports_schools.rb:141\cf2 \
+    \cf5 And when I click on the dropdown "Choose a school" for the third time\cf4                                                                                                    # features/step_definitions/web_steps_hssports_schools.rb:145\cf2 \
+    \cf5 Then I should also see the option "Academy of Tucson" in the menu for the third time\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:149\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/f98250bbcb0a4cc5aec8fe48116bae80?auth=dd5716c6106c265d2a88e2f9ebd02157\
+\
+5 scenarios (\cf5 5 passed\cf2 )\
+28 steps (\cf5 28 passed\cf2 )\
+13m15.266s\
+\
+5 scenarios (5 passed)\
+28 steps (28 passed)\
+\
+Took 801 seconds (13:21)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+["Windows 8.1", "Chrome", 43]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Thu Aug 27 09:56:19 on ttys000\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: High School Sports Tests -- Hiding a School\
+  \
+  In order to make the new features live on the High School Sports pages\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1 - Find a school on two devwww pages\cf4                                                                                                        # features/hssports_schools.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/schedules.php?schoolid=204&sportid=3"\cf4                                  # features/step_definitions/web_steps_hssports_schools.rb:2\cf2 \
+    \cf5 When I click on the dropdown "Choose a School"\cf4                                                                                                        # features/step_definitions/web_steps_hssports_schools.rb:7\cf2 \
+    \cf5 Then I should see the option "Academy of Tucson" in the menu\cf4                                                                                          # features/step_definitions/web_steps_hssports_schools.rb:14\cf2 \
+    \cf5 And when I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/scoreboard.php?gamedate=2015-10-16&sportid=3&division=2&section=6"\cf4  # features/step_definitions/web_steps_hssports_schools.rb:19\cf2 \
+    \cf5 And when I click on the dropdown "Choose a school"\cf4                                                                                                    # features/step_definitions/web_steps_hssports_schools.rb:23\cf2 \
+    \cf5 Then I should also see the option "Academy of Tucson" in the menu\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:28\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/6786efc4ae33446a876e41282776eff4?auth=0931cfc6098ee73638e58da9866409b1\
+\
+  Scenario: #2 - Hide that school in the Admin tool\cf4                                                                      # features/hssports_schools.feature:19\cf2 \
+    \cf5 Given I am on the admin tool in the 'Schools' section at "http://prepsportsadmin.azcentral.com/schools" and I login\cf4  # features/step_definitions/web_steps_hssports_schools.rb:36\cf2 \
+    \cf5 When I click on dropdown "Select a school to update, or leave blank to create one"\cf4                                   # features/step_definitions/web_steps_hssports_schools.rb:44\cf2 \
+    \cf5 Then I click on the school "Academy of Tucson"\cf4                                                                       # features/step_definitions/web_steps_hssports_schools.rb:49\cf2 \
+    \cf5 And I check the box labeled "Hidden"\cf4                                                                                 # features/step_definitions/web_steps_hssports_schools.rb:54\cf2 \
+    \cf5 And then I click on "Save Edits"\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:59\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/5217ea798efa4ee89b916f542444add2?auth=a97ef38c2f0da11128dac8686b19e898\
+\
+  Scenario: #3 - Chosen school should now be hidden on the two devwww pages\cf4                                                                                     # features/hssports_schools.feature:28\cf2 \
+    \cf5 Given I am on this H.S. Sports page again: "http://devwww.azcentral.com/sports/preps/schedules.php?schoolid=204&sportid=3"\cf4                                  # features/step_definitions/web_steps_hssports_schools.rb:68\cf2 \
+    \cf5 When I click on the dropdown again "Choose a School"\cf4                                                                                                        # features/step_definitions/web_steps_hssports_schools.rb:72\cf2 \
+    \cf5 Then I should NOT see the option "Academy of Tucson" in the menu\cf4                                                                                            # features/step_definitions/web_steps_hssports_schools.rb:76\cf2 \
+    \cf5 And when I am on this H.S. Sports page again: "http://devwww.azcentral.com/sports/preps/scoreboard.php?gamedate=2015-10-16&sportid=3&division=2&section=6"\cf4  # features/step_definitions/web_steps_hssports_schools.rb:81\cf2 \
+    \cf5 And when I click on the dropdown again "Choose a school"\cf4                                                                                                    # features/step_definitions/web_steps_hssports_schools.rb:85\cf2 \
+    \cf5 Then I should also NOT see the option "Academy of Tucson" in the menu\cf4                                                                                       # features/step_definitions/web_steps_hssports_schools.rb:89\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/eedb977a18734b929c56359a62570392?auth=822d273d2209597974bc37b0384b6f4f\
+\
+  Scenario: #4 - UNHide that school in the Admin tool\cf4                                                                          # features/hssports_schools.feature:39\cf2 \
+    \cf5 Given I am on the admin tool in the 'Schools' section at "http://prepsportsadmin.azcentral.com/schools" and I login again\cf4  # features/step_definitions/web_steps_hssports_schools.rb:97\cf2 \
+    \cf5 When I click on dropdown "Select a school to update, or leave blank to create one" again\cf4                                   # features/step_definitions/web_steps_hssports_schools.rb:105\cf2 \
+    \cf5 Then I click on the school "Academy of Tucson" again\cf4                                                                       # features/step_definitions/web_steps_hssports_schools.rb:110\cf2 \
+    \cf5 And I uncheck the box labeled "Hidden"\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:115\cf2 \
+    \cf5 And then I click on "Save Edits" again\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:120\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/53853162f953450ab91a7f37287e8371?auth=57f45c98aa064ed2a089b05ebd5d3e3c\
+\
+  Scenario: #5 - Verify that the school is back on the two devwww pages\cf4                                                                                                      # features/hssports_schools.feature:48\cf2 \
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/schedules.php?schoolid=204&sportid=3" for the third time\cf4                                  # features/step_definitions/web_steps_hssports_schools.rb:129\cf2 \
+    \cf5 When I click on the dropdown "Choose a School" for the third time\cf4                                                                                                        # features/step_definitions/web_steps_hssports_schools.rb:133\cf2 \
+    \cf5 Then I should see the option "Academy of Tucson" in the menu for the third time\cf4                                                                                          # features/step_definitions/web_steps_hssports_schools.rb:137\cf2 \
+    \cf5 And when I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/scoreboard.php?gamedate=2015-10-16&sportid=3&division=2&section=6" for the third time\cf4  # features/step_definitions/web_steps_hssports_schools.rb:141\cf2 \
+    \cf5 And when I click on the dropdown "Choose a school" for the third time\cf4                                                                                                    # features/step_definitions/web_steps_hssports_schools.rb:145\cf2 \
+    \cf5 Then I should also see the option "Academy of Tucson" in the menu for the third time\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:149\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/e810ea7784d04369ac32408e09cfaa2f?auth=62a18969f84f6908500e281e53d38ec0\
+\
+5 scenarios (\cf5 5 passed\cf2 )\
+28 steps (\cf5 28 passed\cf2 )\
+11m20.074s\
+\
+5 scenarios (5 passed)\
+28 steps (28 passed)\
+\
+Took 686 seconds (11:26)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+ ["OS X 10.10", "Safari", "8.0"]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Thu Aug 27 10:24:26 on ttys000\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: High School Sports Tests -- Hiding a School\
+  \
+  In order to make the new features live on the High School Sports pages\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1 - Find a school on two devwww pages\cf4                                                                                                        # features/hssports_schools.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/schedules.php?schoolid=204&sportid=3"\cf4                                  # features/step_definitions/web_steps_hssports_schools.rb:2\cf2 \
+    \cf5 When I click on the dropdown "Choose a School"\cf4                                                                                                        # features/step_definitions/web_steps_hssports_schools.rb:7\cf2 \
+    \cf5 Then I should see the option "Academy of Tucson" in the menu\cf4                                                                                          # features/step_definitions/web_steps_hssports_schools.rb:14\cf2 \
+    \cf5 And when I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/scoreboard.php?gamedate=2015-10-16&sportid=3&division=2&section=6"\cf4  # features/step_definitions/web_steps_hssports_schools.rb:19\cf2 \
+    \cf5 And when I click on the dropdown "Choose a school"\cf4                                                                                                    # features/step_definitions/web_steps_hssports_schools.rb:23\cf2 \
+    \cf5 Then I should also see the option "Academy of Tucson" in the menu\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:28\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/6f75b8bb7227451fa631e0d92d40c8d2?auth=9e30378d03d4339eabb2bcbcb895bce4\
+\
+  Scenario: #2 - Hide that school in the Admin tool\cf4                                                                      # features/hssports_schools.feature:19\cf2 \
+    \cf5 Given I am on the admin tool in the 'Schools' section at "http://prepsportsadmin.azcentral.com/schools" and I login\cf4  # features/step_definitions/web_steps_hssports_schools.rb:36\cf2 \
+    \cf5 When I click on dropdown "Select a school to update, or leave blank to create one"\cf4                                   # features/step_definitions/web_steps_hssports_schools.rb:44\cf2 \
+    \cf5 Then I click on the school "Academy of Tucson"\cf4                                                                       # features/step_definitions/web_steps_hssports_schools.rb:49\cf2 \
+    \cf5 And I check the box labeled "Hidden"\cf4                                                                                 # features/step_definitions/web_steps_hssports_schools.rb:54\cf2 \
+    \cf5 And then I click on "Save Edits"\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:59\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/d2b848165f94413eab39e6759399ac01?auth=be22a9eeb5484d92d3f5abd30a5db2eb\
+\
+  Scenario: #3 - Chosen school should now be hidden on the two devwww pages\cf4                                                                                     # features/hssports_schools.feature:28\cf2 \
+    \cf5 Given I am on this H.S. Sports page again: "http://devwww.azcentral.com/sports/preps/schedules.php?schoolid=204&sportid=3"\cf4                                  # features/step_definitions/web_steps_hssports_schools.rb:68\cf2 \
+    \cf5 When I click on the dropdown again "Choose a School"\cf4                                                                                                        # features/step_definitions/web_steps_hssports_schools.rb:72\cf2 \
+    \cf5 Then I should NOT see the option "Academy of Tucson" in the menu\cf4                                                                                            # features/step_definitions/web_steps_hssports_schools.rb:76\cf2 \
+    \cf5 And when I am on this H.S. Sports page again: "http://devwww.azcentral.com/sports/preps/scoreboard.php?gamedate=2015-10-16&sportid=3&division=2&section=6"\cf4  # features/step_definitions/web_steps_hssports_schools.rb:81\cf2 \
+    \cf5 And when I click on the dropdown again "Choose a school"\cf4                                                                                                    # features/step_definitions/web_steps_hssports_schools.rb:85\cf2 \
+    \cf5 Then I should also NOT see the option "Academy of Tucson" in the menu\cf4                                                                                       # features/step_definitions/web_steps_hssports_schools.rb:89\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/5866b68d34124237970b29f8ff186702?auth=ca77ebf034158616a0be2a17a1260895\
+\
+  Scenario: #4 - UNHide that school in the Admin tool\cf4                                                                          # features/hssports_schools.feature:39\cf2 \
+    \cf5 Given I am on the admin tool in the 'Schools' section at "http://prepsportsadmin.azcentral.com/schools" and I login again\cf4  # features/step_definitions/web_steps_hssports_schools.rb:97\cf2 \
+    \cf5 When I click on dropdown "Select a school to update, or leave blank to create one" again\cf4                                   # features/step_definitions/web_steps_hssports_schools.rb:105\cf2 \
+    \cf5 Then I click on the school "Academy of Tucson" again\cf4                                                                       # features/step_definitions/web_steps_hssports_schools.rb:110\cf2 \
+    \cf5 And I uncheck the box labeled "Hidden"\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:115\cf2 \
+    \cf5 And then I click on "Save Edits" again\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:120\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/6306a13832c8412ab8b80c5d22a85708?auth=64f710d947e80c138041d46d79ae2869\
+\
+  Scenario: #5 - Verify that the school is back on the two devwww pages\cf4                                                                                                      # features/hssports_schools.feature:48\cf2 \
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/schedules.php?schoolid=204&sportid=3" for the third time\cf4                                  # features/step_definitions/web_steps_hssports_schools.rb:129\cf2 \
+    \cf5 When I click on the dropdown "Choose a School" for the third time\cf4                                                                                                        # features/step_definitions/web_steps_hssports_schools.rb:133\cf2 \
+    \cf5 Then I should see the option "Academy of Tucson" in the menu for the third time\cf4                                                                                          # features/step_definitions/web_steps_hssports_schools.rb:137\cf2 \
+    \cf5 And when I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/scoreboard.php?gamedate=2015-10-16&sportid=3&division=2&section=6" for the third time\cf4  # features/step_definitions/web_steps_hssports_schools.rb:141\cf2 \
+    \cf5 And when I click on the dropdown "Choose a school" for the third time\cf4                                                                                                    # features/step_definitions/web_steps_hssports_schools.rb:145\cf2 \
+    \cf5 Then I should also see the option "Academy of Tucson" in the menu for the third time\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:149\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/87b389bc366743c89d9995c76c855480?auth=2b02eafb9cb5583b2e1495365f76cd22\
+\
+5 scenarios (\cf5 5 passed\cf2 )\
+28 steps (\cf5 28 passed\cf2 )\
+10m47.115s\
+\
+5 scenarios (5 passed)\
+28 steps (28 passed)\
+\
+Took 652 seconds (10:52)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+["OS X 10.10", "Chrome", 43]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Thu Aug 27 11:13:36 on ttys000\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: High School Sports Tests -- Hiding a School\
+  \
+  In order to make the new features live on the High School Sports pages\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1 - Find a school on two devwww pages\cf4                                                                                                        # features/hssports_schools.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/schedules.php?schoolid=204&sportid=3"\cf4                                  # features/step_definitions/web_steps_hssports_schools.rb:2\cf2 \
+    \cf5 When I click on the dropdown "Choose a School"\cf4                                                                                                        # features/step_definitions/web_steps_hssports_schools.rb:8\cf2 \
+    \cf5 Then I should see the option "Academy of Tucson" in the menu\cf4                                                                                          # features/step_definitions/web_steps_hssports_schools.rb:16\cf2 \
+    \cf5 And when I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/scoreboard.php?gamedate=2015-10-16&sportid=3&division=2&section=6"\cf4  # features/step_definitions/web_steps_hssports_schools.rb:22\cf2 \
+    \cf5 And when I click on the dropdown "Choose a school"\cf4                                                                                                    # features/step_definitions/web_steps_hssports_schools.rb:27\cf2 \
+    \cf5 Then I should also see the option "Academy of Tucson" in the menu\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:33\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/86c456c24b6c44bd80fb918431e81f48?auth=c864efac55d5752dbd3b2566b1696817\
+\
+  Scenario: #2 - Hide that school in the Admin tool\cf4                                                                      # features/hssports_schools.feature:19\cf2 \
+    \cf5 Given I am on the admin tool in the 'Schools' section at "http://prepsportsadmin.azcentral.com/schools" and I login\cf4  # features/step_definitions/web_steps_hssports_schools.rb:41\cf2 \
+    \cf5 When I click on dropdown "Select a school to update, or leave blank to create one"\cf4                                   # features/step_definitions/web_steps_hssports_schools.rb:49\cf2 \
+    \cf5 Then I click on the school "Academy of Tucson"\cf4                                                                       # features/step_definitions/web_steps_hssports_schools.rb:54\cf2 \
+    \cf5 And I check the box labeled "Hidden"\cf4                                                                                 # features/step_definitions/web_steps_hssports_schools.rb:59\cf2 \
+    \cf5 And then I click on "Save Edits"\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:64\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/a34b3e9749674af1a0c2620fc0053081?auth=d9d84e031007ad91d4f907b24768f2b9\
+\
+  Scenario: #3 - Chosen school should now be hidden on the two devwww pages\cf4                                                                                     # features/hssports_schools.feature:28\cf2 \
+    \cf5 Given I am on this H.S. Sports page again: "http://devwww.azcentral.com/sports/preps/schedules.php?schoolid=204&sportid=3"\cf4                                  # features/step_definitions/web_steps_hssports_schools.rb:72\cf2 \
+    \cf5 When I click on the dropdown again "Choose a School"\cf4                                                                                                        # features/step_definitions/web_steps_hssports_schools.rb:77\cf2 \
+    \cf5 Then I should NOT see the option "Academy of Tucson" in the menu\cf4                                                                                            # features/step_definitions/web_steps_hssports_schools.rb:82\cf2 \
+    \cf5 And when I am on this H.S. Sports page again: "http://devwww.azcentral.com/sports/preps/scoreboard.php?gamedate=2015-10-16&sportid=3&division=2&section=6"\cf4  # features/step_definitions/web_steps_hssports_schools.rb:88\cf2 \
+    \cf5 And when I click on the dropdown again "Choose a school"\cf4                                                                                                    # features/step_definitions/web_steps_hssports_schools.rb:93\cf2 \
+    \cf5 Then I should also NOT see the option "Academy of Tucson" in the menu\cf4                                                                                       # features/step_definitions/web_steps_hssports_schools.rb:98\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/91c678c03a984f0ea12ce406de932587?auth=f1d23d79a2e2237f2e93f3310bd82cfd\
+\
+  Scenario: #4 - UNHide that school in the Admin tool\cf4                                                                          # features/hssports_schools.feature:39\cf2 \
+    \cf5 Given I am on the admin tool in the 'Schools' section at "http://prepsportsadmin.azcentral.com/schools" and I login again\cf4  # features/step_definitions/web_steps_hssports_schools.rb:107\cf2 \
+    \cf5 When I click on dropdown "Select a school to update, or leave blank to create one" again\cf4                                   # features/step_definitions/web_steps_hssports_schools.rb:115\cf2 \
+    \cf5 Then I click on the school "Academy of Tucson" again\cf4                                                                       # features/step_definitions/web_steps_hssports_schools.rb:120\cf2 \
+    \cf5 And I uncheck the box labeled "Hidden"\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:125\cf2 \
+    \cf5 And then I click on "Save Edits" again\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:130\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/fb22a0a52d59442eb4d75363f02bbee6?auth=4f5e90ff6a8d95cf4386d05de4a5634d\
+\
+  Scenario: #5 - Verify that the school is back on the two devwww pages\cf4                                                                                                      # features/hssports_schools.feature:48\cf2 \
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/schedules.php?schoolid=204&sportid=3" for the third time\cf4                                  # features/step_definitions/web_steps_hssports_schools.rb:138\cf2 \
+    \cf5 When I click on the dropdown "Choose a School" for the third time\cf4                                                                                                        # features/step_definitions/web_steps_hssports_schools.rb:143\cf2 \
+    \cf5 Then I should see the option "Academy of Tucson" in the menu for the third time\cf4                                                                                          # features/step_definitions/web_steps_hssports_schools.rb:148\cf2 \
+    \cf5 And when I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/scoreboard.php?gamedate=2015-10-16&sportid=3&division=2&section=6" for the third time\cf4  # features/step_definitions/web_steps_hssports_schools.rb:153\cf2 \
+    \cf5 And when I click on the dropdown "Choose a school" for the third time\cf4                                                                                                    # features/step_definitions/web_steps_hssports_schools.rb:158\cf2 \
+    \cf5 Then I should also see the option "Academy of Tucson" in the menu for the third time\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:163\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/95a56b7ce1f0424892d6ad4b70c39f18?auth=985e75f82a185487e6fac99468691dc4\
+\
+5 scenarios (\cf5 5 passed\cf2 )\
+28 steps (\cf5 28 passed\cf2 )\
+11m50.787s\
+\
+5 scenarios (5 passed)\
+28 steps (28 passed)\
+\
+Took 717 seconds (11:57)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+["OS X 10.10", "Firefox", "39"]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Thu Aug 27 11:20:00 on ttys000\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: High School Sports Tests -- Hiding a School\
+  \
+  In order to make the new features live on the High School Sports pages\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1 - Find a school on two devwww pages\cf4                                                                                                        # features/hssports_schools.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/schedules.php?schoolid=204&sportid=3"\cf4                                  # features/step_definitions/web_steps_hssports_schools.rb:2\cf2 \
+    \cf5 When I click on the dropdown "Choose a School"\cf4                                                                                                        # features/step_definitions/web_steps_hssports_schools.rb:8\cf2 \
+    \cf5 Then I should see the option "Academy of Tucson" in the menu\cf4                                                                                          # features/step_definitions/web_steps_hssports_schools.rb:16\cf2 \
+    \cf5 And when I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/scoreboard.php?gamedate=2015-10-16&sportid=3&division=2&section=6"\cf4  # features/step_definitions/web_steps_hssports_schools.rb:22\cf2 \
+    \cf5 And when I click on the dropdown "Choose a school"\cf4                                                                                                    # features/step_definitions/web_steps_hssports_schools.rb:27\cf2 \
+    \cf5 Then I should also see the option "Academy of Tucson" in the menu\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:33\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/00552c03031e469cbd3dba3a85241ce0?auth=95ceafff97a149670786a58000ae1ac0\
+\
+  Scenario: #2 - Hide that school in the Admin tool\cf4                                                                      # features/hssports_schools.feature:19\cf2 \
+    \cf5 Given I am on the admin tool in the 'Schools' section at "http://prepsportsadmin.azcentral.com/schools" and I login\cf4  # features/step_definitions/web_steps_hssports_schools.rb:41\cf2 \
+    \cf5 When I click on dropdown "Select a school to update, or leave blank to create one"\cf4                                   # features/step_definitions/web_steps_hssports_schools.rb:49\cf2 \
+    \cf5 Then I click on the school "Academy of Tucson"\cf4                                                                       # features/step_definitions/web_steps_hssports_schools.rb:54\cf2 \
+    \cf5 And I check the box labeled "Hidden"\cf4                                                                                 # features/step_definitions/web_steps_hssports_schools.rb:59\cf2 \
+    \cf5 And then I click on "Save Edits"\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:64\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/a8cf9869981f46d9941886cc12258472?auth=4bdb7f2b27623e970dfcb4d73d7945d7\
+\
+  Scenario: #3 - Chosen school should now be hidden on the two devwww pages\cf4                                                                                     # features/hssports_schools.feature:28\cf2 \
+    \cf5 Given I am on this H.S. Sports page again: "http://devwww.azcentral.com/sports/preps/schedules.php?schoolid=204&sportid=3"\cf4                                  # features/step_definitions/web_steps_hssports_schools.rb:72\cf2 \
+    \cf5 When I click on the dropdown again "Choose a School"\cf4                                                                                                        # features/step_definitions/web_steps_hssports_schools.rb:77\cf2 \
+    \cf5 Then I should NOT see the option "Academy of Tucson" in the menu\cf4                                                                                            # features/step_definitions/web_steps_hssports_schools.rb:82\cf2 \
+    \cf5 And when I am on this H.S. Sports page again: "http://devwww.azcentral.com/sports/preps/scoreboard.php?gamedate=2015-10-16&sportid=3&division=2&section=6"\cf4  # features/step_definitions/web_steps_hssports_schools.rb:88\cf2 \
+    \cf5 And when I click on the dropdown again "Choose a school"\cf4                                                                                                    # features/step_definitions/web_steps_hssports_schools.rb:93\cf2 \
+    \cf5 Then I should also NOT see the option "Academy of Tucson" in the menu\cf4                                                                                       # features/step_definitions/web_steps_hssports_schools.rb:98\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/fa0fb1692f4548b0be60d8afa2d214aa?auth=3cf574b73fa3bc9d85bd7c82438beced\
+\
+  Scenario: #4 - UNHide that school in the Admin tool\cf4                                                                          # features/hssports_schools.feature:39\cf2 \
+    \cf5 Given I am on the admin tool in the 'Schools' section at "http://prepsportsadmin.azcentral.com/schools" and I login again\cf4  # features/step_definitions/web_steps_hssports_schools.rb:107\cf2 \
+    \cf5 When I click on dropdown "Select a school to update, or leave blank to create one" again\cf4                                   # features/step_definitions/web_steps_hssports_schools.rb:115\cf2 \
+    \cf5 Then I click on the school "Academy of Tucson" again\cf4                                                                       # features/step_definitions/web_steps_hssports_schools.rb:120\cf2 \
+    \cf5 And I uncheck the box labeled "Hidden"\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:125\cf2 \
+    \cf5 And then I click on "Save Edits" again\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:130\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/da697965b2f347e582e5fb141b190ad0?auth=66f8ffe12d909703db041f1ed40bfcf8\
+\
+  Scenario: #5 - Verify that the school is back on the two devwww pages\cf4                                                                                                      # features/hssports_schools.feature:48\cf2 \
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/schedules.php?schoolid=204&sportid=3" for the third time\cf4                                  # features/step_definitions/web_steps_hssports_schools.rb:138\cf2 \
+    \cf5 When I click on the dropdown "Choose a School" for the third time\cf4                                                                                                        # features/step_definitions/web_steps_hssports_schools.rb:143\cf2 \
+    \cf5 Then I should see the option "Academy of Tucson" in the menu for the third time\cf4                                                                                          # features/step_definitions/web_steps_hssports_schools.rb:148\cf2 \
+    \cf5 And when I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/scoreboard.php?gamedate=2015-10-16&sportid=3&division=2&section=6" for the third time\cf4  # features/step_definitions/web_steps_hssports_schools.rb:153\cf2 \
+    \cf5 And when I click on the dropdown "Choose a school" for the third time\cf4                                                                                                    # features/step_definitions/web_steps_hssports_schools.rb:158\cf2 \
+    \cf5 Then I should also see the option "Academy of Tucson" in the menu for the third time\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:163\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/c985b6427f7041049f783778693f26cb?auth=dbcb0c1dd7694fa07f7509d6ce7f4758\
+\
+5 scenarios (\cf5 5 passed\cf2 )\
+28 steps (\cf5 28 passed\cf2 )\
+13m12.154s\
+\
+5 scenarios (5 passed)\
+28 steps (28 passed)\
+\
+Took 800 seconds (13:20)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+["OS X 10.10", "iPhone", "8.2", \{:deviceName => 'iPhone Simulator'\}]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Thu Aug 27 11:34:05 on ttys000\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: High School Sports Tests -- Hiding a School\
+  \
+  In order to make the new features live on the High School Sports pages\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1 - Find a school on two devwww pages\cf4                                                                                                        # features/hssports_schools.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/schedules.php?schoolid=204&sportid=3"\cf4                                  # features/step_definitions/web_steps_hssports_schools.rb:2\cf2 \
+    \cf5 When I click on the dropdown "Choose a School"\cf4                                                                                                        # features/step_definitions/web_steps_hssports_schools.rb:8\cf2 \
+    \cf5 Then I should see the option "Academy of Tucson" in the menu\cf4                                                                                          # features/step_definitions/web_steps_hssports_schools.rb:16\cf2 \
+    \cf5 And when I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/scoreboard.php?gamedate=2015-10-16&sportid=3&division=2&section=6"\cf4  # features/step_definitions/web_steps_hssports_schools.rb:22\cf2 \
+    \cf5 And when I click on the dropdown "Choose a school"\cf4                                                                                                    # features/step_definitions/web_steps_hssports_schools.rb:27\cf2 \
+    \cf5 Then I should also see the option "Academy of Tucson" in the menu\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:33\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/51531dc071fc436786a112767f5f373e?auth=fb36272e6253f9a44ffc8814832fb816\
+\
+  Scenario: #2 - Hide that school in the Admin tool\cf4                                                                      # features/hssports_schools.feature:19\cf2 \
+    \cf5 Given I am on the admin tool in the 'Schools' section at "http://prepsportsadmin.azcentral.com/schools" and I login\cf4  # features/step_definitions/web_steps_hssports_schools.rb:41\cf2 \
+    \cf5 When I click on dropdown "Select a school to update, or leave blank to create one"\cf4                                   # features/step_definitions/web_steps_hssports_schools.rb:49\cf2 \
+    \cf5 Then I click on the school "Academy of Tucson"\cf4                                                                       # features/step_definitions/web_steps_hssports_schools.rb:54\cf2 \
+    \cf5 And I check the box labeled "Hidden"\cf4                                                                                 # features/step_definitions/web_steps_hssports_schools.rb:59\cf2 \
+    \cf5 And then I click on "Save Edits"\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:64\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/c33bf9c931124317af7ba3d118515642?auth=25f87b7817cdf56f1aa9bb3b20b6476f\
+\
+  Scenario: #3 - Chosen school should now be hidden on the two devwww pages\cf4                                                                                     # features/hssports_schools.feature:28\cf2 \
+    \cf5 Given I am on this H.S. Sports page again: "http://devwww.azcentral.com/sports/preps/schedules.php?schoolid=204&sportid=3"\cf4                                  # features/step_definitions/web_steps_hssports_schools.rb:72\cf2 \
+    \cf5 When I click on the dropdown again "Choose a School"\cf4                                                                                                        # features/step_definitions/web_steps_hssports_schools.rb:77\cf2 \
+    \cf5 Then I should NOT see the option "Academy of Tucson" in the menu\cf4                                                                                            # features/step_definitions/web_steps_hssports_schools.rb:82\cf2 \
+    \cf5 And when I am on this H.S. Sports page again: "http://devwww.azcentral.com/sports/preps/scoreboard.php?gamedate=2015-10-16&sportid=3&division=2&section=6"\cf4  # features/step_definitions/web_steps_hssports_schools.rb:88\cf2 \
+    \cf5 And when I click on the dropdown again "Choose a school"\cf4                                                                                                    # features/step_definitions/web_steps_hssports_schools.rb:93\cf2 \
+    \cf5 Then I should also NOT see the option "Academy of Tucson" in the menu\cf4                                                                                       # features/step_definitions/web_steps_hssports_schools.rb:98\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/d85b838aae2843cca7088edc09ddf8e6?auth=ad3162d3ebc75dac4e3685d3ff5e041e\
+\
+  Scenario: #4 - UNHide that school in the Admin tool\cf4                                                                          # features/hssports_schools.feature:39\cf2 \
+    \cf5 Given I am on the admin tool in the 'Schools' section at "http://prepsportsadmin.azcentral.com/schools" and I login again\cf4  # features/step_definitions/web_steps_hssports_schools.rb:107\cf2 \
+    \cf5 When I click on dropdown "Select a school to update, or leave blank to create one" again\cf4                                   # features/step_definitions/web_steps_hssports_schools.rb:115\cf2 \
+    \cf5 Then I click on the school "Academy of Tucson" again\cf4                                                                       # features/step_definitions/web_steps_hssports_schools.rb:120\cf2 \
+    \cf5 And I uncheck the box labeled "Hidden"\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:125\cf2 \
+    \cf5 And then I click on "Save Edits" again\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:130\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/a8fd56bf1ff24de990c252547bb2e823?auth=cc9779754657cb823645277957a712cd\
+\
+  Scenario: #5 - Verify that the school is back on the two devwww pages\cf4                                                                                                      # features/hssports_schools.feature:48\cf2 \
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/schedules.php?schoolid=204&sportid=3" for the third time\cf4                                  # features/step_definitions/web_steps_hssports_schools.rb:138\cf2 \
+    \cf5 When I click on the dropdown "Choose a School" for the third time\cf4                                                                                                        # features/step_definitions/web_steps_hssports_schools.rb:143\cf2 \
+    \cf5 Then I should see the option "Academy of Tucson" in the menu for the third time\cf4                                                                                          # features/step_definitions/web_steps_hssports_schools.rb:148\cf2 \
+    \cf5 And when I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/scoreboard.php?gamedate=2015-10-16&sportid=3&division=2&section=6" for the third time\cf4  # features/step_definitions/web_steps_hssports_schools.rb:153\cf2 \
+    \cf5 And when I click on the dropdown "Choose a school" for the third time\cf4                                                                                                    # features/step_definitions/web_steps_hssports_schools.rb:158\cf2 \
+    \cf5 Then I should also see the option "Academy of Tucson" in the menu for the third time\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:163\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/4293e2ecf082448c86667bc92c238016?auth=7c34740b530feb3abce06f0b2f20b528\
+\
+5 scenarios (\cf5 5 passed\cf2 )\
+28 steps (\cf5 28 passed\cf2 )\
+20m7.730s\
+\
+5 scenarios (5 passed)\
+28 steps (28 passed)\
+\
+Took 1216 seconds (20:16)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+["OS X 10.10", "iPhone", "8.2", \{:deviceName => 'iPad Simulator'\}]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Thu Aug 27 11:48:22 on ttys000\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: High School Sports Tests -- Hiding a School\
+  \
+  In order to make the new features live on the High School Sports pages\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1 - Find a school on two devwww pages\cf4                                                                                                        # features/hssports_schools.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/schedules.php?schoolid=204&sportid=3"\cf4                                  # features/step_definitions/web_steps_hssports_schools.rb:2\cf2 \
+    \cf5 When I click on the dropdown "Choose a School"\cf4                                                                                                        # features/step_definitions/web_steps_hssports_schools.rb:8\cf2 \
+    \cf5 Then I should see the option "Academy of Tucson" in the menu\cf4                                                                                          # features/step_definitions/web_steps_hssports_schools.rb:16\cf2 \
+    \cf5 And when I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/scoreboard.php?gamedate=2015-10-16&sportid=3&division=2&section=6"\cf4  # features/step_definitions/web_steps_hssports_schools.rb:22\cf2 \
+    \cf5 And when I click on the dropdown "Choose a school"\cf4                                                                                                    # features/step_definitions/web_steps_hssports_schools.rb:27\cf2 \
+    \cf5 Then I should also see the option "Academy of Tucson" in the menu\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:33\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/b19bf385972f4458ac91cf132b38c9f0?auth=c703e27a70d2384acb68ebaed05748a4\
+\
+  Scenario: #2 - Hide that school in the Admin tool\cf4                                                                      # features/hssports_schools.feature:19\cf2 \
+    \cf5 Given I am on the admin tool in the 'Schools' section at "http://prepsportsadmin.azcentral.com/schools" and I login\cf4  # features/step_definitions/web_steps_hssports_schools.rb:41\cf2 \
+    \cf5 When I click on dropdown "Select a school to update, or leave blank to create one"\cf4                                   # features/step_definitions/web_steps_hssports_schools.rb:49\cf2 \
+    \cf5 Then I click on the school "Academy of Tucson"\cf4                                                                       # features/step_definitions/web_steps_hssports_schools.rb:54\cf2 \
+    \cf5 And I check the box labeled "Hidden"\cf4                                                                                 # features/step_definitions/web_steps_hssports_schools.rb:59\cf2 \
+    \cf5 And then I click on "Save Edits"\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:64\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/50877be7c79043a3944288295b073b93?auth=9e36a5325c5dd00c76e8551e8e2de7db\
+\
+  Scenario: #3 - Chosen school should now be hidden on the two devwww pages\cf4                                                                                     # features/hssports_schools.feature:28\cf2 \
+    \cf5 Given I am on this H.S. Sports page again: "http://devwww.azcentral.com/sports/preps/schedules.php?schoolid=204&sportid=3"\cf4                                  # features/step_definitions/web_steps_hssports_schools.rb:72\cf2 \
+    \cf5 When I click on the dropdown again "Choose a School"\cf4                                                                                                        # features/step_definitions/web_steps_hssports_schools.rb:77\cf2 \
+    \cf5 Then I should NOT see the option "Academy of Tucson" in the menu\cf4                                                                                            # features/step_definitions/web_steps_hssports_schools.rb:82\cf2 \
+    \cf5 And when I am on this H.S. Sports page again: "http://devwww.azcentral.com/sports/preps/scoreboard.php?gamedate=2015-10-16&sportid=3&division=2&section=6"\cf4  # features/step_definitions/web_steps_hssports_schools.rb:88\cf2 \
+    \cf5 And when I click on the dropdown again "Choose a school"\cf4                                                                                                    # features/step_definitions/web_steps_hssports_schools.rb:93\cf2 \
+    \cf5 Then I should also NOT see the option "Academy of Tucson" in the menu\cf4                                                                                       # features/step_definitions/web_steps_hssports_schools.rb:98\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/e86a3861412546ffbbde1a0d0b5cdb7b?auth=c90c3ca1b6f221e4b77c67acc3e19cb7\
+\
+  Scenario: #4 - UNHide that school in the Admin tool\cf4                                                                          # features/hssports_schools.feature:39\cf2 \
+    \cf5 Given I am on the admin tool in the 'Schools' section at "http://prepsportsadmin.azcentral.com/schools" and I login again\cf4  # features/step_definitions/web_steps_hssports_schools.rb:107\cf2 \
+    \cf5 When I click on dropdown "Select a school to update, or leave blank to create one" again\cf4                                   # features/step_definitions/web_steps_hssports_schools.rb:115\cf2 \
+    \cf5 Then I click on the school "Academy of Tucson" again\cf4                                                                       # features/step_definitions/web_steps_hssports_schools.rb:120\cf2 \
+    \cf5 And I uncheck the box labeled "Hidden"\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:125\cf2 \
+    \cf5 And then I click on "Save Edits" again\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:130\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/878a8b44b6c546ce805cf4b21ea58625?auth=01ef778548c71a29c0a64d70f04fa1b1\
+\
+  Scenario: #5 - Verify that the school is back on the two devwww pages\cf4                                                                                                      # features/hssports_schools.feature:48\cf2 \
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/schedules.php?schoolid=204&sportid=3" for the third time\cf4                                  # features/step_definitions/web_steps_hssports_schools.rb:138\cf2 \
+    \cf5 When I click on the dropdown "Choose a School" for the third time\cf4                                                                                                        # features/step_definitions/web_steps_hssports_schools.rb:143\cf2 \
+    \cf5 Then I should see the option "Academy of Tucson" in the menu for the third time\cf4                                                                                          # features/step_definitions/web_steps_hssports_schools.rb:148\cf2 \
+    \cf5 And when I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/scoreboard.php?gamedate=2015-10-16&sportid=3&division=2&section=6" for the third time\cf4  # features/step_definitions/web_steps_hssports_schools.rb:153\cf2 \
+    \cf5 And when I click on the dropdown "Choose a school" for the third time\cf4                                                                                                    # features/step_definitions/web_steps_hssports_schools.rb:158\cf2 \
+    \cf5 Then I should also see the option "Academy of Tucson" in the menu for the third time\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:163\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/eb3d3496464e484b8310f975b231a854?auth=350bc6b92cfa7c53e058eb36518f4e5c\
+\
+5 scenarios (\cf5 5 passed\cf2 )\
+28 steps (\cf5 28 passed\cf2 )\
+21m57.925s\
+\
+5 scenarios (5 passed)\
+28 steps (28 passed)\
+\
+Took 1323 seconds (22:03)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+["Linux", "Android", "5.1", \{:deviceName => 'Android Emulator'\}]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Thu Aug 27 12:34:21 on ttys000\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: High School Sports Tests -- Hiding a School\
+  \
+  In order to make the new features live on the High School Sports pages\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1 - Find a school on two devwww pages\cf4                                                                                                        # features/hssports_schools.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/schedules.php?schoolid=204&sportid=3"\cf4                                  # features/step_definitions/web_steps_hssports_schools.rb:2\cf2 \
+    \cf5 When I click on the dropdown "Choose a School"\cf4                                                                                                        # features/step_definitions/web_steps_hssports_schools.rb:8\cf2 \
+    \cf5 Then I should see the option "Academy of Tucson" in the menu\cf4                                                                                          # features/step_definitions/web_steps_hssports_schools.rb:16\cf2 \
+    \cf5 And when I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/scoreboard.php?gamedate=2015-10-16&sportid=3&division=2&section=6"\cf4  # features/step_definitions/web_steps_hssports_schools.rb:22\cf2 \
+Received an exception (java.lang.String cannot be cast to org.json.JSONArray\
+java.lang.ClassCastException: java.lang.String cannot be cast to org.json.JSONArray\
+	at io.selendroid.server.model.DefaultSelendroidDriver$WebviewSearchScope.lookupElements(DefaultSelendroidDriver.java:444)\
+	at io.selendroid.server.model.internal.AbstractWebElementContext.findElementsByCssSelector(AbstractWebElementContext.java:216)\
+	at io.selendroid.server.model.internal.AbstractWebElementContext.findElements(AbstractWebElementContext.java:136)\
+	at io.selendroid.server.model.By$ByCssSelector.findElements(By.java:50)\
+	at io.selendroid.server.model.DefaultSelendroidDriver.findElements(DefaultSelendroidDriver.java:145)\
+	at io.selendroid.server.handler.FindElements.safeHandle(FindElements.java:45)\
+	at io.selendroid.server.SafeRequestHandler.handle(SafeRequestHandler.java:83)\
+	at io.selendroid.server.AndroidServlet.handleRequest(AndroidServlet.java:319)\
+	at io.selendroid.server.BaseServlet.handleHttpRequest(BaseServlet.java:67)\
+	at io.selendroid.server.http.ServerHandler.channelRead(ServerHandler.java:53)\
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:333)\
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:319)\
+	at io.netty.handler.traffic.AbstractTrafficShapingHandler.channelRead(AbstractTrafficShapingHandler.java:223)\
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:333)\
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:319)\
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:103)\
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:333)\
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:319)\
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:163)\
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:148)\
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:333)\
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:319)\
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:787)\
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:125)\
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:511)\
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysPlain(NioEventLoop.java:430)\
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:384)\
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:354)\
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:116)\
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:137)\
+	at java.lang.Thread.run(Thread.java:818)\
+ (java.lang.ClassCastException)), retrying\
+    \cf6 And when I click on the dropdown "Choose a school"\cf4                                                                                                    # features/step_definitions/web_steps_hssports_schools.rb:27\cf2 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf6       Unable to find css "select.preps-menu-select" with text "Choose a school" (Capybara::ElementNotFound)\cf2 \
+\cf6       ./features/step_definitions/web_steps_hssports_schools.rb:29:in `/^when I click on the dropdown "(.*?)"$/'\cf2 \
+\cf6       features/hssports_schools.feature:15:in `And when I click on the dropdown "Choose a school"'\cf2 \
+    \cf3 Then I should also see the option "Academy of Tucson" in the menu\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:33\cf2 \
+Received an exception (java.lang.String cannot be cast to org.json.JSONArray\
+java.lang.ClassCastException: java.lang.String cannot be cast to org.json.JSONArray\
+	at io.selendroid.server.model.DefaultSelendroidDriver$WebviewSearchScope.lookupElements(DefaultSelendroidDriver.java:444)\
+	at io.selendroid.server.model.internal.AbstractWebElementContext.findElementsByXPath(AbstractWebElementContext.java:208)\
+	at io.selendroid.server.model.internal.AbstractWebElementContext.findElements(AbstractWebElementContext.java:130)\
+	at io.selendroid.server.model.By$ByXPath.findElements(By.java:236)\
+	at io.selendroid.server.model.DefaultSelendroidDriver.findElements(DefaultSelendroidDriver.java:145)\
+	at io.selendroid.server.handler.FindElements.safeHandle(FindElements.java:45)\
+	at io.selendroid.server.SafeRequestHandler.handle(SafeRequestHandler.java:83)\
+	at io.selendroid.server.AndroidServlet.handleRequest(AndroidServlet.java:319)\
+	at io.selendroid.server.BaseServlet.handleHttpRequest(BaseServlet.java:67)\
+	at io.selendroid.server.http.ServerHandler.channelRead(ServerHandler.java:53)\
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:333)\
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:319)\
+	at io.netty.handler.traffic.AbstractTrafficShapingHandler.channelRead(AbstractTrafficShapingHandler.java:223)\
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:333)\
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:319)\
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:103)\
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:333)\
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:319)\
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:163)\
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:148)\
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:333)\
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:319)\
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:787)\
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:125)\
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:511)\
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysPlain(NioEventLoop.java:430)\
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:384)\
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:354)\
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:116)\
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:137)\
+	at java.lang.Thread.run(Thread.java:818)\
+ (java.lang.ClassCastException)), retrying\
+Sauce public job link: https://saucelabs.com/jobs/d4ddcde99a55472c8446cda3b622c681?auth=b6afa2529c33992c0e1fd6c406555077\
+\
+  Scenario: #2 - Hide that school in the Admin tool\cf4                                                                      # features/hssports_schools.feature:19\cf2 \
+    \cf6 Given I am on the admin tool in the 'Schools' section at "http://prepsportsadmin.azcentral.com/schools" and I login\cf4  # features/step_definitions/web_steps_hssports_schools.rb:41\cf2 \
+\cf6       underlying webdriver instance does not support javascript (Selenium::WebDriver::Error::UnsupportedOperationError)\cf2 \
+\cf6       ./features/step_definitions/web_steps_hssports_schools.rb:43:in `/^I am on the admin tool in the 'Schools' section at "(.*?)" and I login$/'\cf2 \
+\cf6       features/hssports_schools.feature:21:in `Given I am on the admin tool in the 'Schools' section at "http://prepsportsadmin.azcentral.com/schools" and I login'\cf2 \
+    \cf3 When I click on dropdown "Select a school to update, or leave blank to create one"\cf4                                   # features/step_definitions/web_steps_hssports_schools.rb:49\cf2 \
+    \cf3 Then I click on the school "Academy of Tucson"\cf4                                                                       # features/step_definitions/web_steps_hssports_schools.rb:54\cf2 \
+    \cf3 And I check the box labeled "Hidden"\cf4                                                                                 # features/step_definitions/web_steps_hssports_schools.rb:59\cf2 \
+    \cf3 And then I click on "Save Edits"\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:64\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/85af040653dd45149e3efee738c55334?auth=090043fd46efa78a00d0a5e1269d303e\
+\
+  Scenario: #3 - Chosen school should now be hidden on the two devwww pages\cf4                                                                                     # features/hssports_schools.feature:28\cf2 \
+    \cf5 Given I am on this H.S. Sports page again: "http://devwww.azcentral.com/sports/preps/schedules.php?schoolid=204&sportid=3"\cf4                                  # features/step_definitions/web_steps_hssports_schools.rb:72\cf2 \
+    \cf5 When I click on the dropdown again "Choose a School"\cf4                                                                                                        # features/step_definitions/web_steps_hssports_schools.rb:77\cf2 \
+    \cf6 Then I should NOT see the option "Academy of Tucson" in the menu\cf4                                                                                            # features/step_definitions/web_steps_hssports_schools.rb:82\cf2 \
+\cf6       expected #has_no_content?("Academy of Tucson") to return true, got false (RSpec::Expectations::ExpectationNotMetError)\cf2 \
+\cf6       ./features/step_definitions/web_steps_hssports_schools.rb:84:in `/^I should NOT see the option "(.*?)" in the menu$/'\cf2 \
+\cf6       features/hssports_schools.feature:32:in `Then I should NOT see the option "Academy of Tucson" in the menu'\cf2 \
+    \cf3 And when I am on this H.S. Sports page again: "http://devwww.azcentral.com/sports/preps/scoreboard.php?gamedate=2015-10-16&sportid=3&division=2&section=6"\cf4  # features/step_definitions/web_steps_hssports_schools.rb:88\cf2 \
+    \cf3 And when I click on the dropdown again "Choose a school"\cf4                                                                                                    # features/step_definitions/web_steps_hssports_schools.rb:93\cf2 \
+    \cf3 Then I should also NOT see the option "Academy of Tucson" in the menu\cf4                                                                                       # features/step_definitions/web_steps_hssports_schools.rb:98\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/3d32c8d850e34252bd77daee54afda98?auth=bbf7abbd2ee231fd727d72b81f020ced\
+\
+  Scenario: #4 - UNHide that school in the Admin tool\cf4                                                                          # features/hssports_schools.feature:39\cf2 \
+    \cf6 Given I am on the admin tool in the 'Schools' section at "http://prepsportsadmin.azcentral.com/schools" and I login again\cf4  # features/step_definitions/web_steps_hssports_schools.rb:107\cf2 \
+\cf6       underlying webdriver instance does not support javascript (Selenium::WebDriver::Error::UnsupportedOperationError)\cf2 \
+\cf6       ./features/step_definitions/web_steps_hssports_schools.rb:109:in `/^I am on the admin tool in the 'Schools' section at "(.*?)" and I login again$/'\cf2 \
+\cf6       features/hssports_schools.feature:41:in `Given I am on the admin tool in the 'Schools' section at "http://prepsportsadmin.azcentral.com/schools" and I login again'\cf2 \
+    \cf3 When I click on dropdown "Select a school to update, or leave blank to create one" again\cf4                                   # features/step_definitions/web_steps_hssports_schools.rb:115\cf2 \
+    \cf3 Then I click on the school "Academy of Tucson" again\cf4                                                                       # features/step_definitions/web_steps_hssports_schools.rb:120\cf2 \
+    \cf3 And I uncheck the box labeled "Hidden"\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:125\cf2 \
+    \cf3 And then I click on "Save Edits" again\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:130\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/50aa0043e4ee494fb4e39696aa026439?auth=d6d0cecc1a0387b6bdfd7047d9248027\
+\
+  Scenario: #5 - Verify that the school is back on the two devwww pages\cf4                                                                                                      # features/hssports_schools.feature:48\cf2 \
+    \cf5 Given I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/schedules.php?schoolid=204&sportid=3" for the third time\cf4                                  # features/step_definitions/web_steps_hssports_schools.rb:138\cf2 \
+    \cf5 When I click on the dropdown "Choose a School" for the third time\cf4                                                                                                        # features/step_definitions/web_steps_hssports_schools.rb:143\cf2 \
+    \cf5 Then I should see the option "Academy of Tucson" in the menu for the third time\cf4                                                                                          # features/step_definitions/web_steps_hssports_schools.rb:148\cf2 \
+    \cf5 And when I am on this H.S. Sports page: "http://devwww.azcentral.com/sports/preps/scoreboard.php?gamedate=2015-10-16&sportid=3&division=2&section=6" for the third time\cf4  # features/step_definitions/web_steps_hssports_schools.rb:153\cf2 \
+Received an exception (java.lang.String cannot be cast to org.json.JSONArray\
+java.lang.ClassCastException: java.lang.String cannot be cast to org.json.JSONArray\
+	at io.selendroid.server.model.DefaultSelendroidDriver$WebviewSearchScope.lookupElements(DefaultSelendroidDriver.java:444)\
+	at io.selendroid.server.model.internal.AbstractWebElementContext.findElementsByCssSelector(AbstractWebElementContext.java:216)\
+	at io.selendroid.server.model.internal.AbstractWebElementContext.findElements(AbstractWebElementContext.java:136)\
+	at io.selendroid.server.model.By$ByCssSelector.findElements(By.java:50)\
+	at io.selendroid.server.model.DefaultSelendroidDriver.findElements(DefaultSelendroidDriver.java:145)\
+	at io.selendroid.server.handler.FindElements.safeHandle(FindElements.java:45)\
+	at io.selendroid.server.SafeRequestHandler.handle(SafeRequestHandler.java:83)\
+	at io.selendroid.server.AndroidServlet.handleRequest(AndroidServlet.java:319)\
+	at io.selendroid.server.BaseServlet.handleHttpRequest(BaseServlet.java:67)\
+	at io.selendroid.server.http.ServerHandler.channelRead(ServerHandler.java:53)\
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:333)\
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:319)\
+	at io.netty.handler.traffic.AbstractTrafficShapingHandler.channelRead(AbstractTrafficShapingHandler.java:223)\
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:333)\
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:319)\
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:103)\
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:333)\
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:319)\
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:163)\
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:148)\
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:333)\
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:319)\
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:787)\
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:125)\
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:511)\
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysPlain(NioEventLoop.java:430)\
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:384)\
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:354)\
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:116)\
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:137)\
+	at java.lang.Thread.run(Thread.java:818)\
+ (java.lang.ClassCastException)), retrying\
+    \cf6 And when I click on the dropdown "Choose a school" for the third time\cf4                                                                                                    # features/step_definitions/web_steps_hssports_schools.rb:158\cf2 \
+\cf6       Unable to find css "select.preps-menu-select" with text "Choose a school" (Capybara::ElementNotFound)\cf2 \
+\cf6       ./features/step_definitions/web_steps_hssports_schools.rb:159:in `/^when I click on the dropdown "(.*?)" for the third time$/'\cf2 \
+\cf6       features/hssports_schools.feature:55:in `And when I click on the dropdown "Choose a school" for the third time'\cf2 \
+    \cf3 Then I should also see the option "Academy of Tucson" in the menu for the third time\cf4                                                                                     # features/step_definitions/web_steps_hssports_schools.rb:163\cf2 \
+Received an exception (java.lang.String cannot be cast to org.json.JSONArray\
+java.lang.ClassCastException: java.lang.String cannot be cast to org.json.JSONArray\
+	at io.selendroid.server.model.DefaultSelendroidDriver$WebviewSearchScope.lookupElements(DefaultSelendroidDriver.java:444)\
+	at io.selendroid.server.model.internal.AbstractWebElementContext.findElementsByXPath(AbstractWebElementContext.java:208)\
+	at io.selendroid.server.model.internal.AbstractWebElementContext.findElements(AbstractWebElementContext.java:130)\
+	at io.selendroid.server.model.By$ByXPath.findElements(By.java:236)\
+	at io.selendroid.server.model.DefaultSelendroidDriver.findElements(DefaultSelendroidDriver.java:145)\
+	at io.selendroid.server.handler.FindElements.safeHandle(FindElements.java:45)\
+	at io.selendroid.server.SafeRequestHandler.handle(SafeRequestHandler.java:83)\
+	at io.selendroid.server.AndroidServlet.handleRequest(AndroidServlet.java:319)\
+	at io.selendroid.server.BaseServlet.handleHttpRequest(BaseServlet.java:67)\
+	at io.selendroid.server.http.ServerHandler.channelRead(ServerHandler.java:53)\
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:333)\
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:319)\
+	at io.netty.handler.traffic.AbstractTrafficShapingHandler.channelRead(AbstractTrafficShapingHandler.java:223)\
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:333)\
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:319)\
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:103)\
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:333)\
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:319)\
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:163)\
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:148)\
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:333)\
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:319)\
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:787)\
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:125)\
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:511)\
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysPlain(NioEventLoop.java:430)\
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:384)\
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:354)\
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:116)\
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:137)\
+	at java.lang.Thread.run(Thread.java:818)\
+ (java.lang.ClassCastException)), retrying\
+Sauce public job link: https://saucelabs.com/jobs/75d51c4146604e5fb51364bb8005e0f2?auth=3f17c4c6636812b6dfac54a762c8fa27\
+\
+\cf6 Failing Scenarios:\cf2 \
+\cf6 cucumber features/hssports_schools.feature:8\cf4  # Scenario: #1 - Find a school on two devwww pages\cf2 \
+\cf6 cucumber features/hssports_schools.feature:19\cf4  # Scenario: #2 - Hide that school in the Admin tool\cf2 \
+\cf6 cucumber features/hssports_schools.feature:28\cf4  # Scenario: #3 - Chosen school should now be hidden on the two devwww pages\cf2 \
+\cf6 cucumber features/hssports_schools.feature:39\cf4  # Scenario: #4 - UNHide that school in the Admin tool\cf2 \
+\cf6 cucumber features/hssports_schools.feature:48\cf4  # Scenario: #5 - Verify that the school is back on the two devwww pages\cf2 \
+\
+5 scenarios (\cf6 5 failed\cf2 )\
+28 steps (\cf6 5 failed\cf2 , \cf3 13 skipped\cf2 , \cf5 10 passed\cf2 )\
+13m0.541s\
+\
+Failing Scenarios:\
+cucumber features/hssports_schools.feature:8 # Scenario: #1 - Find a school on two devwww pages\
+cucumber features/hssports_schools.feature:19 # Scenario: #2 - Hide that school in the Admin tool\
+cucumber features/hssports_schools.feature:28 # Scenario: #3 - Chosen school should now be hidden on the two devwww pages\
+cucumber features/hssports_schools.feature:39 # Scenario: #4 - UNHide that school in the Admin tool\
+cucumber features/hssports_schools.feature:48 # Scenario: #5 - Verify that the school is back on the two devwww pages\
+\
+5 scenarios (5 failed)\
+28 steps (5 failed, 13 skipped, 10 passed)\
+\
+Took 786 seconds (13:06)\
+\cf6 cucumbers Failed\cf2 \
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+}

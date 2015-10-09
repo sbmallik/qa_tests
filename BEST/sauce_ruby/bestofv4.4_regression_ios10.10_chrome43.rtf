@@ -1,0 +1,89 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red242\green242\blue242;\red46\green174\blue187;\red111\green111\blue111;
+\red47\green180\blue29;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Wed Aug 19 13:19:32 on ttys000\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: Bestof Regression v4.4 Tests\
+  \
+  In order to make the new features live on the 2014 Azcentral's Best\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1 Article ID test\cf4                                                                                                                                                      # features/bestof-v44new.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I have found this particular article ID on devbestof.azcentral.com: "http://devbestof.azcentral.com/winners/2014/14744910/best-star-making-machine-valley-youth-theatre"\cf4  # features/step_definitions/web_steps_bestofv44.rb:11\cf2 \
+    \cf5 When I put that same article ID into the bestof.pnj.com site: "http://devbestof.pnj.com/winners/2015/14744910"\cf4                                                                  # features/step_definitions/web_steps_bestofv44.rb:15\cf2 \
+    \cf5 Then I should not see the article content, but I should be redirected to the homepage of "http://devbestof.pnj.com/"\cf4                                                            # features/step_definitions/web_steps_bestofv44.rb:19\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/fb8bee4536744cfa97daa283d58a0db8?auth=bee19b1fab8f82424a4319241f433ea8\
+\
+  Scenario: #2 Search Results test - Filtering Content\cf4                                                                    # features/bestof-v44new.feature:14\cf2 \
+    \cf5 Given I am looking at a results page on devbestof.azcentral.com\cf4                                                       # features/step_definitions/web_steps_bestofv44.rb:26\cf2 \
+    \cf5 When the filter feedback text says "Showing results for All and displayed for All Locations"\cf4                          # features/step_definitions/web_steps_bestofv44.rb:30\cf2 \
+    \cf5 Then I click on "Categories"\cf4                                                                                          # features/step_definitions/web_steps_bestofv44.rb:34\cf2 \
+    \cf5 And I select 'OUTDOORS & RECREATION'\cf4                                                                                  # features/step_definitions/web_steps_bestofv44.rb:38\cf2 \
+    \cf5 Then the filter feedback text should say "Showing results for outdoors & recreation and displayed for All Locations"\cf4  # features/step_definitions/web_steps_bestofv44.rb:42\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/5075281c7dec42beb0914ebbcf3d8f0b?auth=d39000210cf2fc7126eda2a9ce595540\
+\
+  Scenario: #3 Search Results test - Sorting Content\cf4                                                                             # features/bestof-v44new.feature:22\cf2 \
+    \cf5 Given I am looking at another results page on devbestof.azcentral.com\cf4                                                        # features/step_definitions/web_steps_bestofv44.rb:49\cf2 \
+    \cf5 When the filter feedback text now says "Showing results for All and displayed for All Locations"\cf4                             # features/step_definitions/web_steps_bestofv44.rb:53\cf2 \
+    \cf5 Then now I click on "Sort Type"\cf4                                                                                              # features/step_definitions/web_steps_bestofv44.rb:57\cf2 \
+    \cf5 And I select 'Category'\cf4                                                                                                      # features/step_definitions/web_steps_bestofv44.rb:61\cf2 \
+    \cf5 Then the filter feedback text should now say "Showing results for All and displayed for All Locations , sorted by category"\cf4  # features/step_definitions/web_steps_bestofv44.rb:65\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/c1f3802161324edfba63d3b3e0585c22?auth=7afa8583efccb52091afaa2390d62a7b\
+\
+  Scenario: #4 Search Results test - West Valley\cf4                                                          # features/bestof-v44new.feature:30\cf2 \
+    \cf5 Given I am looking at another results page on devbestof.azcentral.com\cf4                                 # features/step_definitions/web_steps_bestofv44.rb:49\cf2 \
+    \cf5 When the filter feedback text now says "Showing results for All and displayed for All Locations"\cf4      # features/step_definitions/web_steps_bestofv44.rb:53\cf2 \
+    \cf5 Then I click on "Locations" now\cf4                                                                       # features/step_definitions/web_steps_bestofv44.rb:80\cf2 \
+    \cf5 And I select 'West Valley'\cf4                                                                            # features/step_definitions/web_steps_bestofv44.rb:84\cf2 \
+    \cf5 Then the filter feedback text should say "Showing results for All and displayed for west valley" now\cf4  # features/step_definitions/web_steps_bestofv44.rb:88\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/7345e9f267304ff7b2d890b7379950c5?auth=cea6ad887040d483e85b9bb147a152e3\
+\
+  Scenario: #5 Login test - URL\cf4                                                                                                                                                                   # features/bestof-v44new.feature:38\cf2 \
+    \cf5 Given I am on "http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks"\cf4                                                                                                  # features/step_definitions/web_steps_bestofv44.rb:95\cf2 \
+    \cf5 When I click the "LOGIN" button\cf4                                                                                                                                                               # features/step_definitions/web_steps_bestofv44.rb:99\cf2 \
+    \cf5 Then I should arrive at the login url of: "https://account.azcentral.com/bestOf/ui/login/?onSuccessRedirectURL=http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks"\cf4  # features/step_definitions/web_steps_bestofv44.rb:103\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/e75a2582e002446eb211b1db8d5fcd7c?auth=71e945ff6ba824167aa0b07fd60626ca\
+\
+  Scenario: #6 Login test - Login redirect\cf4                                                                                                                                                              # features/bestof-v44new.feature:44\cf2 \
+    \cf5 Given I am on "http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks" again\cf4                                                                                                  # features/step_definitions/web_steps_bestofv44.rb:111\cf2 \
+    \cf5 When I click the "LOGIN" button again\cf4                                                                                                                                                               # features/step_definitions/web_steps_bestofv44.rb:115\cf2 \
+    \cf5 Then I should arrive at the login url of: "https://account.azcentral.com/bestOf/ui/login/?onSuccessRedirectURL=http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks" again\cf4  # features/step_definitions/web_steps_bestofv44.rb:119\cf2 \
+    \cf5 And I log into my account\cf4                                                                                                                                                                           # features/step_definitions/web_steps_bestofv44.rb:123\cf2 \
+    \cf5 Then I should be returned to this page "http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks"\cf4                                                                               # features/step_definitions/web_steps_bestofv44.rb:131\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/15895303889340a49a5ebc49be9810e6?auth=8a9dcef62122cfd67c17d6aa23d590b1\
+\
+  Scenario: #7 Login test - My Account\cf4                                                                                                                                                                         # features/bestof-v44new.feature:52\cf2 \
+    \cf5 Given I am on "http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks" a third time\cf4                                                                                                  # features/step_definitions/web_steps_bestofv44.rb:139\cf2 \
+    \cf5 When I click the "LOGIN" button a third time\cf4                                                                                                                                                               # features/step_definitions/web_steps_bestofv44.rb:143\cf2 \
+    \cf5 Then I should arrive at the login url of: "https://account.azcentral.com/bestOf/ui/login/?onSuccessRedirectURL=http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks" a third time\cf4  # features/step_definitions/web_steps_bestofv44.rb:147\cf2 \
+    \cf5 And I log into my account again\cf4                                                                                                                                                                            # features/step_definitions/web_steps_bestofv44.rb:151\cf2 \
+    \cf5 Then I should be returned to this page "http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks"\cf4                                                                                      # features/step_definitions/web_steps_bestofv44.rb:131\cf2 \
+    \cf5 And when I click on "MY ACCOUNT"\cf4                                                                                                                                                                           # features/step_definitions/web_steps_bestofv44.rb:163\cf2 \
+    \cf5 Then I should arrive at the 'My Account' page\cf4                                                                                                                                                              # features/step_definitions/web_steps_bestofv44.rb:168\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/274a6907df7c4880aad7d1741f7d75f7?auth=815a40f1fac136dfb5dd0bbb927813a1\
+\
+  Scenario: #8 Login test - PNJ\cf4                               # features/bestof-v44new.feature:62\cf2 \
+    \cf5 Given I am on the PNJ site of "http://devbestof.pnj.com"\cf4  # features/step_definitions/web_steps_bestofv44.rb:176\cf2 \
+    \cf5 Then there should be no 'login' button\cf4                    # features/step_definitions/web_steps_bestofv44.rb:180\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/879a547f04f049b992e30c54622f8f07?auth=8e4f864333d6327f6bf2c8d4950da615\
+\
+8 scenarios (\cf5 8 passed\cf2 )\
+35 steps (\cf5 35 passed\cf2 )\
+5m51.108s\
+\
+8 scenarios (8 passed)\
+35 steps (35 passed)\
+\
+Took 357 seconds (5:57)\
+pni-dig-129098:sauce_ruby temre$ \
+}
