@@ -1,0 +1,1083 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red242\green242\blue242;\red46\green174\blue187;\red111\green111\blue111;
+\red47\green180\blue29;\red180\green36\blue25;}
+\margl1440\margr1440\vieww19720\viewh11340\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 ["Windows 8.1", "Firefox", "38"]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Mon Dec  7 20:38:56 on ttys001\
+You have mail.\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: AZC's Best CHINCHILLA 2014 ALL Regression Tests\
+  \
+  In order to make the new features live on the 2014 Azcentral's Best\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1) Article ID test\cf4                                                                                                                                                                                                                                                                 # features/allregressiontests_localhost3000_chinchilla.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I have found this particular article ID on devbestof.azcentral.com: "http://z.bestof.azcentral.com:3000/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenixhttp://z.bestof.azcentral.com:3000/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:2\cf2 \
+    \cf5 When I put that same article ID into the bestof.pnj.com site: "http://devbestof.pnj.com/winners/2015/14744893"\cf4                                                                                                                                                                              # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:5\cf2 \
+    \cf5 Then I should not see the article content, but I should be redirected to the homepage of "http://devbestof.pnj.com/winners/2015"\cf4                                                                                                                                                            # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:8\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/68ba44234314475cab43ea9249c57994?auth=656c901ce826c0ac1b0e373add086cb2\
+\
+  Scenario: #2) Search, Filtering and Sorting Content\cf4                                                                                                                                         # features/allregressiontests_localhost3000_chinchilla.feature:14\cf2 \
+    \cf5 Given I am on the Azcentral's Best Critic's Picks page at: "http://z.bestof.azcentral.com:3000/winners/2014/results?types=Critics%27%20Picks"\cf4                                             # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:15\cf2 \
+    \cf5 When I enter the term 'kids' in the search box\cf4                                                                                                                                            # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:19\cf2 \
+    \cf5 Then I am on this URL: "http://z.bestof.azcentral.com:3000/winners/2014/results?&types=Critics%27%20Picks&keywords=kids"\cf4                                                                  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:24\cf2 \
+    \cf5 And I click on the word 'Categories' then click on 'Arts & Entertainment'\cf4                                                                                                                 # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:28\cf2 \
+    \cf5 Then I am on this new URL: "http://z.bestof.azcentral.com:3000/winners/2014/results?&types=Critics%27%20Picks&categories=arts%20%26%20entertainment&keywords=kids"\cf4                        # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:40\cf2 \
+    \cf5 Then I click on the word 'Sort Type' then I click on 'Category'\cf4                                                                                                                           # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:44\cf2 \
+    \cf5 And the URL will change to this: "http://z.bestof.azcentral.com:3000/winners/2014/results?&types=Critics%27%20Picks&categories=arts%20%26%20entertainment&keywords=kids&sortby=category"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:54\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/dad6835f29614627947d7796b27892f4?auth=9087fce2e57ee52c8c4976fdef49d93c\
+\
+  Scenario: #3) More Winners Near Me\cf4                                                  # features/allregressiontests_localhost3000_chinchilla.feature:24\cf2 \
+    \cf5 Given I am on an article page\cf4                                                     # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:62\cf2 \
+    \cf5 When I want to make sure there are articles in the "More Winners Nearby" section\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:65\cf2 \
+    \cf5 Then I will see a resulting 6 pertinent articles\cf4                                  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:68\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/081e56cc1955468dbdda93f3fdab9635?auth=90f8bba7f762c56f13d829de11abf162\
+\
+  Scenario: #4) Checking social media features\cf4                                                                                                                                                                     # features/allregressiontests_localhost3000_chinchilla.feature:30\cf2 \
+    \cf5 Given I am on the current article page again at "http://z.bestof.azcentral.com:3000/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix" and I want to share this page via the sharing tools\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:77\cf2 \
+    \cf5 Then the data-text should contain the correct article title for sharing via Facebook\cf4                                                                                                                           # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:80\cf2 \
+    \cf5 And the href should contain the correct URL for sharing via Twitter\cf4                                                                                                                                            # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:83\cf2 \
+    \cf5 And the href should contain the correct mailto for sharing via E-mail\cf4                                                                                                                                          # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:89\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/80ec75be06e34bb4954f436831eccb7f?auth=7fd1ffec4924bb4807c1db7e525fd5e0\
+\
+  Scenario: #5) Map / Zoom buttons test\cf4                                                                                                                                                                                                                                      # features/allregressiontests_localhost3000_chinchilla.feature:37\cf2 \
+    \cf5 Given I am on this page: "http://z.bestof.azcentral.com:3000/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix" where this is both a map and video\cf4                                                                                                    # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:96\cf2 \
+    \cf5 When I click on the "Map" button on the main image\cf4                                                                                                                                                                                                                       # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:100\cf2 \
+    \cf5 Then I should see the div that holds the 'Zoom in' and 'Zoom out' buttons on the right side of the map at these coordinates: 'position: absolute', 'right: 28px', 'top: 0px', and have 'margin: 5px' - therefore they are NOT at the same location as the media buttons\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:104\cf2 \
+    \cf5 And I should see in the badger css file that div that holds the media buttons on the left side of the map are at these coordinates, 'position: absolute', top: 0', and 'left: 0, - therefore they are NOT at the same location as the map zoom in & out buttons\cf4          # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:109\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/9c7998c6ab7647d9ab4ef411eede9df3?auth=d921dbc243a802c225160799a0fdea4a\
+\
+  Scenario: #6) PNJ has a single internal content type test\cf4                                                                                                                       # features/allregressiontests_localhost3000_chinchilla.feature:48\cf2 \
+    \cf5 Given I am on "http://devbestof.pnj.com/winners/2015/"\cf4                                                                                                                        # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:127\cf2 \
+    \cf5 When I click on the "Readers' Choice" link\cf4                                                                                                                                    # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:131\cf2 \
+    \cf5 Then I should be on "http://devbestof.pnj.com/winners/2015/results?types=Readers%27%20Choice" and I should NOT see the 'Readers' Choice' button on the left-side of the page\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:137\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/6cbe11adf0ff4858b7ee46c8168db65c?auth=17d037e8612d31391481d05c8fc4d135\
+\
+  Scenario: #7) Azcentral has two internal content types test\cf4                                                                                                                                          # features/allregressiontests_localhost3000_chinchilla.feature:55\cf2 \
+    \cf5 Given I am on the Azcentral's Best page at "http://z.bestof.azcentral.com:3000/winners/2014/"\cf4                                                                                                      # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:147\cf2 \
+    \cf5 When I then click on the "Critics' Picks" link\cf4                                                                                                                                                     # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:151\cf2 \
+    \cf5 Then I should be on "http://z.bestof.azcentral.com:3000/winners/2015/results?types=Critics%27%20Picks" and I SHOULD see 'Readers' Choice' and 'Critics' Picks' links on the left-side of the page\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:157\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/fe0ad95f56aa403aa467b45bac90b368?auth=c57f223da8a0677fa0cf1a7d6ed5f00b\
+\
+  Scenario: #8) ALL Login tests\cf4                                                                                                                                       # features/allregressiontests_localhost3000_chinchilla.feature:62\cf2 \
+    \cf5 Given I am on the Azcentral's Best page at "http://z.bestof.azcentral.com:3000/winners/2014/"\cf4                                                                     # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:147\cf2 \
+    \cf5 When I click the "LOGIN" button\cf4                                                                                                                                   # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:171\cf2 \
+    \cf5 Then I should arrive at the login url of: "https://account.azcentral.com/bestOf/ui/login/?onSuccessRedirectURL=http://z.bestof.azcentral.com:3000/winners/2015/"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:174\cf2 \
+    \cf5 And I log into my account\cf4                                                                                                                                         # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:177\cf2 \
+    \cf5 Then I should be returned to this page "http://z.bestof.azcentral.com:3000/winners/2015/"\cf4                                                                         # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:182\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/b5aa420e9f164433b9e2152513a8a390?auth=67484d367f396717cf1f6d3cc4861a0e\
+\
+  Scenario: #9) Login test on PNJ\cf4                             # features/allregressiontests_localhost3000_chinchilla.feature:71\cf2 \
+    \cf5 Given I am on the PNJ site of "http://devbestof.pnj.com"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:205\cf2 \
+    \cf5 Then there should be no 'login' button\cf4                    # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:208\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/1b9f747b50b746b5876824912966a813?auth=ce412e239e47fd9806a64d41e2783e6c\
+\
+  Scenario: #10) Testing Email Feature\cf4                                                             # features/allregressiontests_localhost3000_chinchilla.feature:77\cf2 \
+    \cf5 Given I am on the Azcentral's Best page at "http://z.bestof.azcentral.com:3000/winners/2014/"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:147\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                                                      # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:131\cf2 \
+    \cf5 Then I also click on the "Best kids activity" link\cf4                                             # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:222\cf2 \
+    \cf5 Then I should see the 'Send an email' image contain the correct 'mailto' information\cf4           # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:225\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/10423f7000dc4231a5399d2b2d603036?auth=88c625b268dd6ef8afb3869eca46ce75\
+\
+  Scenario: #11) Testing "RED ALERT" Feature\cf4                                                       # features/allregressiontests_localhost3000_chinchilla.feature:85\cf2 \
+    \cf5 Given I am on the Azcentral's Best page at "http://z.bestof.azcentral.com:3000/winners/2014/"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:147\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                                                      # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:131\cf2 \
+    \cf5 Then I also click on the "Best kids activity" link\cf4                                             # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:222\cf2 \
+    \cf5 Then I click on the 'Next Article' arrow five times\cf4                                            # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:234\cf2 \
+    \cf5 Then I should see the text "5 free articles left"\cf4                                              # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:247\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/4ae5ce41ec7342d6a98c81c70ed3a087?auth=897103438d2f1111d831bee9b476a16e\
+\
+11 scenarios (\cf5 11 passed\cf2 )\
+43 steps (\cf5 43 passed\cf2 )\
+5m26.698s\
+\
+11 scenarios (11 passed)\
+43 steps (43 passed)\
+\
+Took 332 seconds (5:32)\
+pni-dig-129098:sauce_ruby temre$ 
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+["Windows 8.1", "Internet Explorer", "11"]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Mon Dec  7 15:21:44 on ttys001\
+You have mail.\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: AZC's Best CHINCHILLA 2014 ALL Regression Tests\
+  \
+  In order to make the new features live on the 2014 Azcentral's Best\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1) Article ID test\cf4                                                                                                                                                                                                                                                                 # features/allregressiontests_localhost3000_chinchilla.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I have found this particular article ID on devbestof.azcentral.com: "http://z.bestof.azcentral.com:3000/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenixhttp://z.bestof.azcentral.com:3000/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:2\cf2 \
+    \cf5 When I put that same article ID into the bestof.pnj.com site: "http://devbestof.pnj.com/winners/2015/14744893"\cf4                                                                                                                                                                              # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:5\cf2 \
+    \cf5 Then I should not see the article content, but I should be redirected to the homepage of "http://devbestof.pnj.com/winners/2015"\cf4                                                                                                                                                            # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:8\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/cba7c2452e8e4eb8a625ad49084b94b1?auth=c043712e4ad4a815882057935425cace\
+\
+  Scenario: #2) Search, Filtering and Sorting Content\cf4                                                                                                                                         # features/allregressiontests_localhost3000_chinchilla.feature:14\cf2 \
+    \cf5 Given I am on the Azcentral's Best Critic's Picks page at: "http://z.bestof.azcentral.com:3000/winners/2014/results?types=Critics%27%20Picks"\cf4                                             # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:15\cf2 \
+    \cf5 When I enter the term 'kids' in the search box\cf4                                                                                                                                            # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:19\cf2 \
+    \cf5 Then I am on this URL: "http://z.bestof.azcentral.com:3000/winners/2014/results?&types=Critics%27%20Picks&keywords=kids"\cf4                                                                  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:24\cf2 \
+    \cf6 And I click on the word 'Categories' then click on 'Arts & Entertainment'\cf4                                                                                                                 # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:28\cf2 \
+\cf6       Unable to find css "li.filterby-js" with text "ARTS & ENTERTAINMENT" (Capybara::ElementNotFound)\cf2 \
+\cf6       ./features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:30:in `/^I click on the word 'Categories' then click on 'Arts & Entertainment'$/'\cf2 \
+\cf6       features/allregressiontests_localhost3000_chinchilla.feature:18:in `And I click on the word 'Categories' then click on 'Arts & Entertainment''\cf2 \
+    \cf3 Then I am on this new URL: "http://z.bestof.azcentral.com:3000/winners/2014/results?&types=Critics%27%20Picks&categories=arts%20%26%20entertainment&keywords=kids"\cf4                        # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:32\cf2 \
+    \cf3 Then I click on the word 'Sort' then I click on 'Category'\cf4                                                                                                                                # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:36\cf2 \
+    \cf3 And the URL will change to this: "http://z.bestof.azcentral.com:3000/winners/2014/results?&types=Critics%27%20Picks&categories=arts%20%26%20entertainment&keywords=kids&sortby=category"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:43\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/225e2d385f214d9291ed9ce182263e8d?auth=22a2256f747430b4dd4b3b1849a16761\
+\
+  Scenario: #3) More Winners Near Me\cf4                                                  # features/allregressiontests_localhost3000_chinchilla.feature:24\cf2 \
+    \cf5 Given I am on an article page\cf4                                                     # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:51\cf2 \
+    \cf5 When I want to make sure there are articles in the "More Winners Nearby" section\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:54\cf2 \
+    \cf5 Then I will see a resulting 6 pertinent articles\cf4                                  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:57\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/97b852e4872f4418ae8700edc7614ec2?auth=81d67c80a896e471d538ff8975a73de2\
+\
+  Scenario: #4) Checking social media features\cf4                                                                                                                                                                     # features/allregressiontests_localhost3000_chinchilla.feature:30\cf2 \
+    \cf5 Given I am on the current article page again at "http://z.bestof.azcentral.com:3000/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix" and I want to share this page via the sharing tools\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:66\cf2 \
+    \cf5 Then the data-text should contain the correct article title for sharing via Facebook\cf4                                                                                                                           # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:69\cf2 \
+    \cf5 And the href should contain the correct URL for sharing via Twitter\cf4                                                                                                                                            # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:72\cf2 \
+    \cf5 And the href should contain the correct mailto for sharing via E-mail\cf4                                                                                                                                          # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:78\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/4a4b9385486c4f95bd731b11bf947bb5?auth=75290f9c4a5bd29429715fd60b3be88e\
+\
+  Scenario: #5) Map / Zoom buttons test\cf4                                                                                                                                                                                                                                      # features/allregressiontests_localhost3000_chinchilla.feature:37\cf2 \
+    \cf5 Given I am on this page: "http://z.bestof.azcentral.com:3000/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix" where this is both a map and video\cf4                                                                                                    # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:85\cf2 \
+    \cf5 When I click on the "Map" button on the main image\cf4                                                                                                                                                                                                                       # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:89\cf2 \
+    \cf5 Then I should see the div that holds the 'Zoom in' and 'Zoom out' buttons on the right side of the map at these coordinates: 'position: absolute', 'right: 28px', 'top: 0px', and have 'margin: 5px' - therefore they are NOT at the same location as the media buttons\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:93\cf2 \
+    \cf6 And I should see in the badger css file that div that holds the media buttons on the left side of the map are at these coordinates, 'position: absolute', top: 0', and 'left: 0, - therefore they are NOT at the same location as the map zoom in & out buttons\cf4          # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:98\cf2 \
+\cf6       too many connection resets (due to Net::ReadTimeout - Net::ReadTimeout) after 15 requests on 70135233430660, last used 302.017908 seconds ago (Net::HTTP::Persistent::Error)\cf2 \
+\cf6       ./features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:99:in `/^I should see in the badger css file that div that holds the media buttons on the left side of the map are at these coordinates, 'position: absolute', top: (\\d+)', and 'left: (\\d+), \\- therefore they are NOT at the same location as the map zoom in & out buttons$/'\cf2 \
+\cf6       features/allregressiontests_localhost3000_chinchilla.feature:45:in `And I should see in the badger css file that div that holds the media buttons on the left side of the map are at these coordinates, 'position: absolute', top: 0', and 'left: 0, - therefore they are NOT at the same location as the map zoom in & out buttons'\cf2 \
+\cf6       Due to a previous error, this job has already finished. You can learn more at https://saucelabs.com/jobs/b48570bd6a5e4212917e00c51a300fd8 (Selenium::WebDriver::Error::UnknownError)\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/response.rb:71:in `assert_ok'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/response.rb:34:in `initialize'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/http/common.rb:78:in `new'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/http/common.rb:78:in `create_response'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/http/default.rb:90:in `request'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/http/common.rb:59:in `call'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/bridge.rb:657:in `raw_execute'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/bridge.rb:635:in `execute'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/bridge.rb:133:in `get'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/common/navigation.rb:33:in `to'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/capybara-2.4.4/lib/capybara/selenium/driver.rb:101:in `reset!'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/capybara-2.4.4/lib/capybara/session.rb:103:in `reset!'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/capybara-2.4.4/lib/capybara.rb:257:in `block in reset_sessions!'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/capybara-2.4.4/lib/capybara.rb:257:in `each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/capybara-2.4.4/lib/capybara.rb:257:in `reset_sessions!'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/capybara-2.4.4/lib/capybara/cucumber.rb:8:in `After'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/core_ext/instance_exec.rb:36:in `cucumber_instance_exec'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/rb_support/rb_hook.rb:14:in `invoke'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:114:in `invoke'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:108:in `block in execute_after'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:107:in `reverse_each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:107:in `execute_after'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:19:in `after'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/runtime/support_code.rb:112:in `block in fire_hook'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/runtime/support_code.rb:111:in `each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/runtime/support_code.rb:111:in `fire_hook'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/runtime.rb:113:in `after'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/runtime.rb:100:in `before_and_after'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/runtime.rb:82:in `block in with_hooks'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/runtime/support_code.rb:120:in `call'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/runtime/support_code.rb:120:in `block (3 levels) in around'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:9:in `block in around'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:94:in `call'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:94:in `block (3 levels) in execute_around'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/sauce-cucumber-3.5.2/lib/sauce/cucumber.rb:142:in `call'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/sauce-cucumber-3.5.2/lib/sauce/cucumber.rb:142:in `block in around_hook'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/sauce-3.5.6/lib/sauce/test_base.rb:17:in `block in test_each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/sauce-3.5.6/lib/sauce/test_base.rb:6:in `each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/sauce-3.5.6/lib/sauce/test_base.rb:6:in `test_each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/sauce-cucumber-3.5.2/lib/sauce/cucumber.rb:96:in `around_hook'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/sauce-cucumber-3.5.2/lib/sauce/cucumber.rb:167:in `block in <top (required)>'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/core_ext/instance_exec.rb:48:in `instance_exec'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/core_ext/instance_exec.rb:48:in `block in cucumber_instance_exec'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/core_ext/instance_exec.rb:69:in `cucumber_run_with_backtrace_filtering'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/core_ext/instance_exec.rb:36:in `cucumber_instance_exec'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/rb_support/rb_hook.rb:14:in `invoke'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:114:in `invoke'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:93:in `block (2 levels) in execute_around'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:97:in `call'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:97:in `execute_around'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/language_support/language_methods.rb:8:in `around'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/runtime/support_code.rb:119:in `block (2 levels) in around'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/runtime/support_code.rb:123:in `call'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/runtime/support_code.rb:123:in `around'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/runtime.rb:94:in `around'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/runtime.rb:81:in `with_hooks'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/ast/tree_walker.rb:13:in `execute'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/ast/scenario.rb:32:in `block in accept'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/ast/scenario.rb:79:in `with_visitor'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/ast/scenario.rb:31:in `accept'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/ast/tree_walker.rb:58:in `block in visit_feature_element'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/ast/tree_walker.rb:170:in `broadcast'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/ast/tree_walker.rb:57:in `visit_feature_element'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/ast/feature.rb:38:in `block in accept'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/ast/feature.rb:37:in `each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/ast/feature.rb:37:in `accept'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/ast/tree_walker.rb:27:in `block in visit_feature'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/ast/tree_walker.rb:170:in `broadcast'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/ast/tree_walker.rb:26:in `visit_feature'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/ast/features.rb:28:in `block in accept'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/ast/features.rb:17:in `each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/ast/features.rb:17:in `each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/ast/features.rb:27:in `accept'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/ast/tree_walker.rb:21:in `block in visit_features'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/ast/tree_walker.rb:170:in `broadcast'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/ast/tree_walker.rb:20:in `visit_features'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/runtime.rb:49:in `run!'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/lib/cucumber/cli/main.rb:47:in `execute!'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/cucumber-1.3.20/bin/cucumber:13:in `<top (required)>'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/bin/cucumber:23:in `load'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/bin/cucumber:23:in `<main>'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/bin/ruby_executable_hooks:15:in `eval'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/bin/ruby_executable_hooks:15:in `<main>'\cf2 \
+\cf6       Due to a previous error, this job has already finished. You can learn more at https://saucelabs.com/jobs/b48570bd6a5e4212917e00c51a300fd8 (Selenium::WebDriver::Error::UnknownError)\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/response.rb:71:in `assert_ok'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/response.rb:34:in `initialize'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/http/common.rb:78:in `new'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/http/common.rb:78:in `create_response'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/http/default.rb:90:in `request'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/http/common.rb:59:in `call'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/bridge.rb:657:in `raw_execute'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/bridge.rb:635:in `execute'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/remote/bridge.rb:227:in `quit'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/selenium-webdriver-2.46.2/lib/selenium/webdriver/common/driver.rb:165:in `quit'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/sauce-3.5.6/lib/sauce/selenium.rb:68:in `method_missing'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/sauce-3.5.6/lib/sauce/capybara.rb:118:in `finish!'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/sauce-cucumber-3.5.2/lib/sauce/cucumber.rb:145:in `block in around_hook'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/sauce-3.5.6/lib/sauce/test_base.rb:17:in `block in test_each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/sauce-3.5.6/lib/sauce/test_base.rb:6:in `each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/sauce-3.5.6/lib/sauce/test_base.rb:6:in `test_each'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/sauce-cucumber-3.5.2/lib/sauce/cucumber.rb:96:in `around_hook'\cf2 \
+\cf6       /Users/temre/.rvm/gems/ruby-2.1.5/gems/sauce-cucumber-3.5.2/lib/sauce/cucumber.rb:167:in `Around'\cf2 \
+\
+  Scenario: #6) PNJ has a single internal content type test\cf4                                                                                                                       # features/allregressiontests_localhost3000_chinchilla.feature:48\cf2 \
+    \cf5 Given I am on "http://devbestof.pnj.com/winners/2015/"\cf4                                                                                                                        # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:116\cf2 \
+    \cf6 When I click on the "Readers' Choice" link\cf4                                                                                                                                    # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:120\cf2 \
+\cf6       Unable to find css "a.omni-link-js" with text "Readers' Choice" (Capybara::ElementNotFound)\cf2 \
+\cf6       ./features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:121:in `/^I click on the "(.*?)" link$/'\cf2 \
+\cf6       features/allregressiontests_localhost3000_chinchilla.feature:51:in `When I click on the "Readers' Choice" link'\cf2 \
+    \cf3 Then I should be on "http://devbestof.pnj.com/winners/2015/results?types=Readers%27%20Choice" and I should NOT see the 'Readers' Choice' button on the left-side of the page\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:124\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/96a49a7ea732498592781c027308c1cf?auth=31dd29f1e7361c94ec85495e1e52f883\
+\
+  Scenario: #7) Azcentral has two internal content types test\cf4                                                                                                                                          # features/allregressiontests_localhost3000_chinchilla.feature:55\cf2 \
+    \cf5 Given I am on the Azcentral's Best page at "http://z.bestof.azcentral.com:3000/winners/2014/"\cf4                                                                                                      # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:134\cf2 \
+    \cf6 When I then click on the "Critics' Picks" link\cf4                                                                                                                                                     # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:138\cf2 \
+\cf6       Unable to find css "a.omni-link-js" with text "Critics' Picks" (Capybara::ElementNotFound)\cf2 \
+\cf6       ./features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:139:in `/^I then click on the "(.*?)" link$/'\cf2 \
+\cf6       features/allregressiontests_localhost3000_chinchilla.feature:58:in `When I then click on the "Critics' Picks" link'\cf2 \
+    \cf3 Then I should be on "http://z.bestof.azcentral.com:3000/winners/2015/results?types=Critics%27%20Picks" and I SHOULD see 'Readers' Choice' and 'Critics' Picks' links on the left-side of the page\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:142\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/80d5c8e5603d4a4eba3b55b3087cbeb7?auth=4cf6532842325aa6ee100d6fe15df80f\
+\
+  Scenario: #8) ALL Login tests\cf4                                                                                                                                       # features/allregressiontests_localhost3000_chinchilla.feature:62\cf2 \
+    \cf5 Given I am on the Azcentral's Best page at "http://z.bestof.azcentral.com:3000/winners/2014/"\cf4                                                                     # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:134\cf2 \
+    \cf5 When I click the "LOGIN" button\cf4                                                                                                                                   # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:156\cf2 \
+    \cf5 Then I should arrive at the login url of: "https://account.azcentral.com/bestOf/ui/login/?onSuccessRedirectURL=http://z.bestof.azcentral.com:3000/winners/2015/"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:159\cf2 \
+    \cf5 And I log into my account\cf4                                                                                                                                         # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:162\cf2 \
+    \cf5 Then I should be returned to this page "http://z.bestof.azcentral.com:3000/winners/2015/"\cf4                                                                         # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:167\cf2 \
+    \cf6 And when I click on "MY ACCOUNT"\cf4                                                                                                                                  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:171\cf2 \
+\cf6       Unable to find link "MY ACCOUNT" (Capybara::ElementNotFound)\cf2 \
+\cf6       ./features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:172:in `/^when I click on "(.*?)"$/'\cf2 \
+\cf6       features/allregressiontests_localhost3000_chinchilla.feature:69:in `And when I click on "MY ACCOUNT"'\cf2 \
+    \cf3 Then I should arrive at the 'My Account' page\cf4                                                                                                                     # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:176\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/160ceb92faef481cbfb3918fad52610e?auth=20c2d236cef8e4d967dc70c365959e50\
+\
+  Scenario: #9) Login test on PNJ\cf4                             # features/allregressiontests_localhost3000_chinchilla.feature:73\cf2 \
+    \cf5 Given I am on the PNJ site of "http://devbestof.pnj.com"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:184\cf2 \
+    \cf5 Then there should be no 'login' button\cf4                    # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:187\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/d8a68e24c466438882566cfaacb1a055?auth=711f1a8d35071c4e7188900ab453da57\
+\
+  Scenario: #10) Testing Email Feature\cf4                                                             # features/allregressiontests_localhost3000_chinchilla.feature:79\cf2 \
+    \cf5 Given I am on the Azcentral's Best page at "http://z.bestof.azcentral.com:3000/winners/2014/"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:134\cf2 \
+    \cf6 When I click on the "Critics' Picks" link\cf4                                                      # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:120\cf2 \
+\cf6       Unable to find css "a.omni-link-js" with text "Critics' Picks" (Capybara::ElementNotFound)\cf2 \
+\cf6       ./features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:121:in `/^I click on the "(.*?)" link$/'\cf2 \
+\cf6       features/allregressiontests_localhost3000_chinchilla.feature:82:in `When I click on the "Critics' Picks" link'\cf2 \
+    \cf3 Then I also click on the "Best kids activity" link\cf4                                             # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:201\cf2 \
+    \cf3 Then I should see the 'Send an email' image contain the correct 'mailto' information\cf4           # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:204\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/36c35e2d0b944f04bbc6aecfc88bdd68?auth=2a23525984e2ddcd76ae63998637968d\
+\
+  Scenario: #11) Testing "RED ALERT" Feature\cf4                                                       # features/allregressiontests_localhost3000_chinchilla.feature:87\cf2 \
+    \cf5 Given I am on the Azcentral's Best page at "http://z.bestof.azcentral.com:3000/winners/2014/"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:134\cf2 \
+    \cf6 When I click on the "Critics' Picks" link\cf4                                                      # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:120\cf2 \
+\cf6       Unable to find css "a.omni-link-js" with text "Critics' Picks" (Capybara::ElementNotFound)\cf2 \
+\cf6       ./features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:121:in `/^I click on the "(.*?)" link$/'\cf2 \
+\cf6       features/allregressiontests_localhost3000_chinchilla.feature:90:in `When I click on the "Critics' Picks" link'\cf2 \
+    \cf3 Then I also click on the "Best kids activity" link\cf4                                             # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:201\cf2 \
+    \cf3 Then I click on the 'Next Article' arrow five times\cf4                                            # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:213\cf2 \
+    \cf3 Then I should see the text "5 free articles left"\cf4                                              # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:226\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/a76088a422c941acab18dffe313f8860?auth=09befa17cfa1dfab58ca384f0e3d47c2\
+\
+\cf6 Failing Scenarios:\cf2 \
+\cf6 cucumber features/allregressiontests_localhost3000_chinchilla.feature:14\cf4  # Scenario: #2) Search, Filtering and Sorting Content\cf2 \
+\cf6 cucumber features/allregressiontests_localhost3000_chinchilla.feature:37\cf4  # Scenario: #5) Map / Zoom buttons test\cf2 \
+\cf6 cucumber features/allregressiontests_localhost3000_chinchilla.feature:48\cf4  # Scenario: #6) PNJ has a single internal content type test\cf2 \
+\cf6 cucumber features/allregressiontests_localhost3000_chinchilla.feature:55\cf4  # Scenario: #7) Azcentral has two internal content types test\cf2 \
+\cf6 cucumber features/allregressiontests_localhost3000_chinchilla.feature:62\cf4  # Scenario: #8) ALL Login tests\cf2 \
+\cf6 cucumber features/allregressiontests_localhost3000_chinchilla.feature:79\cf4  # Scenario: #10) Testing Email Feature\cf2 \
+\cf6 cucumber features/allregressiontests_localhost3000_chinchilla.feature:87\cf4  # Scenario: #11) Testing "RED ALERT" Feature\cf2 \
+\
+11 scenarios (\cf6 7 failed\cf2 , \cf5 4 passed\cf2 )\
+45 steps (\cf6 7 failed\cf2 , \cf3 11 skipped\cf2 , \cf5 27 passed\cf2 )\
+12m24.657s\
+\
+Failing Scenarios:\
+cucumber features/allregressiontests_localhost3000_chinchilla.feature:14 # Scenario: #2) Search, Filtering and Sorting Content\
+cucumber features/allregressiontests_localhost3000_chinchilla.feature:37 # Scenario: #5) Map / Zoom buttons test\
+cucumber features/allregressiontests_localhost3000_chinchilla.feature:48 # Scenario: #6) PNJ has a single internal content type test\
+cucumber features/allregressiontests_localhost3000_chinchilla.feature:55 # Scenario: #7) Azcentral has two internal content types test\
+cucumber features/allregressiontests_localhost3000_chinchilla.feature:62 # Scenario: #8) ALL Login tests\
+cucumber features/allregressiontests_localhost3000_chinchilla.feature:79 # Scenario: #10) Testing Email Feature\
+cucumber features/allregressiontests_localhost3000_chinchilla.feature:87 # Scenario: #11) Testing "RED ALERT" Feature\
+\
+11 scenarios (7 failed, 4 passed)\
+45 steps (7 failed, 11 skipped, 27 passed)\
+\
+Took 750 seconds (12:30)\
+\cf6 cucumbers Failed\cf2 \
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+["Windows 8.1", "Chrome", 43]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Mon Dec  7 20:45:39 on ttys001\
+You have mail.\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: AZC's Best CHINCHILLA 2014 ALL Regression Tests\
+  \
+  In order to make the new features live on the 2014 Azcentral's Best\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1) Article ID test\cf4                                                                                                                                                                                                                                                                 # features/allregressiontests_localhost3000_chinchilla.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I have found this particular article ID on devbestof.azcentral.com: "http://z.bestof.azcentral.com:3000/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenixhttp://z.bestof.azcentral.com:3000/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:2\cf2 \
+    \cf5 When I put that same article ID into the bestof.pnj.com site: "http://devbestof.pnj.com/winners/2015/14744893"\cf4                                                                                                                                                                              # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:5\cf2 \
+    \cf5 Then I should not see the article content, but I should be redirected to the homepage of "http://devbestof.pnj.com/winners/2015"\cf4                                                                                                                                                            # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:8\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/91234bde444a48bbbbab4f9f07fffc3e?auth=a7896d492de7c0960a46e5af68587f44\
+\
+  Scenario: #2) Search, Filtering and Sorting Content\cf4                                                                                                                                         # features/allregressiontests_localhost3000_chinchilla.feature:14\cf2 \
+    \cf5 Given I am on the Azcentral's Best Critic's Picks page at: "http://z.bestof.azcentral.com:3000/winners/2014/results?types=Critics%27%20Picks"\cf4                                             # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:15\cf2 \
+    \cf5 When I enter the term 'kids' in the search box\cf4                                                                                                                                            # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:19\cf2 \
+    \cf5 Then I am on this URL: "http://z.bestof.azcentral.com:3000/winners/2014/results?&types=Critics%27%20Picks&keywords=kids"\cf4                                                                  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:24\cf2 \
+    \cf5 And I click on the word 'Categories' then click on 'Arts & Entertainment'\cf4                                                                                                                 # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:28\cf2 \
+    \cf5 Then I am on this new URL: "http://z.bestof.azcentral.com:3000/winners/2014/results?&types=Critics%27%20Picks&categories=arts%20%26%20entertainment&keywords=kids"\cf4                        # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:40\cf2 \
+    \cf5 Then I click on the word 'Sort Type' then I click on 'Category'\cf4                                                                                                                           # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:44\cf2 \
+    \cf5 And the URL will change to this: "http://z.bestof.azcentral.com:3000/winners/2014/results?&types=Critics%27%20Picks&categories=arts%20%26%20entertainment&keywords=kids&sortby=category"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:54\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/9edacf96660e4162a8456cb94d936b79?auth=e8940cbc70f2fc6b86c3e7083ec02d4d\
+\
+  Scenario: #3) More Winners Near Me\cf4                                                  # features/allregressiontests_localhost3000_chinchilla.feature:24\cf2 \
+    \cf5 Given I am on an article page\cf4                                                     # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:62\cf2 \
+    \cf5 When I want to make sure there are articles in the "More Winners Nearby" section\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:65\cf2 \
+    \cf5 Then I will see a resulting 6 pertinent articles\cf4                                  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:68\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/153f89b6d4304e839b11a53193bf9d4f?auth=5044f14129f659afb18f3c94646f4118\
+\
+  Scenario: #4) Checking social media features\cf4                                                                                                                                                                     # features/allregressiontests_localhost3000_chinchilla.feature:30\cf2 \
+    \cf5 Given I am on the current article page again at "http://z.bestof.azcentral.com:3000/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix" and I want to share this page via the sharing tools\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:77\cf2 \
+    \cf5 Then the data-text should contain the correct article title for sharing via Facebook\cf4                                                                                                                           # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:80\cf2 \
+    \cf5 And the href should contain the correct URL for sharing via Twitter\cf4                                                                                                                                            # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:83\cf2 \
+    \cf5 And the href should contain the correct mailto for sharing via E-mail\cf4                                                                                                                                          # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:89\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/bee2810e75cf4833aa056213c9e7ce8a?auth=e5300d9e1d72e82e77985ffabb5ff17e\
+\
+  Scenario: #5) Map / Zoom buttons test\cf4                                                                                                                                                                                                                                      # features/allregressiontests_localhost3000_chinchilla.feature:37\cf2 \
+    \cf5 Given I am on this page: "http://z.bestof.azcentral.com:3000/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix" where this is both a map and video\cf4                                                                                                    # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:96\cf2 \
+    \cf5 When I click on the "Map" button on the main image\cf4                                                                                                                                                                                                                       # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:100\cf2 \
+    \cf5 Then I should see the div that holds the 'Zoom in' and 'Zoom out' buttons on the right side of the map at these coordinates: 'position: absolute', 'right: 28px', 'top: 0px', and have 'margin: 5px' - therefore they are NOT at the same location as the media buttons\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:104\cf2 \
+    \cf5 And I should see in the badger css file that div that holds the media buttons on the left side of the map are at these coordinates, 'position: absolute', top: 0', and 'left: 0, - therefore they are NOT at the same location as the map zoom in & out buttons\cf4          # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:109\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/dddb8b66f07847938906035e2d530033?auth=5970447d97d4fdf11ce8adf43262bdce\
+\
+  Scenario: #6) PNJ has a single internal content type test\cf4                                                                                                                       # features/allregressiontests_localhost3000_chinchilla.feature:48\cf2 \
+    \cf5 Given I am on "http://devbestof.pnj.com/winners/2015/"\cf4                                                                                                                        # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:127\cf2 \
+    \cf5 When I click on the "Readers' Choice" link\cf4                                                                                                                                    # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:131\cf2 \
+    \cf5 Then I should be on "http://devbestof.pnj.com/winners/2015/results?types=Readers%27%20Choice" and I should NOT see the 'Readers' Choice' button on the left-side of the page\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:137\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/44ac8a5e31d4434f8609fefc10f74b75?auth=50a6b1eb7d023046e752188a6f211b5f\
+\
+  Scenario: #7) Azcentral has two internal content types test\cf4                                                                                                                                          # features/allregressiontests_localhost3000_chinchilla.feature:55\cf2 \
+    \cf5 Given I am on the Azcentral's Best page at "http://z.bestof.azcentral.com:3000/winners/2014/"\cf4                                                                                                      # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:147\cf2 \
+    \cf5 When I then click on the "Critics' Picks" link\cf4                                                                                                                                                     # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:151\cf2 \
+    \cf5 Then I should be on "http://z.bestof.azcentral.com:3000/winners/2015/results?types=Critics%27%20Picks" and I SHOULD see 'Readers' Choice' and 'Critics' Picks' links on the left-side of the page\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:157\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/14aea26090684bd1ab1a12863a3bb810?auth=14e0dd0ba16791f747e998a515552b08\
+\
+  Scenario: #8) ALL Login tests\cf4                                                                                                                                       # features/allregressiontests_localhost3000_chinchilla.feature:62\cf2 \
+    \cf5 Given I am on the Azcentral's Best page at "http://z.bestof.azcentral.com:3000/winners/2014/"\cf4                                                                     # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:147\cf2 \
+    \cf5 When I click the "LOGIN" button\cf4                                                                                                                                   # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:171\cf2 \
+    \cf5 Then I should arrive at the login url of: "https://account.azcentral.com/bestOf/ui/login/?onSuccessRedirectURL=http://z.bestof.azcentral.com:3000/winners/2015/"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:174\cf2 \
+    \cf5 And I log into my account\cf4                                                                                                                                         # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:177\cf2 \
+    \cf5 Then I should be returned to this page "http://z.bestof.azcentral.com:3000/winners/2015/"\cf4                                                                         # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:182\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/0beb6185e3f7479e80a489e26549a1c7?auth=bd1bb0305d24317dec05afa823580465\
+\
+  Scenario: #9) Login test on PNJ\cf4                             # features/allregressiontests_localhost3000_chinchilla.feature:71\cf2 \
+    \cf5 Given I am on the PNJ site of "http://devbestof.pnj.com"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:205\cf2 \
+    \cf5 Then there should be no 'login' button\cf4                    # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:208\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/600d5bc391ed460f9b26fed4f35c623b?auth=f46c604d8c034e6d72ec25c84d80ecb3\
+\
+  Scenario: #10) Testing Email Feature\cf4                                                             # features/allregressiontests_localhost3000_chinchilla.feature:77\cf2 \
+    \cf5 Given I am on the Azcentral's Best page at "http://z.bestof.azcentral.com:3000/winners/2014/"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:147\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                                                      # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:131\cf2 \
+    \cf5 Then I also click on the "Best kids activity" link\cf4                                             # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:222\cf2 \
+    \cf5 Then I should see the 'Send an email' image contain the correct 'mailto' information\cf4           # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:225\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/0032ddebeb4c4b6fae09336522729480?auth=513c2eecd8dad984c3fac454426538ed\
+\
+  Scenario: #11) Testing "RED ALERT" Feature\cf4                                                       # features/allregressiontests_localhost3000_chinchilla.feature:85\cf2 \
+    \cf5 Given I am on the Azcentral's Best page at "http://z.bestof.azcentral.com:3000/winners/2014/"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:147\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                                                      # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:131\cf2 \
+    \cf5 Then I also click on the "Best kids activity" link\cf4                                             # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:222\cf2 \
+    \cf5 Then I click on the 'Next Article' arrow five times\cf4                                            # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:234\cf2 \
+    \cf5 Then I should see the text "5 free articles left"\cf4                                              # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:247\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/2cce64f4d1744657983cc7b9e68ffd9c?auth=22760422a274780d811006000cd2893e\
+\
+11 scenarios (\cf5 11 passed\cf2 )\
+43 steps (\cf5 43 passed\cf2 )\
+5m50.499s\
+\
+11 scenarios (11 passed)\
+43 steps (43 passed)\
+\
+Took 356 seconds (5:56)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+["OS X 10.10", "Safari", "8.0"]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: AZC's Best CHINCHILLA 2014 ALL Regression Tests\
+  \
+  In order to make the new features live on the 2014 Azcentral's Best\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1) Article ID test\cf4                                                                                                                                                                                                                                                                 # features/allregressiontests_localhost3000_chinchilla.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I have found this particular article ID on devbestof.azcentral.com: "http://z.bestof.azcentral.com:3000/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenixhttp://z.bestof.azcentral.com:3000/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:2\cf2 \
+    \cf5 When I put that same article ID into the bestof.pnj.com site: "http://devbestof.pnj.com/winners/2015/14744893"\cf4                                                                                                                                                                              # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:5\cf2 \
+    \cf5 Then I should not see the article content, but I should be redirected to the homepage of "http://devbestof.pnj.com/winners/2015"\cf4                                                                                                                                                            # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:8\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/8a06445325734fd4a6cc7ed345e66d21?auth=40a3c70784cbee9b34af75e656d5458d\
+\
+  Scenario: #2) Search, Filtering and Sorting Content\cf4                                                                                                                                         # features/allregressiontests_localhost3000_chinchilla.feature:14\cf2 \
+    \cf5 Given I am on the Azcentral's Best Critic's Picks page at: "http://z.bestof.azcentral.com:3000/winners/2014/results?types=Critics%27%20Picks"\cf4                                             # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:15\cf2 \
+    \cf5 When I enter the term 'kids' in the search box\cf4                                                                                                                                            # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:19\cf2 \
+    \cf5 Then I am on this URL: "http://z.bestof.azcentral.com:3000/winners/2014/results?&types=Critics%27%20Picks&keywords=kids"\cf4                                                                  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:24\cf2 \
+    \cf5 And I click on the word 'Categories' then click on 'Arts & Entertainment'\cf4                                                                                                                 # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:28\cf2 \
+    \cf5 Then I am on this new URL: "http://z.bestof.azcentral.com:3000/winners/2014/results?&types=Critics%27%20Picks&categories=arts%20%26%20entertainment&keywords=kids"\cf4                        # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:40\cf2 \
+    \cf5 Then I click on the word 'Sort Type' then I click on 'Category'\cf4                                                                                                                           # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:44\cf2 \
+    \cf5 And the URL will change to this: "http://z.bestof.azcentral.com:3000/winners/2014/results?&types=Critics%27%20Picks&categories=arts%20%26%20entertainment&keywords=kids&sortby=category"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:54\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/310be913c10145e083929e33a6cf98c8?auth=9a0973ff7bf4a8cb8cdaa956bb13eb59\
+\
+  Scenario: #3) More Winners Near Me\cf4                                                  # features/allregressiontests_localhost3000_chinchilla.feature:24\cf2 \
+    \cf5 Given I am on an article page\cf4                                                     # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:62\cf2 \
+    \cf5 When I want to make sure there are articles in the "More Winners Nearby" section\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:65\cf2 \
+    \cf5 Then I will see a resulting 6 pertinent articles\cf4                                  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:68\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/0535a89d7ad64aaf9ac054136cc929f5?auth=296758cec8277ab55754978d54386cd4\
+\
+  Scenario: #4) Checking social media features\cf4                                                                                                                                                                     # features/allregressiontests_localhost3000_chinchilla.feature:30\cf2 \
+    \cf5 Given I am on the current article page again at "http://z.bestof.azcentral.com:3000/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix" and I want to share this page via the sharing tools\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:77\cf2 \
+    \cf5 Then the data-text should contain the correct article title for sharing via Facebook\cf4                                                                                                                           # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:80\cf2 \
+    \cf5 And the href should contain the correct URL for sharing via Twitter\cf4                                                                                                                                            # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:83\cf2 \
+    \cf5 And the href should contain the correct mailto for sharing via E-mail\cf4                                                                                                                                          # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:89\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/1c0c55950d0e4a9aa4b702c9349579e7?auth=3bfa1dc78d853b93c16b4fadd155fdd3\
+\
+  Scenario: #5) Map / Zoom buttons test\cf4                                                                                                                                                                                                                                      # features/allregressiontests_localhost3000_chinchilla.feature:37\cf2 \
+    \cf5 Given I am on this page: "http://z.bestof.azcentral.com:3000/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix" where this is both a map and video\cf4                                                                                                    # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:96\cf2 \
+    \cf5 When I click on the "Map" button on the main image\cf4                                                                                                                                                                                                                       # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:100\cf2 \
+    \cf5 Then I should see the div that holds the 'Zoom in' and 'Zoom out' buttons on the right side of the map at these coordinates: 'position: absolute', 'right: 28px', 'top: 0px', and have 'margin: 5px' - therefore they are NOT at the same location as the media buttons\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:104\cf2 \
+    \cf5 And I should see in the badger css file that div that holds the media buttons on the left side of the map are at these coordinates, 'position: absolute', top: 0', and 'left: 0, - therefore they are NOT at the same location as the map zoom in & out buttons\cf4          # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:109\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/30a75f87a787406cb47edd41b9cdada1?auth=fb5f3de7ddf4370f493cb437521288b4\
+\
+  Scenario: #6) PNJ has a single internal content type test\cf4                                                                                                                       # features/allregressiontests_localhost3000_chinchilla.feature:48\cf2 \
+    \cf5 Given I am on "http://devbestof.pnj.com/winners/2015/"\cf4                                                                                                                        # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:127\cf2 \
+    \cf5 When I click on the "Readers' Choice" link\cf4                                                                                                                                    # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:131\cf2 \
+    \cf5 Then I should be on "http://devbestof.pnj.com/winners/2015/results?types=Readers%27%20Choice" and I should NOT see the 'Readers' Choice' button on the left-side of the page\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:137\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/adb06d71ad3b4271a541f2935fe93a36?auth=bed502beadb6cad82e9aac11bf58e5fd\
+\
+  Scenario: #7) Azcentral has two internal content types test\cf4                                                                                                                                          # features/allregressiontests_localhost3000_chinchilla.feature:55\cf2 \
+    \cf5 Given I am on the Azcentral's Best page at "http://z.bestof.azcentral.com:3000/winners/2014/"\cf4                                                                                                      # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:147\cf2 \
+    \cf5 When I then click on the "Critics' Picks" link\cf4                                                                                                                                                     # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:151\cf2 \
+    \cf5 Then I should be on "http://z.bestof.azcentral.com:3000/winners/2015/results?types=Critics%27%20Picks" and I SHOULD see 'Readers' Choice' and 'Critics' Picks' links on the left-side of the page\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:157\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/fca3621beed74e08a706ec6c8c6c71ea?auth=99beb6ab1fb8c2527a6151bdaa9eb36f\
+\
+  Scenario: #8) ALL Login tests\cf4                                                                                                                                       # features/allregressiontests_localhost3000_chinchilla.feature:62\cf2 \
+    \cf5 Given I am on the Azcentral's Best page at "http://z.bestof.azcentral.com:3000/winners/2014/"\cf4                                                                     # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:147\cf2 \
+    \cf5 When I click the "LOGIN" button\cf4                                                                                                                                   # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:171\cf2 \
+    \cf5 Then I should arrive at the login url of: "https://account.azcentral.com/bestOf/ui/login/?onSuccessRedirectURL=http://z.bestof.azcentral.com:3000/winners/2015/"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:174\cf2 \
+    \cf5 And I log into my account\cf4                                                                                                                                         # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:177\cf2 \
+    \cf5 Then I should be returned to this page "http://z.bestof.azcentral.com:3000/winners/2015/"\cf4                                                                         # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:182\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/e65f26bf89cf4f6da24b1b40ef225eb9?auth=bcc83b6b4e0e2a228f97043576f8baee\
+\
+  Scenario: #9) Login test on PNJ\cf4                             # features/allregressiontests_localhost3000_chinchilla.feature:71\cf2 \
+    \cf5 Given I am on the PNJ site of "http://devbestof.pnj.com"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:205\cf2 \
+    \cf5 Then there should be no 'login' button\cf4                    # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:208\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/0159aac39e974b468f30f35e2d6bf40d?auth=2be4fe2e479bb48b66dbbf4fd45c18b0\
+\
+  Scenario: #10) Testing Email Feature\cf4                                                             # features/allregressiontests_localhost3000_chinchilla.feature:77\cf2 \
+    \cf5 Given I am on the Azcentral's Best page at "http://z.bestof.azcentral.com:3000/winners/2014/"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:147\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                                                      # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:131\cf2 \
+    \cf5 Then I also click on the "Best kids activity" link\cf4                                             # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:222\cf2 \
+    \cf5 Then I should see the 'Send an email' image contain the correct 'mailto' information\cf4           # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:225\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/adabd99032b3469d81e7b66bcfa453e3?auth=761b9d179da8988dc1595bccb0a84925\
+\
+  Scenario: #11) Testing "RED ALERT" Feature\cf4                                                       # features/allregressiontests_localhost3000_chinchilla.feature:85\cf2 \
+    \cf5 Given I am on the Azcentral's Best page at "http://z.bestof.azcentral.com:3000/winners/2014/"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:147\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                                                      # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:131\cf2 \
+    \cf5 Then I also click on the "Best kids activity" link\cf4                                             # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:222\cf2 \
+    \cf5 Then I click on the 'Next Article' arrow five times\cf4                                            # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:234\cf2 \
+    \cf5 Then I should see the text "5 free articles left"\cf4                                              # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:247\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/a4f2e1968c384082b7b62d7e6390d41e?auth=5e4554f1eda3a99a3ea24601f41c2675\
+\
+11 scenarios (\cf5 11 passed\cf2 )\
+43 steps (\cf5 43 passed\cf2 )\
+6m7.348s\
+\
+11 scenarios (11 passed)\
+43 steps (43 passed)\
+\
+Took 376 seconds (6:16)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+["OS X 10.10", "Chrome", 43]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: AZC's Best CHINCHILLA 2014 ALL Regression Tests\
+  \
+  In order to make the new features live on the 2014 Azcentral's Best\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1) Article ID test\cf4                                                                                                                                                                                                                                                                 # features/allregressiontests_localhost3000_chinchilla.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I have found this particular article ID on devbestof.azcentral.com: "http://z.bestof.azcentral.com:3000/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenixhttp://z.bestof.azcentral.com:3000/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:2\cf2 \
+    \cf5 When I put that same article ID into the bestof.pnj.com site: "http://devbestof.pnj.com/winners/2015/14744893"\cf4                                                                                                                                                                              # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:5\cf2 \
+    \cf5 Then I should not see the article content, but I should be redirected to the homepage of "http://devbestof.pnj.com/winners/2015"\cf4                                                                                                                                                            # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:8\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/0a0906ebab6749429ee01d4690628a0b?auth=3fd507fdd43d83201c8b3a5702c2d7e9\
+\
+  Scenario: #2) Search, Filtering and Sorting Content\cf4                                                                                                                                         # features/allregressiontests_localhost3000_chinchilla.feature:14\cf2 \
+    \cf5 Given I am on the Azcentral's Best Critic's Picks page at: "http://z.bestof.azcentral.com:3000/winners/2014/results?types=Critics%27%20Picks"\cf4                                             # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:15\cf2 \
+    \cf5 When I enter the term 'kids' in the search box\cf4                                                                                                                                            # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:19\cf2 \
+    \cf5 Then I am on this URL: "http://z.bestof.azcentral.com:3000/winners/2014/results?&types=Critics%27%20Picks&keywords=kids"\cf4                                                                  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:24\cf2 \
+    \cf5 And I click on the word 'Categories' then click on 'Arts & Entertainment'\cf4                                                                                                                 # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:28\cf2 \
+    \cf5 Then I am on this new URL: "http://z.bestof.azcentral.com:3000/winners/2014/results?&types=Critics%27%20Picks&categories=arts%20%26%20entertainment&keywords=kids"\cf4                        # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:40\cf2 \
+    \cf5 Then I click on the word 'Sort Type' then I click on 'Category'\cf4                                                                                                                           # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:44\cf2 \
+    \cf5 And the URL will change to this: "http://z.bestof.azcentral.com:3000/winners/2014/results?&types=Critics%27%20Picks&categories=arts%20%26%20entertainment&keywords=kids&sortby=category"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:54\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/d21bfe01243248098a93034201bca779?auth=59872246f527be16f5bb417d70d95055\
+\
+  Scenario: #3) More Winners Near Me\cf4                                                  # features/allregressiontests_localhost3000_chinchilla.feature:24\cf2 \
+    \cf5 Given I am on an article page\cf4                                                     # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:62\cf2 \
+    \cf5 When I want to make sure there are articles in the "More Winners Nearby" section\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:65\cf2 \
+    \cf5 Then I will see a resulting 6 pertinent articles\cf4                                  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:68\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/4639ce1d6a514ba78863abba83fcd070?auth=ec9c204517dd64c53b93d2da465f6f20\
+\
+  Scenario: #4) Checking social media features\cf4                                                                                                                                                                     # features/allregressiontests_localhost3000_chinchilla.feature:30\cf2 \
+    \cf5 Given I am on the current article page again at "http://z.bestof.azcentral.com:3000/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix" and I want to share this page via the sharing tools\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:77\cf2 \
+    \cf5 Then the data-text should contain the correct article title for sharing via Facebook\cf4                                                                                                                           # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:80\cf2 \
+    \cf5 And the href should contain the correct URL for sharing via Twitter\cf4                                                                                                                                            # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:83\cf2 \
+    \cf5 And the href should contain the correct mailto for sharing via E-mail\cf4                                                                                                                                          # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:89\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/da45a10369694136b37e1e1584386d4e?auth=bf05c13b35be3e9b24c514bd5a3aad23\
+\
+  Scenario: #5) Map / Zoom buttons test\cf4                                                                                                                                                                                                                                      # features/allregressiontests_localhost3000_chinchilla.feature:37\cf2 \
+    \cf5 Given I am on this page: "http://z.bestof.azcentral.com:3000/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix" where this is both a map and video\cf4                                                                                                    # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:96\cf2 \
+    \cf5 When I click on the "Map" button on the main image\cf4                                                                                                                                                                                                                       # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:100\cf2 \
+    \cf5 Then I should see the div that holds the 'Zoom in' and 'Zoom out' buttons on the right side of the map at these coordinates: 'position: absolute', 'right: 28px', 'top: 0px', and have 'margin: 5px' - therefore they are NOT at the same location as the media buttons\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:104\cf2 \
+    \cf5 And I should see in the badger css file that div that holds the media buttons on the left side of the map are at these coordinates, 'position: absolute', top: 0', and 'left: 0, - therefore they are NOT at the same location as the map zoom in & out buttons\cf4          # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:109\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/0f20fd4429b7439bb2cc038acea80746?auth=aa2b056e3b1b1e848a5b22a45165fd4b\
+\
+  Scenario: #6) PNJ has a single internal content type test\cf4                                                                                                                       # features/allregressiontests_localhost3000_chinchilla.feature:48\cf2 \
+    \cf5 Given I am on "http://devbestof.pnj.com/winners/2015/"\cf4                                                                                                                        # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:127\cf2 \
+    \cf5 When I click on the "Readers' Choice" link\cf4                                                                                                                                    # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:131\cf2 \
+    \cf5 Then I should be on "http://devbestof.pnj.com/winners/2015/results?types=Readers%27%20Choice" and I should NOT see the 'Readers' Choice' button on the left-side of the page\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:137\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/96a18057cd804a15922db65083b6bbf3?auth=4267def687441bbb72fc406a24ab79fb\
+\
+  Scenario: #7) Azcentral has two internal content types test\cf4                                                                                                                                          # features/allregressiontests_localhost3000_chinchilla.feature:55\cf2 \
+    \cf5 Given I am on the Azcentral's Best page at "http://z.bestof.azcentral.com:3000/winners/2014/"\cf4                                                                                                      # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:147\cf2 \
+    \cf5 When I then click on the "Critics' Picks" link\cf4                                                                                                                                                     # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:151\cf2 \
+    \cf5 Then I should be on "http://z.bestof.azcentral.com:3000/winners/2015/results?types=Critics%27%20Picks" and I SHOULD see 'Readers' Choice' and 'Critics' Picks' links on the left-side of the page\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:157\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/b01cb3c06bdc42348fe593b58a110b17?auth=5dbe8906b929d463e01f09fd4b94ff28\
+\
+  Scenario: #8) ALL Login tests\cf4                                                                                                                                       # features/allregressiontests_localhost3000_chinchilla.feature:62\cf2 \
+    \cf5 Given I am on the Azcentral's Best page at "http://z.bestof.azcentral.com:3000/winners/2014/"\cf4                                                                     # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:147\cf2 \
+    \cf5 When I click the "LOGIN" button\cf4                                                                                                                                   # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:171\cf2 \
+    \cf5 Then I should arrive at the login url of: "https://account.azcentral.com/bestOf/ui/login/?onSuccessRedirectURL=http://z.bestof.azcentral.com:3000/winners/2015/"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:174\cf2 \
+    \cf5 And I log into my account\cf4                                                                                                                                         # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:177\cf2 \
+    \cf5 Then I should be returned to this page "http://z.bestof.azcentral.com:3000/winners/2015/"\cf4                                                                         # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:182\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/27ceacd74971495396c00036d2def213?auth=2aca1a0def93fd408910d956a1e6f3fe\
+\
+  Scenario: #9) Login test on PNJ\cf4                             # features/allregressiontests_localhost3000_chinchilla.feature:71\cf2 \
+    \cf5 Given I am on the PNJ site of "http://devbestof.pnj.com"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:205\cf2 \
+    \cf5 Then there should be no 'login' button\cf4                    # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:208\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/2e3cd963a9cc41daaae973d76014ac48?auth=3363a6d68bf02941fb4a547464673a7a\
+\
+  Scenario: #10) Testing Email Feature\cf4                                                             # features/allregressiontests_localhost3000_chinchilla.feature:77\cf2 \
+    \cf5 Given I am on the Azcentral's Best page at "http://z.bestof.azcentral.com:3000/winners/2014/"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:147\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                                                      # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:131\cf2 \
+    \cf5 Then I also click on the "Best kids activity" link\cf4                                             # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:222\cf2 \
+    \cf5 Then I should see the 'Send an email' image contain the correct 'mailto' information\cf4           # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:225\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/9bc92e29086948c590ddcfa565663f15?auth=5d2fc1cbe7010a8f6f1fbe1f00d95f8a\
+\
+  Scenario: #11) Testing "RED ALERT" Feature\cf4                                                       # features/allregressiontests_localhost3000_chinchilla.feature:85\cf2 \
+    \cf5 Given I am on the Azcentral's Best page at "http://z.bestof.azcentral.com:3000/winners/2014/"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:147\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                                                      # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:131\cf2 \
+    \cf5 Then I also click on the "Best kids activity" link\cf4                                             # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:222\cf2 \
+    \cf5 Then I click on the 'Next Article' arrow five times\cf4                                            # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:234\cf2 \
+    \cf5 Then I should see the text "5 free articles left"\cf4                                              # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:247\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/ea9e1df4ec0c42f691809cc682e9fcf2?auth=2879efb59403dd5abb8eecb407dc8421\
+\
+11 scenarios (\cf5 11 passed\cf2 )\
+43 steps (\cf5 43 passed\cf2 )\
+5m55.668s\
+\
+11 scenarios (11 passed)\
+43 steps (43 passed)\
+\
+Took 361 seconds (6:01)\
+pni-dig-129098:sauce_ruby temre$ 
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+["OS X 10.10", "Firefox", "39"]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: AZC's Best CHINCHILLA 2014 ALL Regression Tests\
+  \
+  In order to make the new features live on the 2014 Azcentral's Best\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1) Article ID test\cf4                                                                                                                                                                                                                                                                 # features/allregressiontests_localhost3000_chinchilla.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I have found this particular article ID on devbestof.azcentral.com: "http://z.bestof.azcentral.com:3000/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenixhttp://z.bestof.azcentral.com:3000/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:2\cf2 \
+    \cf5 When I put that same article ID into the bestof.pnj.com site: "http://devbestof.pnj.com/winners/2015/14744893"\cf4                                                                                                                                                                              # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:5\cf2 \
+    \cf5 Then I should not see the article content, but I should be redirected to the homepage of "http://devbestof.pnj.com/winners/2015"\cf4                                                                                                                                                            # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:8\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/766146df361d4ca3abab1f0fa2832257?auth=dfac09fde4aa82ac777d0ea9cd83a80d\
+\
+  Scenario: #2) Search, Filtering and Sorting Content\cf4                                                                                                                                         # features/allregressiontests_localhost3000_chinchilla.feature:14\cf2 \
+    \cf5 Given I am on the Azcentral's Best Critic's Picks page at: "http://z.bestof.azcentral.com:3000/winners/2014/results?types=Critics%27%20Picks"\cf4                                             # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:15\cf2 \
+    \cf5 When I enter the term 'kids' in the search box\cf4                                                                                                                                            # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:19\cf2 \
+    \cf5 Then I am on this URL: "http://z.bestof.azcentral.com:3000/winners/2014/results?&types=Critics%27%20Picks&keywords=kids"\cf4                                                                  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:24\cf2 \
+    \cf5 And I click on the word 'Categories' then click on 'Arts & Entertainment'\cf4                                                                                                                 # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:28\cf2 \
+    \cf5 Then I am on this new URL: "http://z.bestof.azcentral.com:3000/winners/2014/results?&types=Critics%27%20Picks&categories=arts%20%26%20entertainment&keywords=kids"\cf4                        # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:40\cf2 \
+    \cf5 Then I click on the word 'Sort Type' then I click on 'Category'\cf4                                                                                                                           # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:44\cf2 \
+    \cf5 And the URL will change to this: "http://z.bestof.azcentral.com:3000/winners/2014/results?&types=Critics%27%20Picks&categories=arts%20%26%20entertainment&keywords=kids&sortby=category"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:54\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/d726834f464c4ca2a88fc1050ef50992?auth=58baa481fac604c5e5d4a1c58ffb6867\
+\
+  Scenario: #3) More Winners Near Me\cf4                                                  # features/allregressiontests_localhost3000_chinchilla.feature:24\cf2 \
+    \cf5 Given I am on an article page\cf4                                                     # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:62\cf2 \
+    \cf5 When I want to make sure there are articles in the "More Winners Nearby" section\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:65\cf2 \
+    \cf5 Then I will see a resulting 6 pertinent articles\cf4                                  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:68\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/18e4f049b3684ff2a9feea4b06520dc5?auth=389254f6be26b6cbd915fc2877f034e2\
+\
+  Scenario: #4) Checking social media features\cf4                                                                                                                                                                     # features/allregressiontests_localhost3000_chinchilla.feature:30\cf2 \
+    \cf5 Given I am on the current article page again at "http://z.bestof.azcentral.com:3000/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix" and I want to share this page via the sharing tools\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:77\cf2 \
+    \cf5 Then the data-text should contain the correct article title for sharing via Facebook\cf4                                                                                                                           # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:80\cf2 \
+    \cf5 And the href should contain the correct URL for sharing via Twitter\cf4                                                                                                                                            # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:83\cf2 \
+    \cf5 And the href should contain the correct mailto for sharing via E-mail\cf4                                                                                                                                          # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:89\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/08da3f03e325451a9ef64bc1936a002f?auth=00a7b0c86e0805dd1e5843db790e73e1\
+\
+  Scenario: #5) Map / Zoom buttons test\cf4                                                                                                                                                                                                                                      # features/allregressiontests_localhost3000_chinchilla.feature:37\cf2 \
+    \cf5 Given I am on this page: "http://z.bestof.azcentral.com:3000/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix" where this is both a map and video\cf4                                                                                                    # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:96\cf2 \
+    \cf5 When I click on the "Map" button on the main image\cf4                                                                                                                                                                                                                       # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:100\cf2 \
+    \cf5 Then I should see the div that holds the 'Zoom in' and 'Zoom out' buttons on the right side of the map at these coordinates: 'position: absolute', 'right: 28px', 'top: 0px', and have 'margin: 5px' - therefore they are NOT at the same location as the media buttons\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:104\cf2 \
+    \cf5 And I should see in the badger css file that div that holds the media buttons on the left side of the map are at these coordinates, 'position: absolute', top: 0', and 'left: 0, - therefore they are NOT at the same location as the map zoom in & out buttons\cf4          # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:109\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/0474c40f117748f38278c4080231c38f?auth=60ac749f1a8f31a067285658d276f178\
+\
+  Scenario: #6) PNJ has a single internal content type test\cf4                                                                                                                       # features/allregressiontests_localhost3000_chinchilla.feature:48\cf2 \
+    \cf5 Given I am on "http://devbestof.pnj.com/winners/2015/"\cf4                                                                                                                        # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:127\cf2 \
+    \cf5 When I click on the "Readers' Choice" link\cf4                                                                                                                                    # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:131\cf2 \
+    \cf5 Then I should be on "http://devbestof.pnj.com/winners/2015/results?types=Readers%27%20Choice" and I should NOT see the 'Readers' Choice' button on the left-side of the page\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:137\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/0f64b770cefc46c1be323bdfbb3e4f55?auth=75eb67d72e424c2d2bacdd4d99d3bc81\
+\
+  Scenario: #7) Azcentral has two internal content types test\cf4                                                                                                                                          # features/allregressiontests_localhost3000_chinchilla.feature:55\cf2 \
+    \cf5 Given I am on the Azcentral's Best page at "http://z.bestof.azcentral.com:3000/winners/2014/"\cf4                                                                                                      # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:147\cf2 \
+    \cf5 When I then click on the "Critics' Picks" link\cf4                                                                                                                                                     # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:151\cf2 \
+    \cf5 Then I should be on "http://z.bestof.azcentral.com:3000/winners/2015/results?types=Critics%27%20Picks" and I SHOULD see 'Readers' Choice' and 'Critics' Picks' links on the left-side of the page\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:157\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/622c308351cc4313845f9cb38abd94d1?auth=2bfe2911ca7de92cfd5fd0c4ce865661\
+\
+  Scenario: #8) ALL Login tests\cf4                                                                                                                                       # features/allregressiontests_localhost3000_chinchilla.feature:62\cf2 \
+    \cf5 Given I am on the Azcentral's Best page at "http://z.bestof.azcentral.com:3000/winners/2014/"\cf4                                                                     # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:147\cf2 \
+    \cf5 When I click the "LOGIN" button\cf4                                                                                                                                   # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:171\cf2 \
+    \cf5 Then I should arrive at the login url of: "https://account.azcentral.com/bestOf/ui/login/?onSuccessRedirectURL=http://z.bestof.azcentral.com:3000/winners/2015/"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:174\cf2 \
+    \cf5 And I log into my account\cf4                                                                                                                                         # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:177\cf2 \
+    \cf5 Then I should be returned to this page "http://z.bestof.azcentral.com:3000/winners/2015/"\cf4                                                                         # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:182\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/589115a7fe1c4f2294f5ac1df87e078a?auth=94941d6562a080c413050bc0f2176922\
+\
+  Scenario: #9) Login test on PNJ\cf4                             # features/allregressiontests_localhost3000_chinchilla.feature:71\cf2 \
+    \cf5 Given I am on the PNJ site of "http://devbestof.pnj.com"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:205\cf2 \
+    \cf5 Then there should be no 'login' button\cf4                    # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:208\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/f6420daceaaa48d78ea07c7a7f4392ed?auth=ae894e38e8c20028b610fd77a739c827\
+\
+  Scenario: #10) Testing Email Feature\cf4                                                             # features/allregressiontests_localhost3000_chinchilla.feature:77\cf2 \
+    \cf5 Given I am on the Azcentral's Best page at "http://z.bestof.azcentral.com:3000/winners/2014/"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:147\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                                                      # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:131\cf2 \
+    \cf5 Then I also click on the "Best kids activity" link\cf4                                             # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:222\cf2 \
+    \cf5 Then I should see the 'Send an email' image contain the correct 'mailto' information\cf4           # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:225\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/29688867de504be1bf49e3e3542e3d5a?auth=8687dc1f7ee706a84bb73ea7b81ceb93\
+\
+  Scenario: #11) Testing "RED ALERT" Feature\cf4                                                       # features/allregressiontests_localhost3000_chinchilla.feature:85\cf2 \
+    \cf5 Given I am on the Azcentral's Best page at "http://z.bestof.azcentral.com:3000/winners/2014/"\cf4  # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:147\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                                                      # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:131\cf2 \
+    \cf5 Then I also click on the "Best kids activity" link\cf4                                             # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:222\cf2 \
+    \cf5 Then I click on the 'Next Article' arrow five times\cf4                                            # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:234\cf2 \
+    \cf5 Then I should see the text "5 free articles left"\cf4                                              # features/step_definitions/allregressiontests_localhost3000_chinchilla.rb:247\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/1610be59848a402fa0bfad4cef511695?auth=fead270659fc33d08e47cadf883c2ae9\
+\
+11 scenarios (\cf5 11 passed\cf2 )\
+43 steps (\cf5 43 passed\cf2 )\
+7m8.199s\
+\
+11 scenarios (11 passed)\
+43 steps (43 passed)\
+\
+Took 434 seconds (7:14)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+["OS X 10.10", "iPhone", "8.2", \{:deviceName => 'iPhone Simulator'\}]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Tue Dec  8 11:07:43 on ttys002\
+You have mail.\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: AZC's Best 2014 ALL Regression Tests\
+  \
+  In order to make the new features live on the 2014 Azcentral's Best\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1) Article ID test\cf4                                                                                                                                                     # features/bestofallregressions_mobileonly.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I have found this particular article ID on devbestof.azcentral.com: "http://devbestof.azcentral.com/winners/2014/14744910/best-star-making-machine-valley-youth-theatre"\cf4  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:2\cf2 \
+    \cf5 When I put that same article ID into the bestof.pnj.com site: "http://devbestof.pnj.com/winners/2015/14744910"\cf4                                                                  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:5\cf2 \
+    \cf5 Then I should not see the article content, but I should be redirected to the homepage of "http://devbestof.pnj.com/"\cf4                                                            # features/step_definitions/bestof_allregressiontests_mobileonly.rb:8\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/2e512734815648ac9338ae9c8c101732?auth=ab2b943ae6bd76f5e169856c36961204\
+\
+  Scenario: #3) More Winners Near Me\cf4                                                  # features/bestofallregressions_mobileonly.feature:14\cf2 \
+    \cf5 Given I am on an article page\cf4                                                     # features/step_definitions/bestof_allregressiontests_mobileonly.rb:14\cf2 \
+    \cf5 When I want to make sure there are articles in the "More Winners Nearby" section\cf4  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:18\cf2 \
+    \cf5 Then I will see a resulting 6 pertinent articles\cf4                                  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:22\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/190640bfafd346de9d4f767ea3933265?auth=6177a8b0380048627c04ae0cb5bccca6\
+\
+  Scenario: #4) Checking social media features\cf4                                                                                                                                                                 # features/bestofallregressions_mobileonly.feature:19\cf2 \
+    \cf5 Given I am on the current article page again at "http://devbestof.azcentral.com/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix" and I want to share this page via the sharing tools\cf4  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:31\cf2 \
+    \cf5 Then the data-text should contain the correct article title for sharing via Facebook\cf4                                                                                                                       # features/step_definitions/bestof_allregressiontests_mobileonly.rb:35\cf2 \
+    \cf5 And the href should contain the correct URL for sharing via Twitter\cf4                                                                                                                                        # features/step_definitions/bestof_allregressiontests_mobileonly.rb:39\cf2 \
+    \cf5 And the href should contain the correct URL for sharing via GooglePlus\cf4                                                                                                                                     # features/step_definitions/bestof_allregressiontests_mobileonly.rb:43\cf2 \
+    \cf5 And the href should contain the correct mailto for sharing via E-mail\cf4                                                                                                                                      # features/step_definitions/bestof_allregressiontests_mobileonly.rb:47\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/381a7c3b8ba0462ca9599eff24b719a7?auth=89b539cc71c3e5e7418a53170a3d48b6\
+\
+  Scenario: #5) Map / Zoom buttons test\cf4                                                                                                                                                                                                                                      # features/bestofallregressions_mobileonly.feature:26\cf2 \
+    \cf5 Given I am on this page: "http://devbestof.pnj.com/winners/2015/14745222/best-wedding-reception-venue-5eleven-palafox-event-hosting" where this is both a map and video\cf4                                                                                                  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:54\cf2 \
+    \cf5 When I click on the "Map" button on the main image\cf4                                                                                                                                                                                                                       # features/step_definitions/bestof_allregressiontests_mobileonly.rb:58\cf2 \
+    \cf5 Then I should see the div that holds the 'Zoom in' and 'Zoom out' buttons on the right side of the map at these coordinates: 'position: absolute', 'right: 20px', 'top: 0px', and have 'margin: 5px' - therefore they are NOT at the same location as the media buttons\cf4  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:62\cf2 \
+    \cf5 Then I should see in the chinchilla css file that div that holds the media buttons on the left side of the map are at these coordinates, 'position: absolute', top: 0', and 'left: 0, - therefore they are NOT at the same location as the map zoom in & out buttons\cf4     # features/step_definitions/bestof_allregressiontests_mobileonly.rb:66\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/669969303dd24326b511c53393403f11?auth=ae295b71fa36230a86d4f3e2a10866f0\
+\
+  Scenario: #6) PNJ has a single internal content type test\cf4                                                                                                                       # features/bestofallregressions_mobileonly.feature:36\cf2 \
+    \cf5 Given I am on "http://devbestof.pnj.com/winners/2015/"\cf4                                                                                                                        # features/step_definitions/bestof_allregressiontests_mobileonly.rb:83\cf2 \
+    \cf5 When I click on the "Readers' Choice" link\cf4                                                                                                                                    # features/step_definitions/bestof_allregressiontests_mobileonly.rb:87\cf2 \
+    \cf5 Then I should be on "http://devbestof.pnj.com/winners/2015/results?types=Readers%27%20Choice" and I should NOT see the 'Readers' Choice' button on the left-side of the page\cf4  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:92\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/d17ad26dddc5480d9ec20935e38c048c?auth=acefe2b5bc84bd844fbe05e9db22b95a\
+\
+  Scenario: #7) Azcentral has two internal content types test\cf4                                                                                                                                      # features/bestofallregressions_mobileonly.feature:42\cf2 \
+    \cf5 Given I am now on "http://devbestof.azcentral.com/winners/2014/"\cf4                                                                                                                               # features/step_definitions/bestof_allregressiontests_mobileonly.rb:100\cf2 \
+    \cf5 When I then click on the "Critics' Picks" link\cf4                                                                                                                                                 # features/step_definitions/bestof_allregressiontests_mobileonly.rb:104\cf2 \
+    \cf5 Then I should be on "http://devbestof.azcentral.com/winners/2014/results?types=critics%27%20picks" and I SHOULD see 'Readers' Choice' and 'Critics' Picks' links on the left-side of the page\cf4  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:109\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/c05438146ef74befb507704b1aba2687?auth=19abf11584ed90bfb4b045abf4c538f2\
+\
+  Scenario: #9) Login test on PNJ\cf4                             # features/bestofallregressions_mobileonly.feature:61\cf2 \
+    \cf5 Given I am on the PNJ site of "http://devbestof.pnj.com"\cf4  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:170\cf2 \
+    \cf5 Then there should be no 'login' button\cf4                    # features/step_definitions/bestof_allregressiontests_mobileonly.rb:174\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/68ee7032947f47039310f53f8f95cb46?auth=94c8aa44090327e6dab14d7b6ce1e7cb\
+\
+  Scenario: #10) Testing Email Feature\cf4                                                # features/bestofallregressions_mobileonly.feature:67\cf2 \
+    \cf5 Given I am on "http://devbestof.azcentral.com/winners/2014/"\cf4                      # features/step_definitions/bestof_allregressiontests_mobileonly.rb:83\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                                         # features/step_definitions/bestof_allregressiontests_mobileonly.rb:87\cf2 \
+    \cf6 Then I also click on the "Best Arizona Instagram couple" link\cf4                     # features/step_definitions/bestof_allregressiontests_mobileonly.rb:189\cf2 \
+\cf6       Unable to find link "Best Arizona Instagram couple" (Capybara::ElementNotFound)\cf2 \
+\cf6       ./features/step_definitions/bestof_allregressiontests_mobileonly.rb:190:in `/^I also click on the "(.*?)" link$/'\cf2 \
+\cf6       features/bestofallregressions_mobileonly.feature:71:in `Then I also click on the "Best Arizona Instagram couple" link'\cf2 \
+    \cf3 Then I should see the "Send" email link contain the correct 'mailto' information\cf4  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:193\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/95fb593fbde74f46ac9a062b3bc3b9bb?auth=622886adaa9de41dd8195016e62ec4cc\
+\
+  Scenario: #11) Testing "RED ALERT" Feature\cf4                       # features/bestofallregressions_mobileonly.feature:74\cf2 \
+    \cf5 Given I am on "http://devbestof.azcentral.com/winners/2014/"\cf4   # features/step_definitions/bestof_allregressiontests_mobileonly.rb:83\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                      # features/step_definitions/bestof_allregressiontests_mobileonly.rb:87\cf2 \
+    \cf6 Then I also click on the "Best Arizona Instagram couple" link\cf4  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:189\cf2 \
+\cf6       Unable to find link "Best Arizona Instagram couple" (Capybara::ElementNotFound)\cf2 \
+\cf6       ./features/step_definitions/bestof_allregressiontests_mobileonly.rb:190:in `/^I also click on the "(.*?)" link$/'\cf2 \
+\cf6       features/bestofallregressions_mobileonly.feature:78:in `Then I also click on the "Best Arizona Instagram couple" link'\cf2 \
+    \cf3 Then I click on the 'Next Article' arrow five times\cf4            # features/step_definitions/bestof_allregressiontests_mobileonly.rb:202\cf2 \
+    \cf3 Then I should see the text "5 free articles left"\cf4              # features/step_definitions/bestof_allregressiontests_mobileonly.rb:216\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/0410e8758db24e1393836c0aacbffe08?auth=98d98a35c6bee7da1717c83253daf867\
+\
+\cf6 Failing Scenarios:\cf2 \
+\cf6 cucumber features/bestofallregressions_mobileonly.feature:67\cf4  # Scenario: #10) Testing Email Feature\cf2 \
+\cf6 cucumber features/bestofallregressions_mobileonly.feature:74\cf4  # Scenario: #11) Testing "RED ALERT" Feature\cf2 \
+\
+10 scenarios (\cf6 3 failed\cf2 , \cf5 7 passed\cf2 )\
+41 steps (\cf6 3 failed\cf2 , \cf3 10 skipped\cf2 , \cf5 28 passed\cf2 )\
+29m12.374s\
+\
+Failing Scenarios:\
+cucumber features/bestofallregressions_mobileonly.feature:48 # Scenario: #8) ALL Login tests\
+cucumber features/bestofallregressions_mobileonly.feature:67 # Scenario: #10) Testing Email Feature\
+cucumber features/bestofallregressions_mobileonly.feature:74 # Scenario: #11) Testing "RED ALERT" Feature\
+\
+10 scenarios (3 failed, 7 passed)\
+41 steps (3 failed, 10 skipped, 28 passed)\
+\
+Took 1758 seconds (29:18)\
+\cf6 cucumbers Failed\cf2 \
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+["OS X 10.10", "iPad", "8.2", \{:deviceName => 'iPad Simulator'\}]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Tue Dec  8 13:38:23 on ttys001\
+You have mail.\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: AZC's Best 2014 ALL Regression Tests\
+  \
+  In order to make the new features live on the 2014 Azcentral's Best\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1) Article ID test\cf4                                                                                                                                                     # features/bestofallregressions_mobileonly.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I have found this particular article ID on devbestof.azcentral.com: "http://devbestof.azcentral.com/winners/2014/14744910/best-star-making-machine-valley-youth-theatre"\cf4  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:2\cf2 \
+    \cf5 When I put that same article ID into the bestof.pnj.com site: "http://devbestof.pnj.com/winners/2015/14744910"\cf4                                                                  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:5\cf2 \
+    \cf5 Then I should not see the article content, but I should be redirected to the homepage of "http://devbestof.pnj.com/"\cf4                                                            # features/step_definitions/bestof_allregressiontests_mobileonly.rb:8\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/1fe26bf9681b40899a92e4d5b173c07b?auth=e765afa6725b8e292278138716a6d1b5\
+\
+  Scenario: #3) More Winners Near Me\cf4                                                  # features/bestofallregressions_mobileonly.feature:14\cf2 \
+    \cf5 Given I am on an article page\cf4                                                     # features/step_definitions/bestof_allregressiontests_mobileonly.rb:14\cf2 \
+    \cf5 When I want to make sure there are articles in the "More Winners Nearby" section\cf4  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:18\cf2 \
+    \cf5 Then I will see a resulting 6 pertinent articles\cf4                                  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:22\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/95914712617d4beb95b53b3f04559384?auth=a4bc38d07f0e60799485290e1e30e4a2\
+\
+  Scenario: #4) Checking social media features\cf4                                                                                                                                                                 # features/bestofallregressions_mobileonly.feature:19\cf2 \
+    \cf5 Given I am on the current article page again at "http://devbestof.azcentral.com/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix" and I want to share this page via the sharing tools\cf4  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:31\cf2 \
+    \cf5 Then the data-text should contain the correct article title for sharing via Facebook\cf4                                                                                                                       # features/step_definitions/bestof_allregressiontests_mobileonly.rb:35\cf2 \
+    \cf5 And the href should contain the correct URL for sharing via Twitter\cf4                                                                                                                                        # features/step_definitions/bestof_allregressiontests_mobileonly.rb:39\cf2 \
+    \cf5 And the href should contain the correct URL for sharing via GooglePlus\cf4                                                                                                                                     # features/step_definitions/bestof_allregressiontests_mobileonly.rb:43\cf2 \
+    \cf5 And the href should contain the correct mailto for sharing via E-mail\cf4                                                                                                                                      # features/step_definitions/bestof_allregressiontests_mobileonly.rb:47\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/4cf9ff6d85744b95b85feeb3f49fcc2d?auth=1ca38d3665214520ff4bc77d4a969ec5\
+\
+  Scenario: #5) Map / Zoom buttons test\cf4                                                                                                                                                                                                                                      # features/bestofallregressions_mobileonly.feature:26\cf2 \
+    \cf5 Given I am on this page: "http://devbestof.pnj.com/winners/2015/14745222/best-wedding-reception-venue-5eleven-palafox-event-hosting" where this is both a map and video\cf4                                                                                                  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:54\cf2 \
+    \cf5 When I click on the "Map" button on the main image\cf4                                                                                                                                                                                                                       # features/step_definitions/bestof_allregressiontests_mobileonly.rb:58\cf2 \
+    \cf5 Then I should see the div that holds the 'Zoom in' and 'Zoom out' buttons on the right side of the map at these coordinates: 'position: absolute', 'right: 20px', 'top: 0px', and have 'margin: 5px' - therefore they are NOT at the same location as the media buttons\cf4  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:62\cf2 \
+    \cf5 Then I should see in the chinchilla css file that div that holds the media buttons on the left side of the map are at these coordinates, 'position: absolute', top: 0', and 'left: 0, - therefore they are NOT at the same location as the map zoom in & out buttons\cf4     # features/step_definitions/bestof_allregressiontests_mobileonly.rb:66\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/69c84944c97c4e8fb10a54203f7a72f7?auth=17b877d09e797194e88c106937118ad1\
+\
+  Scenario: #6) PNJ has a single internal content type test\cf4                                                                                                                       # features/bestofallregressions_mobileonly.feature:36\cf2 \
+    \cf5 Given I am on "http://devbestof.pnj.com/winners/2015/"\cf4                                                                                                                        # features/step_definitions/bestof_allregressiontests_mobileonly.rb:83\cf2 \
+    \cf5 When I click on the "Readers' Choice" link\cf4                                                                                                                                    # features/step_definitions/bestof_allregressiontests_mobileonly.rb:87\cf2 \
+    \cf5 Then I should be on "http://devbestof.pnj.com/winners/2015/results?types=Readers%27%20Choice" and I should NOT see the 'Readers' Choice' button on the left-side of the page\cf4  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:92\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/99a6ff88c10247d0ae47cadd082a257f?auth=83ac55278ec65fb784341c5ffe24dda4\
+\
+  Scenario: #7) Azcentral has two internal content types test\cf4                                                                                                                                      # features/bestofallregressions_mobileonly.feature:42\cf2 \
+    \cf5 Given I am now on "http://devbestof.azcentral.com/winners/2014/"\cf4                                                                                                                               # features/step_definitions/bestof_allregressiontests_mobileonly.rb:100\cf2 \
+    \cf5 When I then click on the "Critics' Picks" link\cf4                                                                                                                                                 # features/step_definitions/bestof_allregressiontests_mobileonly.rb:104\cf2 \
+    \cf5 Then I should be on "http://devbestof.azcentral.com/winners/2014/results?types=critics%27%20picks" and I SHOULD see 'Readers' Choice' and 'Critics' Picks' links on the left-side of the page\cf4  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:109\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/4f8a9357efbc4aea948cd74e82c3912a?auth=56160959a9511aa146f6bc7ef553ab34\
+\
+  Scenario: #10) Testing Email Feature\cf4                                                # features/bestofallregressions_mobileonly.feature:49\cf2 \
+    \cf5 Given I am on "http://devbestof.azcentral.com/winners/2014/"\cf4                      # features/step_definitions/bestof_allregressiontests_mobileonly.rb:83\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                                         # features/step_definitions/bestof_allregressiontests_mobileonly.rb:87\cf2 \
+    \cf5 Then I also click on the 'Best Arizona Instagram couple' link\cf4                     # features/step_definitions/bestof_allregressiontests_mobileonly.rb:211\cf2 \
+    \cf6 Then I should see the "Send" email link contain the correct 'mailto' information\cf4  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:217\cf2 \
+\cf6       Unable to find css "a.ga-share" with text "Send" (Capybara::ElementNotFound)\cf2 \
+\cf6       ./features/step_definitions/bestof_allregressiontests_mobileonly.rb:219:in `/^I should see the "(.*?)" email link contain the correct 'mailto' information$/'\cf2 \
+\cf6       features/bestofallregressions_mobileonly.feature:54:in `Then I should see the "Send" email link contain the correct 'mailto' information'\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/c5e5891aeba64d2082ce617b122a9c0e?auth=f3adfc97fd18b8d7c588e6ffd0cddd1a\
+\
+  Scenario: #11) Testing "RED ALERT" Feature\cf4                       # features/bestofallregressions_mobileonly.feature:56\cf2 \
+    \cf5 Given I am on "http://devbestof.azcentral.com/winners/2014/"\cf4   # features/step_definitions/bestof_allregressiontests_mobileonly.rb:83\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                      # features/step_definitions/bestof_allregressiontests_mobileonly.rb:87\cf2 \
+    \cf5 Then I also click on the 'Best Arizona Instagram couple' link\cf4  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:211\cf2 \
+    \cf6 Then I click on the 'Next Article' arrow five times\cf4            # features/step_definitions/bestof_allregressiontests_mobileonly.rb:228\cf2 \
+\cf6       Unable to find css "a.ga-article-nav" (Capybara::ElementNotFound)\cf2 \
+\cf6       ./features/step_definitions/bestof_allregressiontests_mobileonly.rb:231:in `/^I click on the 'Next Article' arrow five times$/'\cf2 \
+\cf6       features/bestofallregressions_mobileonly.feature:61:in `Then I click on the 'Next Article' arrow five times'\cf2 \
+    \cf3 Then I should see the text "5 free articles left"\cf4              # features/step_definitions/bestof_allregressiontests_mobileonly.rb:242\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/4f48561f192547c5a99a474493f50902?auth=248045859ca38129479a00de7f9ef68f\
+\
+\cf6 Failing Scenarios:\cf2 \
+\cf6 cucumber features/bestofallregressions_mobileonly.feature:49\cf4  # Scenario: #10) Testing Email Feature\cf2 \
+\cf6 cucumber features/bestofallregressions_mobileonly.feature:56\cf4  # Scenario: #11) Testing "RED ALERT" Feature\cf2 \
+\
+8 scenarios (\cf6 2 failed\cf2 , \cf5 6 passed\cf2 )\
+30 steps (\cf6 2 failed\cf2 , \cf3 1 skipped\cf2 , \cf5 27 passed\cf2 )\
+26m2.450s\
+\
+Failing Scenarios:\
+cucumber features/bestofallregressions_mobileonly.feature:49 # Scenario: #10) Testing Email Feature\
+cucumber features/bestofallregressions_mobileonly.feature:56 # Scenario: #11) Testing "RED ALERT" Feature\
+\
+8 scenarios (2 failed, 6 passed)\
+30 steps (2 failed, 1 skipped, 27 passed)\
+\
+Took 1569 seconds (26:09)\
+\cf6 cucumbers Failed\cf2 \
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+["Linux", "Android", "5.1", \{:deviceName => 'Android Emulator'\}]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Tue Dec  8 14:06:40 on ttys001\
+You have mail.\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\cf3 @selenium\cf2 \
+Feature: AZC's Best 2014 ALL Regression Tests\
+  \
+  In order to make the new features live on the 2014 Azcentral's Best\
+  As a Gannett employee with access to the correct urls\
+  I want to be able to test for these scenarios\
+\
+  Scenario: #1) Article ID test\cf4                                                                                                                                                     # features/bestofallregressions_mobileonly.feature:8\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I have found this particular article ID on devbestof.azcentral.com: "http://devbestof.azcentral.com/winners/2014/14744910/best-star-making-machine-valley-youth-theatre"\cf4  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:2\cf2 \
+    \cf5 When I put that same article ID into the bestof.pnj.com site: "http://devbestof.pnj.com/winners/2015/14744910"\cf4                                                                  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:5\cf2 \
+    \cf5 Then I should not see the article content, but I should be redirected to the homepage of "http://devbestof.pnj.com/"\cf4                                                            # features/step_definitions/bestof_allregressiontests_mobileonly.rb:8\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/af18489fe2354a278fa29019cd88f3f0?auth=d5df4663d088bf980fa5b2fbf9e97e49\
+\
+  Scenario: #3) More Winners Near Me\cf4                                                  # features/bestofallregressions_mobileonly.feature:14\cf2 \
+    \cf5 Given I am on an article page\cf4                                                     # features/step_definitions/bestof_allregressiontests_mobileonly.rb:14\cf2 \
+    \cf5 When I want to make sure there are articles in the "More Winners Nearby" section\cf4  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:18\cf2 \
+    \cf5 Then I will see a resulting 6 pertinent articles\cf4                                  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:22\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/1af28f5378564104bd1fc3a998bb7497?auth=25b09cfd0380549cd5dc77997a877c33\
+\
+  Scenario: #4) Checking social media features\cf4                                                                                                                                                                 # features/bestofallregressions_mobileonly.feature:19\cf2 \
+    \cf5 Given I am on the current article page again at "http://devbestof.azcentral.com/winners/2014/14744893/best-kids-activity-childrens-museum-of-phoenix" and I want to share this page via the sharing tools\cf4  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:31\cf2 \
+    \cf5 Then the data-text should contain the correct article title for sharing via Facebook\cf4                                                                                                                       # features/step_definitions/bestof_allregressiontests_mobileonly.rb:35\cf2 \
+    \cf5 And the href should contain the correct URL for sharing via Twitter\cf4                                                                                                                                        # features/step_definitions/bestof_allregressiontests_mobileonly.rb:39\cf2 \
+    \cf5 And the href should contain the correct URL for sharing via GooglePlus\cf4                                                                                                                                     # features/step_definitions/bestof_allregressiontests_mobileonly.rb:43\cf2 \
+    \cf5 And the href should contain the correct mailto for sharing via E-mail\cf4                                                                                                                                      # features/step_definitions/bestof_allregressiontests_mobileonly.rb:47\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/bb09aeea9ec0415c9e57973ccce943c0?auth=f28b4620fa67c080fb04a6cc9202ea0c\
+\
+  Scenario: #5) Map / Zoom buttons test\cf4                                                                                                                                                                                                                                      # features/bestofallregressions_mobileonly.feature:26\cf2 \
+    \cf5 Given I am on this page: "http://devbestof.pnj.com/winners/2015/14745222/best-wedding-reception-venue-5eleven-palafox-event-hosting" where this is both a map and video\cf4                                                                                                  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:54\cf2 \
+    \cf5 When I click on the "Map" button on the main image\cf4                                                                                                                                                                                                                       # features/step_definitions/bestof_allregressiontests_mobileonly.rb:58\cf2 \
+    \cf5 Then I should see the div that holds the 'Zoom in' and 'Zoom out' buttons on the right side of the map at these coordinates: 'position: absolute', 'right: 20px', 'top: 0px', and have 'margin: 5px' - therefore they are NOT at the same location as the media buttons\cf4  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:62\cf2 \
+    \cf5 Then I should see in the chinchilla css file that div that holds the media buttons on the left side of the map are at these coordinates, 'position: absolute', top: 0', and 'left: 0, - therefore they are NOT at the same location as the map zoom in & out buttons\cf4     # features/step_definitions/bestof_allregressiontests_mobileonly.rb:66\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/89a52239982c45cea2cc064cd21c086c?auth=fa10abf52462f985b02452eb5f40aa4c\
+\
+  Scenario: #6) PNJ has a single internal content type test\cf4                                                                                                                       # features/bestofallregressions_mobileonly.feature:36\cf2 \
+    \cf5 Given I am on "http://devbestof.pnj.com/winners/2015/"\cf4                                                                                                                        # features/step_definitions/bestof_allregressiontests_mobileonly.rb:83\cf2 \
+    \cf5 When I click on the "Readers' Choice" link\cf4                                                                                                                                    # features/step_definitions/bestof_allregressiontests_mobileonly.rb:87\cf2 \
+    \cf5 Then I should be on "http://devbestof.pnj.com/winners/2015/results?types=Readers%27%20Choice" and I should NOT see the 'Readers' Choice' button on the left-side of the page\cf4  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:92\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/74249d50104c49359ff0500eb3edaad0?auth=bb6547aef65b9906d44a9aac14b21818\
+\
+  Scenario: #7) Azcentral has two internal content types test\cf4                                                                                                                                      # features/bestofallregressions_mobileonly.feature:42\cf2 \
+    \cf5 Given I am now on "http://devbestof.azcentral.com/winners/2014/"\cf4                                                                                                                               # features/step_definitions/bestof_allregressiontests_mobileonly.rb:100\cf2 \
+    \cf5 When I then click on the "Critics' Picks" link\cf4                                                                                                                                                 # features/step_definitions/bestof_allregressiontests_mobileonly.rb:104\cf2 \
+    \cf5 Then I should be on "http://devbestof.azcentral.com/winners/2014/results?types=critics%27%20picks" and I SHOULD see 'Readers' Choice' and 'Critics' Picks' links on the left-side of the page\cf4  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:109\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/7565077adc38479ca22a6feb3fe1b30c?auth=64d96890d6d3efb8dae257c179753e9a\
+\
+  Scenario: #10) Testing Email Feature\cf4                                                # features/bestofallregressions_mobileonly.feature:49\cf2 \
+    \cf5 Given I am on "http://devbestof.azcentral.com/winners/2014/"\cf4                      # features/step_definitions/bestof_allregressiontests_mobileonly.rb:83\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                                         # features/step_definitions/bestof_allregressiontests_mobileonly.rb:87\cf2 \
+    \cf5 Then I also click on the 'Best Arizona Instagram couple' link\cf4                     # features/step_definitions/bestof_allregressiontests_mobileonly.rb:211\cf2 \
+    \cf6 Then I should see the "Send" email link contain the correct 'mailto' information\cf4  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:217\cf2 \
+\cf6       Unable to find css "a.ga-share" with text "Send" (Capybara::ElementNotFound)\cf2 \
+\cf6       ./features/step_definitions/bestof_allregressiontests_mobileonly.rb:219:in `/^I should see the "(.*?)" email link contain the correct 'mailto' information$/'\cf2 \
+\cf6       features/bestofallregressions_mobileonly.feature:54:in `Then I should see the "Send" email link contain the correct 'mailto' information'\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/0b4a1d5ff70e4dc8a9d2d15ce2fc83ae?auth=24e9badc8748d02636d06537c5d2a518\
+\
+  Scenario: #11) Testing "RED ALERT" Feature\cf4                       # features/bestofallregressions_mobileonly.feature:56\cf2 \
+    \cf5 Given I am on "http://devbestof.azcentral.com/winners/2014/"\cf4   # features/step_definitions/bestof_allregressiontests_mobileonly.rb:83\cf2 \
+    \cf5 When I click on the "Critics' Picks" link\cf4                      # features/step_definitions/bestof_allregressiontests_mobileonly.rb:87\cf2 \
+    \cf5 Then I also click on the 'Best Arizona Instagram couple' link\cf4  # features/step_definitions/bestof_allregressiontests_mobileonly.rb:211\cf2 \
+    \cf6 Then I click on the 'Next Article' arrow five times\cf4            # features/step_definitions/bestof_allregressiontests_mobileonly.rb:228\cf2 \
+\cf6       Unable to find css "a.ga-article-nav" (Capybara::ElementNotFound)\cf2 \
+\cf6       ./features/step_definitions/bestof_allregressiontests_mobileonly.rb:231:in `/^I click on the 'Next Article' arrow five times$/'\cf2 \
+\cf6       features/bestofallregressions_mobileonly.feature:61:in `Then I click on the 'Next Article' arrow five times'\cf2 \
+    \cf3 Then I should see the text "5 free articles left"\cf4              # features/step_definitions/bestof_allregressiontests_mobileonly.rb:242\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/d70b056a0a7e43f7944e3ea45f78b141?auth=790b6f8dd7c348892905182967d00e01\
+\
+\cf6 Failing Scenarios:\cf2 \
+\cf6 cucumber features/bestofallregressions_mobileonly.feature:49\cf4  # Scenario: #10) Testing Email Feature\cf2 \
+\cf6 cucumber features/bestofallregressions_mobileonly.feature:56\cf4  # Scenario: #11) Testing "RED ALERT" Feature\cf2 \
+\
+8 scenarios (\cf6 2 failed\cf2 , \cf5 6 passed\cf2 )\
+30 steps (\cf6 2 failed\cf2 , \cf3 1 skipped\cf2 , \cf5 27 passed\cf2 )\
+11m6.438s\
+\
+Failing Scenarios:\
+cucumber features/bestofallregressions_mobileonly.feature:49 # Scenario: #10) Testing Email Feature\
+cucumber features/bestofallregressions_mobileonly.feature:56 # Scenario: #11) Testing "RED ALERT" Feature\
+\
+8 scenarios (2 failed, 6 passed)\
+30 steps (2 failed, 1 skipped, 27 passed)\
+\
+Took 673 seconds (11:13)\
+\cf6 cucumbers Failed\cf2 \
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+\
+\
+\
+}

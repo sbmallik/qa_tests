@@ -1,0 +1,163 @@
+Last login: Tue Dec  2 12:22:41 on ttys000
+You have mail.
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby
+pni-dig-129098:sauce_ruby temre$ rake sauce:features
+Using recorded test runtime
+6 processes for 6 features, ~ 1 features per process
+Using the default profile...
+@selenium
+Feature: American Truck Fest
+  
+  As a Gannett employee with access to the correct urls
+  I want to be able to test for these scenarios
+  So that the new contact form works on American Truck Fest
+
+  Scenario: Testing form                                              # features/trucker.feature:9
+Using the default profile...
+@selenium
+Feature: American Truck Fest
+  
+  As a Gannett employee with access to the correct urls
+  I want to be able to test for these scenarios
+  So that the new contact form works on American Truck Fest
+
+  Scenario: Testing form                                              # features/trucker.feature:9
+Using the default profile...
+@selenium
+Using the default profile...
+@selenium
+Feature: American Truck Fest
+  
+  As a Gannett employee with access to the correct urls
+  I want to be able to test for these scenarios
+  So that the new contact form works on American Truck Fest
+
+  Scenario: Testing form                                              # features/trucker.feature:9
+Feature: American Truck Fest
+  
+  As a Gannett employee with access to the correct urls
+  I want to be able to test for these scenarios
+  So that the new contact form works on American Truck Fest
+
+  Scenario: Testing form                                              # features/trucker.feature:9
+Using the default profile...
+@selenium
+Feature: American Truck Fest
+  
+  As a Gannett employee with access to the correct urls
+  I want to be able to test for these scenarios
+  So that the new contact form works on American Truck Fest
+
+  Scenario: Testing form                                              # features/trucker.feature:9
+Using the default profile...
+@selenium
+Feature: American Truck Fest
+  
+  As a Gannett employee with access to the correct urls
+  I want to be able to test for these scenarios
+  So that the new contact form works on American Truck Fest
+
+  Scenario: Testing form                                              # features/trucker.feature:9
+[Sauce Connect is connecting to Sauce Labs...]
+    Given I visit the local version of the American Truck Fest        # features/step_definitions/trucker.rb:1
+    When I enter data in the required form fields                     # features/step_definitions/trucker.rb:5
+    And I click the "Submit Form" button                              # features/step_definitions/trucker.rb:15
+      unknown error: Element is not clickable at point (710, 349). Other element would receive the click: <i class="fa fa-star"></i>
+        (Session info: chrome=43.0.2357.65)
+        (Driver info: chromedriver=2.15.322448 (52179c1b310fec1797c81ea9a20326839860b7d3),platform=Windows NT 6.3 x86_64) (Selenium::WebDriver::Error::UnknownError)
+      ./features/step_definitions/trucker.rb:16:in `/^I click the "(.*?)" button$/'
+      features/trucker.feature:12:in `And I click the "Submit Form" button'
+    Then the page will display "The form was submitted successfully." # features/step_definitions/trucker.rb:19
+Sauce public job link: https://saucelabs.com/jobs/8271f377b76a40f7a2735888241057ba?auth=a8dd37d43468714eeb60dc388c99a551
+
+  Scenario: Correct Omniture code                                                                                              # features/trucker.feature:16
+    Given I am on the American Truck Fest Omniture page at "http://pages.azcentral.com/ldsn-american-trucker/js/bloodhound.js" # features/step_definitions/trucker.rb:28
+    Then I should see the correct Ominture account code                                                                        # features/step_definitions/trucker.rb:32
+Sauce public job link: https://saucelabs.com/jobs/7704ac332a3b40e79bfb78f6f53c6e07?auth=4a9c6389696fe27670ad4e61b3651ff3
+
+Failing Scenarios:
+cucumber features/trucker.feature:9 # Scenario: Testing form
+
+2 scenarios (1 failed, 1 passed)
+6 steps (1 failed, 1 skipped, 4 passed)
+1m2.615s
+    Given I visit the local version of the American Truck Fest        # features/step_definitions/trucker.rb:1
+    When I enter data in the required form fields                     # features/step_definitions/trucker.rb:5
+    And I click the "Submit Form" button                              # features/step_definitions/trucker.rb:15
+    Then the page will display "The form was submitted successfully." # features/step_definitions/trucker.rb:19
+Sauce public job link: https://saucelabs.com/jobs/948f4f124bd745ea8379eb5eb7f2f3e5?auth=f8d528df248d24a6ae39a0f8f6b15982
+
+  Scenario: Correct Omniture code                                                                                              # features/trucker.feature:16
+    Given I visit the local version of the American Truck Fest        # features/step_definitions/trucker.rb:1
+    When I enter data in the required form fields                     # features/step_definitions/trucker.rb:5
+    And I click the "Submit Form" button                              # features/step_definitions/trucker.rb:15
+    Then the page will display "The form was submitted successfully." # features/step_definitions/trucker.rb:19
+Sauce public job link: https://saucelabs.com/jobs/52cbeb4a208546b48ba9c4752f0f0673?auth=8f7cbeb5ae1deadc60d553dcc0cfd6de
+
+  Scenario: Correct Omniture code                                                                                              # features/trucker.feature:16
+    Given I visit the local version of the American Truck Fest        # features/step_definitions/trucker.rb:1
+    When I enter data in the required form fields                     # features/step_definitions/trucker.rb:5
+    And I click the "Submit Form" button                              # features/step_definitions/trucker.rb:15
+    Then the page will display "The form was submitted successfully." # features/step_definitions/trucker.rb:19
+Sauce public job link: https://saucelabs.com/jobs/16bcb9ab8f114bb39d9bde5b91b138ed?auth=2f08a136ea277a06634aee1863f67708
+
+  Scenario: Correct Omniture code                                                                                              # features/trucker.feature:16
+    Given I visit the local version of the American Truck Fest        # features/step_definitions/trucker.rb:1
+    When I enter data in the required form fields                     # features/step_definitions/trucker.rb:5
+    And I click the "Submit Form" button                              # features/step_definitions/trucker.rb:15
+    Then the page will display "The form was submitted successfully." # features/step_definitions/trucker.rb:19
+Sauce public job link: https://saucelabs.com/jobs/072e7b4e03524b9da4c2591e9d66e1b6?auth=06c74857f9816ee4dd2ecf2c9ffe5dc2
+
+  Scenario: Correct Omniture code                                                                                              # features/trucker.feature:16
+    Given I visit the local version of the American Truck Fest        # features/step_definitions/trucker.rb:1
+    When I enter data in the required form fields                     # features/step_definitions/trucker.rb:5
+    And I click the "Submit Form" button                              # features/step_definitions/trucker.rb:15
+    Then the page will display "The form was submitted successfully." # features/step_definitions/trucker.rb:19
+Sauce public job link: https://saucelabs.com/jobs/6489414c22964d5cbf5617dca9b65efc?auth=621e4dcb3bac71291252ce903ec775d9
+
+  Scenario: Correct Omniture code                                                                                              # features/trucker.feature:16
+    Given I am on the American Truck Fest Omniture page at "http://pages.azcentral.com/ldsn-american-trucker/js/bloodhound.js" # features/step_definitions/trucker.rb:28
+    Then I should see the correct Ominture account code                                                                        # features/step_definitions/trucker.rb:32
+Sauce public job link: https://saucelabs.com/jobs/f3e36122613c4e698bfa046b34385a30?auth=8295772bf4e2ed540ce5b242837d1a5c
+
+2 scenarios (2 passed)
+6 steps (6 passed)
+1m13.858s
+    Given I am on the American Truck Fest Omniture page at "http://pages.azcentral.com/ldsn-american-trucker/js/bloodhound.js" # features/step_definitions/trucker.rb:28
+    Then I should see the correct Ominture account code                                                                        # features/step_definitions/trucker.rb:32
+Sauce public job link: https://saucelabs.com/jobs/c6badd37a9d84cb1a65d97f07c2898ad?auth=4393e97220911ac8e5d8587780c19e8b
+
+2 scenarios (2 passed)
+6 steps (6 passed)
+1m15.571s
+    Given I am on the American Truck Fest Omniture page at "http://pages.azcentral.com/ldsn-american-trucker/js/bloodhound.js" # features/step_definitions/trucker.rb:28
+    Then I should see the correct Ominture account code                                                                        # features/step_definitions/trucker.rb:32
+Sauce public job link: https://saucelabs.com/jobs/f17ba61d11164171b18cf592736d6b33?auth=d60835e0dfe511f55f5e9da8a77fa749
+
+2 scenarios (2 passed)
+6 steps (6 passed)
+1m17.023s
+    Given I am on the American Truck Fest Omniture page at "http://pages.azcentral.com/ldsn-american-trucker/js/bloodhound.js" # features/step_definitions/trucker.rb:28
+    Then I should see the correct Ominture account code                                                                        # features/step_definitions/trucker.rb:32
+Sauce public job link: https://saucelabs.com/jobs/0e34419d78f5422592e2e72da0b43a37?auth=72e6f6b668bca257333f1d72d1e28187
+
+2 scenarios (2 passed)
+6 steps (6 passed)
+1m21.147s
+    Given I am on the American Truck Fest Omniture page at "http://pages.azcentral.com/ldsn-american-trucker/js/bloodhound.js" # features/step_definitions/trucker.rb:28
+    Then I should see the correct Ominture account code                                                                        # features/step_definitions/trucker.rb:32
+Sauce public job link: https://saucelabs.com/jobs/dbdcdebc43844a16a72535c1ba5e87c0?auth=abef70bcf64b47da2880e9f596ce8b65
+
+2 scenarios (2 passed)
+6 steps (6 passed)
+1m22.105s
+
+Failing Scenarios:
+cucumber features/trucker.feature:9 # Scenario: Testing form
+
+12 scenarios (1 failed, 11 passed)
+36 steps (1 failed, 1 skipped, 34 passed)
+
+Took 86 seconds (1:26)
+cucumbers Failed
+pni-dig-129098:sauce_ruby temre$ 

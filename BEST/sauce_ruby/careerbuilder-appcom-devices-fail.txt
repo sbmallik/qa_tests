@@ -1,0 +1,103 @@
+Last login: Wed Nov  4 08:29:00 on ttys000
+You have mail.
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby
+pni-dig-129098:sauce_ruby temre$ rake sauce:features
+Using recorded test runtime
+3 processes for 3 features, ~ 1 features per process
+Using the default profile...
+@selenium
+Feature: Careerbuilder / App.com Tests
+  
+  As a Gannett employee with access to the correct urls
+  I want to be able to test for these scenarios
+  So that the new contact form appears on Careerbuilder and App.com
+
+  Scenario: App.com form test                                                                     # features/careerbuilder_appcom.feature:9
+Using the default profile...
+@selenium
+Feature: Careerbuilder / App.com Tests
+  
+  As a Gannett employee with access to the correct urls
+  I want to be able to test for these scenarios
+  So that the new contact form appears on Careerbuilder and App.com
+
+  Scenario: App.com form test                                                                     # features/careerbuilder_appcom.feature:9
+Using the default profile...
+@selenium
+Feature: Careerbuilder / App.com Tests
+  
+  As a Gannett employee with access to the correct urls
+  I want to be able to test for these scenarios
+  So that the new contact form appears on Careerbuilder and App.com
+
+  Scenario: App.com form test                                                                     # features/careerbuilder_appcom.feature:9
+[Sauce Connect is connecting to Sauce Labs...]
+    Given I go to the URL application directly at "http://www.app.com/career-builder/contact-us/" # features/step_definitions/careerbuilder_appcom.rb:1
+    Then I should see the CareerBuilder form and it should be visible                             # features/step_definitions/careerbuilder_appcom.rb:5
+Sauce public job link: https://saucelabs.com/jobs/27efeaf4af3840bdacfbb9d13af8775f?auth=a04278365d17cfa086afefd205c1353a
+
+  Scenario: App.com form test from Jobs page                                # features/careerbuilder_appcom.feature:14
+    Given I go to the URL application directly at "http://www.app.com/career-builder/contact-us/" # features/step_definitions/careerbuilder_appcom.rb:1
+    Then I should see the CareerBuilder form and it should be visible                             # features/step_definitions/careerbuilder_appcom.rb:5
+Sauce public job link: https://saucelabs.com/jobs/40f9d7626d374d289033942d67478f72?auth=d5988d961cc9b285fef13c871612c4a3
+
+  Scenario: App.com form test from Jobs page                                # features/careerbuilder_appcom.feature:14
+    Given I access a referrer URL at "http://www.app.com/marketplace/jobs/" # features/step_definitions/careerbuilder_appcom.rb:12
+    When click the "Contact us via email" Link                              # features/step_definitions/careerbuilder_appcom.rb:16
+    Then I should see the "Submit" button on the CareerBuilder form         # features/step_definitions/careerbuilder_appcom.rb:20
+      Unable to find button "Submit" (Capybara::ElementNotFound)
+      ./features/step_definitions/careerbuilder_appcom.rb:26:in `/^I should see the "(.*?)" button on the CareerBuilder form$/'
+      features/careerbuilder_appcom.feature:18:in `Then I should see the "Submit" button on the CareerBuilder form'
+Sauce public job link: https://saucelabs.com/jobs/87a4f45f7d374067b7949dd600c7aaa7?auth=822cda14b18f9880ae222d0ca21beb6b
+
+Failing Scenarios:
+cucumber features/careerbuilder_appcom.feature:14 # Scenario: App.com form test from Jobs page
+
+2 scenarios (1 failed, 1 passed)
+5 steps (1 failed, 4 passed)
+2m38.585s
+    Given I go to the URL application directly at "http://www.app.com/career-builder/contact-us/" # features/step_definitions/careerbuilder_appcom.rb:1
+    Then I should see the CareerBuilder form and it should be visible                             # features/step_definitions/careerbuilder_appcom.rb:5
+Sauce public job link: https://saucelabs.com/jobs/d2d8f5a01b78458b875199b49c8f1bf2?auth=d278e954d578b7da46f7b57d759ba72c
+
+  Scenario: App.com form test from Jobs page                                # features/careerbuilder_appcom.feature:14
+    Given I access a referrer URL at "http://www.app.com/marketplace/jobs/" # features/step_definitions/careerbuilder_appcom.rb:12
+    When click the "Contact us via email" Link                              # features/step_definitions/careerbuilder_appcom.rb:16
+    Then I should see the "Submit" button on the CareerBuilder form         # features/step_definitions/careerbuilder_appcom.rb:20
+      Unable to find button "Submit" (Capybara::ElementNotFound)
+      ./features/step_definitions/careerbuilder_appcom.rb:26:in `/^I should see the "(.*?)" button on the CareerBuilder form$/'
+      features/careerbuilder_appcom.feature:18:in `Then I should see the "Submit" button on the CareerBuilder form'
+Sauce public job link: https://saucelabs.com/jobs/4a688d6974564a78a8cae7d13abfde82?auth=e9a5206d88e78f0298de4a26afdd8d0d
+
+Failing Scenarios:
+cucumber features/careerbuilder_appcom.feature:14 # Scenario: App.com form test from Jobs page
+
+2 scenarios (1 failed, 1 passed)
+5 steps (1 failed, 4 passed)
+4m33.871s
+    Given I access a referrer URL at "http://www.app.com/marketplace/jobs/" # features/step_definitions/careerbuilder_appcom.rb:12
+    When click the "Contact us via email" Link                              # features/step_definitions/careerbuilder_appcom.rb:16
+    Then I should see the "Submit" button on the CareerBuilder form         # features/step_definitions/careerbuilder_appcom.rb:20
+      Unable to find button "Submit" (Capybara::ElementNotFound)
+      ./features/step_definitions/careerbuilder_appcom.rb:26:in `/^I should see the "(.*?)" button on the CareerBuilder form$/'
+      features/careerbuilder_appcom.feature:18:in `Then I should see the "Submit" button on the CareerBuilder form'
+Sauce public job link: https://saucelabs.com/jobs/e8df9bea1d2940d2901588cffd8e7d60?auth=8368408eb3517d889b07ebce352d6f2b
+
+Failing Scenarios:
+cucumber features/careerbuilder_appcom.feature:14 # Scenario: App.com form test from Jobs page
+
+2 scenarios (1 failed, 1 passed)
+5 steps (1 failed, 4 passed)
+6m16.385s
+
+Failing Scenarios:
+cucumber features/careerbuilder_appcom.feature:14 # Scenario: App.com form test from Jobs page
+cucumber features/careerbuilder_appcom.feature:14 # Scenario: App.com form test from Jobs page
+cucumber features/careerbuilder_appcom.feature:14 # Scenario: App.com form test from Jobs page
+
+6 scenarios (3 failed, 3 passed)
+15 steps (3 failed, 12 passed)
+
+Took 382 seconds (6:22)
+cucumbers Failed
+pni-dig-129098:sauce_ruby temre$ 

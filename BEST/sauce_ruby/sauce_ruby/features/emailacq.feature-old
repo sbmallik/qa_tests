@@ -1,0 +1,19 @@
+@selenium
+Feature: Email Acquisition app Browser testing
+
+   As a Gannett employee with access to the correct urls
+   I want to be able to test for these scenarios
+   So that the new form works on the new Email Acquisition app
+
+
+   Scenario: Create Event, and add Names in Online mode ONLY on all browsers
+      
+      Given I am a user wants to enter a new event and I login to the 'online' version of the app
+      When I create a new event named "Cooking with a Vegan Chef" and the date should be today's date
+      Then the page will say "YOUR EVENT WAS CREATED"
+
+
+      Then I click "Existing Event"
+      And I select the same previously created event 
+      Then I should be able to enter '4' random names
+      Then those changes should be received in Exact Target immediately without pressing Sync

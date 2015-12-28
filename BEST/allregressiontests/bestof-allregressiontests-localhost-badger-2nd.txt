@@ -1,0 +1,99 @@
+Last login: Mon Nov  9 13:06:56 on ttys002
+You have mail.
+pni-dig-129098:~ temre$ cd qa-tests/BEST/allregressiontests
+pni-dig-129098:allregressiontests temre$ rake
+/Users/temre/.rvm/rubies/ruby-2.1.5/bin/ruby -S bundle exec cucumber --format pretty
+@selenium
+Feature: AZC's Best 2014 ALL Regression Tests
+  
+  In order to make the new features live on the 2014 Azcentral's Best
+  As a Gannett employee with access to the correct urls
+  I want to be able to test for these scenarios
+
+  Scenario: #1) Article ID test                                                                                                                                                  # features/allregressiontests_localhost3000_badger.feature:8
+    Given I have found this particular article ID on devbestof.azcentral.com: "http://z.bestof.azcentral.com:3000/winners/2015/14745637/best-live-music-venue-crescent-ballroom" # features/step_definitions/allregressiontests_localhost3000_badger.rb:2
+    When I put that same article ID into the bestof.pnj.com site: "http://devbestof.pnj.com/winners/2015/14745637"                                                               # features/step_definitions/allregressiontests_localhost3000_badger.rb:5
+    Then I should not see the article content, but I should be redirected to the homepage of "http://devbestof.pnj.com/winners/2015"                                             # features/step_definitions/allregressiontests_localhost3000_badger.rb:8
+
+  Scenario: #2) Search, Filtering and Sorting Content                                                                                                                # features/allregressiontests_localhost3000_badger.feature:14
+    Given I am on the Azcentral's Best page at: "http://z.bestof.azcentral.com:3000/winners/2015/"                                                                   # features/step_definitions/allregressiontests_localhost3000_badger.rb:15
+    When I enter the term 'music' in the search box                                                                                                                  # features/step_definitions/allregressiontests_localhost3000_badger.rb:19
+    Then the filter feedback text says "Now showing 18 results out of 162"                                                                                           # features/step_definitions/allregressiontests_localhost3000_badger.rb:23
+    Then I am on this URL: "http://z.bestof.azcentral.com:3000/winners/2015/results?keywords=music"                                                                  # features/step_definitions/allregressiontests_localhost3000_badger.rb:32
+    And I click on the word 'Filter' then click on 'Arts & Entertainment'                                                                                            # features/step_definitions/allregressiontests_localhost3000_badger.rb:36
+    Then the filter feedback text says "Now showing 12 results out of 162"                                                                                           # features/step_definitions/allregressiontests_localhost3000_badger.rb:23
+    Then I am on this new URL: "http://z.bestof.azcentral.com:3000/winners/2015/results?&categories=arts%20%26%20entertainment&keywords=music"                       # features/step_definitions/allregressiontests_localhost3000_badger.rb:43
+    Then I click on the word 'Sort' then I click on 'Category'                                                                                                       # features/step_definitions/allregressiontests_localhost3000_badger.rb:47
+    And the URL will change to this: "http://z.bestof.azcentral.com:3000/winners/2015/results?&categories=arts%20%26%20entertainment&keywords=music&sortby=category" # features/step_definitions/allregressiontests_localhost3000_badger.rb:54
+
+  Scenario: #3) More Winners Near Me                                                 # features/allregressiontests_localhost3000_badger.feature:27
+    Given I am on an article page                                                    # features/step_definitions/allregressiontests_localhost3000_badger.rb:62
+    When I want to make sure there are articles in the "More Winners Nearby" section # features/step_definitions/allregressiontests_localhost3000_badger.rb:65
+    Then I will see a resulting 6 pertinent articles                                 # features/step_definitions/allregressiontests_localhost3000_badger.rb:68
+
+  Scenario: #4) Checking social media features                                                                                                                                                             # features/allregressiontests_localhost3000_badger.feature:33
+    Given I am on the current article page again at "http://z.bestof.azcentral.com:3000/winners/2015/14745637/best-live-music-venue-crescent-ballroom" and I want to share this page via the sharing tools # features/step_definitions/allregressiontests_localhost3000_badger.rb:77
+    Then the data-text should contain the correct article title for sharing via Facebook                                                                                                                   # features/step_definitions/allregressiontests_localhost3000_badger.rb:80
+    And the href should contain the correct URL for sharing via Twitter                                                                                                                                    # features/step_definitions/allregressiontests_localhost3000_badger.rb:83
+    And the href should contain the correct mailto for sharing via E-mail                                                                                                                                  # features/step_definitions/allregressiontests_localhost3000_badger.rb:90
+
+  Scenario: #5) Map / Zoom buttons test                                                                                                                                                                                                                                     # features/allregressiontests_localhost3000_badger.feature:40
+    Given I am on this page: "http://z.bestof.azcentral.com:3000/winners/2015/14745637/best-live-music-venue-crescent-ballroom" where this is both a map and video                                                                                                          # features/step_definitions/allregressiontests_localhost3000_badger.rb:97
+    When I click on the "Map" button on the main image                                                                                                                                                                                                                      # features/step_definitions/allregressiontests_localhost3000_badger.rb:101
+    Then I should see the div that holds the 'Zoom in' and 'Zoom out' buttons on the right side of the map at these coordinates: 'position: absolute', 'right: 28px', 'top: 0px', and have 'margin: 5px' - therefore they are NOT at the same location as the media buttons # features/step_definitions/allregressiontests_localhost3000_badger.rb:105
+    And I should see in the badger css file that div that holds the media buttons on the left side of the map are at these coordinates, 'position: absolute', top: 0', and 'left: 0, - therefore they are NOT at the same location as the map zoom in & out buttons         # features/step_definitions/allregressiontests_localhost3000_badger.rb:110
+
+  Scenario: #6) PNJ has a single internal content type test                                                                                                                      # features/allregressiontests_localhost3000_badger.feature:51
+    Given I am on "http://devbestof.pnj.com/winners/2015/"                                                                                                                       # features/step_definitions/allregressiontests_localhost3000_badger.rb:128
+    When I click on the "Readers' Choice" link                                                                                                                                   # features/step_definitions/allregressiontests_localhost3000_badger.rb:132
+    Then I should be on "http://devbestof.pnj.com/winners/2015/results?types=Readers%27%20Choice" and I should NOT see the 'Readers' Choice' button on the left-side of the page # features/step_definitions/allregressiontests_localhost3000_badger.rb:136
+
+  Scenario: #7) Azcentral has two internal content types test                                                                                                                                         # features/allregressiontests_localhost3000_badger.feature:58
+    Given I am on the Azcentral's Best page at: "http://z.bestof.azcentral.com:3000/winners/2015/"                                                                                                    # features/step_definitions/allregressiontests_localhost3000_badger.rb:15
+    When I then click on the "Critics' Picks" link                                                                                                                                                    # features/step_definitions/allregressiontests_localhost3000_badger.rb:150
+    Then I should be on "http://z.bestof.azcentral.com:3000/winners/2015/results?types=Critics%27%20Picks" and I SHOULD see 'Readers' Choice' and 'Critics' Picks' links on the left-side of the page # features/step_definitions/allregressiontests_localhost3000_badger.rb:154
+
+  Scenario: #8) ALL Login tests                                                                                                                                      # features/allregressiontests_localhost3000_badger.feature:65
+    Given I am on the Azcentral's Best page at: "http://z.bestof.azcentral.com:3000/winners/2015/"                                                                   # features/step_definitions/allregressiontests_localhost3000_badger.rb:15
+    When I click the "LOGIN" button                                                                                                                                  # features/step_definitions/allregressiontests_localhost3000_badger.rb:168
+    Then I should arrive at the login url of: "https://account.azcentral.com/bestOf/ui/login/?onSuccessRedirectURL=http://z.bestof.azcentral.com:3000/winners/2015/" # features/step_definitions/allregressiontests_localhost3000_badger.rb:171
+    And I log into my account                                                                                                                                        # features/step_definitions/allregressiontests_localhost3000_badger.rb:174
+    Then I should be returned to this page "http://z.bestof.azcentral.com:3000/winners/2015/"                                                                        # features/step_definitions/allregressiontests_localhost3000_badger.rb:179
+    And when I click on "MY ACCOUNT"                                                                                                                                 # features/step_definitions/allregressiontests_localhost3000_badger.rb:183
+      Unable to find link "MY ACCOUNT" (Capybara::ElementNotFound)
+      ./features/step_definitions/allregressiontests_localhost3000_badger.rb:184:in `/^when I click on "(.*?)"$/'
+      features/allregressiontests_localhost3000_badger.feature:72:in `And when I click on "MY ACCOUNT"'
+    Then I should arrive at the 'My Account' page                                                                                                                    # features/step_definitions/allregressiontests_localhost3000_badger.rb:188
+
+  Scenario: #9) Login test on PNJ                            # features/allregressiontests_localhost3000_badger.feature:76
+    Given I am on the PNJ site of "http://devbestof.pnj.com" # features/step_definitions/allregressiontests_localhost3000_badger.rb:195
+    Then there should be no 'login' button                   # features/step_definitions/allregressiontests_localhost3000_badger.rb:198
+
+  Scenario: #10) Testing Email Feature                                                             # features/allregressiontests_localhost3000_badger.feature:82
+    Given I am on the Azcentral's Best page at: "http://z.bestof.azcentral.com:3000/winners/2015/" # features/step_definitions/allregressiontests_localhost3000_badger.rb:15
+    When I click on the "Critics' Picks" link                                                      # features/step_definitions/allregressiontests_localhost3000_badger.rb:132
+    Then I also click on the "Best live-music venue" link                                          # features/step_definitions/allregressiontests_localhost3000_badger.rb:212
+    Then I should see the "Send" email link contain the correct 'mailto' information               # features/step_definitions/allregressiontests_localhost3000_badger.rb:215
+
+  Scenario: #11) Testing "RED ALERT" Feature                                                       # features/allregressiontests_localhost3000_badger.feature:90
+    Given I am on the Azcentral's Best page at: "http://z.bestof.azcentral.com:3000/winners/2015/" # features/step_definitions/allregressiontests_localhost3000_badger.rb:15
+    When I click on the "Critics' Picks" link                                                      # features/step_definitions/allregressiontests_localhost3000_badger.rb:132
+    Then I also click on the "Best live-music venue" link                                          # features/step_definitions/allregressiontests_localhost3000_badger.rb:212
+    Then I click on the 'Next Article' arrow five times                                            # features/step_definitions/allregressiontests_localhost3000_badger.rb:224
+    Then I should see the text "5 free articles left"                                              # features/step_definitions/allregressiontests_localhost3000_badger.rb:237
+
+  Scenario: #12) Last known location                                                               # features/allregressiontests_localhost3000_badger.feature:99
+    Given I am on the Azcentral's Best page at: "http://z.bestof.azcentral.com:3000/winners/2015/" # features/step_definitions/allregressiontests_localhost3000_badger.rb:15
+    Then the 'last known location' should include the correct lattidue and longitude               # features/step_definitions/allregressiontests_localhost3000_badger.rb:247
+      expected nil to include "-76.9798", but it does not respond to `include?` (RSpec::Expectations::ExpectationNotMetError)
+      ./features/step_definitions/allregressiontests_localhost3000_badger.rb:251:in `/^the 'last known location' should include the correct lattidue and longitude$/'
+      features/allregressiontests_localhost3000_badger.feature:102:in `Then the 'last known location' should include the correct lattidue and longitude'
+
+Failing Scenarios:
+cucumber features/allregressiontests_localhost3000_badger.feature:65 # Scenario: #8) ALL Login tests
+cucumber features/allregressiontests_localhost3000_badger.feature:99 # Scenario: #12) Last known location
+
+12 scenarios (2 failed, 10 passed)
+49 steps (2 failed, 1 skipped, 46 passed)
+4m46.247s
+pni-dig-129098:allregressiontests temre$ 

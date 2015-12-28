@@ -1,0 +1,18 @@
+@selenium
+Feature: Careerbuilder Regression Tests
+
+	As a Gannett employee with access to the correct urls
+	I want to be able to test for these scenarios
+	So that the new contact form works and appears on Careerbuilder and App.com
+
+
+    Scenario: App.com form test
+
+		Given I go to the URL application directly at "http://www.app.com/career-builder/contact-us/"
+		Then I should see the CareerBuilder form and it should be visible
+
+    Scenario: App.com form test from Jobs page
+
+		Given I access a referrer URL at "http://www.app.com/marketplace/jobs/"
+		When click the "Contact us via email" Link
+		Then I should see the text "I am interested in learning more about" on the CareerBuilder form

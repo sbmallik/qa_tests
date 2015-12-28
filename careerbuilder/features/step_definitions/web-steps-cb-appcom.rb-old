@@ -1,0 +1,28 @@
+Given(/^I go to the URL application directly at "(.*?)"$/) do |link|
+  visit link
+  sleep 2
+end
+Then(/^I should see the CareerBuilder form and it should be visible$/) do
+  page.has_text?('<form method="post" accept-charset="UTF-8" novalidate="" action="https://azcentral.formstack.com/forms/index.php" class="fsForm fsSingleColumn" id="fsForm2122702">')
+  sleep 2
+end
+
+
+
+Given(/^I access a referrer URL at "(.*?)"$/) do |link|
+  visit link
+  sleep 2
+end
+When(/^click the "(.*?)" Link$/) do |clicklink|
+  page.find('a.cba-full-width-contact', :text => clicklink).click
+  sleep 2
+end
+Then(/^I should see the "(.*?)" button on the CareerBuilder form$/) do |submit|
+	#page.has_css?('form.fsForm')
+	#page.has_content?('fsForm')
+	#page.find('form.fsForm', :text => clicklink)
+	#page.has_content?('I am interested in learning more about')
+	#page.should have_content('fsForm')
+	click_button(submit)
+  	#page.has_text?('<form method="post" accept-charset="UTF-8" novalidate="" action="https://azcentral.formstack.com/forms/index.php" class="fsForm fsSingleColumn" id="fsForm2122702">')
+end

@@ -1,0 +1,437 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf340
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red242\green242\blue242;\red46\green174\blue187;\red111\green111\blue111;
+\red47\green180\blue29;\red180\green36\blue25;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 ["Windows 8.1", "Internet Explorer", "11"]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Tue Dec 15 13:52:08 on ttys000\
+You have mail.\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf3 @selenium\cf2 \
+Feature: Email Acquisition app\
+  \
+   As a Gannett employee with access to the correct urls\
+   I want to be able to test for these scenarios\
+   So that the new form works on the new Email Acquisition app\
+\
+  Scenario: Create Event, and add Names to it\cf4                                                          # features/emailacq_allbrowsers.feature:9\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am a user wants to enter a new event and I login to the app\cf4                                # features/step_definitions/emailacq-25allbrowsers.rb:2\cf2 \
+    \cf5 When I create a new event named "Cooking with a Vegan Chef" and the date should be 'Dec 14, 2015'\cf4  # features/step_definitions/emailacq-25allbrowsers.rb:14\cf2 \
+    \cf5 Then the page will say "YOUR EVENT WAS CREATED"\cf4                                                    # features/step_definitions/emailacq-25allbrowsers.rb:20\cf2 \
+    \cf5 Then I open a new browser and click on "Existing Event"\cf4                                            # features/step_definitions/emailacq-25allbrowsers.rb:28\cf2 \
+    \cf6 And I select the same previously created event\cf4                                                     # features/step_definitions/emailacq-25allbrowsers.rb:39\cf2 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf6       Unable to find css "li" with text "Cooking with a Vegan Chef" (Capybara::ElementNotFound)\cf2 \
+\cf6       ./features/step_definitions/emailacq-25allbrowsers.rb:40:in `/^I select the same previously created event$/'\cf2 \
+\cf6       features/emailacq_allbrowsers.feature:16:in `And I select the same previously created event'\cf2 \
+    \cf3 Then I should be able to enter another '5' random names\cf4                                            # features/step_definitions/emailacq-25allbrowsers.rb:43\cf2 \
+    \cf3 Then those changes should be received in Exact Target immediately\cf4                                  # features/step_definitions/emailacq-25allbrowsers.rb:84\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/d855fa82ce09402bbef2b22fb4c8f03f?auth=2abbe660ba0c1377ef6c482901097b40\
+\
+\cf6 Failing Scenarios:\cf2 \
+\cf6 cucumber features/emailacq_allbrowsers.feature:9\cf4  # Scenario: Create Event, and add Names to it\cf2 \
+\
+1 scenario (\cf6 1 failed\cf2 )\
+7 steps (\cf6 1 failed\cf2 , \cf3 2 skipped\cf2 , \cf5 4 passed\cf2 )\
+1m30.917s\
+\
+Failing Scenarios:\
+cucumber features/emailacq_allbrowsers.feature:9 # Scenario: Create Event, and add Names to it\
+\
+1 scenario (1 failed)\
+7 steps (1 failed, 2 skipped, 4 passed)\
+\
+Took 96 seconds (1:36)\
+\cf6 cucumbers Failed\cf2 \
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+["Windows 8.1", "Firefox", "38"]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Tue Dec 15 14:42:52 on ttys000\
+You have mail.\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf3 @selenium\cf2 \
+Feature: Email Acquisition app\
+  \
+   As a Gannett employee with access to the correct urls\
+   I want to be able to test for these scenarios\
+   So that the new form works on the new Email Acquisition app\
+\
+  Scenario: Create Event, and add Names to it\cf4                                                          # features/emailacq_allbrowsers.feature:9\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am a user wants to enter a new event and I login to the app\cf4                                # features/step_definitions/emailacq-win81-FF38.rb:2\cf2 \
+    \cf5 When I create a new event named "Cooking with a Vegan Chef" and the date should be 'Dec 14, 2015'\cf4  # features/step_definitions/emailacq-win81-FF38.rb:14\cf2 \
+    \cf5 Then the page will say "YOUR EVENT WAS CREATED"\cf4                                                    # features/step_definitions/emailacq-win81-FF38.rb:20\cf2 \
+    \cf5 Then I open a new browser and click on "Existing Event"\cf4                                            # features/step_definitions/emailacq-win81-FF38.rb:28\cf2 \
+    \cf5 And I select the same previously created event\cf4                                                     # features/step_definitions/emailacq-win81-FF38.rb:39\cf2 \
+    \cf5 Then I should be able to enter another '5' random names\cf4                                            # features/step_definitions/emailacq-win81-FF38.rb:43\cf2 \
+    \cf5 Then those changes should be received in Exact Target immediately\cf4                                  # features/step_definitions/emailacq-win81-FF38.rb:84\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/7a7bf80f344e48efa4e9d5051c5d8e98?auth=305bbbd1e6dcda3297cbcd3990aec10f\
+\
+1 scenario (\cf5 1 passed\cf2 )\
+7 steps (\cf5 7 passed\cf2 )\
+2m11.742s\
+\
+1 scenario (1 passed)\
+7 steps (7 passed)\
+\
+Took 138 seconds (2:18)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+["Windows 8.1", "Chrome", 43]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Tue Dec 15 15:01:18 on ttys000\
+You have mail.\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf3 @selenium\cf2 \
+Feature: Email Acquisition app\
+  \
+   As a Gannett employee with access to the correct urls\
+   I want to be able to test for these scenarios\
+   So that the new form works on the new Email Acquisition app\
+\
+  Scenario: Create Event, and add Names to it\cf4                                                          # features/emailacq_allbrowsers.feature:9\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am a user wants to enter a new event and I login to the app\cf4                                # features/step_definitions/emailacq-win81-CH43.rb:2\cf2 \
+    \cf5 When I create a new event named "Cooking with a Vegan Chef" and the date should be 'Dec 14, 2015'\cf4  # features/step_definitions/emailacq-win81-CH43.rb:14\cf2 \
+    \cf5 Then the page will say "YOUR EVENT WAS CREATED"\cf4                                                    # features/step_definitions/emailacq-win81-CH43.rb:20\cf2 \
+    \cf5 Then I open a new browser and click on "Existing Event"\cf4                                            # features/step_definitions/emailacq-win81-CH43.rb:28\cf2 \
+    \cf5 And I select the same previously created event\cf4                                                     # features/step_definitions/emailacq-win81-CH43.rb:39\cf2 \
+    \cf5 Then I should be able to enter another '5' random names\cf4                                            # features/step_definitions/emailacq-win81-CH43.rb:43\cf2 \
+    \cf5 Then those changes should be received in Exact Target immediately\cf4                                  # features/step_definitions/emailacq-win81-CH43.rb:84\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/53be2e9b6075422c8bfc8cff6ce9ff4f?auth=b2d60acd2d793fbd4ace217bbf970a62\
+\
+1 scenario (\cf5 1 passed\cf2 )\
+7 steps (\cf5 7 passed\cf2 )\
+2m18.199s\
+\
+1 scenario (1 passed)\
+7 steps (7 passed)\
+\
+Took 142 seconds (2:22)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+["OS X 10.10", "Safari", "8.0"]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Tue Dec 15 15:11:28 on ttys000\
+You have mail.\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf3 @selenium\cf2 \
+Feature: Email Acquisition app\
+  \
+   As a Gannett employee with access to the correct urls\
+   I want to be able to test for these scenarios\
+   So that the new form works on the new Email Acquisition app\
+\
+  Scenario: Create Event, and add Names to it\cf4                                                          # features/emailacq_allbrowsers.feature:9\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am a user wants to enter a new event and I login to the app\cf4                                # features/step_definitions/emailacq-OSX10-Saf8.rb:2\cf2 \
+    \cf5 When I create a new event named "Cooking with a Vegan Chef" and the date should be 'Dec 14, 2015'\cf4  # features/step_definitions/emailacq-OSX10-Saf8.rb:14\cf2 \
+    \cf5 Then the page will say "YOUR EVENT WAS CREATED"\cf4                                                    # features/step_definitions/emailacq-OSX10-Saf8.rb:20\cf2 \
+    \cf5 Then I open a new browser and click on "Existing Event"\cf4                                            # features/step_definitions/emailacq-OSX10-Saf8.rb:28\cf2 \
+    \cf5 And I select the same previously created event\cf4                                                     # features/step_definitions/emailacq-OSX10-Saf8.rb:39\cf2 \
+    \cf5 Then I should be able to enter another '5' random names\cf4                                            # features/step_definitions/emailacq-OSX10-Saf8.rb:43\cf2 \
+    \cf5 Then those changes should be received in Exact Target immediately\cf4                                  # features/step_definitions/emailacq-OSX10-Saf8.rb:84\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/b1bfedf260a9487195ce730390ec3b1c?auth=a444d6b5db62d834e2c0776da0a6c471\
+\
+1 scenario (\cf5 1 passed\cf2 )\
+7 steps (\cf5 7 passed\cf2 )\
+2m21.036s\
+\
+1 scenario (1 passed)\
+7 steps (7 passed)\
+\
+Took 146 seconds (2:26)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+["OS X 10.10", "Chrome", 43]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Tue Dec 15 15:33:04 on ttys000\
+You have mail.\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf3 @selenium\cf2 \
+Feature: Email Acquisition app\
+  \
+   As a Gannett employee with access to the correct urls\
+   I want to be able to test for these scenarios\
+   So that the new form works on the new Email Acquisition app\
+\
+  Scenario: Create Event, and add Names to it\cf4                                                          # features/emailacq_allbrowsers.feature:9\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am a user wants to enter a new event and I login to the app\cf4                                # features/step_definitions/emailacq-OSX10-CH43.rb:2\cf2 \
+    \cf5 When I create a new event named "Cooking with a Vegan Chef" and the date should be 'Dec 14, 2015'\cf4  # features/step_definitions/emailacq-OSX10-CH43.rb:14\cf2 \
+    \cf5 Then the page will say "YOUR EVENT WAS CREATED"\cf4                                                    # features/step_definitions/emailacq-OSX10-CH43.rb:20\cf2 \
+    \cf5 Then I open a new browser and click on "Existing Event"\cf4                                            # features/step_definitions/emailacq-OSX10-CH43.rb:28\cf2 \
+    \cf5 And I select the same previously created event\cf4                                                     # features/step_definitions/emailacq-OSX10-CH43.rb:39\cf2 \
+    \cf5 Then I should be able to enter another '5' random names\cf4                                            # features/step_definitions/emailacq-OSX10-CH43.rb:43\cf2 \
+    \cf5 Then those changes should be received in Exact Target immediately\cf4                                  # features/step_definitions/emailacq-OSX10-CH43.rb:84\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/21ddc2728b064fb2a642548eb8231edd?auth=e767234f5573ea1fdf8c87a9a636ce2a\
+\
+1 scenario (\cf5 1 passed\cf2 )\
+7 steps (\cf5 7 passed\cf2 )\
+2m49.782s\
+\
+1 scenario (1 passed)\
+7 steps (7 passed)\
+\
+Took 175 seconds (2:55)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+["OS X 10.10", "Firefox", "39"]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Tue Dec 15 15:34:39 on ttys000\
+You have mail.\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf3 @selenium\cf2 \
+Feature: Email Acquisition app\
+  \
+   As a Gannett employee with access to the correct urls\
+   I want to be able to test for these scenarios\
+   So that the new form works on the new Email Acquisition app\
+\
+  Scenario: Create Event, and add Names to it\cf4                                                          # features/emailacq_allbrowsers.feature:9\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am a user wants to enter a new event and I login to the app\cf4                                # features/step_definitions/emailacq-OSX10-FF39.rb:2\cf2 \
+    \cf5 When I create a new event named "Cooking with a Vegan Chef" and the date should be 'Dec 14, 2015'\cf4  # features/step_definitions/emailacq-OSX10-FF39.rb:14\cf2 \
+    \cf5 Then the page will say "YOUR EVENT WAS CREATED"\cf4                                                    # features/step_definitions/emailacq-OSX10-FF39.rb:20\cf2 \
+    \cf5 Then I open a new browser and click on "Existing Event"\cf4                                            # features/step_definitions/emailacq-OSX10-FF39.rb:28\cf2 \
+    \cf5 And I select the same previously created event\cf4                                                     # features/step_definitions/emailacq-OSX10-FF39.rb:39\cf2 \
+    \cf5 Then I should be able to enter another '5' random names\cf4                                            # features/step_definitions/emailacq-OSX10-FF39.rb:43\cf2 \
+    \cf5 Then those changes should be received in Exact Target immediately\cf4                                  # features/step_definitions/emailacq-OSX10-FF39.rb:84\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/e80d56ac42364a3c9d9f839dcd9db6a3?auth=85ef480dfe1e2c36f285bafdb89803b8\
+\
+1 scenario (\cf5 1 passed\cf2 )\
+7 steps (\cf5 7 passed\cf2 )\
+2m20.886s\
+\
+1 scenario (1 passed)\
+7 steps (7 passed)\
+\
+Took 149 seconds (2:29)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 ["OS X 10.10", "Firefox", "39"]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Wed Dec 16 14:57:19 on ttys000\
+You have mail.\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf3 @selenium\cf2 \
+Feature: Email Acquisition app\
+  \
+   As a Gannett employee with access to the correct urls\
+   I want to be able to test for these scenarios\
+   So that the new form works on the new Email Acquisition app\
+\
+  Scenario: Create Event, and add Names to it\cf4                                                          # features/emailacq_allbrowsers.feature:9\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am a user wants to enter a new event and I login to the app\cf4                                # features/step_definitions/emailacq-OSX10-FF39.rb:2\cf2 \
+    \cf5 When I create a new event named "Cooking with a Vegan Chef" and the date should be 'Dec 14, 2015'\cf4  # features/step_definitions/emailacq-OSX10-FF39.rb:14\cf2 \
+    \cf5 Then the page will say "YOUR EVENT WAS CREATED"\cf4                                                    # features/step_definitions/emailacq-OSX10-FF39.rb:20\cf2 \
+    \cf5 Then I open a new browser and click on "Existing Event"\cf4                                            # features/step_definitions/emailacq-OSX10-FF39.rb:28\cf2 \
+    \cf5 And I select the same previously created event\cf4                                                     # features/step_definitions/emailacq-OSX10-FF39.rb:39\cf2 \
+    \cf5 Then I should be able to enter another '5' random names\cf4                                            # features/step_definitions/emailacq-OSX10-FF39.rb:43\cf2 \
+    \cf5 Then those changes should be received in Exact Target immediately\cf4                                  # features/step_definitions/emailacq-OSX10-FF39.rb:84\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/bfd6c88321724eb4a980910b4cf1310c?auth=6e20291d98f319a2e19b895e17bf0fcd\
+\
+1 scenario (\cf5 1 passed\cf2 )\
+7 steps (\cf5 7 passed\cf2 )\
+2m23.509s\
+\
+1 scenario (1 passed)\
+7 steps (7 passed)\
+\
+Took 148 seconds (2:28)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+\
+\
+["OS X 10.10", "iPhone", "8.2", \{:deviceName => 'iPhone Simulator'\}]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Tue Dec 15 15:55:49 on ttys000\
+You have mail.\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf3 @selenium\cf2 \
+Feature: Email Acquisition app\
+  \
+   As a Gannett employee with access to the correct urls\
+   I want to be able to test for these scenarios\
+   So that the new form works on the new Email Acquisition app\
+\
+  Scenario: Create Event, and add Names to it\cf4                                                          # features/emailacq_allbrowsers.feature:9\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am a user wants to enter a new event and I login to the app\cf4                                # features/step_definitions/emailacq-OSX10-iphone.rb:2\cf2 \
+    \cf5 When I create a new event named "Cooking with a Vegan Chef" and the date should be 'Dec 14, 2015'\cf4  # features/step_definitions/emailacq-OSX10-iphone.rb:14\cf2 \
+    \cf5 Then the page will say "YOUR EVENT WAS CREATED"\cf4                                                    # features/step_definitions/emailacq-OSX10-iphone.rb:20\cf2 \
+    \cf5 Then I open a new browser and click on "Existing Event"\cf4                                            # features/step_definitions/emailacq-OSX10-iphone.rb:28\cf2 \
+    \cf5 And I select the same previously created event\cf4                                                     # features/step_definitions/emailacq-OSX10-iphone.rb:39\cf2 \
+    \cf5 Then I should be able to enter another '5' random names\cf4                                            # features/step_definitions/emailacq-OSX10-iphone.rb:43\cf2 \
+    \cf5 Then those changes should be received in Exact Target immediately\cf4                                  # features/step_definitions/emailacq-OSX10-iphone.rb:84\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/8f37f93c2cf04fe481731f401dae9418?auth=88549dad016c0ddd094be2915850e7a3\
+\
+1 scenario (\cf5 1 passed\cf2 )\
+7 steps (\cf5 7 passed\cf2 )\
+4m38.410s\
+\
+1 scenario (1 passed)\
+7 steps (7 passed)\
+\
+Took 283 seconds (4:43)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+["OS X 10.10", "iPad", "8.2", \{:deviceName => 'iPad Simulator'\}]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Tue Dec 15 16:02:38 on ttys000\
+You have mail.\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf3 @selenium\cf2 \
+Feature: Email Acquisition app\
+  \
+   As a Gannett employee with access to the correct urls\
+   I want to be able to test for these scenarios\
+   So that the new form works on the new Email Acquisition app\
+\
+  Scenario: Create Event, and add Names to it\cf4                                                          # features/emailacq_allbrowsers.feature:9\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf5 Given I am a user wants to enter a new event and I login to the app\cf4                                # features/step_definitions/emailacq-OSX10-ipad.rb:2\cf2 \
+    \cf5 When I create a new event named "Cooking with a Vegan Chef" and the date should be 'Dec 14, 2015'\cf4  # features/step_definitions/emailacq-OSX10-ipad.rb:14\cf2 \
+    \cf5 Then the page will say "YOUR EVENT WAS CREATED"\cf4                                                    # features/step_definitions/emailacq-OSX10-ipad.rb:20\cf2 \
+    \cf5 Then I open a new browser and click on "Existing Event"\cf4                                            # features/step_definitions/emailacq-OSX10-ipad.rb:28\cf2 \
+    \cf5 And I select the same previously created event\cf4                                                     # features/step_definitions/emailacq-OSX10-ipad.rb:39\cf2 \
+    \cf5 Then I should be able to enter another '5' random names\cf4                                            # features/step_definitions/emailacq-OSX10-ipad.rb:43\cf2 \
+    \cf5 Then those changes should be received in Exact Target immediately\cf4                                  # features/step_definitions/emailacq-OSX10-ipad.rb:84\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/9b8915ed1fd9420bb79e034be7601928?auth=45e625dc2f3c81846a9149f68a043d58\
+\
+1 scenario (\cf5 1 passed\cf2 )\
+7 steps (\cf5 7 passed\cf2 )\
+4m3.960s\
+\
+1 scenario (1 passed)\
+7 steps (7 passed)\
+\
+Took 249 seconds (4:09)\
+pni-dig-129098:sauce_ruby temre$ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+["Linux", "Android", "5.1", \{:deviceName => 'Android Emulator'\}]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs20 \cf2 \cb0 \CocoaLigature0 Last login: Tue Dec 15 16:10:12 on ttys000\
+You have mail.\
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby\
+pni-dig-129098:sauce_ruby temre$ rake sauce:features\
+Using recorded test runtime\
+1 processes for 1 features, ~ 1 features per process\
+Using the default profile...\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf3 @selenium\cf2 \
+Feature: Email Acquisition app\
+  \
+   As a Gannett employee with access to the correct urls\
+   I want to be able to test for these scenarios\
+   So that the new form works on the new Email Acquisition app\
+\
+  Scenario: Create Event, and add Names to it\cf4                                                          # features/emailacq_allbrowsers.feature:9\cf2 \
+[Sauce Connect is connecting to Sauce Labs...]\
+    \cf6 Given I am a user wants to enter a new event and I login to the app\cf4                                # features/step_definitions/emailacq-OSX10-android.rb:2\cf2 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf6       underlying webdriver instance does not support javascript (Selenium::WebDriver::Error::UnsupportedOperationError)\cf2 \
+\cf6       ./features/step_definitions/emailacq-OSX10-android.rb:5:in `/^I am a user wants to enter a new event and I login to the app$/'\cf2 \
+\cf6       features/emailacq_allbrowsers.feature:11:in `Given I am a user wants to enter a new event and I login to the app'\cf2 \
+    \cf3 When I create a new event named "Cooking with a Vegan Chef" and the date should be 'Dec 14, 2015'\cf4  # features/step_definitions/emailacq-OSX10-android.rb:14\cf2 \
+    \cf3 Then the page will say "YOUR EVENT WAS CREATED"\cf4                                                    # features/step_definitions/emailacq-OSX10-android.rb:20\cf2 \
+    \cf3 Then I open a new browser and click on "Existing Event"\cf4                                            # features/step_definitions/emailacq-OSX10-android.rb:28\cf2 \
+    \cf3 And I select the same previously created event\cf4                                                     # features/step_definitions/emailacq-OSX10-android.rb:39\cf2 \
+    \cf3 Then I should be able to enter another '5' random names\cf4                                            # features/step_definitions/emailacq-OSX10-android.rb:43\cf2 \
+    \cf3 Then those changes should be received in Exact Target immediately\cf4                                  # features/step_definitions/emailacq-OSX10-android.rb:84\cf2 \
+Sauce public job link: https://saucelabs.com/jobs/8f4a0b67d6c84b858d40c90439ddf221?auth=14461181346ebb1baee34b9f5f94d29b\
+\
+\cf6 Failing Scenarios:\cf2 \
+\cf6 cucumber features/emailacq_allbrowsers.feature:9\cf4  # Scenario: Create Event, and add Names to it\cf2 \
+\
+1 scenario (\cf6 1 failed\cf2 )\
+7 steps (\cf6 1 failed\cf2 , \cf3 6 skipped\cf2 )\
+1m33.514s\
+\
+Failing Scenarios:\
+cucumber features/emailacq_allbrowsers.feature:9 # Scenario: Create Event, and add Names to it\
+\
+1 scenario (1 failed)\
+7 steps (1 failed, 6 skipped)\
+\
+Took 100 seconds (1:40)\
+\cf6 cucumbers Failed\cf2 \
+pni-dig-129098:sauce_ruby temre$ \
+}

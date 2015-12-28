@@ -45,43 +45,21 @@ Feature: AZC's Best 2014 ALL Regression Tests
     When I then click on the "Critics' Picks" link
     Then I should be on "http://devbestof.azcentral.com/winners/2014/results?types=critics%27%20picks" and I SHOULD see 'Readers' Choice' and 'Critics' Picks' links on the left-side of the page
 
-  Scenario: #8) ALL Login tests
-
-    Given I am on "http://devbestof.azcentral.com/winners/2014/"
-    When I click on the menu dropdown button
-    Then I click the "LOGIN" button
-    And I should arrive at the login url of: "https://account.azcentral.com/bestOf/ui/login/?onSuccessRedirectURL=http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks"
-
-    Then I log into my account
-    And I should be returned to this page "http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks"
-    When I click on the menu dropdown button again
-    And when I click on "MY ACCOUNT"
-    Then I should arrive at the 'My Account' page
-
-  Scenario: #9) Login test on PNJ
-
-    Given I am on the PNJ site of "http://devbestof.pnj.com"
-    Then there should be no 'login' button
-
 
   Scenario: #10) Testing Email Feature
 
     Given I am on "http://devbestof.azcentral.com/winners/2014/"
     When I click on the "Critics' Picks" link
-    Then I also click on the "Best film festival" link
+    Then I also click on the 'Best Arizona Instagram couple' link
     Then I should see the "Send" email link contain the correct 'mailto' information
 
   Scenario: #11) Testing "RED ALERT" Feature
 
     Given I am on "http://devbestof.azcentral.com/winners/2014/"
     When I click on the "Critics' Picks" link
-    Then I also click on the "Best film festival" link
+    Then I also click on the 'Best Arizona Instagram couple' link
     Then I click on the 'Next Article' arrow five times
     Then I should see the text "5 free articles left"
 
-  Scenario: #12) Last known location
-
-    Given I am on the Azcentral's Best page at: "http://devbestof.azcentral.com/winners/2014/"
-    Then the 'last known location' should include the correct lattidue and longitude
 
 

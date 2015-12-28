@@ -1,0 +1,181 @@
+#1) Create an Event in Online mode
+Given(/^I am a user wants to enter a new event and I login to the 'online' version of the app$/) do
+    visit ('http://photozian.com')
+    sleep 5
+    #choose('Yes')
+    fill_in('login', :with => 'violeta.henderson@azcentral.com')
+    fill_in('password', :with => 'Lionsv46')
+    click_button('Enter')
+    sleep 5
+    #page.execute_script('window.open()')
+    #new_window = page.driver.browser.window_handles.last
+    #page.driver.browser.switch_to.window(new_window)
+    #visit('http://photozian.com/?offline=no')
+    #sleep 5
+    page.find('span', :text => 'The Arizona Republic').click
+    sleep 5
+    click_button("Create event")
+    sleep 5
+end
+When(/^I create a new event named "(.*?)" and the date should be "(.*?)"$/) do |eventname, eventdate|
+    fill_in('Enter name of event', :with => eventname)
+    fill_in('Date of event', :with => eventdate)
+    click_button('Next')
+    sleep 5
+end
+Then(/^the page will say "(.*?)"$/) do |text|
+    page.has_text?(text)
+end
+
+
+# Step 2
+Then(/^to add names offline, I open another window with the 'offline' version of the app$/) do
+    #page.execute_script('window.open()')
+    #new_window = page.driver.browser.window_handles.last
+    #page.driver.browser.switch_to.window(new_window)
+    visit ('http://photozian.com/?offline=yes')
+    sleep 5
+    page.find('span', :text => 'The Arizona Republic').click
+    sleep 5
+    click_button("Existing Event")
+    sleep 5
+end
+And(/^I want to edit the new event I just created, I will navigate to it$/) do
+    page.find('li', :text => 'Cooking with a Vegan Chef').click
+    sleep 5
+end
+Then(/^I should be able to enter '5' random names$/) do
+   #1
+    fill_in('first_name', :with => 'new2offline1')
+    fill_in('last_name', :with => 'new2offline1')
+    fill_in('email', :with => 'new2offline1@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    sleep 5
+    click_button('Enter another one')
+    #2
+    fill_in('first_name', :with => 'new2offline2')
+    fill_in('last_name', :with => 'new2offline2')
+    fill_in('email', :with => 'new2offline2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    sleep 5
+    click_button('Enter another one')
+    #3
+    fill_in('first_name', :with => 'new2offline3')
+    fill_in('last_name', :with => 'new2offline3')
+    fill_in('email', :with => 'new2offline3@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    sleep 5
+    click_button('Enter another one')
+    #4
+    fill_in('first_name', :with => 'new2offline4')
+    fill_in('last_name', :with => 'new2offline4')
+    fill_in('email', :with => 'new2offline4@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    sleep 5
+    click_button('Enter another one')
+    #5
+    fill_in('first_name', :with => 'new2offline5')
+    fill_in('last_name', :with => 'new2offline5')
+    fill_in('email', :with => 'new2offline5@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    sleep 5
+end
+
+
+#Step 3
+Then(/^to Sync the names, I open another window with the 'online' version of the app$/) do
+    #page.execute_script('window.open()')
+    #new_window = page.driver.browser.window_handles.last
+    #page.driver.browser.switch_to.window(new_window)
+    visit ('http://photozian.com/?offline=no')
+    #visit ('http://photozian.com/')
+    sleep 5
+    page.find('span', :text => 'The Arizona Republic').click
+    sleep 5
+    click_button("Existing Event")
+    sleep 5
+end
+Then(/^I select the same previously created event with 'offline' uploads pending$/) do
+    page.find('li', :text => 'Cooking with a Vegan Chef').click
+    sleep 5
+end
+And(/^I click the 'Sync' button$/) do
+    page.find('img.sync-button').click
+    sleep 5
+    click_button('Sync')
+    #page.find('button', :text => 'Sync').click
+    sleep 5
+    page.find('button', :text => 'Close').click
+    sleep 5
+end
+Then(/^those changes should be received in Exact Target$/) do
+  # CONTACT ERIN SANSOME THE NEXT DAY TO SEE IF ENTRIES ARE THERE
+end
+
+
+
+# Step 4
+Then(/^I open another window with the 'online' version of the app$/) do
+    #page.execute_script('window.open()')
+    #new_window = page.driver.browser.window_handles.last
+    #page.driver.browser.switch_to.window(new_window)
+    visit('http://photozian.com/?offline=no')
+    sleep 5
+    page.find('span', :text => 'The Arizona Republic').click
+    sleep 5
+    click_button("Existing Event")
+    sleep 5
+end
+And(/^I select the same previously created event$/) do
+    page.find('li', :text => 'Cooking with a Vegan Chef').click
+    sleep 5
+end
+Then(/^I should be able to enter another '5' random names$/) do
+    #1
+    fill_in('first_name', :with => 'new2online1')
+    fill_in('last_name', :with => 'new2online1')
+    fill_in('email', :with => 'new2online1@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    sleep 5
+    click_button('Enter another one')
+    #2
+    fill_in('first_name', :with => 'new2online2')
+    fill_in('last_name', :with => 'new2online2')
+    fill_in('email', :with => 'new2online2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    sleep 5
+    click_button('Enter another one')
+    #3
+    fill_in('first_name', :with => 'new2online3')
+    fill_in('last_name', :with => 'new2online3')
+    fill_in('email', :with => 'new2online3@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    sleep 5
+    click_button('Enter another one')
+    #4
+    fill_in('first_name', :with => 'new2online4')
+    fill_in('last_name', :with => 'new2online4')
+    fill_in('email', :with => 'new2online4@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    sleep 5
+    click_button('Enter another one')
+    #5
+    fill_in('first_name', :with => 'new2online5')
+    fill_in('last_name', :with => 'new2online5')
+    fill_in('email', :with => 'new2online5@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    sleep 5
+end
+Then(/^those changes should be received in Exact Target immediately without pressing Sync$/) do
+  # CONTACT ERIN SANSOME THE NEXT DAY TO SEE IF ENTRIES ARE THERE
+end
