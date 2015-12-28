@@ -1,0 +1,840 @@
+@selenium
+Feature: Email Acquisition app 
+
+   As a Gannett employee with access to the correct urls
+   I want to be able to test for these scenarios
+   So that the new form works on the new Email Acquisition app
+
+
+   Scenario: Create Event, and add Names to it Online and Offline mode
+      
+      Given I am a user wants to enter a new event and I login to the 'online' version of the app
+      When I create a new event named "Cooking with a Vegan Chef" and the date should be "Nov 1, 2015"
+      Then the page will say "YOUR EVENT WAS CREATED"
+
+      Then to add names offline, I open another window with the 'offline' version of the app
+      And I want to edit the new event I just created, I will navigate to it
+      Then I should be able to enter '50' random names
+
+      Then to Sync the names, I open another window with the 'online' version of the app
+      Then I select the same previously created event with 'offline' uploads pending
+      And I click the 'Sync' button
+      Then those changes should be received in Exact Target
+
+      Then I open another window with the 'online' version of the app
+      And I select the same previously created event 
+      Then I should be able to enter another '50' random names
+      Then those changes should be received in Exact Target immediately without pressing Sync
+
+
+
+
+
+#1) Create an Event in Online mode
+Given(/^I am a user wants to enter a new event and I login to the 'online' version of the app$/) do
+    visit ('http://photozian.com')
+    sleep 10
+    choose('Yes')
+    fill_in('login', :with => 'violeta.henderson@azcentral.com')
+    fill_in('password', :with => 'Lionsv46')
+    click_button('Enter')
+    sleep 10
+    page.execute_script('window.open()')
+    new_window = page.driver.browser.window_handles.last
+    page.driver.browser.switch_to.window(new_window)
+    visit('http://photozian.com/?offline=no')
+    sleep 15
+    page.find('span', :text => 'The Arizona Republic').click
+    sleep 10
+    click_button("Create event")
+    sleep 10
+end
+When(/^I create a new event named "(.*?)" and the date should be "(.*?)"$/) do |eventname, eventdate|
+    fill_in('Enter name of event', :with => eventname)
+    fill_in('Date of event', :with => eventdate)
+    click_button('Next')
+    sleep 10
+end
+Then(/^the page will say "(.*?)"$/) do |text|
+    page.has_text?(text)
+end
+
+
+
+Then(/^to add names offline, I open another window with the 'offline' version of the app$/) do
+    page.execute_script('window.open()')
+    new_window = page.driver.browser.window_handles.last
+    page.driver.browser.switch_to.window(new_window)
+    visit ('http://photozian.com/?offline=yes')
+    sleep 12
+    page.find('span', :text => 'The Arizona Republic').click
+    sleep 10
+    click_button("Existing Event")
+    sleep 10
+end
+And(/^I want to edit the new event I just created, I will navigate to it$/) do
+    page.find('li', :text => 'Cooking with a Vegan Chef').click
+    sleep 10
+end
+Then(/^I should be able to enter '50' random names$/) do
+    #1
+    fill_in('first_name', :with => '1testin')
+    fill_in('last_name', :with => '1testin')
+    fill_in('email', :with => '1test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #2
+    fill_in('first_name', :with => '2testin')
+    fill_in('last_name', :with => '2testin')
+    fill_in('email', :with => '2test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #3
+    fill_in('first_name', :with => '3testin')
+    fill_in('last_name', :with => '3testin')
+    fill_in('email', :with => '3test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #4
+    fill_in('first_name', :with => '4testin')
+    fill_in('last_name', :with => '4testin')
+    fill_in('email', :with => '4test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #5
+    fill_in('first_name', :with => '5testin')
+    fill_in('last_name', :with => '5testin')
+    fill_in('email', :with => '5test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #6
+    fill_in('first_name', :with => '6testin')
+    fill_in('last_name', :with => '6testin')
+    fill_in('email', :with => '6test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #7
+    fill_in('first_name', :with => '7testin')
+    fill_in('last_name', :with => '7testin')
+    fill_in('email', :with => '7test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #8
+    fill_in('first_name', :with => '8testin')
+    fill_in('last_name', :with => '8testin')
+    fill_in('email', :with => '8test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #9
+    fill_in('first_name', :with => '9testin')
+    fill_in('last_name', :with => '9testin')
+    fill_in('email', :with => '9test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #10
+    fill_in('first_name', :with => '10testin')
+    fill_in('last_name', :with => '10testin')
+    fill_in('email', :with => '10test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #11
+    fill_in('first_name', :with => '11testin')
+    fill_in('last_name', :with => '11testin')
+    fill_in('email', :with => '11test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #12
+    fill_in('first_name', :with => '12testin')
+    fill_in('last_name', :with => '12testin')
+    fill_in('email', :with => '12test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #13
+    fill_in('first_name', :with => '13testin')
+    fill_in('last_name', :with => '13testin')
+    fill_in('email', :with => '13test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #14
+    fill_in('first_name', :with => '14testin')
+    fill_in('last_name', :with => '14testin')
+    fill_in('email', :with => '14test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #15
+    fill_in('first_name', :with => '15testin')
+    fill_in('last_name', :with => '15testin')
+    fill_in('email', :with => '15test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #16
+    fill_in('first_name', :with => '16testin')
+    fill_in('last_name', :with => '16testin')
+    fill_in('email', :with => '16test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #17
+    fill_in('first_name', :with => '17testin')
+    fill_in('last_name', :with => '17testin')
+    fill_in('email', :with => '17test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #18
+    fill_in('first_name', :with => '18testin')
+    fill_in('last_name', :with => '18testin')
+    fill_in('email', :with => '18test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #19
+    fill_in('first_name', :with => '19testin')
+    fill_in('last_name', :with => '19testin')
+    fill_in('email', :with => '19test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #20
+    fill_in('first_name', :with => '20testin')
+    fill_in('last_name', :with => '20testin')
+    fill_in('email', :with => '20test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #21
+    fill_in('first_name', :with => '21testin')
+    fill_in('last_name', :with => '21testin')
+    fill_in('email', :with => '21test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #22
+    fill_in('first_name', :with => '22testin')
+    fill_in('last_name', :with => '22testin')
+    fill_in('email', :with => '22test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #23
+    fill_in('first_name', :with => '23testin')
+    fill_in('last_name', :with => '23testin')
+    fill_in('email', :with => '23test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #24
+    fill_in('first_name', :with => '24testin')
+    fill_in('last_name', :with => '24testin')
+    fill_in('email', :with => '24test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #25
+    fill_in('first_name', :with => '25testin')
+    fill_in('last_name', :with => '25testin')
+    fill_in('email', :with => '25test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #26
+    fill_in('first_name', :with => '26testin')
+    fill_in('last_name', :with => '26testin')
+    fill_in('email', :with => '26test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #27
+    fill_in('first_name', :with => '27testin')
+    fill_in('last_name', :with => '27testin')
+    fill_in('email', :with => '27test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #28
+    fill_in('first_name', :with => '28testin')
+    fill_in('last_name', :with => '28testin')
+    fill_in('email', :with => '28test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #29
+    fill_in('first_name', :with => '29testin')
+    fill_in('last_name', :with => '29testin')
+    fill_in('email', :with => '29test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #30
+    fill_in('first_name', :with => '30testin')
+    fill_in('last_name', :with => '30testin')
+    fill_in('email', :with => '30test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #31
+    fill_in('first_name', :with => '31testin')
+    fill_in('last_name', :with => '31testin')
+    fill_in('email', :with => '31test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #32
+    fill_in('first_name', :with => '32testin')
+    fill_in('last_name', :with => '32testin')
+    fill_in('email', :with => '32test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #33
+    fill_in('first_name', :with => '33testin')
+    fill_in('last_name', :with => '33testin')
+    fill_in('email', :with => '33test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #34
+    fill_in('first_name', :with => '34testin')
+    fill_in('last_name', :with => '34testin')
+    fill_in('email', :with => '34test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #35
+    fill_in('first_name', :with => '35testin')
+    fill_in('last_name', :with => '35testin')
+    fill_in('email', :with => '35test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #36
+    fill_in('first_name', :with => '36testin')
+    fill_in('last_name', :with => '36testin')
+    fill_in('email', :with => '36test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #37
+    fill_in('first_name', :with => '37testin')
+    fill_in('last_name', :with => '37testin')
+    fill_in('email', :with => '37test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #38
+    fill_in('first_name', :with => '38testin')
+    fill_in('last_name', :with => '38testin')
+    fill_in('email', :with => '38test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #39
+    fill_in('first_name', :with => '39testin')
+    fill_in('last_name', :with => '39testin')
+    fill_in('email', :with => '39test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #40
+    fill_in('first_name', :with => '40testin')
+    fill_in('last_name', :with => '40testin')
+    fill_in('email', :with => '40test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #41
+    fill_in('first_name', :with => '41testin')
+    fill_in('last_name', :with => '41testin')
+    fill_in('email', :with => '41test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #42
+    fill_in('first_name', :with => '42testin')
+    fill_in('last_name', :with => '42testin')
+    fill_in('email', :with => '42test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #44
+    fill_in('first_name', :with => '44testin')
+    fill_in('last_name', :with => '44testin')
+    fill_in('email', :with => '44test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #44
+    fill_in('first_name', :with => '44testin')
+    fill_in('last_name', :with => '44testin')
+    fill_in('email', :with => '44test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #45
+    fill_in('first_name', :with => '45testin')
+    fill_in('last_name', :with => '45testin')
+    fill_in('email', :with => '45test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #46
+    fill_in('first_name', :with => '46testin')
+    fill_in('last_name', :with => '46testin')
+    fill_in('email', :with => '46test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #47
+    fill_in('first_name', :with => '47testin')
+    fill_in('last_name', :with => '47testin')
+    fill_in('email', :with => '47test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #48
+    fill_in('first_name', :with => '48testin')
+    fill_in('last_name', :with => '48testin')
+    fill_in('email', :with => '48test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #49
+    fill_in('first_name', :with => '49testin')
+    fill_in('last_name', :with => '49testin')
+    fill_in('email', :with => '49test@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #50
+    fill_in('first_name', :with => '50testin')
+    fill_in('last_name', :with => '50testin')
+    fill_in('email', :with => '50test@test.com')
+    check("*I am 18 years or older")
+
+    click_button('Submit')
+end
+
+
+
+Then(/^to Sync the names, I open another window with the 'online' version of the app$/) do
+    page.execute_script('window.open()')
+    new_window = page.driver.browser.window_handles.last
+    page.driver.browser.switch_to.window(new_window)
+    visit ('http://photozian.com/?offline=no')
+    sleep 12
+    page.find('span', :text => 'The Arizona Republic').click
+    sleep 10
+    click_button("Existing Event")
+    sleep 10
+end
+Then(/^I select the same previously created event with 'offline' uploads pending$/) do
+    page.find('li', :text => 'Cooking with a Vegan Chef').click
+    sleep 10
+end
+And(/^I click the "(.*?)" button$/) do |sync|
+    page.find('div', :text => sync).click
+    #click_button(sync)
+end
+Then(/^those changes should be received in Exact Target$/) do
+  # CONTACT ERIN SANSOME THE NEXT DAY TO SEE IF ENTRIES ARE THERE
+end
+
+
+
+Then(/^I open another window with the 'online' version of the app$/) do
+    page.execute_script('window.open()')
+    new_window = page.driver.browser.window_handles.last
+    page.driver.browser.switch_to.window(new_window)
+    visit('http://photozian.com/?offline=no')
+    sleep 10
+    page.find('span', :text => 'The Arizona Republic').click
+    sleep 10
+    click_button("Existing Event")
+    sleep 10
+end
+And(/^I select the same previously created event$/) do
+    page.find('li', :text => 'Cooking with a Vegan Chef').click
+    sleep 10
+end
+Then(/^I should be able to enter another '50' random names$/) do
+    #1
+    fill_in('first_name', :with => '1testin2')
+    fill_in('last_name', :with => '1testin2')
+    fill_in('email', :with => '1test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #2
+    fill_in('first_name', :with => '2testin2')
+    fill_in('last_name', :with => '2testin2')
+    fill_in('email', :with => '2test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #3
+    fill_in('first_name', :with => '3testin2')
+    fill_in('last_name', :with => '3testin2')
+    fill_in('email', :with => '3test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #4
+    fill_in('first_name', :with => '4testin2')
+    fill_in('last_name', :with => '4testin2')
+    fill_in('email', :with => '4test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #5
+    fill_in('first_name', :with => '5testin2')
+    fill_in('last_name', :with => '5testin2')
+    fill_in('email', :with => '5test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #6
+    fill_in('first_name', :with => '6testin2')
+    fill_in('last_name', :with => '6testin2')
+    fill_in('email', :with => '6test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #7
+    fill_in('first_name', :with => '7testin2')
+    fill_in('last_name', :with => '7testin2')
+    fill_in('email', :with => '7test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #8
+    fill_in('first_name', :with => '8testin2')
+    fill_in('last_name', :with => '8testin2')
+    fill_in('email', :with => '8test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #9
+    fill_in('first_name', :with => '9testin2')
+    fill_in('last_name', :with => '9testin2')
+    fill_in('email', :with => '9test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #10
+    fill_in('first_name', :with => '10testin2')
+    fill_in('last_name', :with => '10testin2')
+    fill_in('email', :with => '10test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #11
+    fill_in('first_name', :with => '11testin2')
+    fill_in('last_name', :with => '11testin2')
+    fill_in('email', :with => '11test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #12
+    fill_in('first_name', :with => '12testin2')
+    fill_in('last_name', :with => '12testin2')
+    fill_in('email', :with => '12test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #13
+    fill_in('first_name', :with => '13testin2')
+    fill_in('last_name', :with => '13testin2')
+    fill_in('email', :with => '13test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #14
+    fill_in('first_name', :with => '14testin2')
+    fill_in('last_name', :with => '14testin2')
+    fill_in('email', :with => '14test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #15
+    fill_in('first_name', :with => '15testin2')
+    fill_in('last_name', :with => '15testin2')
+    fill_in('email', :with => '15test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #16
+    fill_in('first_name', :with => '16testin2')
+    fill_in('last_name', :with => '16testin2')
+    fill_in('email', :with => '16test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #17
+    fill_in('first_name', :with => '17testin2')
+    fill_in('last_name', :with => '17testin2')
+    fill_in('email', :with => '17test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #18
+    fill_in('first_name', :with => '18testin2')
+    fill_in('last_name', :with => '18testin2')
+    fill_in('email', :with => '18test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #19
+    fill_in('first_name', :with => '19testin2')
+    fill_in('last_name', :with => '19testin2')
+    fill_in('email', :with => '19test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #20
+    fill_in('first_name', :with => '20testin2')
+    fill_in('last_name', :with => '20testin2')
+    fill_in('email', :with => '20test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #21
+    fill_in('first_name', :with => '21testin2')
+    fill_in('last_name', :with => '21testin2')
+    fill_in('email', :with => '21test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #22
+    fill_in('first_name', :with => '22testin2')
+    fill_in('last_name', :with => '22testin2')
+    fill_in('email', :with => '22test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #23
+    fill_in('first_name', :with => '23testin2')
+    fill_in('last_name', :with => '23testin2')
+    fill_in('email', :with => '23test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #24
+    fill_in('first_name', :with => '24testin2')
+    fill_in('last_name', :with => '24testin2')
+    fill_in('email', :with => '24test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #25
+    fill_in('first_name', :with => '25testin2')
+    fill_in('last_name', :with => '25testin2')
+    fill_in('email', :with => '25test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #26
+    fill_in('first_name', :with => '26testin2')
+    fill_in('last_name', :with => '26testin2')
+    fill_in('email', :with => '26test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #27
+    fill_in('first_name', :with => '27testin2')
+    fill_in('last_name', :with => '27testin2')
+    fill_in('email', :with => '27test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #28
+    fill_in('first_name', :with => '28testin2')
+    fill_in('last_name', :with => '28testin2')
+    fill_in('email', :with => '28test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #29
+    fill_in('first_name', :with => '29testin2')
+    fill_in('last_name', :with => '29testin2')
+    fill_in('email', :with => '29test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #30
+    fill_in('first_name', :with => '30testin2')
+    fill_in('last_name', :with => '30testin2')
+    fill_in('email', :with => '30test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #31
+    fill_in('first_name', :with => '31testin2')
+    fill_in('last_name', :with => '31testin2')
+    fill_in('email', :with => '31test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #32
+    fill_in('first_name', :with => '32testin2')
+    fill_in('last_name', :with => '32testin2')
+    fill_in('email', :with => '32test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #33
+    fill_in('first_name', :with => '33testin2')
+    fill_in('last_name', :with => '33testin2')
+    fill_in('email', :with => '33test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #34
+    fill_in('first_name', :with => '34testin2')
+    fill_in('last_name', :with => '34testin2')
+    fill_in('email', :with => '34test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #35
+    fill_in('first_name', :with => '35testin2')
+    fill_in('last_name', :with => '35testin2')
+    fill_in('email', :with => '35test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #36
+    fill_in('first_name', :with => '36testin2')
+    fill_in('last_name', :with => '36testin2')
+    fill_in('email', :with => '36test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #37
+    fill_in('first_name', :with => '37testin2')
+    fill_in('last_name', :with => '37testin2')
+    fill_in('email', :with => '37test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #38
+    fill_in('first_name', :with => '38testin2')
+    fill_in('last_name', :with => '38testin2')
+    fill_in('email', :with => '38test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #39
+    fill_in('first_name', :with => '39testin2')
+    fill_in('last_name', :with => '39testin2')
+    fill_in('email', :with => '39test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #40
+    fill_in('first_name', :with => '40testin2')
+    fill_in('last_name', :with => '40testin2')
+    fill_in('email', :with => '40test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #41
+    fill_in('first_name', :with => '41testin2')
+    fill_in('last_name', :with => '41testin2')
+    fill_in('email', :with => '41test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #42
+    fill_in('first_name', :with => '42testin2')
+    fill_in('last_name', :with => '42testin2')
+    fill_in('email', :with => '42test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #44
+    fill_in('first_name', :with => '44testin2')
+    fill_in('last_name', :with => '44testin2')
+    fill_in('email', :with => '44test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #44
+    fill_in('first_name', :with => '44testin2')
+    fill_in('last_name', :with => '44testin2')
+    fill_in('email', :with => '44test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #45
+    fill_in('first_name', :with => '45testin2')
+    fill_in('last_name', :with => '45testin2')
+    fill_in('email', :with => '45test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #46
+    fill_in('first_name', :with => '46testin2')
+    fill_in('last_name', :with => '46testin2')
+    fill_in('email', :with => '46test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #47
+    fill_in('first_name', :with => '47testin2')
+    fill_in('last_name', :with => '47testin2')
+    fill_in('email', :with => '47test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #48
+    fill_in('first_name', :with => '48testin2')
+    fill_in('last_name', :with => '48testin2')
+    fill_in('email', :with => '48test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #49
+    fill_in('first_name', :with => '49testin2')
+    fill_in('last_name', :with => '49testin2')
+    fill_in('email', :with => '49test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #50
+    fill_in('first_name', :with => '50testin2')
+    fill_in('last_name', :with => '50testin2')
+    fill_in('email', :with => '50test2@test.com')
+    check("*I am 18 years or older")
+
+    click_button('Submit')
+end
+Then(/^those changes should be received in Exact Target immediately without pressing Sync$/) do
+  # CONTACT ERIN SANSOME THE NEXT DAY TO SEE IF ENTRIES ARE THERE
+end
+
+
+=begin
+#5) Test bulk-email upload functionality
+at http://dev-emailacq-uploader.azcentral.com
+Given I am logged into the email acquisition app
+And I access the bulk uploader
+When I upload a CSV file with a group of names
+And click on Submit
+Then those names should be received in ExactTarget
+
+=end

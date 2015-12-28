@@ -1,23 +1,30 @@
-Feature: adding a new event to Email acq app 
+@selenium
+Feature: Email Acquisition app 
 
-Scenario: As a user I want to enter new events in the app
-   Given I am a user wants to enter new events  
-   When user log ins to application with 
-   Then as a user I will be able to enter new events
+   As a Gannett employee with access to the correct urls
+   I want to be able to test for these scenarios
+   So that the new form works on the new Email Acquisition app
 
 
-Scenario: Edit an saved event 
-   Given as a user I want to edit a saved event
-   When user navigates to existing events in email aquisition app 
-   Then user will have the ability to edit a saved event from the list
+   Scenario: Create Event, and add Names to it Online and Offline mode
+      
+      Given I am a user wants to enter a new event and I login to the 'online' version of the app
+      When I create a new event named "Cooking with a Vegan Chef" and the date should be "Dec 21, 2015"
+      Then the page will say "YOUR EVENT WAS CREATED"
 
-Scenario: the style and login page 
-   Given that I want to log in to the email acquisition app
-   When I visit photozian.com
-   Then I should see a login page that contains a username and password field
-   And should have a button that ask me if I'm a Gannett employee
-   And should have a single button that says "Enter"
-   And the radio button should be above the username and password field
-   And the "Enter" button should be the last element on the screen
+      Then to add names offline, I open another window with the 'offline' version of the app
+      And I want to edit the new event I just created, I will navigate to it
+      Then I should be able to enter '25' random names
+
+      Then to Sync the names, I open another window with the 'online' version of the app
+      Then I select the same previously created event with 'offline' uploads pending
+      And I click the 'Sync' button
+      Then those changes should be received in Exact Target
+
+      Then I open another window with the 'online' version of the app
+      And I select the same previously created event 
+      Then I should be able to enter another '25' random names
+      Then those changes should be received in Exact Target immediately without pressing Sync
+
 
 

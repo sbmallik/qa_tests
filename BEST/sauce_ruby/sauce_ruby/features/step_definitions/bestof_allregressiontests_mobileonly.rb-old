@@ -85,7 +85,8 @@ Given(/^I am on "(.*?)"$/) do |url|
   sleep 4
 end
 When(/^I click on the "(.*?)" link$/) do |link|
-  page.find('a.omni-link-js', :text => link).click
+  #page.find('a.omni-link-js', :text => link).click
+  page.find('a.ga-winners-links', :text => link).click
   sleep 4
 end
 Then(/^I should be on "(.*?)" and I should NOT see the 'Readers' Choice' button on the left\-side of the page$/) do |arg1|
@@ -101,7 +102,8 @@ Given(/^I am now on "(.*?)"$/) do |url2|
   sleep 4
 end
 When(/^I then click on the "(.*?)" link$/) do |link2|
-  page.find('a.omni-link-js', :text => link2).click
+  #page.find('a.omni-link-js', :text => link2).click
+  page.find('a.ga-winners-links', :text => link2).click
   sleep 4
 end
 Then(/^I should be on "(.*?)" and I SHOULD see 'Readers' Choice' and 'Critics' Picks' links on the left\-side of the page$/) do |arg1|
@@ -115,14 +117,35 @@ Then(/^I should be on "(.*?)" and I SHOULD see 'Readers' Choice' and 'Critics' P
 end
 
 
+=begin
+
+  Scenario: #8) ALL Login tests
+
+    Given I am on "http://devbestof.azcentral.com/winners/2014/"
+    When I click on the menu dropdown button
+    Then I click the "LOGIN" button
+    And I should arrive at the login url of: "https://account.azcentral.com/bestOf/ui/login/?onSuccessRedirectURL=http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks"
+
+    Then I log into my account
+    And I should be returned to this page "http://devbestof.azcentral.com/winners/2014/results?types=Critics%27%20Picks"
+    When I click on the menu dropdown button again
+    And when I click on "MY ACCOUNT"
+    Then I should arrive at the 'My Account' page
+
+  Scenario: #9) Login test on PNJ
+
+    Given I am on the PNJ site of "http://devbestof.pnj.com"
+    Then there should be no 'login' button
+
+
 # 8) ALL Login tests
 #Given(/^I am on "(.*?)"$/) do |url2|
 #  visit url2
 #  sleep 3
 #end
 When(/^I click on the menu dropdown button$/) do
-  #<a><img src="http://assets.azcentral.com/bestOf/_global/b-mobile-nav-icon-black.png" class="mobile-nav-button"></a>
-  page.find('img.mobile-nav-button').click
+  #<a id="mobile-menu-nav-button" class="ga-menuitem ga-navbutton"><img src="/assets/_global/b-mobile-nav-icon-black.png" class="mobile-nav-button"></a>
+  page.find('mobile-menu-nav-button').click
   sleep 3
   #page.find('div.mobile-menu-slideout').click
   #click_link('mobile-menu-slideout')
@@ -138,7 +161,7 @@ end
 And(/^I log into my account$/) do
   fill_in('username', :with => 'pni\dolezat')
   sleep 3
-  fill_in('password', :with => 'Fandango90')
+  fill_in('password', :with => 'Blindspot12')
   sleep 3
   first(:xpath, '//button[@type="submit"]').click
   sleep 3
@@ -161,7 +184,7 @@ Then(/^I should arrive at the 'My Account' page$/) do
   page.current_path == "https://account.azcentral.com/"
   sleep 3
 end
-
+=end
 
 
 # 9) Login test on PNJ
@@ -184,14 +207,19 @@ end
 #When(/^I click on the "(.*?)" link$/) do |link|
 #  click_link(link)
 #end
-Then(/^I also click on the "(.*?)" link$/) do |link|
-  click_link(link)
+#Then(/^I also click on the "(.*?)" link$/) do |link|
+Then(/^I also click on the 'Best Arizona Instagram couple' link$/) do
+  #<a id="resultspage-article-best-arizona-instagram-couple" class="ga-results-article" href="/winners/2015/14745707/best-arizona-instagram-couple-chris-and-heidi-powell"><p class="preview-title"><span>Best Arizona Instagram couple</span></p></a>
+  page.find('a.ga-results-article', :match => :first).click
+  #click_link(link)
   sleep 4
 end
 Then(/^I should see the "(.*?)" email link contain the correct 'mailto' information$/) do |link|
-  click_link(link)
+  #<a id="article-email-sharing" class="ga-share share-article-via-email share-link" href="mailto:?subject=azcentral's%20BEST%202015%20awards%20Best%20Arizona%20Instagram%20couple&amp;body=azcentral's%20Best%202015%20picked%20Chris%20and%20Heidi%20Powell%20for%20the%20Best%20Arizona%20Instagram%20couple.%0A%0ACheck%20it%20out%3A%20%20http%3A%2F%2Fz.bestof.azcentral.com%3A3000%2Fwinners%2F2015%2F14745707%2Fbest-arizona-instagram-couple-chris-and-heidi-powell"><img src="/assets/_global/b-article-share-email.png"><span>Send</span></a>
+  page.find('a.ga-share', :text => link).click
+  #click_link(link)
   sleep 4
-  page.has_selector?(:xpath, './/a[@href="mailto:?subject=azcentral\'s%20BEST%202014%20awards%20Best%20film%20festival&amp;body=azcentral\'s%20BEST%202014%20picked%20Phoenix%20Film%20Festival%20for%20the%20Best%20film%20festival.%0A%0ACheck%20it%20out%3A%20%20http%3A%2F%2Fdevbestof.azcentral.com%2Fwinners%2F2014%2F14744891%2Fbest-film-festival-phoenix-film-festival"]')
+  page.has_selector?(:xpath, './/a[@href="mailto:?subject=azcentral\'s%20BEST%202015%20awards%20Best%20Arizona%20Instagram%20couple&amp;body=azcentral\'s%20Best%202015%20picked%20Chris%20and%20Heidi%20Powell%20for%20the%20Best%20Arizona%20Instagram%20couple.%0A%0ACheck%20it%20out%3A%20%20http%3A%2F%2Fz.bestof.azcentral.com%3A3000%2Fwinners%2F2015%2F14745707%2Fbest-arizona-instagram-couple-chris-and-heidi-powell"]')
   sleep 4
 end
 
@@ -199,15 +227,16 @@ end
 #11) Testing "RED ALERT" Feature
 Then(/^I click on the 'Next Article' arrow five times$/) do
   #expect(page).to have_selector(css, visible: true)
-  page.find("a.article-nav-right").click
+  #<a href="/winners/2015/14745682/best-actor-wed-like-to-see-more-of-ron-may" id="article-nav-next" class="ga-article-nav article-nav-right"></a>
+  page.find("a.ga-article-nav").click
   sleep 4
-  page.find("a.article-nav-right").click
+  page.find("a.ga-article-nav").click
   sleep 4
-  page.find("a.article-nav-right").click
+  page.find("a.ga-article-nav").click
   sleep 4
-  page.find("a.article-nav-right").click
+  page.find("a.ga-article-nav").click
   sleep 4
-  page.find("a.article-nav-right").click
+  page.find("a.ga-article-nav").click
   sleep 4
 end
 Then(/^I should see the text "(.*?)"$/) do |text|
@@ -215,6 +244,12 @@ Then(/^I should see the text "(.*?)"$/) do |text|
   sleep 4
 end
 
+
+=begin
+  Scenario: #12) Last known location
+
+    Given I am on the Azcentral's Best page at: "http://devbestof.azcentral.com/winners/2014/"
+    Then the 'last known location' should include the correct lattidue and longitude
 
 #12) Testing "RED ALERT" Feature
 Given(/^I am on the Azcentral's Best page at: "(.*?)"$/) do |url|
@@ -227,4 +262,4 @@ Then(/^the 'last known location' should include the correct lattidue and longitu
   expect(@loc).to include ('-112.1317')
   expect(@loc).to include ('33.5592')
 end
-
+=end

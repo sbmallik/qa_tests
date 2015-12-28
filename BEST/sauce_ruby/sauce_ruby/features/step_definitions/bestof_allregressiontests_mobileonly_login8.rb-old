@@ -1,0 +1,46 @@
+# 8) ALL Login tests
+Given(/^I am on "(.*?)"$/) do |url2|
+  visit url2
+  sleep 8
+end
+When(/^I click on the menu dropdown button$/) do
+  #<a><img src="http://assets.azcentral.com/bestOf/_global/b-mobile-nav-icon-black.png" class="mobile-nav-button"></a>
+  page.find('img.mobile-nav-button').click
+  sleep 8
+  #page.find('div.mobile-menu-slideout').click
+  #click_link('mobile-menu-slideout')
+end
+Then(/^I click the "(.*?)" button$/) do |login|
+  page.find('a', :text => login).click
+  sleep 8
+end
+Then(/^I should arrive at the login url of: "(.*?)"$/) do |loginurl|
+  page.current_path == loginurl
+  sleep 8
+end
+And(/^I log into my account$/) do
+  fill_in('username', :with => 'pni\dolezat')
+  sleep 8
+  fill_in('password', :with => 'Fandango90')
+  sleep 8
+  first(:xpath, '//button[@type="submit"]').click
+  sleep 8
+end
+Then(/^I should be returned to this page "(.*?)"$/) do |url|
+  page.current_path == url
+  sleep 8
+end
+When(/^I click on the menu dropdown button again$/) do
+  page.find('img.mobile-nav-button').click
+  sleep 8
+end
+And(/^when I click on "(.*?)"$/) do |account|
+  page.find('a', :text => account).click
+  sleep 8
+  #click_link(account)
+  #<a href="https://account.azcentral.com">MY ACCOUNT</a>
+end
+Then(/^I should arrive at the 'My Account' page$/) do
+  page.current_path == "https://account.azcentral.com/"
+  sleep 8
+end

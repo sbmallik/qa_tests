@@ -1,0 +1,375 @@
+@selenium
+Feature: Email Acquisition app 
+
+   As a Gannett employee with access to the correct urls
+   I want to be able to test for these scenarios
+   So that the new form works on the new Email Acquisition app
+
+
+   Scenario: #1) Create an Event in Online mode
+      
+      Given I am a user wants to enter a new event and I login to the "online' version of the app
+      When I create a new event named "Cooking with a Vegan Chef" and the date should be "Nov 1, 2015"
+      Then the page will say "YOUR EVENT WAS CREATED"
+
+
+   Scenario: #2) Edit an Event / Add Names in Offline mode
+
+      Given I want to add names offline, I open another window with the 'offline' version of the app
+      When I want to edit the new event I just created, I will navigate to it
+      Then I should be able to enter '50' random names
+
+
+   Scenario: #3) Test SYNC functionality in Online mode
+
+      Given I want to Sync the names, I open another window with the 'online' version of the app
+      When I select the same previously created event with 'offline' uploads pending
+      And I click the 'Sync' button
+      Then those changes should be received in Exact Target
+
+
+   Scenario: #4) Add Names in Online mode
+   
+
+      Given I open another window with the 'online' version of the app
+      When I select the same previously created event 
+      Then I should be able to enter another '50' random names
+      And those changes should be received in Exact Target immediately without pressing Sync
+
+
+
+
+#1) Create an Event in Online mode
+Given(/^I am a user wants to enter a new event and I login to the "online' version of the app$/) do
+    #visit ('http://photozian.com/?offline=no')
+    visit ('http://localhost:3000')
+    #offline=no means it's online
+    #offline=yes, means offline
+    sleep 10
+    #page.should have_css('Do you a work for Gannett?')
+    choose('Yes')
+    fill_in('login', :with => 'violeta.henderson@azcentral.com')
+    fill_in('password', :with => 'Lionsv46')
+    click_button('Enter')
+    sleep 10
+    page.execute_script('window.open()')
+    new_window = page.driver.browser.window_handles.last
+    page.driver.browser.switch_to.window(new_window)
+    visit('http://localhost:3000/?offline=no')
+    sleep 10
+    page.find('span', :text => 'The Arizona Republic').click
+    #click("The Arizona Republic")
+    sleep 10
+    click_button("Create event")
+    sleep 10
+end
+When(/^I create a new event named "(.*?)" and the date should be "(.*?)"$/) do |eventname, eventdate|
+    fill_in('Enter name of event', :with => eventname)
+    fill_in('Date of event', :with => eventdate)
+    click_button('Next')
+    sleep 10
+end
+Then(/^the page will say "(.*?)"$/) do |text|
+    page.has_text?(text)
+end
+
+
+#2) Edit an Event / Add Names in Offline mode
+Then(/^I switch to the 'offline' version of the app$/) do
+    #visit ('http://photozian.com/?offline=yes')
+    #visit ('http://localhost:3000')
+    #sleep 10
+    #page.should have_css('Do you a work for Gannett?')
+    #choose('Yes')
+    #fill_in('login', :with => 'violeta.henderson@azcentral.com')
+    #fill_in('password', :with => 'Lionsv46')
+    #click_button('Enter')#click the login button
+    #sleep 12
+    page.execute_script('window.open()')
+    new_window = page.driver.browser.window_handles.last
+    page.driver.browser.switch_to.window(new_window)
+    visit ('http://localhost:3000/?offline=yes')
+    sleep 12
+    page.find('span', :text => 'The Arizona Republic').click
+    sleep 10
+    click_button("Existing Event")
+    sleep 10
+end
+And(/^I want to edit the new event I just created, I will navigate to it$/) do
+    # <li id="event219201891" data-event-date="11/01/2015" data-field-id1="29375382" data-field-id2="29375386" data-field-id3="29390910" data-event-id="219201891" data-event-name="Cooking with a Vegan Chef"><span class="event-date-js">11/01/2015</span> : <span class="event-name-js">Cooking with a Vegan Chef</span><span class="event-delete"></span><span class="event-edit"></span></li>
+    page.find('li', :text => 'Cooking with a Vegan Chef').click
+    #page.find('span.event-name-js', :text => 'Cooking with a Vegan Chef').click
+    #click("Cooking with a Vegan Chef")
+    sleep 10
+end
+Then(/^I should be able to enter '50' random names$/) do
+    #!
+    fill_in('first_name', :with => 'testin1')
+    fill_in('last_name', :with => 'testin1')
+    fill_in('email', :with => 'test1@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #2
+    fill_in('first_name', :with => 'testin2')
+    fill_in('last_name', :with => 'testin2')
+    fill_in('email', :with => 'test2@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #3
+    fill_in('first_name', :with => 'testin3')
+    fill_in('last_name', :with => 'testin3')
+    fill_in('email', :with => 'test3@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #4
+    fill_in('first_name', :with => 'testin4')
+    fill_in('last_name', :with => 'testin4')
+    fill_in('email', :with => 'test4@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #5
+    fill_in('first_name', :with => 'testin5')
+    fill_in('last_name', :with => 'testin5')
+    fill_in('email', :with => 'test5@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #6
+    fill_in('first_name', :with => 'testin6')
+    fill_in('last_name', :with => 'testin6')
+    fill_in('email', :with => 'test6@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #7
+    fill_in('first_name', :with => 'testin7')
+    fill_in('last_name', :with => 'testin7')
+    fill_in('email', :with => 'test7@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #8
+    fill_in('first_name', :with => 'testin8')
+    fill_in('last_name', :with => 'testin8')
+    fill_in('email', :with => 'test8@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #9
+    fill_in('first_name', :with => 'testin9')
+    fill_in('last_name', :with => 'testin9')
+    fill_in('email', :with => 'test9@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #10
+    fill_in('first_name', :with => 'testin10')
+    fill_in('last_name', :with => 'testin10')
+    fill_in('email', :with => 'test10@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #11
+    fill_in('first_name', :with => 'testin11')
+    fill_in('last_name', :with => 'testin11')
+    fill_in('email', :with => 'test11@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #12
+    fill_in('first_name', :with => 'testin12')
+    fill_in('last_name', :with => 'testin12')
+    fill_in('email', :with => 'test12@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #13
+    fill_in('first_name', :with => 'testin13')
+    fill_in('last_name', :with => 'testin13')
+    fill_in('email', :with => 'test13@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #14
+    fill_in('first_name', :with => 'testin14')
+    fill_in('last_name', :with => 'testin14')
+    fill_in('email', :with => 'test14@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #15
+    fill_in('first_name', :with => 'testin15')
+    fill_in('last_name', :with => 'testin15')
+    fill_in('email', :with => 'test15@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #16
+    fill_in('first_name', :with => 'testin16')
+    fill_in('last_name', :with => 'testin16')
+    fill_in('email', :with => 'test16@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #17
+    fill_in('first_name', :with => 'testin17')
+    fill_in('last_name', :with => 'testin17')
+    fill_in('email', :with => 'test17@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #18
+    fill_in('first_name', :with => 'testin18')
+    fill_in('last_name', :with => 'testin18')
+    fill_in('email', :with => 'test18@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #19
+    fill_in('first_name', :with => 'testin19')
+    fill_in('last_name', :with => 'testin19')
+    fill_in('email', :with => 'test19@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+    click_button('Enter another one')
+    #20
+    fill_in('first_name', :with => 'testin20')
+    fill_in('last_name', :with => 'testin20')
+    fill_in('email', :with => 'test20@test.com')
+    check("*I am 18 years or older")
+    click_button('Submit')
+end
+
+Then(/^I switch back to the "online' version of the app$/) do
+    #visit ('http://photozian.com/?offline=no')
+    #visit ('http://localhost:3000')
+    #sleep 10
+    #page.should have_css('Do you a work for Gannett?')
+    #choose('Yes')
+    #fill_in('login', :with => 'violeta.henderson@azcentral.com')
+    #fill_in('password', :with => 'Lionsv46')
+    #click_button('Enter')
+    #sleep 12
+    page.execute_script('window.open()')
+    new_window = page.driver.browser.window_handles.last
+    page.driver.browser.switch_to.window(new_window)
+    visit ('http://localhost:3000/?offline=no')
+    sleep 12
+    page.find('span', :text => 'The Arizona Republic').click
+    #click("The Arizona Republic")
+    sleep 10
+    click_button("Create event")
+    sleep 10
+end
+When(/^I select the same previously created event with offline uploads pending$/) do
+    page.find('li', :text => 'Cooking with a Vegan Chef').click
+    #click("Cooking with a Vegan Chef")
+    sleep 10
+end
+When(/^I click the "(.*?)" button$/) do |sync|
+  click_button(sync)
+end
+Then(/^those changes should be received in Exact Target$/) do
+  # CONTACT ERIN SANSOME THE NEXT DAY TO SEE IF ENTRIES ARE THERE
+end
+
+
+#4) Add Names in Online mode
+#Given(/^I am a user and I login to the "online' version of the app$/) do
+#end
+When(/^I select the same previously created event$/) do
+    page.find('li', :text => 'Cooking with a Vegan Chef').click
+    #click("Cooking with a Vegan Chef")
+    sleep 10
+end
+When(/^I should be able to enter another '50' random names$/) do |arg1|
+    fill_in('first_name', :with => 'testin2')
+    fill_in('last_name', :with => 'testin2')
+    fill_in('email', :with => 'test2@test.com')
+    check("*I am 18 years or older")
+    #<input class="dataField" data-formstackid="29125055" type="checkbox" data-required="true">
+    click_button('Submit')
+end
+Then(/^those changes should be received in Exact Target immediately without pressing Sync$/) do
+  # CONTACT ERIN SANSOME THE NEXT DAY TO SEE IF ENTRIES ARE THERE
+end
+
+
+=begin
+#5) Test bulk-email upload functionality
+at http://dev-emailacq-uploader.azcentral.com
+Given I am logged into the email acquisition app
+And I access the bulk uploader
+When I upload a CSV file with a group of names
+And click on Submit
+Then those names should be received in ExactTarget
+
+=end
+
+
+
+## Test event creation.
+
+Given I am logged in to the email acquisition app
+When I create a new event
+Then the event should be created
+
+
+
+## Test offline-mode email addition
+
+Given I am logged into the email acquisition app
+When I select a previously created event
+And I have simulated offline mode for the application
+Then I should be able to enter 50 random names
+
+
+
+## Test sync functionality
+
+Given I am logged into the email acquisition app
+When I select a previously created event with offline uploads pending
+And I click the sync button
+Then those changes should be received in Exact Target
+
+
+
+## Test online-mode email addition
+
+Add 50 people online to the event
+Given I am logged into the email acquisition app
+And I am in “online” mode
+When I select a previously created event
+And I add 50 random names
+Then those names should be received in Exact Target
+
+
+
+## Test bulk-email upload functionality
+
+Given I am logged into the email acquisition app
+And I access the bulk uploader
+When I upload a CSV file with a group of names
+And click on Submit
+Then those names should be received in ExactTarget
+
+
+​*For all of the “should be received in ExactTarget” lines - we want to email, or somehow notify Erin Sansone about what was submitted so that she can check in ET*​
+
+
+
+
+There are a few things that I know we will need to create tests to perform functions for:
+
+* Create an event (ideally a randomized event name)
+* Add people to the event while offline (ideally randomized names)
+* Go online
+* Sync users
+* Add people to the event while online (ideally randomized names)
+
+Josh Jones [9:24 AM]
+Once I have the reqs doc from Erin, I’ll know more

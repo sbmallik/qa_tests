@@ -1,0 +1,145 @@
+Last login: Tue Nov  3 17:32:21 on ttys000
+You have mail.
+pni-dig-129098:~ temre$ cd qa-tests/BEST/sauce_ruby/sauce_ruby
+pni-dig-129098:sauce_ruby temre$ rake sauce:features
+Using recorded test runtime
+6 processes for 6 features, ~ 1 features per process
+Using the default profile...
+@selenium
+Feature: Careerbuilder / App.com Tests
+  
+  As a Gannett employee with access to the correct urls
+  I want to be able to test for these scenarios
+  So that the new contact form appears on Careerbuilder and App.com
+
+  Scenario: App.com form test                                                                     # features/careerbuilder_appcom.feature:9
+Using the default profile...
+@selenium
+Using the default profile...
+@selenium
+Feature: Careerbuilder / App.com Tests
+  
+  As a Gannett employee with access to the correct urls
+  I want to be able to test for these scenarios
+  So that the new contact form appears on Careerbuilder and App.com
+
+  Scenario: App.com form test                                                                     # features/careerbuilder_appcom.feature:9
+Feature: Careerbuilder / App.com Tests
+  
+  As a Gannett employee with access to the correct urls
+  I want to be able to test for these scenarios
+  So that the new contact form appears on Careerbuilder and App.com
+
+  Scenario: App.com form test                                                                     # features/careerbuilder_appcom.feature:9
+Using the default profile...
+@selenium
+Feature: Careerbuilder / App.com Tests
+  
+  As a Gannett employee with access to the correct urls
+  I want to be able to test for these scenarios
+  So that the new contact form appears on Careerbuilder and App.com
+
+  Scenario: App.com form test                                                                     # features/careerbuilder_appcom.feature:9
+Using the default profile...
+@seleniumUsing the default profile...
+@selenium
+Feature: Careerbuilder / App.com Tests
+  
+  As a Gannett employee with access to the correct urls
+  I want to be able to test for these scenarios
+  So that the new contact form appears on Careerbuilder and App.com
+
+  Scenario: App.com form test                                                                     # features/careerbuilder_appcom.feature:9
+
+Feature: Careerbuilder / App.com Tests
+  
+  As a Gannett employee with access to the correct urls
+  I want to be able to test for these scenarios
+  So that the new contact form appears on Careerbuilder and App.com
+
+  Scenario: App.com form test                                                                     # features/careerbuilder_appcom.feature:9
+[Sauce Connect is connecting to Sauce Labs...]
+    Given I go to the URL application directly at "http://www.app.com/career-builder/contact-us/" # features/step_definitions/websteps_cb_appcom.rb:1
+    Then I should see the CareerBuilder form and it should be visible                             # features/step_definitions/websteps_cb_appcom.rb:5
+Sauce public job link: https://saucelabs.com/jobs/3bf62fb150384e659059195ec2b7b410?auth=2c32273b4a0c671b19a5863fedd63892
+
+  Scenario: App.com form test from Jobs page                                # features/careerbuilder_appcom.feature:14
+    Given I go to the URL application directly at "http://www.app.com/career-builder/contact-us/" # features/step_definitions/websteps_cb_appcom.rb:1
+    Then I should see the CareerBuilder form and it should be visible                             # features/step_definitions/websteps_cb_appcom.rb:5
+Sauce public job link: https://saucelabs.com/jobs/3065ed0098514f5699fc05fa4bfad736?auth=e8fd807435e68d93706e8fc11897f439
+
+  Scenario: App.com form test from Jobs page                                # features/careerbuilder_appcom.feature:14
+    Given I go to the URL application directly at "http://www.app.com/career-builder/contact-us/" # features/step_definitions/websteps_cb_appcom.rb:1
+    Then I should see the CareerBuilder form and it should be visible                             # features/step_definitions/websteps_cb_appcom.rb:5
+Sauce public job link: https://saucelabs.com/jobs/5990fda1b63541a89b61e5409303c11a?auth=492340c2feb23f7ec6441d5cd6f16aec
+
+  Scenario: App.com form test from Jobs page                                # features/careerbuilder_appcom.feature:14
+    Given I go to the URL application directly at "http://www.app.com/career-builder/contact-us/" # features/step_definitions/websteps_cb_appcom.rb:1
+    Then I should see the CareerBuilder form and it should be visible                             # features/step_definitions/websteps_cb_appcom.rb:5
+Sauce public job link: https://saucelabs.com/jobs/254667bc75004da3b02edf7b05e496e0?auth=de583565e2319e9ba192c96448b2b887
+
+  Scenario: App.com form test from Jobs page                                # features/careerbuilder_appcom.feature:14
+    Given I go to the URL application directly at "http://www.app.com/career-builder/contact-us/" # features/step_definitions/websteps_cb_appcom.rb:1
+    Then I should see the CareerBuilder form and it should be visible                             # features/step_definitions/websteps_cb_appcom.rb:5
+Sauce public job link: https://saucelabs.com/jobs/e5f14d7aa1d54d7aabbefcc728873e85?auth=2934eaf5c85b5eddbf2197b8902891e8
+
+  Scenario: App.com form test from Jobs page                                # features/careerbuilder_appcom.feature:14
+    Given I go to the URL application directly at "http://www.app.com/career-builder/contact-us/" # features/step_definitions/websteps_cb_appcom.rb:1
+    Then I should see the CareerBuilder form and it should be visible                             # features/step_definitions/websteps_cb_appcom.rb:5
+Sauce public job link: https://saucelabs.com/jobs/cad97ee7cf914e7698a253d0491dfbc8?auth=b4fc14d863797ee3ad39b7e4f131ecfc
+
+  Scenario: App.com form test from Jobs page                                # features/careerbuilder_appcom.feature:14
+    Given I access a referrer URL at "http://www.app.com/marketplace/jobs/" # features/step_definitions/websteps_cb_appcom.rb:12
+    When click the "Contact us via email" Link                              # features/step_definitions/websteps_cb_appcom.rb:16
+    Then I should see the CareerBuilder form and it should be visible again # features/step_definitions/websteps_cb_appcom.rb:20
+Sauce public job link: https://saucelabs.com/jobs/08935247cb844243a6528056e3904362?auth=73a286a7504cfd108bb06d65102caa52
+
+2 scenarios (2 passed)
+5 steps (5 passed)
+0m51.851s
+    Given I access a referrer URL at "http://www.app.com/marketplace/jobs/" # features/step_definitions/websteps_cb_appcom.rb:12
+    When click the "Contact us via email" Link                              # features/step_definitions/websteps_cb_appcom.rb:16
+    Then I should see the CareerBuilder form and it should be visible again # features/step_definitions/websteps_cb_appcom.rb:20
+Sauce public job link: https://saucelabs.com/jobs/023328c8aef04a1e9e0e4885a1dca819?auth=a71e4941301b883fda7fa9ef691b8de1
+
+2 scenarios (2 passed)
+5 steps (5 passed)
+1m0.749s
+    Given I access a referrer URL at "http://www.app.com/marketplace/jobs/" # features/step_definitions/websteps_cb_appcom.rb:12
+    When click the "Contact us via email" Link                              # features/step_definitions/websteps_cb_appcom.rb:16
+    Then I should see the CareerBuilder form and it should be visible again # features/step_definitions/websteps_cb_appcom.rb:20
+Sauce public job link: https://saucelabs.com/jobs/d49d02fed8b0414893d1670043d54e39?auth=4092d90c9856a010d5ef7c2a1ea5aada
+
+2 scenarios (2 passed)
+5 steps (5 passed)
+1m1.566s
+    Given I access a referrer URL at "http://www.app.com/marketplace/jobs/" # features/step_definitions/websteps_cb_appcom.rb:12
+    When click the "Contact us via email" Link                              # features/step_definitions/websteps_cb_appcom.rb:16
+    Then I should see the CareerBuilder form and it should be visible again # features/step_definitions/websteps_cb_appcom.rb:20
+Sauce public job link: https://saucelabs.com/jobs/8d2ac9f8ee6d4554a843c87fc9d94888?auth=f12e04a2eb57b5001eefe57fe0f4e1aa
+
+2 scenarios (2 passed)
+5 steps (5 passed)
+1m16.352s
+    Given I access a referrer URL at "http://www.app.com/marketplace/jobs/" # features/step_definitions/websteps_cb_appcom.rb:12
+    When click the "Contact us via email" Link                              # features/step_definitions/websteps_cb_appcom.rb:16
+    Then I should see the CareerBuilder form and it should be visible again # features/step_definitions/websteps_cb_appcom.rb:20
+Sauce public job link: https://saucelabs.com/jobs/e0bca1c54ac44867a2573d07673d80cd?auth=ce10d21e094b4d270dfd92a524548bc4
+
+2 scenarios (2 passed)
+5 steps (5 passed)
+2m7.370s
+    Given I access a referrer URL at "http://www.app.com/marketplace/jobs/" # features/step_definitions/websteps_cb_appcom.rb:12
+    When click the "Contact us via email" Link                              # features/step_definitions/websteps_cb_appcom.rb:16
+    Then I should see the CareerBuilder form and it should be visible again # features/step_definitions/websteps_cb_appcom.rb:20
+Sauce public job link: https://saucelabs.com/jobs/5b5348c0736f40da870282cd07c353a3?auth=b7a99e84ea412021c748702745b46da7
+
+2 scenarios (2 passed)
+5 steps (5 passed)
+2m38.173s
+
+12 scenarios (12 passed)
+30 steps (30 passed)
+
+Took 161 seconds (2:41)
+pni-dig-129098:sauce_ruby temre$ 

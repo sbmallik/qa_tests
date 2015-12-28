@@ -1,0 +1,106 @@
+#1) Create an Event in Online mode
+Given(/^I am a user wants to enter a new event and I login to the 'online' version of the app$/) do
+    sleep 18
+    visit ('http://photozian.com')
+    sleep 8
+    choose('Yes')
+    sleep 5
+    fill_in('login', :with => 'violeta.henderson@azcentral.com')
+    sleep 5
+    fill_in('password', :with => 'Lionsv46')
+    sleep 5
+    click_button('Enter')
+    sleep 15
+    #page.execute_script('window.open()')
+    #new_window = page.driver.browser.window_handles.last
+    #page.driver.browser.switch_to.window(new_window)
+    #visit('http://photozian.com/?offline=no')
+    #sleep 8
+    page.find('span', :text => 'The Arizona Republic').click
+    sleep 8
+    click_button("Create event")
+    sleep 8
+end
+When(/^I create a new event named "(.*?)" and the date should be today's date$/) do |eventname|
+    fill_in('Enter name of event', :with => eventname)
+    sleep 5
+    #<input data-formstackid="59378396" id="date_of_event" class="form-control dataField form-field-opacity" placeholder="Date of event" type="datetime" data-required="true">
+    page.find('input#date_of_event').click
+    #fill_in('Date of event', :with => eventdate)
+    sleep 5
+    click_button('Next')
+    sleep 8
+end
+Then(/^the page will say "(.*?)"$/) do |text|
+    page.has_text?(text)
+    sleep 5
+end
+
+#Then(/^I open another window with the 'online' version of the app$/) do
+Then(/^I click "(.*?)"$/) do |event|
+    #page.execute_script('window.open()')
+    #new_window = page.driver.browser.window_handles.last
+    #page.driver.browser.switch_to.window(new_window)
+    #visit('http://photozian.com/?offline=no')
+    #sleep 8
+    #page.find('span', :text => 'The Arizona Republic').click
+    #sleep 8
+    click_button("Existing Event")
+    sleep 8
+end
+And(/^I select the same previously created event$/) do
+    page.find('li', :text => 'Cooking with a Vegan Chef').click
+    sleep 8
+end
+Then(/^I should be able to enter '4' random names$/) do
+    #1
+    fill_in('first_name', :with => '1testin9')
+    sleep 5
+    fill_in('last_name', :with => '1testin9')
+    sleep 5
+    fill_in('email', :with => '1test9@test.com')
+    sleep 5
+    check("*I am 19 years or older")
+    sleep 5
+    click_button('Submit')
+    sleep 5
+    click_button('Enter another one')
+    #5
+    fill_in('first_name', :with => '5testin9')
+    sleep 5
+    fill_in('last_name', :with => '5testin9')
+    sleep 5
+    fill_in('email', :with => '5test9@test.com')
+    sleep 5
+    check("*I am 19 years or older")
+    sleep 5
+    click_button('Submit')
+    sleep 5
+    click_button('Enter another one')
+    #3
+    fill_in('first_name', :with => '3testin9')
+    sleep 5
+    fill_in('last_name', :with => '3testin9')
+    sleep 5
+    fill_in('email', :with => '3test9@test.com')
+    sleep 5
+    check("*I am 19 years or older")
+    sleep 5
+    click_button('Submit')
+    sleep 5
+    click_button('Enter another one')
+    #4
+    fill_in('first_name', :with => '4testin9')
+    sleep 5
+    fill_in('last_name', :with => '4testin9')
+    sleep 5
+    fill_in('email', :with => '4test9@test.com')
+    sleep 5
+    check("*I am 19 years or older")
+    sleep 5
+
+    click_button('Submit')
+end
+Then(/^those changes should be received in Exact Target immediately without pressing Sync$/) do
+  # CONTACT ERIN SANSOME THE NEXT DAY TO SEE IF ENTRIES ARE THERE
+end
