@@ -1,0 +1,55 @@
+This is an employee customer service webapp that will allow any employee to take a complaint or request and funnel it to the proper channel.  It is just a collection of links to current pages, but they have all been collected in one hand place to speed the process along. 
+
+Here is the test link 
+http://archive.desmoinesregister.com/assets/LDSNDESIGN/cust-serv-app/app.html
+
+once this is approved we can move it to the support.indystar.com subdomain where it will stand. 
+
+
+
+Josh edit:
+Temre - following is the Cucumber for these tests -
+
+Given I am using the employee customer service site # http://support.indystar.com/
+When I select Employee Customer Service
+Then I should be brought to the existing Employee Customer Service form # http://static.indystar.com/customer/service/
+
+Given I am using the employee customer service site # http://support.indystar.com/
+When I select Subscribe
+Then I should be brought to the Subscribe form # http://www.indystar.com/subscribe
+Or I should be redirected to an appropriate subscription page # Such as http://offers.indystar.com/specialoffer?onSuccessRedirectURL=http%3A%2F%2Fwww.indystar.com%2F%23
+
+Given I am using the employee customer service site # http://support.indystar.com/
+When I click the Free Trial button
+Then I should be brought to the free trial page # http://indystar.com/freetrial
+Or I should be redirected to an appropriate free trial page # https://account.indystar.com/user-create/?promoCode=freetrial14isgo
+
+Given I am using the employee customer service site # http://support.indystar.com/
+When I click the Chat button
+Then I should be brought to the chat support page for the Indy Star # https://chat.gannett.com/HtmlChat.jsp?PublicationBasename=indystar&PublicationId=Indianapolis&PublicationName=The%20Indianapolis%20Star
+
+Given I am using the employee customer service site # http://support.indystar.com/
+When I click the FAQ button
+Then I should be brought to the IndyStar FAQ page # http://static.indystar.com/en/faq/
+
+Given I am using the employee customer service site # http://support.indystar.com/
+When I check for Omniture tracking
+Then I should discover Omniture tracking
+
+
+
+
+
+Phil's original comments:
+
+Test this web app to make sure all links render properly and that the click actions in PHXDEV-1558 are reporting properly. 
+
+1. Email customer service button -  this links off to a formstack form on a static indystar page http://static.indystar.com/customer/service/ 
+
+2. Subscribe - Sends people to the ion subscription page of the IndyStar http://offers.indystar.com/specialoffer?gps-source=CPHPPRIMARY&onSuccessRedirectURL=http%3A%2F%2Fwww.indystar.com%2F
+
+3. Free trial sends people to the free trial ion page 
+
+4. This sends the user out of the web abb to the Chat functionality 
+
+5. Links to the sites FAQ in static 
