@@ -1,3 +1,4 @@
+@selenium @trucker
 Feature: American Truck Fest
 
 	As a Gannett employee with access to the correct urls
@@ -14,7 +15,4 @@ Feature: American Truck Fest
 
 	Scenario: Correct Omniture code
 		Given I am on the American Truck Fest Omniture page at "http://pages.azcentral.com/ldsn-american-trucker/js/bloodhound.js"
-		Then I should see the correct Ominture account code
-
-
-
+		Then I should see the correct Ominture account code for trucker feature

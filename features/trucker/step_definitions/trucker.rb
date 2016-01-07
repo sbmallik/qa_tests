@@ -7,9 +7,9 @@ When(/^I enter data in the required form fields$/) do
   #<input type="email" id="field37604009" name="field37604009" size="50" placeholder="Your email address" title="Your email address" value="" class="fsField fsFormatEmail">
   #<input id="fsSubmitButton2188020" class="fsSubmitButton" type="submit" value="Submit Form">
 
-  fill_in('field37604020', :with => "Testing")
+  fill_in('field38140147', :with => "Testing")
   sleep 2
-  fill_in('field37604009', :with => "test@test.com")
+  fill_in('field38140148', :with => "test@test.com")
   sleep 2
 end
 And(/^I click the "(.*?)" button$/) do |arg1|
@@ -29,7 +29,7 @@ Given(/^I am on the American Truck Fest Omniture page at "(.*?)"$/) do |url|
   visit url
 end
 
-Then(/^I should see the correct Ominture account code$/) do
+Then(/^I should see the correct Ominture account code for trucker feature$/) do
   page.has_text?('var omnitureDesktopAccount = "gpaper158";
 var omnitureMobileAccount = "gpapermobile158";
 var mobile = /mobile|android|webos|iphone|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase());
