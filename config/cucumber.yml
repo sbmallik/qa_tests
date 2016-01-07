@@ -1,0 +1,12 @@
+# Cucumber lets you store and reuse commonly used cucumber command line arguments for a project in a cucumber.yml
+# or cucumber.yaml file. This file must be in a .config subdirectory or config subdirectory of your current
+# working directory.
+
+# Execute Local and Sauce Labs Profiles
+local: LOCAL=true
+sauce: SAUCE_LABS=true
+
+# Tag Profiles
+ignore: --tags ~@ignore
+uscp: --tags ~@uscp
+bcst: --tags ~@bcst
