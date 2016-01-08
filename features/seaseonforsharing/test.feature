@@ -1,3 +1,4 @@
+@selenium @seaseonforsharing
 Feature: Viewer visits the MOBILE Season for Sharing page
 	In order to read the MOBILE Season For Sharing page
 	I want to see these items
