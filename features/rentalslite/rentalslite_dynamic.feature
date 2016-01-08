@@ -1,4 +1,4 @@
-@selenium @uscp @rentalslite
+@selenium @uscp @rentalslite @ignore
 
 Feature: Rentals Lite application
 
