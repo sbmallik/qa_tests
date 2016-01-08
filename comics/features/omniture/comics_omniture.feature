@@ -1,3 +1,4 @@
+@selenium @comics @comic-omniture
 Feature: New Comics Feature Omniture testing
 	In order to test the new Comics features
 	As a Gannett employee with correct access to the new Comics home page

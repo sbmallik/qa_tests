@@ -1,3 +1,4 @@
+@selenium @comics @comics-date @ignore
 Feature: Comics DATE testing
 	In order to test the Comics DATE feature
 	As a Gannett employee with correct access

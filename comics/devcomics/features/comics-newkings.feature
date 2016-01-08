@@ -1,3 +1,4 @@
+@selenium @comics @comic-newkings
 Feature: Non-Kings Comics accuracy testing
     In order to test the Comics ERROR that users have experienced
     As a Gannett employee with correct access

@@ -1,3 +1,4 @@
+@selenium @comics @comic-error1-36
 Feature: Comics ERROR testing 36 times
     In order to test the Comics ERROR that users have experienced
     As a Gannett employee with correct access

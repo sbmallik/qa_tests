@@ -1,3 +1,4 @@
+@selenium @comics @comic-linkcolor
 Feature: New Comics Feature CSS file testing
 	In order to test the new Comics features
 	As a Gannett employee with correct access to the new Comics home page

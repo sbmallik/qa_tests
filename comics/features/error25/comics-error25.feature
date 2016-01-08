@@ -1,3 +1,4 @@
+@selenium @comics @comic-error25
 Feature: Comics ERROR testing 25 times
 	In order to test the Comics ERROR that users have experienced
 	As a Gannett employee with correct access
