@@ -1,4 +1,4 @@
-@selenium
+@selenium @games @ignore
 Feature: Games Module on Indystar
 
 	In order to make the new Games module live on the Indystar site
