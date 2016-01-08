@@ -1,4 +1,4 @@
-@selenium
+@selenium @emailacq @ignore
 Feature: Upload file to Email Acquisition app 
 
    As a Gannett employee with access to the correct urls
