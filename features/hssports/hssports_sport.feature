@@ -1,4 +1,4 @@
-@selenium
+@selenium @hssports @ignore
 Feature: High School Sports Tests -- Hiding a Sport
 
 	In order to make the new features live on the High School Sports pages

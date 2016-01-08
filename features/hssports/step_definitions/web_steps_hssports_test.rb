@@ -28,24 +28,3 @@ Given(/^generate local cache$/) do
   @css_scope.first(".pmp-answer-option").click()
   expect(page).to have_selector(".poll-answer-wrapper", visible: true)
 end
-
-
-
-@selenium @polls
-Feature: Build a section front module for polls
-    In order to display polls on fronts
-
-Scenario: Show the appropriate poll results for a given poll when View Results is clicked
-    Given I visit "/module-showcase/polldaddy-poll/" url
-    When I press the ".pmp-view-results" class div
-    Then I should be shown the ".poll-answer-wrapper" class div
-
-Scenario: Show the poll list when I click 'See All Polls'
-    Given I visit "/module-showcase/polldaddy-poll/" url
-    When I press the ".pmp-see-all-polls" class div
-    Then I should be taken to "/polls/all/"
-
-Scenario: Show the appropriate poll results after a vote is submitted
-    Given I visit "/module-showcase/polldaddy-poll/" url
-    When I press the ".pmp-answer-option" class div
-    Then I should be shown the ".poll-answer-wrapper" class div
