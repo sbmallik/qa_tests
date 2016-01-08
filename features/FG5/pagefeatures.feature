@@ -1,3 +1,4 @@
+@selenium @pagefeatures @ignore
 Feature: Feel Good 5 application tests
     In order to access the Feel Good 5 web application
     As a public user of the Internet and not authenticated
