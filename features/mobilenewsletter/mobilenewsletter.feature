@@ -1,3 +1,4 @@
+@selenium @mobilenewsletter @ignore
 Feature: Mobile Web Newsletter tests
 	In order to test the Mobile Web Newsleter features
 	As a Gannett employee with correct access
