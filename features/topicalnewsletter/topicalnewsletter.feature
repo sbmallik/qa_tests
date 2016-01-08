@@ -1,3 +1,4 @@
+@selenium @topicalnewsletter @ignore
 Feature: Topical Newsletter tests
 	In order to test the Topical Newsletter features
 	As a subscriber for the pilot site
