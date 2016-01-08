@@ -1,3 +1,4 @@
+@selenium @top5newsletter @ignore
 Feature: Top 5 Newsletter tests
     In order to access the Top 5 Newsletter
     As a public user of the Internet and not authenticated
@@ -7,10 +8,12 @@ Feature: Top 5 Newsletter tests
 	Scenario: Top 5 Newsletter page features
 
 		Given that I am on the Top 5 Newsletter
-		And I will see a dynamic subject line that pulls in the top headline: "Here’s your Daily Top 5!"
+		Then I will see a personalized greeting based on subscriber name
+		And I will see a dynamic subject line that pulls in the top headline; i.e. "Your Daily Top 5"
 		And I will see today's date
 		And the first story will have a headline, large image and abstract and ‘Read More’ call to action
 		And there will be headlines and images for articles two thru five.
+		And there will be One 300 x 250 ATF ad unit
 		And there will be the Insider link or mention in right rail
 
 
