@@ -1,3 +1,4 @@
+@selenium @miyagi @ignore
 Feature: BESTOF Miyagi testing
 	In order to enter a new BESTOF article
 	As a Gannett employee with correct access to the Miyagi form
