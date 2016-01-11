@@ -6,8 +6,8 @@ Feature: Non-Kings Comics accuracy testing
 
         Scenario Outline: Opening each comic and checking the title
             Given I open the Comics homepage at "http://devcomics.azcentral.com/"
-            When I navigate to each <comic>
-            Then I should see the <title>
+            When I navigate to each "<comic>"
+            Then I should see the "<title>"
 
             Examples:
                 |                   comic |                   title |
