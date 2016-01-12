@@ -26,6 +26,7 @@ $ cucumber -p local */features
 To exclude the tests that are ignored add the ignore profile:
 ```sh
 $ cucumber -p local -p ignore */features 
+```
 
 In case a specific feature needs execution the above command needs a modification:
 ```sh
