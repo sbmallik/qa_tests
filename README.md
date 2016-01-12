@@ -39,6 +39,6 @@ To execute the 'rest-chartbeat' feature files within 'BEST' folder the following
 $ cd BEST/bestof/API/rest-chartbeat
 $ gem install capybara-webkit -v '1.3.1'
 $ bundle install (this could be used instead of the previous one)
-$ cucumber -p local ./BEST/bestof/API/rest-chartbeat/features
+$ cucumber -p local
 ```
 These features contains gems that are not included in the standard emv.rb file. Threfore they are not moved to the global file structure. 
